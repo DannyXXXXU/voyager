@@ -1,0 +1,14 @@
+[project]
+name = "voyager"
+version = "0.1.0"
+description = "Multi-agent platform for overseas growth marketing of China travel content."
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv.workspace]
+members = ["apps/api", "packages/agents", "packages/tools", "packages/evals", "packages/db"]
+
+[tool.pytest.ini_options]
+testpaths = ["apps", "packages"]
+python_files = "test_*.py"
+addopts = "-ra -q"

@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Local data
+storage/
+langfuse-data/
+*.sqlite
+*.sqlite3
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# yt-dlp / scratch
+*.mp3
+*.mp4
+*.webm
+*.part
+/tmp_downloads/
