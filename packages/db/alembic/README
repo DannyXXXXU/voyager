@@ -1,0 +1,8 @@
+Voyager Alembic migrations.
+
+Usage (from packages/db/):
+    export DATABASE_URL="postgresql+psycopg://voyageradmin:<pwd>@psql-voyager-sexwh5.postgres.database.azure.com:5432/voyager?sslmode=require"
+    uv run alembic upgrade head
+
+The first revision (0001_initial_schema.py) creates all five tables:
+videos, transcripts, comments, insights, briefs.
