@@ -151,15 +151,15 @@ Each loop = one "campaign cycle". Target cycle time: ≤ 7 days initially,
 | Layer | Choice | Why |
 |---|---|---|
 | Agent framework | **LangGraph** (Python) | Graph-based, stateful, HITL, persistence built in |
-| Agent LLM (primary) | **Claude via GitHub Copilot** (user-owned) | Already paid, no extra cost |
-| Agent LLM (fallback) | **Azure OpenAI** (GPT-4o / o1) | Resilience when Copilot quota exhausted |
+| Agent LLM | **Claude via GitHub Copilot**, executed on user's local Windows machine via Copilot CLI | Already paid, no extra cost; no fallback LLM in cloud |
+| Execution split | **Cloud worker = data-only pipeline** (discover → download audio → Whisper → persist). **Local CLI = LLM steps** (hook/selling-point extraction, clustering, brief writing). Local CLI polls Postgres for `llm_status='pending'` rows. | Keep all paid LLM usage on user-owned Copilot; Azure bill stays predictable |
 | Tool calling | LangGraph ToolNode + pydantic schemas | Type-safe tool boundary |
 | **Video ingest — YouTube** | **YouTube Data API v3** + **yt-dlp** (as library) | Official API is free (10k units/day), yt-dlp handles audio download for transcription |
 | **Video ingest — TikTok/IG** (Phase 2) | yt-dlp + **Evil0ctal/Douyin_TikTok_Download_API** + **instaloader** | Open-source, no Apify cost |
 | **Video ingest — CN platforms** (Mike/M2) | **NanmiCoder/MediaCrawler** (Playwright-based) for 抖音/小红书/B站 | Unified project, survives signature changes, best-in-class CN comment extraction |
 | Comments (YouTube) | YouTube Data API + **youtube-comment-downloader** | Deep comment trees |
 | **Proxy/VPN** | **None required for MVP** — official APIs + user-cookie + rate-limit | Save $10-80/month; add Webshare ($6/mo) only if Mike gets rate-limited |
-| Transcription | **Azure OpenAI Whisper** (primary) + local `whisper.cpp` (fallback for batch) | On Azure budget, multilingual |
+| Transcription | **Azure OpenAI Whisper** (deployment `aoai-voyager-sexwh5`, region swedencentral) — the ONLY Azure AI service used | On Azure budget, multilingual; no GPT-4o deployment |
 | Voiceover | **Azure AI Speech Neural TTS** (MVP), upgrade to ElevenLabs later if needed | ~$5/month at MVP volume vs $22 for ElevenLabs |
 | Video edit | **FFmpeg** (deterministic, scriptable) | Reproducible, free |
 | Storage | **Azure Blob Storage** (Hot tier) | ~$5/month for ~100GB |
@@ -321,6 +321,12 @@ Each agent has a golden dataset + LLM-judge + rule-based checks.
 - **Rate-limits / bans:** Apify residential proxies + Playwright with
   realistic human behavior (mouse jitter, scroll, dwell time). Per-account
   action budgets.
+- **LLM execution boundary:** all LLM inference (hook/selling-point
+  extraction, clustering, brief writing) runs on the operator's local
+  Windows machine via GitHub Copilot Claude CLI. The cloud worker never
+  calls a chat/completion API. Only Azure OpenAI Whisper (audio-in,
+  text-out) runs in Azure. This keeps LLM cost at zero and confines
+  prompt/data egress to the operator's machine.
 
 ---
 

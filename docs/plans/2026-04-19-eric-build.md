@@ -4,9 +4,35 @@
 
 **Goal:** Build Eric — the first of three Voyager agents — who searches YouTube for competitor 川西 (West Sichuan) travel videos, transcribes them, extracts hooks/selling-points/comments, clusters insights, and produces a Strategy Brief that downstream agents (Mike, Dana) will consume. Must pass an eval gate (hook F1 ≥ 0.75, selling-point recall ≥ 0.70, brief LLM-judge ≥ 4/5 on 8/10 runs) before Mike work begins.
 
-**Architecture:** LangGraph StateGraph. Nodes: `plan_search → fetch_metadata → download_audio → transcribe → extract_hooks → extract_selling_points → fetch_comments → cluster_insights → write_brief`. State persisted in Azure Postgres. Tools: YouTube Data API v3, yt-dlp, youtube-comment-downloader, Azure OpenAI Whisper, Claude (via Copilot) for extraction. Traces to self-hosted Langfuse.
+**Architecture:** Split execution between a **cloud worker** (Azure Container App) and a **local CLI** (user's Windows machine running GitHub Copilot Claude).
 
-**Tech Stack:** Python 3.12, LangGraph, FastAPI, pydantic v2, SQLModel, uv (package mgr), pytest + VCR.py, Bicep for Azure infra, Next.js 14 (UI tab only — minimal in M1).
+- **Cloud worker (data-only pipeline):** `plan_search → fetch_metadata → download_audio → transcribe → fetch_comments`. Uses YouTube Data API v3, yt-dlp, youtube-comment-downloader, and **Azure OpenAI Whisper** (the only Azure AI service). Writes rows to Postgres with `llm_status='pending'` once Whisper is done.
+- **Local CLI (LLM pipeline):** `extract_hooks → extract_selling_points → cluster_insights → write_brief`. Polls Postgres for `llm_status='pending'` rows, uses **GitHub Copilot Claude** via the Copilot CLI, writes `insights` + `briefs` rows back, flips `llm_status` to `done` (or `failed`).
+
+```
+         ┌──────────────────── cloud worker (Azure Container Apps) ────────────────────┐
+operator │  plan_search → fetch_metadata → download_audio → transcribe → fetch_comments │
+  │      │                      (Whisper = aoai-voyager-sexwh5)                         │
+  │      └──────────────────┬──────────────────────────────────┬───────────────────────┘
+  │                         │ writes videos/transcripts/        │
+  │                         │ comments, sets llm_status=pending │
+  │                         ▼                                    │
+  │                  ┌────────────────┐                          │
+  └─────────────────►│  Azure Postgres │◄─────────────────────────┘
+                     └────────┬───────┘
+                              │ local CLI polls llm_status=pending
+                              ▼
+         ┌──────────── local CLI (Windows, GitHub Copilot Claude) ────────────┐
+         │  extract_hooks → extract_selling_points → cluster_insights → write_brief │
+         │         writes insights/briefs, flips llm_status to done                 │
+         └──────────────────────────────────────────────────────────────────────────┘
+```
+
+No Azure OpenAI GPT-4o. No cloud LLM cost. All generative-LLM calls on operator's machine.
+
+**Graph nodes (9 total):** `plan_search` (cloud; uses heuristic keyword expansion, no LLM), `fetch_metadata` (cloud), `download_audio` (cloud), `transcribe` (cloud/Whisper), `fetch_comments` (cloud), `extract_hooks` (local), `extract_selling_points` (local), `cluster_insights` (local), `write_brief` (local).
+
+**Tech Stack:** Python 3.12, LangGraph, FastAPI, pydantic v2, SQLModel, uv, pytest + VCR.py, Bicep, Alembic, Next.js 14 (minimal).
 
 **Budget watermark for M1:** ≤ $20 of the $150 Azure cap (Postgres + Blob + Whisper + small Container App).
 
@@ -14,154 +40,89 @@
 
 ## Phase 0 — Prereqs (M0)
 
-### Task 0.1: Initialize monorepo
+### Task 0.1: Initialize monorepo ✅ DONE (2026-04-19)
 
-**Objective:** Create the Voyager monorepo skeleton.
-
-**Files:**
-- Create: `pyproject.toml`, `.gitignore`, `.python-version`, `README.md`
-- Create dirs: `apps/api/`, `apps/web/`, `packages/agents/`, `packages/tools/`, `packages/evals/`, `packages/db/`, `infra/`, `docs/plans/`
-
-**Step 1:** `cd ~/projects/voyager && git init && echo "3.12" > .python-version`
-
-**Step 2:** Create `pyproject.toml` with workspace setup using uv:
-```toml
-[project]
-name = "voyager"
-version = "0.1.0"
-requires-python = ">=3.12"
-
-[tool.uv.workspace]
-members = ["apps/api", "packages/*"]
-```
-
-**Step 3:** `.gitignore` — standard Python + Node + .env + .venv + /storage + /langfuse-data.
-
-**Step 4:** Commit.
-```
-git add -A && git commit -m "chore: init voyager monorepo"
-```
-
-**Verification:** `uv sync` succeeds (empty workspace).
+uv workspace at `~/projects/voyager` with members `apps/api`, `packages/agents`, `packages/tools`, `packages/evals`, `packages/db`. Python 3.12 pinned via `.python-version`. Initial commit: `9b559f3 chore: init voyager monorepo`.
 
 ---
 
-### Task 0.2: Provision Azure baseline
+### Task 0.2: Provision Azure baseline ✅ DONE (2026-04-19)
 
-**Objective:** Create the resource group + cost cap + Key Vault + Postgres + Blob.
+Bicep templates in `infra/main.bicep` + `infra/aoai.bicep`, deployed to resource group `rg-voyager` in swedencentral (region chosen because Whisper is only GA in swedencentral/northcentralus/westeurope). 6 resources live:
 
-Follow `azure-cost-cap-setup` skill. Specifically:
+| Resource | Name | Notes |
+|---|---|---|
+| Key Vault | `kv-voyager-sexwh5` | RBAC model, soft-delete on |
+| Postgres Flex B1ms | `psql-voyager-sexwh5` | database `voyager`, sslmode=require |
+| Storage Account | `stvoyagersexwh5b5` | containers: `audio`, `transcripts` (videos-raw/final deferred to M2) |
+| Service Bus Basic | `sb-voyager-sexwh5` | queues `ingest`, `transcribe` |
+| Container Apps Env | `cae-voyager-sexwh5` | consumption plan, for worker |
+| Azure OpenAI | `aoai-voyager-sexwh5` | Whisper-only deployment; no GPT-4o |
 
-**Step 1:** `az group create -n rg-voyager-prod -l japaneast`
-
-**Step 2:** Set the $150 budget with alerts at 50/80/95% actual + 100% forecasted (exact `az consumption budget create` command in the skill).
-
-**Step 3:** Write `infra/main.bicep` provisioning: Key Vault, Postgres Flex B1ms, Storage Account with 4 containers (`videos-raw`, `audio`, `transcripts`, `videos-final`), Service Bus Basic with queues `ingest`/`transcribe`, Log Analytics, Container Apps Environment.
-
-**Step 4:** `az deployment group create -g rg-voyager-prod -f infra/main.bicep`
-
-**Step 5:** Commit infra.
-
-**Verification:**
-- `az consumption budget list -g rg-voyager-prod` shows budget.
-- `az postgres flexible-server show -n psql-voyager -g rg-voyager-prod` returns Ready.
-- Test alert: portal shows pending notification.
+Commits: `fbb66cb infra: bicep templates + powershell deploy script for azure baseline`, `9a4bf4b infra: aoai whisper-only (copilot handles llm)`.
 
 ---
 
-### Task 0.3: Secrets in Key Vault
+### Task 0.3: Secrets in Key Vault ✅ DONE (2026-04-19)
 
-**Objective:** Store all credentials centrally.
+All 6 secrets live in `kv-voyager-sexwh5`:
 
-**Step 1:** Get a YouTube Data API v3 key from Google Cloud Console (new project: voyager-prod).
+- `pg-conn` — full `postgresql+psycopg://voyageradmin:<pwd>@psql-voyager-sexwh5.postgres.database.azure.com:5432/voyager?sslmode=require`
+- `pg-admin-pwd` — raw password (for rotation scripts)
+- `blob-conn` — storage account connection string
+- `servicebus-conn` — Service Bus root SAS
+- `azure-openai-key` — Whisper endpoint key
+- `azure-openai-endpoint` — `https://aoai-voyager-sexwh5.openai.azure.com/`
 
-**Step 2:** Store in Key Vault:
-```bash
-az keyvault secret set --vault-name kv-voyager-prod --name youtube-api-key --value "<key>"
-az keyvault secret set --vault-name kv-voyager-prod --name pg-conn --value "<connection-string>"
-az keyvault secret set --vault-name kv-voyager-prod --name azure-openai-key --value "<key>"
-az keyvault secret set --vault-name kv-voyager-prod --name blob-conn --value "<connection-string>"
-```
+YouTube Data API key + Langfuse keys deferred to Task 0.5.
 
-**Step 3:** Local dev: `.env.example` lists required vars (no values). Devs run `scripts/pull-secrets.sh` which uses `az keyvault secret show` to populate `.env`.
-
-**Verification:** `uv run python -c "from packages.db.secrets import get_secret; print(get_secret('youtube-api-key')[:6])"` prints first 6 chars.
+Local dev: `az keyvault secret show --vault-name kv-voyager-sexwh5 --name <name> --query value -o tsv`.
 
 ---
 
-### Task 0.4: Postgres schema + Alembic
+### Task 0.4: Postgres schema + SQLModel + Alembic ✅ DONE (2026-04-19)
 
-**Objective:** Schema for videos, transcripts, comments, insights, briefs.
+**Objective:** Schema for `videos`, `transcripts`, `comments`, `insights`, `briefs` — designed for the cloud-worker / local-CLI split. Every table that requires LLM processing has an `llm_status` column (enum `pending|processing|done|failed`) so the local CLI can poll for work.
 
-**Files:**
-- Create: `packages/db/models.py`, `packages/db/__init__.py`, `packages/db/migrations/`, `alembic.ini`
+**Delivered:**
 
-**Step 1: RED** — write `packages/db/tests/test_models.py`:
-```python
-from packages.db.models import Video, Transcript, Comment, Insight, Brief
+- `packages/db/pyproject.toml` — SQLModel, Alembic, psycopg[binary], python-dotenv, SQLAlchemy.
+- `packages/db/voyager_db/__init__.py` — `get_engine()`, `sync_engine()`, `get_session()` reading `DATABASE_URL` env var.
+- `packages/db/voyager_db/models.py` — five SQLModel tables plus `LLMStatus` and `InsightKind` enums.
+- `packages/db/alembic.ini`, `packages/db/alembic/env.py`, `packages/db/alembic/script.py.mako`.
+- `packages/db/alembic/versions/0001_initial_schema.py` — hand-written initial revision (not autogenerated; Azure Postgres not reachable from sandbox due to firewall).
 
-def test_video_required_fields():
-    v = Video(platform="youtube", external_id="abc", url="https://...", title="t")
-    assert v.platform == "youtube"
+**Schema highlights:**
+
+| Table | PK | Notable cols | Written by |
+|---|---|---|---|
+| `videos` | `video_id` (YouTube 11-char ID) | `view_count`, `like_count`, `duration_s`, `lang`, `region`, `source_query`, `llm_status` | cloud worker |
+| `transcripts` | `id` | `video_id` FK, `text`, `segments JSONB`, `language`, `model_name` | cloud worker (Whisper) |
+| `comments` | `id` | `video_id` FK, `author`, `text`, `like_count` | cloud worker |
+| `insights` | `id` | `video_id` FK, `kind` enum{hook,selling_point,cluster}, `payload JSONB`, `model_name` | **local CLI** |
+| `briefs` | `id` | `topic`, `video_ids TEXT[]`, `content_md`, `llm_status` | **local CLI** |
+
+The cloud worker sets `videos.llm_status='pending'` after Whisper completes. The local CLI `SELECT ... WHERE llm_status='pending' FOR UPDATE SKIP LOCKED`, claims rows by flipping to `processing`, runs Copilot Claude, inserts into `insights`, then flips to `done`. Same pattern for `briefs.llm_status`.
+
+**Verification performed in sandbox:**
+
 ```
-Run `pytest packages/db/tests/test_models.py` → FAIL (module not found).
-
-**Step 2: GREEN** — write SQLModel definitions:
-```python
-# packages/db/models.py
-from sqlmodel import SQLModel, Field
-from datetime import datetime
-from typing import Optional
-
-class Video(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    platform: str
-    external_id: str = Field(index=True)
-    url: str
-    title: str
-    channel: Optional[str] = None
-    view_count: Optional[int] = None
-    like_count: Optional[int] = None
-    duration_s: Optional[int] = None
-    published_at: Optional[datetime] = None
-    fetched_at: datetime = Field(default_factory=datetime.utcnow)
-
-class Transcript(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    video_id: int = Field(foreign_key="video.id")
-    text: str
-    language: str
-    model: str
-
-class Comment(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    video_id: int = Field(foreign_key="video.id")
-    external_id: str
-    text: str
-    like_count: int = 0
-    parent_id: Optional[str] = None
-
-class Insight(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    video_id: int = Field(foreign_key="video.id")
-    kind: str  # "hook" | "selling_point" | "comment_theme"
-    text: str
-    confidence: float
-
-class Brief(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    campaign: str
-    markdown: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    eric_run_id: str
+uv sync                                                    # clean
+uv run python -c "from voyager_db.models import Video, \
+  Transcript, Comment, Insight, Brief; print('ok')"        # ok
+DATABASE_URL=postgresql+psycopg://u:p@localhost/voyager \
+  uv run alembic upgrade head --sql                        # valid SQL dump
 ```
-Run pytest → PASS.
 
-**Step 3:** `alembic init packages/db/migrations`, edit `env.py` to import models, generate first migration, apply.
+**To apply on live Azure Postgres (run from Windows — sandbox has no network route):**
 
-**Step 4:** Commit.
+```
+cd packages\db
+$env:DATABASE_URL = (az keyvault secret show --vault-name kv-voyager-sexwh5 --name pg-conn --query value -o tsv)
+uv run alembic upgrade head
+```
 
-**Verification:** `psql $PG_CONN -c "\dt"` shows 5 tables.
+Commit: `db: initial schema (videos/transcripts/comments/insights/briefs) + alembic`.
 
 ---
 
@@ -347,17 +308,17 @@ def fetch_comments(video_id: str, max_comments: int = 200) -> list[dict]:
 
 ---
 
-### Task 1.5: LLM router (Copilot Claude + Azure OpenAI fallback)
+### Task 1.5: Copilot Claude CLI wrapper (local only)
 
-**Objective:** Single `get_llm(task)` function used by every Eric node.
+**Objective:** Single `run_copilot(prompt, schema)` helper used by every LLM node. Executes `gh copilot ...` (or `claude-code` / equivalent Copilot CLI) as a subprocess, captures JSON output, validates against a pydantic schema, retries on parse error. No Azure OpenAI client, no fallback — if Copilot is unavailable the local CLI simply exits and the `llm_status='pending'` rows stay pending until next run.
 
 **Files:**
-- Create: `packages/agents/_shared/llm.py`
-- Test: `packages/agents/_shared/tests/test_llm.py`
+- Create: `packages/agents/_shared/copilot.py`
+- Test: `packages/agents/_shared/tests/test_copilot.py`
 
-**Step 1: RED**: assert `get_llm("extract")` returns a `BaseChatModel` instance, and that the routing config is read from `config.toml`, not from environment secrets directly.
+**Step 1: RED**: test mocks `subprocess.run` returning a JSON fixture, asserts pydantic validation + retry-on-bad-json.
 
-**Step 2: GREEN**: small selector returning `ChatAnthropic` (via Copilot proxy URL) when configured, else `AzureChatOpenAI`. For `task="bulk_classify"` always return `gpt-4o-mini`.
+**Step 2: GREEN**: ~40 LoC wrapper; config in `config.toml` (cli path, max retries, timeout).
 
 **Step 3:** Commit.
 
@@ -389,37 +350,47 @@ class EricState(TypedDict):
     comment_themes: list[dict]
     brief_md: str
 
-# graph.py
+# graph.py — note the pipeline order reflects the cloud/local split:
+#   cloud worker:  plan_search → fetch_metadata → download_audio → transcribe → fetch_comments → END(cloud)
+#                  (sets videos.llm_status='pending' on exit)
+#   local CLI:     extract_hooks → extract_selling_points → cluster_insights → write_brief
+#                  (picks up any video with llm_status='pending')
 from langgraph.graph import StateGraph, END
 from .state import EricState
 
-def build_graph():
+def build_cloud_graph():
     g = StateGraph(EricState)
-    g.add_node("plan_search", lambda s: s)        # placeholder
-    g.add_node("fetch_metadata", lambda s: s)
-    g.add_node("download_audio", lambda s: s)
-    g.add_node("transcribe", lambda s: s)
-    g.add_node("extract_hooks", lambda s: s)
-    g.add_node("extract_selling_points", lambda s: s)
-    g.add_node("fetch_comments", lambda s: s)
-    g.add_node("cluster_insights", lambda s: s)
-    g.add_node("write_brief", lambda s: s)
+    for n in ["plan_search", "fetch_metadata", "download_audio",
+              "transcribe", "fetch_comments"]:
+        g.add_node(n, lambda s: s)  # placeholder
     g.set_entry_point("plan_search")
     for a, b in [
         ("plan_search","fetch_metadata"),
         ("fetch_metadata","download_audio"),
         ("download_audio","transcribe"),
-        ("transcribe","extract_hooks"),
+        ("transcribe","fetch_comments"),
+    ]:
+        g.add_edge(a, b)
+    g.add_edge("fetch_comments", END)
+    return g
+
+def build_local_graph():
+    g = StateGraph(EricState)
+    for n in ["extract_hooks", "extract_selling_points",
+              "cluster_insights", "write_brief"]:
+        g.add_node(n, lambda s: s)
+    g.set_entry_point("extract_hooks")
+    for a, b in [
         ("extract_hooks","extract_selling_points"),
-        ("extract_selling_points","fetch_comments"),
-        ("fetch_comments","cluster_insights"),
+        ("extract_selling_points","cluster_insights"),
         ("cluster_insights","write_brief"),
     ]:
         g.add_edge(a, b)
     g.add_edge("write_brief", END)
     return g
 
-eric_graph = build_graph()
+cloud_graph = build_cloud_graph()
+local_graph = build_local_graph()
 ```
 Run test → PASS.
 
@@ -427,29 +398,33 @@ Run test → PASS.
 
 ---
 
-### Tasks 1.7 – 1.14: Implement each node (TDD per node)
+### Tasks 1.7 – 1.15: Implement each node (TDD per node)
 
-Each node gets its own RED-GREEN-REFACTOR + commit. Pattern:
+Each node gets its own RED-GREEN-REFACTOR + commit. The split between cloud worker and local CLI is explicit:
 
-**1.7 plan_search** — Claude prompt that turns `campaign` (e.g. "West Sichuan travel, hooks for English-speaking foodies") into `query` + filters. Test: 3 fixture campaigns produce sensible queries (LLM-judge ≥ 4/5).
+**Cloud worker nodes (data-only, no LLM):**
 
-**1.8 fetch_metadata** — calls `youtube.client.search_videos` + `get_video_details`, dedupes, sorts by view_count, persists to `videos` table. Test: with VCR cassette, state has 25 videos, all with view_count.
+**1.7 plan_search** (cloud) — deterministic keyword expansion: takes `campaign` (e.g. "West Sichuan travel, hooks for English-speaking foodies"), applies a small rulebook (`templates/plan_search.yaml`) to produce `query` + YouTube filters (order, region, language). No LLM. Test: 3 fixture campaigns → expected queries (golden strings).
 
-**1.9 download_audio** — for top 10 videos, call `ytdlp.downloader.download_audio` (parallel with `asyncio.gather`, max 3 concurrent). Test: state.audio_blob_urls has 10 entries.
+**1.8 fetch_metadata** (cloud) — calls `youtube.client.search_videos` + `get_video_details`, dedupes, sorts by view_count, persists to `videos` table with `llm_status='pending'`. Test: with VCR cassette, 25 videos inserted.
 
-**1.10 transcribe** — for each audio, `whisper.transcribe`, save to `transcripts` table. Test: transcripts dict has 10 entries, each ≥ 50 chars.
+**1.9 download_audio** (cloud) — for top 10 videos, `ytdlp.downloader.download_audio` (parallel asyncio, max 3 concurrent). Test: 10 blob URLs.
 
-**1.11 extract_hooks** — Claude prompt extracting "hooks" (first-3-second attention grabbers) per transcript. Output schema: `{video_id, hook_text, hook_type: question|claim|visual|stat, timestamp_s}`. Persist to `insights`. Test: F1 ≥ 0.75 against 5 hand-labeled transcripts (golden in `packages/evals/eric/fixtures/hooks/`).
+**1.10 transcribe** (cloud) — for each audio, `whisper.transcribe` against `aoai-voyager-sexwh5`, save row to `transcripts`. Test: 10 transcripts, each ≥ 50 chars.
 
-**1.12 extract_selling_points** — similar, "selling_points" = differentiated value props ("hidden monastery", "no tourists", etc). Test: recall ≥ 0.70 vs gold.
+**1.11 fetch_comments** (cloud) — top 10 videos × top 100 comments, persist. Test: ≥ 800 rows. After this node the cloud graph terminates; `videos.llm_status` stays `pending`.
 
-**1.13 fetch_comments** — top 10 videos × top 100 comments, persist. Use `youtube.comments.fetch_comments`. Test: ≥ 800 total comments stored.
+**Local CLI nodes (LLM via Copilot Claude):**
 
-**1.14 cluster_insights** — embed comments with `text-embedding-3-small`, HDBSCAN cluster, label each cluster with Claude. Test: produces 5-15 themed clusters from 1000 comments fixture.
+**1.12 extract_hooks** (local) — Copilot Claude prompt extracting "hooks" (first-3-second attention grabbers) per transcript. Output schema: `{video_id, hook_text, hook_type: question|claim|visual|stat, timestamp_s, confidence}`. Persist to `insights` (`kind='hook'`). Polls `SELECT video_id FROM videos WHERE llm_status='pending'`. Test: F1 ≥ 0.75 against 5 hand-labeled transcripts (golden in `packages/evals/eric/fixtures/hooks/`).
 
-**1.15 write_brief** — Claude prompt taking hooks + selling_points + comment_themes → markdown Strategy Brief with sections: TL;DR, Top 5 Hooks, Top 5 Selling Points, Audience Pain Points, Recommended Angles for Mike. Persist to `briefs` table. Test: LLM-judge mean ≥ 4.0 on 10 fixture runs.
+**1.13 extract_selling_points** (local) — similar; writes `insights` (`kind='selling_point'`). Test: recall ≥ 0.70 vs gold.
 
-For each node, use VCR.py for LLM call recording. Commit after each.
+**1.14 cluster_insights** (local) — embeds comments locally (sentence-transformers, e.g. `all-MiniLM-L6-v2`, CPU-only; no Azure embeddings), HDBSCAN cluster, labels each cluster with Copilot Claude. Persist to `insights` (`kind='cluster'`). Test: 5-15 themed clusters from a 1000-comment fixture.
+
+**1.15 write_brief** (local) — Copilot Claude prompt takes hooks + selling_points + clusters → markdown Strategy Brief (TL;DR, Top 5 Hooks, Top 5 Selling Points, Audience Pain Points, Recommended Angles for Mike). Insert into `briefs` with `llm_status='done'`; flip source `videos.llm_status='done'`. Test: LLM-judge mean ≥ 4.0 on 10 fixture runs.
+
+For each node, use VCR.py for recording (and for the Copilot nodes, fixture JSON captured from a real CLI run). Commit after each.
 
 ---
 
@@ -506,20 +481,22 @@ Follow `langgraph-agent-eval-gate` skill exactly.
 
 Export to `fixtures/{hooks,selling_points,campaigns}.yaml`.
 
-**Step 2:** Write `run_eval.py` per the skill: loads fixtures, invokes Eric graph (with VCR'd downstream LLM calls for determinism), computes:
+**Step 2:** Write `run_eval.py` per the skill: loads fixtures, invokes Eric graph (with VCR'd Copilot CLI output for determinism), computes:
 - `hook_extraction_f1`
 - `selling_point_recall`
-- `strategy_brief_quality` (gpt-4o judge, temperature=0, run 3x median)
+- `strategy_brief_quality` (Copilot Claude judge, temperature=0, run 3x median)
 
 **Step 3:** `thresholds.yaml`:
 ```yaml
 agent: eric
 required_pass_rate: 0.80
 metrics:
-  hook_extraction_f1: { threshold: 0.75, type: deterministic }
-  selling_point_recall: { threshold: 0.70, type: deterministic }
-  strategy_brief_quality: { threshold: 4.0, type: llm_judge, judge_model: gpt-4o, runs: 3, aggregation: median }
+  hook_extraction_f1:     { threshold: 0.75, type: deterministic }
+  selling_point_recall:   { threshold: 0.70, type: deterministic }
+  strategy_brief_quality: { threshold: 4.0,  type: llm_judge, judge: copilot-claude, runs: 3, aggregation: median }
 ```
+
+Note: judge also runs via Copilot Claude (local). No GPT-4o cost.
 
 **Step 4:** Wire into `.github/workflows/agent-gate.yml` running on every PR touching `packages/agents/eric/**` or `packages/evals/eric/**`.
 
@@ -557,6 +534,7 @@ Once all checked → merge `release/eric-v1` tag → start Mike plan (`docs/plan
 
 ## Confirmed decisions (2026-04-19)
 
-1. No GitHub repo — code lives in Linux sandbox at `~/projects/voyager/`.
+1. Code lives at `~/projects/voyager/` and is mirrored to private GitHub repo `DannyXXXXU/voyager` (main branch).
 2. Langfuse Cloud free tier (saves Container App + ops time).
 3. Fixture labeling: Danny labels 5 held-out campaigns; agent labels 15 dev fixtures.
+4. **LLM execution is local only.** No Azure OpenAI GPT-4o deployment. Only Azure OpenAI Whisper (`aoai-voyager-sexwh5`) is provisioned. Eric's LangGraph is split into a cloud worker (data-IO) and a local CLI (Copilot Claude) that coordinate through Postgres `llm_status` columns.
