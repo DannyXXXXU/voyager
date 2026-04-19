@@ -1,4 +1,5 @@
-// Azure OpenAI in swedencentral (Whisper + gpt-4o + gpt-4o-mini available)
+// Azure OpenAI in swedencentral — Whisper only.
+// LLM (gpt-4o class) handled by GitHub Copilot Claude in-agent; no Azure LLM deployment.
 param location string = 'swedencentral'
 param projectName string = 'voyager'
 
@@ -23,26 +24,6 @@ resource whisperDeployment 'Microsoft.CognitiveServices/accounts/deployments@202
   properties: {
     model: { format: 'OpenAI', name: 'whisper', version: '001' }
   }
-}
-
-resource gpt4oMiniDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-04-01-preview' = {
-  parent: aoai
-  name: 'gpt-4o-mini'
-  sku: { name: 'GlobalStandard', capacity: 50 }
-  properties: {
-    model: { format: 'OpenAI', name: 'gpt-4o-mini', version: '2024-07-18' }
-  }
-  dependsOn: [ whisperDeployment ]
-}
-
-resource gpt4oDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-04-01-preview' = {
-  parent: aoai
-  name: 'gpt-4o'
-  sku: { name: 'GlobalStandard', capacity: 30 }
-  properties: {
-    model: { format: 'OpenAI', name: 'gpt-4o', version: '2024-08-06' }
-  }
-  dependsOn: [ gpt4oMiniDeployment ]
 }
 
 output aoaiName string = aoai.name
