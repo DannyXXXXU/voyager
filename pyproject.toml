@@ -6,9 +6,19 @@ requires-python = ">=3.12"
 dependencies = []
 
 [tool.uv.workspace]
-members = ["apps/api", "packages/agents", "packages/tools", "packages/evals", "packages/db"]
+members = [
+    "apps/api",
+    "apps/worker",
+    "apps/cli",
+    "packages/agents",
+    "packages/tools",
+    "packages/evals",
+    "packages/db",
+    "packages/common",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["apps", "packages"]
 python_files = "test_*.py"
 addopts = "-ra -q"
+asyncio_mode = "auto"
