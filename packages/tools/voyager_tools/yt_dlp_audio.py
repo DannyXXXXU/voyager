@@ -64,7 +64,7 @@ def download_audio(
     fallback_path = output_dir / f"{video_id}.{format}"
     url = f"https://www.youtube.com/watch?v={video_id}"
 
-    ydl_opts = {
+    base_opts = {
         "format": "bestaudio[ext=m4a]/bestaudio/best",
         "outtmpl": outtmpl,
         "quiet": True,
@@ -74,11 +74,32 @@ def download_audio(
         "extract_flat": False,
     }
 
-    try:
-        with YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=True)
-    except DownloadError as exc:
-        raise _classify_download_error(exc) from exc
+    # YouTube's bot-check rotates across player_clients; try a few in order.
+    # Default yt-dlp client list keeps changing; iterating improves success rate
+    # when one client is temporarily flagged as "Sign in to confirm you're not a bot".
+    client_attempts: list[dict] = [
+        {},  # yt-dlp defaults
+        {"extractor_args": {"youtube": {"player_client": ["tv"]}}},
+        {"extractor_args": {"youtube": {"player_client": ["ios"]}}},
+        {"extractor_args": {"youtube": {"player_client": ["web_safari"]}}},
+        {"extractor_args": {"youtube": {"player_client": ["android"]}}},
+    ]
+
+    last_exc: Exception | None = None
+    info = None
+    for extra in client_attempts:
+        ydl_opts = {**base_opts, **extra}
+        try:
+            with YoutubeDL(ydl_opts) as ydl:
+                info = ydl.extract_info(url, download=True)
+            last_exc = None
+            break
+        except DownloadError as exc:
+            last_exc = exc
+            continue
+    if info is None:
+        assert last_exc is not None
+        raise _classify_download_error(last_exc) from last_exc
 
     if info is None:
         raise VideoUnavailableError(f"yt-dlp returned no info for {video_id}")
