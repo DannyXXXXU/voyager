@@ -11,6 +11,7 @@ dependencies = [
     "pydantic>=2.8",
     "tenacity>=9.0",
     "azure-servicebus>=7.12",
+    "apify-client>=2.5.0",
 ]
 
 [dependency-groups]
