@@ -15,6 +15,7 @@ Secret-name → settings-field map (Key Vault kebab-case → python snake_case):
     langfuse-public-key     -> langfuse_public_key
     langfuse-secret-key     -> langfuse_secret_key
     langfuse-host           -> langfuse_host
+    apify-token             -> apify_token
 """
 from __future__ import annotations
 
@@ -37,6 +38,7 @@ SECRET_MAP: dict[str, str] = {
     "langfuse-public-key": "langfuse_public_key",
     "langfuse-secret-key": "langfuse_secret_key",
     "langfuse-host": "langfuse_host",
+    "apify-token": "apify_token",
 }
 
 
@@ -63,6 +65,9 @@ class Settings(BaseSettings):
     langfuse_public_key: Optional[str] = None
     langfuse_secret_key: Optional[str] = None
     langfuse_host: Optional[str] = None
+
+    # Apify (audio download fallback that bypasses YouTube bot-check)
+    apify_token: Optional[str] = None
 
     # Runtime meta
     key_vault_name: str = "kv-voyager-sexwh5"

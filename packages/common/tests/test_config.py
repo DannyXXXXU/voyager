@@ -92,6 +92,7 @@ def test_load_from_keyvault_reads_all_secrets(monkeypatch):
         "langfuse-public-key": "lf-pub",
         "langfuse-secret-key": "lf-sec",
         "langfuse-host": "https://langfuse",
+        "apify-token": "apify-tok",
     }
 
     class FakeSecret:
