@@ -71,6 +71,7 @@ class Video(SQLModel, table=True):
             SAEnum(LLMStatus, name="llm_status"), nullable=False, index=True
         ),
     )
+    llm_error: Optional[str] = Field(default=None, sa_column=Column(Text))
 
 
 # ---------------------------------------------------------------------------

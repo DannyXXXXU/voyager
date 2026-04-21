@@ -163,8 +163,34 @@ def process(
         skipped = [v.video_id for v in pending if v.video_id not in transcripts_by_video]
         if skipped:
             console.print(f"[dim]skipping {len(skipped)} without transcripts: {skipped[:5]}{'...' if len(skipped) > 5 else ''}[/dim]")
+
+        # Quality gate: reject Whisper-hallucinated / non-English transcripts
+        # before burning Copilot tokens on them.
+        def _looks_garbage(tr: Transcript) -> str | None:
+            text = (tr.text or "").strip()
+            if len(text) < 200:
+                return f"transcript too short ({len(text)} chars)"
+            if tr.language and tr.language.lower() not in ("en", "english", "zh", "chinese"):
+                return f"unsupported transcript language: {tr.language!r}"
+            # Cheap loop detection: if fewer than 20 unique 20-char shingles, it's a loop.
+            shingles = {text[i : i + 20] for i in range(0, max(1, len(text) - 20), 10)}
+            if len(shingles) < 20:
+                return f"transcript looks looped/hallucinated (only {len(shingles)} unique shingles)"
+            return None
+
+        good, bad = [], []
+        for v in processable:
+            reason = _looks_garbage(transcripts_by_video[v.video_id])
+            (bad if reason else good).append((v, reason))
+        for v, reason in bad:
+            console.print(f"[red]✗[/red] {v.video_id}: {reason}")
+            v.llm_status = LLMStatus.failed
+            v.llm_error = f"transcript quality gate: {reason}"
+        if bad:
+            s.commit()
+        processable = [v for v, _ in good]
         if not processable:
-            console.print("[yellow]no pending videos with transcripts[/yellow]")
+            console.print("[yellow]no processable videos after quality gate[/yellow]")
             return
 
         # Flip to processing
@@ -191,8 +217,10 @@ def process(
             try:
                 out = asyncio.run(graph.ainvoke(state))
             except Exception as e:
-                console.print(f"[red]LLM failed for {v.video_id}: {e}[/red]")
+                err_text = f"{type(e).__name__}: {e}"[:4000]
+                console.print(f"[red]LLM failed for {v.video_id}: {err_text}[/red]")
                 v.llm_status = LLMStatus.failed
+                v.llm_error = err_text
                 s.commit()
                 continue
 
