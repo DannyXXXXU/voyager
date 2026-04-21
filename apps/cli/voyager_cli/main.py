@@ -21,9 +21,10 @@ from sqlalchemy import create_engine
 from sqlmodel import Session, select
 
 from voyager_agents.eric import EricState, build_llm_graph
+from voyager_agents.eric.copilot_client import CopilotClaudeClient
 from voyager_agents.eric.nodes_llm import StubCopilotClient
 from voyager_common import get_settings
-from voyager_db.models import Brief, Insight, InsightKind, LLMStatus, Video
+from voyager_db.models import Brief, Insight, InsightKind, LLMStatus, Transcript, Video
 from voyager_tools.servicebus import IngestJob, IngestProducer
 
 app = typer.Typer(help="Voyager CLI — Eric agent commands.")
@@ -105,85 +106,144 @@ def status(
 @eric_app.command("process")
 def process(
     limit: int = typer.Option(20, "--limit"),
+    real: bool = typer.Option(
+        False, "--real/--stub",
+        help="Use real Copilot CLI (--real) or StubCopilotClient (--stub, default).",
+    ),
+    model: str = typer.Option("claude-sonnet-4.5", "--model"),
 ) -> None:
-    """Run the local LLM subgraph on pending videos (stub client)."""
+    """Run the local LLM subgraph on pending videos.
+
+    Pulls videos with llm_status=pending that have a Transcript row, feeds the
+    transcript through the LLM subgraph (hooks → selling points → clusters →
+    brief), persists Insight rows, and flips llm_status to done.
+    """
     settings = get_settings()
     if not settings.database_url:
         console.print("[red]database_url is not configured[/red]")
         raise typer.Exit(code=2)
 
-    client = StubCopilotClient()
+    if real:
+        client: object = CopilotClaudeClient(model=model)
+        model_name = f"copilot-{model}"
+        console.print(f"[cyan]using real Copilot CLI[/cyan] model={model}")
+    else:
+        client = StubCopilotClient()
+        model_name = "stub-copilot"
+        console.print("[yellow]using StubCopilotClient (offline)[/yellow]")
+
     graph = build_llm_graph(client).compile()
 
     with _session(settings.database_url) as s:
+        # Only pick pending videos that actually have a transcript, so --limit
+        # doesn't get "wasted" on videos where transcription hasn't happened.
         pending = s.exec(
-            select(Video).where(Video.llm_status == LLMStatus.pending).limit(limit)
+            select(Video)
+            .where(Video.llm_status == LLMStatus.pending)
+            .where(Video.video_id.in_(select(Transcript.video_id)))
+            .limit(limit)
         ).all()
-
         if not pending:
             console.print("[yellow]no pending videos[/yellow]")
             return
 
+        # Load latest transcript per pending video
+        video_ids = [v.video_id for v in pending]
+        tr_rows = s.exec(
+            select(Transcript).where(Transcript.video_id.in_(video_ids))
+        ).all()
+        transcripts_by_video: dict[str, Transcript] = {}
+        for tr in tr_rows:
+            # keep the most recent by created_at
+            cur = transcripts_by_video.get(tr.video_id)
+            if cur is None or (tr.created_at and cur.created_at and tr.created_at > cur.created_at):
+                transcripts_by_video[tr.video_id] = tr
+
+        processable = [v for v in pending if v.video_id in transcripts_by_video]
+        skipped = [v.video_id for v in pending if v.video_id not in transcripts_by_video]
+        if skipped:
+            console.print(f"[dim]skipping {len(skipped)} without transcripts: {skipped[:5]}{'...' if len(skipped) > 5 else ''}[/dim]")
+        if not processable:
+            console.print("[yellow]no pending videos with transcripts[/yellow]")
+            return
+
         # Flip to processing
-        for v in pending:
+        for v in processable:
             v.llm_status = LLMStatus.processing
         s.commit()
 
-        topic = pending[0].source_query or "unknown"
+        topic = processable[0].source_query or "unknown"
         all_ids: list[str] = []
 
-        for v in pending:
-            state = EricState(topic=v.source_query or topic)
-            out = asyncio.run(graph.ainvoke(state))
-            # LangGraph returns dict; unwrap via EricState
+        from voyager_tools.models import TranscriptResult
+
+        for v in processable:
+            tr = transcripts_by_video[v.video_id]
+            tr_result = TranscriptResult(
+                text=tr.text,
+                language=tr.language or "en",
+                duration_s=0.0,
+            )
+            state = EricState(
+                topic=v.source_query or topic,
+                transcripts={v.video_id: tr_result},
+            )
+            try:
+                out = asyncio.run(graph.ainvoke(state))
+            except Exception as e:
+                console.print(f"[red]LLM failed for {v.video_id}: {e}[/red]")
+                v.llm_status = LLMStatus.failed
+                s.commit()
+                continue
+
             if isinstance(out, dict):
                 out = EricState.model_validate(out)
             for h in out.hooks:
-                s.add(
-                    Insight(
-                        video_id=v.video_id,
-                        kind=InsightKind.hook,
-                        payload=h,
-                        model_name="stub-copilot",
-                    )
-                )
+                s.add(Insight(video_id=v.video_id, kind=InsightKind.hook, payload=h, model_name=model_name))
             for p in out.selling_points:
-                s.add(
-                    Insight(
-                        video_id=v.video_id,
-                        kind=InsightKind.selling_point,
-                        payload=p,
-                        model_name="stub-copilot",
-                    )
-                )
+                s.add(Insight(video_id=v.video_id, kind=InsightKind.selling_point, payload=p, model_name=model_name))
             for c in out.clusters:
-                s.add(
-                    Insight(
-                        video_id=v.video_id,
-                        kind=InsightKind.cluster,
-                        payload=c,
-                        model_name="stub-copilot",
-                    )
-                )
+                s.add(Insight(video_id=v.video_id, kind=InsightKind.cluster, payload=c, model_name=model_name))
             v.llm_status = LLMStatus.done
             all_ids.append(v.video_id)
+            s.commit()
+            console.print(f"[green]✓[/green] {v.video_id}: hooks={len(out.hooks)} sp={len(out.selling_points)} clusters={len(out.clusters)}")
 
-        # Roll up a Brief for this topic across all done videos
-        done_state = EricState(topic=topic)
-        rollup = asyncio.run(graph.ainvoke(done_state))
-        if isinstance(rollup, dict):
-            rollup = EricState.model_validate(rollup)
-        brief = Brief(
+        if not all_ids:
+            console.print("[yellow]no videos processed successfully[/yellow]")
+            return
+
+        # Roll up a Brief across all done transcripts for this topic
+        rollup_state = EricState(
+            topic=topic,
+            transcripts={
+                vid: TranscriptResult(
+                    text=transcripts_by_video[vid].text,
+                    language=transcripts_by_video[vid].language or "en",
+                    duration_s=0.0,
+                )
+                for vid in all_ids
+            },
+        )
+        try:
+            rollup = asyncio.run(graph.ainvoke(rollup_state))
+            if isinstance(rollup, dict):
+                rollup = EricState.model_validate(rollup)
+            brief_md = rollup.brief_md or f"# Brief: {topic}\n\n(empty)"
+        except Exception as e:
+            console.print(f"[red]Brief rollup failed: {e}[/red]")
+            brief_md = f"# Brief: {topic}\n\n(rollup failed: {e})"
+
+        s.add(Brief(
             topic=topic,
             video_ids=all_ids,
-            content_md=rollup.brief_md or f"# Brief: {topic}\n\n(stub)",
+            content_md=brief_md,
             llm_status=LLMStatus.done,
             updated_at=datetime.utcnow(),
-        )
-        s.add(brief)
+        ))
         s.commit()
 
-    console.print(f"[green]processed[/green] {len(all_ids)} videos; brief written")
+    console.print(f"[green]processed[/green] {len(all_ids)} videos; brief written for topic={topic!r}")
 
 
 # --------------------------------------------------------------------------- #
