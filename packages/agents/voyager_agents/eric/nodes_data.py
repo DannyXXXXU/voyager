@@ -9,6 +9,7 @@ Nodes perform pure data IO via voyager_tools and never call LLMs.
 from __future__ import annotations
 
 import asyncio
+import os
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -17,7 +18,13 @@ import structlog
 
 from voyager_agents.eric.state import EricState
 from voyager_db import Comment, LLMStatus, Transcript, Video
-from voyager_tools import comments_fetch, whisper_client, youtube_search, yt_dlp_audio
+from voyager_tools import (
+    audio_download,
+    comments_fetch,
+    whisper_client,
+    youtube_search,
+    yt_dlp_audio,
+)
 from voyager_tools.errors import (
     AudioTooLargeError,
     AuthRequiredError,
@@ -88,14 +95,36 @@ def node_fetch_metadata(state: EricState) -> EricState:
 # --------------------------------------------------------------------------- #
 # download_audio
 # --------------------------------------------------------------------------- #
-def node_download_audio(state: EricState, output_dir: Path | None = None) -> EricState:
-    """Download audio for each search result; skip unavailable/auth-gated videos."""
+def node_download_audio(
+    state: EricState,
+    output_dir: Path | None = None,
+    apify_token: str | None = None,
+    backend: str | None = None,
+) -> EricState:
+    """Download audio for each search result; skip unavailable/auth-gated videos.
+
+    Default backend is Apify (``lurkapi/youtube-to-mp3-audio-downloader``) because
+    YouTube now bot-blocks yt-dlp from Azure egress IPs. If Apify fails for a
+    given video, we transparently fall back to yt-dlp on the same host.
+    """
     out = Path(output_dir) if output_dir is not None else Path(tempfile.gettempdir()) / "voyager_audio"
     out.mkdir(parents=True, exist_ok=True)
+
+    # Auto-pick default: apify if a token is available, ytdlp otherwise.
+    token = apify_token or os.environ.get("APIFY_TOKEN")
+    primary = (backend or ("apify" if token else "ytdlp")).lower()
+    fallback = "ytdlp" if primary == "apify" else None
+
     for vsr in state.search_results:
+        audio = None
+        primary_err: Exception | None = None
         try:
-            audio = yt_dlp_audio.download_audio(video_id=vsr.video_id, output_dir=out)
-            state.downloaded.append(audio)
+            audio = audio_download.download_audio(
+                video_id=vsr.video_id,
+                output_dir=out,
+                backend=primary,
+                token=token,
+            )
         except (VideoUnavailableError, AuthRequiredError) as exc:
             state.errors.append(
                 {"node": "download_audio", "video_id": vsr.video_id, "error": str(exc)}
@@ -103,10 +132,46 @@ def node_download_audio(state: EricState, output_dir: Path | None = None) -> Eri
             log.info("download_audio.skip", video_id=vsr.video_id, reason=type(exc).__name__)
             continue
         except Exception as exc:  # noqa: BLE001
-            state.errors.append(
-                {"node": "download_audio", "video_id": vsr.video_id, "error": str(exc)}
+            primary_err = exc
+            log.warning(
+                "download_audio.primary_failed",
+                video_id=vsr.video_id,
+                backend=primary,
+                error=str(exc)[:200],
             )
-            log.warning("download_audio.error", video_id=vsr.video_id, error=str(exc))
+
+        if audio is None and fallback:
+            try:
+                audio = audio_download.download_audio(
+                    video_id=vsr.video_id, output_dir=out, backend=fallback
+                )
+                log.info(
+                    "download_audio.fallback_success",
+                    video_id=vsr.video_id,
+                    backend=fallback,
+                )
+            except (VideoUnavailableError, AuthRequiredError) as exc:
+                state.errors.append(
+                    {"node": "download_audio", "video_id": vsr.video_id, "error": str(exc)}
+                )
+                continue
+            except Exception as exc:  # noqa: BLE001
+                state.errors.append(
+                    {
+                        "node": "download_audio",
+                        "video_id": vsr.video_id,
+                        "error": f"primary={primary_err}; fallback={exc}",
+                    }
+                )
+                continue
+
+        if audio is None:
+            state.errors.append(
+                {"node": "download_audio", "video_id": vsr.video_id, "error": str(primary_err)}
+            )
+            continue
+
+        state.downloaded.append(audio)
     return state
 
 
