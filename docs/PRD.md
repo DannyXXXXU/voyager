@@ -169,7 +169,7 @@ Each loop = one "campaign cycle". Target cycle time: ≤ 7 days initially,
 | Frontend | **Next.js 14 (App Router) + shadcn/ui + Tailwind** | Fastest to polished product |
 | Realtime | **Server-Sent Events** | Simpler than WS for streaming agent messages |
 | Auth | **Clerk** (MVP) or Azure AD B2C (later) | Multi-tenant-ready |
-| Observability | **Langfuse** self-hosted on Azure Container Apps | Free, LLM-native tracing |
+| Observability | MVP: structured stdout logs + DB columns (`llm_error`, `analysis_json`); Phase 2: **self-hosted Langfuse** on Azure Container Apps | Minimal surface now, upgrade when multi-agent traces get complex |
 | Secrets | **Azure Key Vault** | Centralized keys (YouTube, Azure, Copilot tokens) |
 | Infra | Docker Compose dev → **Azure Container Apps** + ACI for Playwright jobs | Consumption-based billing |
 | Region | **East Asia** or **Japan East** | Proximity to CN platforms + reasonable global latency |
