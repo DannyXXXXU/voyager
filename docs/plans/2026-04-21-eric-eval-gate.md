@@ -293,11 +293,13 @@ Eric's brief must be valid against a Pydantic schema (sections: executive_summar
 - Create: `packages/evals/eric/metrics/brief_quality.py`, tests.
 
 **Algorithm:**
-1. Use Azure OpenAI **GPT-4o** (different from agent's Copilot Claude — independence).
-2. Temperature=0, seed=42.
-3. Run judge 3 times, take median.
-4. Return per-dimension + average.
-5. Cache by `hash(brief + rubric_version)` to avoid re-billing.
+1. Use **Copilot CLI with `--model gpt-5`** (different model family from Eric's Claude Sonnet — eliminates self-preference bias).
+2. Reuse existing `packages/agents/voyager_agents/eric/copilot_client.py` but parameterize the model.
+3. Temperature=0 where supported (pass `--no-stream` for determinism).
+4. Run judge 3 times, take median per dimension.
+5. Return per-dimension scores + average.
+6. Cache by `hash(brief + rubric_version + model)` to avoid re-billing Copilot premium requests on replay.
+7. No extra $ cost — uses Danny's existing Copilot subscription.
 
 **Tests:**
 - `test_judge_deterministic_with_cache`
@@ -368,12 +370,11 @@ metrics:
   strategy_brief_quality:
     threshold: 4.0
     type: llm_judge
-    judge_model: azure/gpt-4o
+    judge_model: copilot/gpt-5
     runs: 3
     aggregation: median
     temperature: 0
-    seed: 42
-cost_budget_usd: 1.0
+cost_budget_usd: 0.1    # judge is Copilot (no $), only Whisper/Azure egress counts
 wall_clock_cap_seconds: 900
 ```
 
