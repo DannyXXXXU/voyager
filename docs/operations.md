@@ -30,6 +30,26 @@ export them manually:
     export AZURE_OPENAI_ENDPOINT=$(az keyvault secret show --vault-name $KEY_VAULT_NAME --name azure-openai-endpoint --query value -o tsv)
     export AZURE_OPENAI_KEY=$(az keyvault secret show --vault-name $KEY_VAULT_NAME --name azure-openai-key --query value -o tsv)
     export BLOB_CONN=$(az keyvault secret show --vault-name $KEY_VAULT_NAME --name blob-conn --query value -o tsv)
+    export APIFY_TOKEN=$(az keyvault secret show --vault-name $KEY_VAULT_NAME --name apify-token --query value -o tsv)
+
+## Audio download backend
+
+Audio downloads use the Apify actor
+``lurkapi/youtube-to-mp3-audio-downloader`` by default because YouTube now
+challenges yt-dlp from Azure egress IPs with "Sign in to confirm you're not
+a bot". The actor runs behind residential proxies and returns a direct MP3
+URL that we pull into ``voyager_audio``.
+
+Requires the ``apify-token`` Key Vault secret (also exposed to Settings as
+``apify_token`` and env ``APIFY_TOKEN``). If the token is missing the
+downloader falls back to local yt-dlp. A yt-dlp fallback is also attempted
+per-video if Apify errors out.
+
+Override via env:
+
+    VOYAGER_DOWNLOAD_BACKEND=ytdlp   # force local yt-dlp
+    VOYAGER_DOWNLOAD_BACKEND=apify   # force Apify
+
 
 ## Running the API server
 
