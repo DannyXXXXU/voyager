@@ -1,0 +1,25 @@
+agent: eric
+required_pass_rate: 0.80         # dev fixtures: 8 of 10 runs must pass
+holdout_required_pass_rate: 1.0  # 5 holdout must be 100%
+cost_budget_usd: 0.50
+wall_clock_cap_seconds: 900
+metrics:
+  hook_extraction_f1:
+    threshold: 0.75
+    type: deterministic
+    weight: 2
+  selling_point_recall:
+    threshold: 0.70
+    type: deterministic
+    weight: 2
+  schema_validity_rate:
+    threshold: 0.99
+    type: deterministic
+    weight: 1
+  strategy_brief_quality:
+    threshold: 4.0
+    type: llm_judge
+    judge_model: copilot-gpt-5
+    rubric: judges/brief_rubric.md
+    median_of: 3
+    weight: 2

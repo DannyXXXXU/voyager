@@ -1,0 +1,164 @@
+# Eric eval seed videos — 20 total (15 dev + 5 holdout)
+#
+# Structure per entry:
+#   id          : stable short id used across fixtures (e.g. dev-food-01)
+#   video_id    : YouTube 11-char id. Fill in before running scripts/prefetch_gold.py
+#   topic       : free-text summary for humans
+#   content_type: food | vlog | travel | culture | history | nature
+#   difficulty  : easy | medium | hard   (easy=single topic / clear hooks, hard=long / abstract / multi-topic)
+#   holdout     : true  → used ONLY for final pass/fail gate, never iterated on
+#                 false → dev set; agent may over-tune against it
+#   notes       : optional reviewer notes
+#
+# Selection guidance (Danny to curate):
+#   - Cover Chengdu / Xinjiang / Yunnan / Beijing / Guangzhou / Harbin at minimum
+#   - Mix big YouTubers (serpentza, laowhy86, blondie in china, lexie alford) with mid-tier
+#   - Include 2-3 long-form (20min+) hard cases — Eric struggles most there
+#   - Holdout must be UNSEEN during P0/P1 iteration; lock them day-1
+
+dev:
+  # easy (clear structural hooks, 5-10min)
+  - id: dev-food-01
+    video_id: REPLACE_ME_food_01
+    topic: Chengdu street food tour - hot pot focus
+    content_type: food
+    difficulty: easy
+    holdout: false
+    notes: ""
+  - id: dev-food-02
+    video_id: REPLACE_ME_food_02
+    topic: Xi'an breakfast market
+    content_type: food
+    difficulty: easy
+    holdout: false
+    notes: ""
+  - id: dev-vlog-01
+    video_id: REPLACE_ME_vlog_01
+    topic: First impressions Shanghai day1
+    content_type: vlog
+    difficulty: easy
+    holdout: false
+    notes: ""
+  - id: dev-travel-01
+    video_id: REPLACE_ME_travel_01
+    topic: High-speed rail experience Beijing-Shanghai
+    content_type: travel
+    difficulty: easy
+    holdout: false
+    notes: ""
+  - id: dev-culture-01
+    video_id: REPLACE_ME_culture_01
+    topic: Hanfu try-on Forbidden City
+    content_type: culture
+    difficulty: easy
+    holdout: false
+    notes: ""
+  # medium (mixed topics, 10-20min)
+  - id: dev-food-03
+    video_id: REPLACE_ME_food_03
+    topic: Yunnan mushroom hot pot + market
+    content_type: food
+    difficulty: medium
+    holdout: false
+    notes: ""
+  - id: dev-vlog-02
+    video_id: REPLACE_ME_vlog_02
+    topic: Shenzhen electronics market + Huaqiangbei
+    content_type: vlog
+    difficulty: medium
+    holdout: false
+    notes: ""
+  - id: dev-travel-02
+    video_id: REPLACE_ME_travel_02
+    topic: Zhangjiajie Avatar mountains - trail + cable car
+    content_type: travel
+    difficulty: medium
+    holdout: false
+    notes: ""
+  - id: dev-culture-02
+    video_id: REPLACE_ME_culture_02
+    topic: Tea house Chengdu - ear cleaning + mahjong
+    content_type: culture
+    difficulty: medium
+    holdout: false
+    notes: ""
+  - id: dev-nature-01
+    video_id: REPLACE_ME_nature_01
+    topic: Jiuzhaigou autumn waterfalls
+    content_type: nature
+    difficulty: medium
+    holdout: false
+    notes: ""
+  # hard (long-form, abstract, multi-topic)
+  - id: dev-vlog-03
+    video_id: REPLACE_ME_vlog_03
+    topic: 1 week Xinjiang road trip Urumqi-Kashgar
+    content_type: vlog
+    difficulty: hard
+    holdout: false
+    notes: "long-form 25min+, multiple hook candidates"
+  - id: dev-history-01
+    video_id: REPLACE_ME_history_01
+    topic: Great Wall Mutianyu + history context
+    content_type: history
+    difficulty: hard
+    holdout: false
+    notes: "abstract selling points mixed with narration"
+  - id: dev-travel-03
+    video_id: REPLACE_ME_travel_03
+    topic: Harbin ice festival - sub-zero survival
+    content_type: travel
+    difficulty: hard
+    holdout: false
+    notes: ""
+  - id: dev-culture-03
+    video_id: REPLACE_ME_culture_03
+    topic: Guangzhou dim sum tradition + dialect
+    content_type: culture
+    difficulty: hard
+    holdout: false
+    notes: ""
+  - id: dev-food-04
+    video_id: REPLACE_ME_food_04
+    topic: Sichuan spice tour - 5 cities
+    content_type: food
+    difficulty: hard
+    holdout: false
+    notes: "multi-city, transcript 30min+"
+
+holdout:
+  - id: hold-01
+    video_id: REPLACE_ME_hold_01
+    topic: TBD - assign at lock-time
+    content_type: vlog
+    difficulty: easy
+    holdout: true
+    notes: "LOCKED — do not use during iteration"
+  - id: hold-02
+    video_id: REPLACE_ME_hold_02
+    topic: TBD
+    content_type: food
+    difficulty: medium
+    holdout: true
+    notes: "LOCKED"
+  - id: hold-03
+    video_id: REPLACE_ME_hold_03
+    topic: TBD
+    content_type: travel
+    difficulty: medium
+    holdout: true
+    notes: "LOCKED"
+  - id: hold-04
+    video_id: REPLACE_ME_hold_04
+    topic: TBD
+    content_type: culture
+    difficulty: hard
+    holdout: true
+    notes: "LOCKED"
+  - id: hold-05
+    video_id: REPLACE_ME_hold_05
+    topic: TBD
+    content_type: history
+    difficulty: hard
+    holdout: true
+    notes: "LOCKED"
