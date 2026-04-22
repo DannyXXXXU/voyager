@@ -1,164 +1,156 @@
 # Eric eval seed videos — 20 total (15 dev + 5 holdout)
+# Curated 2026-04-22 from candidates.yaml. See search_candidates.py for query
+# plan. Re-run that script + re-curate if videos get deleted or fail prefetch.
 #
-# Structure per entry:
-#   id          : stable short id used across fixtures (e.g. dev-food-01)
-#   video_id    : YouTube 11-char id. Fill in before running scripts/prefetch_gold.py
-#   topic       : free-text summary for humans
-#   content_type: food | vlog | travel | culture | history | nature
-#   difficulty  : easy | medium | hard   (easy=single topic / clear hooks, hard=long / abstract / multi-topic)
-#   holdout     : true  → used ONLY for final pass/fail gate, never iterated on
-#                 false → dev set; agent may over-tune against it
-#   notes       : optional reviewer notes
-#
-# Selection guidance (Danny to curate):
-#   - Cover Chengdu / Xinjiang / Yunnan / Beijing / Guangzhou / Harbin at minimum
-#   - Mix big YouTubers (serpentza, laowhy86, blondie in china, lexie alford) with mid-tier
-#   - Include 2-3 long-form (20min+) hard cases — Eric struggles most there
-#   - Holdout must be UNSEEN during P0/P1 iteration; lock them day-1
+# Selection bias:
+#   - Overseas creators (for learning their hook structure — Voyager's goal)
+#   - List-style titles ("20 Must-Try", "5 Places") → clearer gold hooks
+#   - Established channels (Food Ranger, Blondie in China, BeeRose)
+#   - Avoid Shorts (videoDuration=medium filter in search)
 
 dev:
-  # easy (clear structural hooks, 5-10min)
+  # ---- easy ----
   - id: dev-food-01
-    video_id: REPLACE_ME_food_01
-    topic: Chengdu street food tour - hot pot focus
+    video_id: FfLfxvk_nBI
+    topic: Worlds Spiciest Hotpot in Chongqing (Food Ranger)
     content_type: food
     difficulty: easy
     holdout: false
-    notes: ""
+    notes: "strong hook in title; single-topic"
   - id: dev-food-02
-    video_id: REPLACE_ME_food_02
-    topic: Xi'an breakfast market
+    video_id: 2GjAX6XoJjw
+    topic: Xi'an Street Food Tour - Muslim Quarter 20 Dishes
     content_type: food
     difficulty: easy
     holdout: false
-    notes: ""
+    notes: "list-style title → clear selling points"
   - id: dev-vlog-01
-    video_id: REPLACE_ME_vlog_01
-    topic: First impressions Shanghai day1
+    video_id: b4_kkqtPDAs
+    topic: Guide for first-timers to Shanghai
     content_type: vlog
     difficulty: easy
     holdout: false
     notes: ""
   - id: dev-travel-01
-    video_id: REPLACE_ME_travel_01
-    topic: High-speed rail experience Beijing-Shanghai
+    video_id: dYHlVxgEMGc
+    topic: China's High-Speed Trains first class experience (BeeRose)
     content_type: travel
     difficulty: easy
     holdout: false
-    notes: ""
+    notes: "clear selling-points: first/business/economy class"
   - id: dev-culture-01
-    video_id: REPLACE_ME_culture_01
-    topic: Hanfu try-on Forbidden City
+    video_id: guXjPPEmDsc
+    topic: Hanfu photoshoot at Forbidden City (CET)
     content_type: culture
     difficulty: easy
     holdout: false
     notes: ""
-  # medium (mixed topics, 10-20min)
+  # ---- medium ----
   - id: dev-food-03
-    video_id: REPLACE_ME_food_03
-    topic: Yunnan mushroom hot pot + market
+    video_id: UvTW3ykNb9E
+    topic: Yunnan mushroom hotpot (Vegan in China)
     content_type: food
     difficulty: medium
     holdout: false
     notes: ""
   - id: dev-vlog-02
-    video_id: REPLACE_ME_vlog_02
-    topic: Shenzhen electronics market + Huaqiangbei
+    video_id: smr_BGmSAyI
+    topic: 24hrs Shenzhen Huaqiangbei electronics + nightlife
     content_type: vlog
     difficulty: medium
     holdout: false
-    notes: ""
+    notes: "multi-topic vlog; good for cluster testing"
   - id: dev-travel-02
-    video_id: REPLACE_ME_travel_02
-    topic: Zhangjiajie Avatar mountains - trail + cable car
+    video_id: MIWXK7fPRTY
+    topic: Ultimate Zhangjiajie (Avatar Mountains) travel guide
     content_type: travel
     difficulty: medium
     holdout: false
     notes: ""
   - id: dev-culture-02
-    video_id: REPLACE_ME_culture_02
-    topic: Tea house Chengdu - ear cleaning + mahjong
+    video_id: dP6xJ5FDZ3o
+    topic: Laid-back Chengdu teahouse (1.4 Billion)
     content_type: culture
     difficulty: medium
     holdout: false
     notes: ""
   - id: dev-nature-01
-    video_id: REPLACE_ME_nature_01
-    topic: Jiuzhaigou autumn waterfalls
+    video_id: WkK9bJUXnm0
+    topic: 2 days in Jiuzhaigou lakes & waterfalls solo (Cherie Diaries)
     content_type: nature
     difficulty: medium
     holdout: false
     notes: ""
-  # hard (long-form, abstract, multi-topic)
+  # ---- hard ----
   - id: dev-vlog-03
-    video_id: REPLACE_ME_vlog_03
-    topic: 1 week Xinjiang road trip Urumqi-Kashgar
+    video_id: mT1BocPphNU
+    topic: Kashgar Xinjiang vlog (Reports on China)
     content_type: vlog
     difficulty: hard
     holdout: false
-    notes: "long-form 25min+, multiple hook candidates"
+    notes: "sensitive topic, abstract selling points, non-standard structure"
   - id: dev-history-01
-    video_id: REPLACE_ME_history_01
-    topic: Great Wall Mutianyu + history context
+    video_id: goMY8fHbJwM
+    topic: Great Wall of Mutianyu historical travel guide
     content_type: history
     difficulty: hard
     holdout: false
-    notes: "abstract selling points mixed with narration"
+    notes: "history mixed with practical travel tips"
   - id: dev-travel-03
-    video_id: REPLACE_ME_travel_03
-    topic: Harbin ice festival - sub-zero survival
+    video_id: RXG_hxFt4Io
+    topic: Harbin Ice & Snow Festival (Blondie in China)
     content_type: travel
     difficulty: hard
     holdout: false
-    notes: ""
+    notes: "big creator; winter survival angle"
   - id: dev-culture-03
-    video_id: REPLACE_ME_culture_03
-    topic: Guangzhou dim sum tradition + dialect
+    video_id: bRgF_axTRQQ
+    topic: Guangzhou dim sum tour - 5 Michelin restaurants (Athena Chen)
     content_type: culture
     difficulty: hard
     holdout: false
-    notes: ""
+    notes: "list-style + cultural depth"
   - id: dev-food-04
-    video_id: REPLACE_ME_food_04
-    topic: Sichuan spice tour - 5 cities
+    video_id: Zw_tJOwZmac
+    topic: Extreme spicy Sichuan death-level hotpot challenge (Food Ranger)
     content_type: food
     difficulty: hard
     holdout: false
-    notes: "multi-city, transcript 30min+"
+    notes: "long-form challenge; dense hooks"
 
 holdout:
   - id: hold-01
-    video_id: REPLACE_ME_hold_01
-    topic: TBD - assign at lock-time
+    video_id: 3Sp9S5htFlo
+    topic: 10 Best Places in Shanghai first-timer (Lais)
     content_type: vlog
     difficulty: easy
     holdout: true
-    notes: "LOCKED — do not use during iteration"
+    notes: "LOCKED — final-gate only"
   - id: hold-02
-    video_id: REPLACE_ME_hold_02
-    topic: TBD
+    video_id: H-rw6XFKiqE
+    topic: Yunnan Mushroom Hot Pot - taste of nature (Go China)
     content_type: food
     difficulty: medium
     holdout: true
     notes: "LOCKED"
   - id: hold-03
-    video_id: REPLACE_ME_hold_03
-    topic: TBD
+    video_id: z-bhg4CyN_4
+    topic: Best-preserved ancient city Pingyao (Noah Kartha)
     content_type: travel
     difficulty: medium
     holdout: true
     notes: "LOCKED"
   - id: hold-04
-    video_id: REPLACE_ME_hold_04
-    topic: TBD
+    video_id: DfvdOOfeQVs
+    topic: Backstage Chinese opera troupe (Inside China Lives)
     content_type: culture
     difficulty: hard
     holdout: true
     notes: "LOCKED"
   - id: hold-05
-    video_id: REPLACE_ME_hold_05
-    topic: TBD
+    video_id: BfHAVNgZ6tk
+    topic: How the Great Wall of China was built (Captivating History)
     content_type: history
     difficulty: hard
     holdout: true
-    notes: "LOCKED"
+    notes: "LOCKED — pure history, no travel tips"
