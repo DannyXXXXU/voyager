@@ -27,7 +27,7 @@ from voyager_tools.errors import VideoUnavailableError
 from voyager_tools.models import AudioFile
 
 DEFAULT_ACTOR_ID = "lurkapi/youtube-to-mp3-audio-downloader"
-DEFAULT_TIMEOUT_S = 600
+DEFAULT_TIMEOUT_S = 1800
 
 
 _UNAVAILABLE_TOKENS = (
@@ -132,6 +132,30 @@ def download_audio_via_apify(
         bitrate_i = int(bitrate) if bitrate and str(bitrate).isdigit() else None
     except Exception:
         bitrate_i = None
+
+    # If MP3 is too close to Whisper's 25 MB limit, re-encode to 48 kbps mono.
+    # 48 kbps mono = ~6 KB/s → 30 min fits in 11 MB. Speech quality unaffected.
+    _WHISPER_LIMIT = 25 * 1024 * 1024
+    if size_bytes > 20 * 1024 * 1024:
+        import shutil
+        import subprocess
+
+        if shutil.which("ffmpeg"):
+            shrunk = output_dir / f"{video_id}.shrunk.mp3"
+            try:
+                subprocess.run(
+                    [
+                        "ffmpeg", "-y", "-i", str(out_path),
+                        "-vn", "-ac", "1", "-b:a", "48k", str(shrunk),
+                    ],
+                    check=True, capture_output=True, timeout=300,
+                )
+                out_path.unlink(missing_ok=True)
+                shrunk.rename(out_path)
+                size_bytes = out_path.stat().st_size
+                bitrate_i = 48000
+            except Exception:
+                pass  # fall through with original; Whisper will reject if >25 MB
 
     return AudioFile(
         video_id=video_id,
