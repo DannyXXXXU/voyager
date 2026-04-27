@@ -1,0 +1,108 @@
+{
+  "generated_at_utc": "2026-04-27T04:00:15.721215+00:00",
+  "model": "claude-sonnet-4.5",
+  "results": [
+    {
+      "id": "dev-food-01",
+      "status": "skipped"
+    },
+    {
+      "id": "dev-food-02",
+      "status": "ok",
+      "hooks": 2,
+      "points": 15,
+      "wall_seconds": 377.6
+    },
+    {
+      "id": "dev-vlog-01",
+      "status": "ok",
+      "hooks": 7,
+      "points": 8,
+      "wall_seconds": 394.7
+    },
+    {
+      "id": "dev-travel-01",
+      "status": "ok",
+      "hooks": 7,
+      "points": 13,
+      "wall_seconds": 382.7
+    },
+    {
+      "id": "dev-culture-01",
+      "status": "ok",
+      "hooks": 7,
+      "points": 10,
+      "wall_seconds": 370.7
+    },
+    {
+      "id": "dev-food-03",
+      "status": "ok",
+      "hooks": 5,
+      "points": 9,
+      "wall_seconds": 360.2
+    },
+    {
+      "id": "dev-vlog-02",
+      "status": "ok",
+      "hooks": 6,
+      "points": 7,
+      "wall_seconds": 349.3
+    },
+    {
+      "id": "dev-travel-02",
+      "status": "ok",
+      "hooks": 9,
+      "points": 11,
+      "wall_seconds": 383.9
+    },
+    {
+      "id": "dev-culture-02",
+      "status": "ok",
+      "hooks": 8,
+      "points": 8,
+      "wall_seconds": 366.0
+    },
+    {
+      "id": "dev-nature-01",
+      "status": "ok",
+      "hooks": 6,
+      "points": 13,
+      "wall_seconds": 479.6
+    },
+    {
+      "id": "dev-vlog-03",
+      "status": "ok",
+      "hooks": 4,
+      "points": 7,
+      "wall_seconds": 356.7
+    },
+    {
+      "id": "dev-history-01",
+      "status": "ok",
+      "hooks": 6,
+      "points": 9,
+      "wall_seconds": 367.7
+    },
+    {
+      "id": "dev-travel-03",
+      "status": "ok",
+      "hooks": 8,
+      "points": 10,
+      "wall_seconds": 378.5
+    },
+    {
+      "id": "dev-culture-03",
+      "status": "ok",
+      "hooks": 6,
+      "points": 8,
+      "wall_seconds": 362.4
+    },
+    {
+      "id": "dev-food-04",
+      "status": "ok",
+      "hooks": 8,
+      "points": 10,
+      "wall_seconds": 335.8
+    }
+  ]
+}

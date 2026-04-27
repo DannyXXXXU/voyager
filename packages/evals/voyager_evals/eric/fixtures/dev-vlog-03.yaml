@@ -1,0 +1,46 @@
+id: dev-vlog-03
+video_id: mT1BocPphNU
+topic: Kashgar Xinjiang vlog (Reports on China)
+difficulty: hard
+content_type: vlog
+holdout: false
+gold_hooks:
+- text: Xinjiang has been in the news a lot lately - I've come here to check out the
+    place with my own eyes
+  aliases: []
+  timestamp_s: 3.0
+- text: The biggest mosque not only in Xinjiang but in all of China
+  aliases: []
+  timestamp_s: 95.0
+- text: China has only one time zone, so you need to wait till about 10pm until the
+    place gets dark
+  aliases: []
+  timestamp_s: 175.0
+- text: The fragrant concubine, who was said to dance around the palace after her
+    unique beauty and scent caught the eyes and nose of the Emperor
+  aliases: []
+  timestamp_s: 205.0
+gold_selling_points:
+- text: Visit the largest mosque in China
+  aliases: []
+- text: Experience a historic Silk Road city
+  aliases: []
+- text: Explore the ancient city with winding streets
+  aliases: []
+- text: Try authentic Uyghur cuisine
+  aliases: []
+- text: Experience the vibrant night market
+  aliases: []
+- text: Visit historic mausoleums with fascinating stories
+  aliases: []
+- text: See the real Xinjiang beyond news headlines
+  aliases: []
+notes: sensitive topic, abstract selling points, non-standard structure
+transcript_sha256: 670eb9d81671776383ffa68f0c664a9c93146c7f168d77f3d8cb493e56db8991
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:36:11.260074+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 356.7
+  review_status: pending
+  draft_brief_md_path: dev-vlog-03.brief.md

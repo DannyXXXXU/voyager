@@ -1,0 +1,68 @@
+id: dev-vlog-01
+video_id: b4_kkqtPDAs
+topic: Guide for first-timers to Shanghai
+difficulty: easy
+content_type: vlog
+holdout: false
+gold_hooks:
+- text: If you're traveling to China for the first time, there are a few things you
+    need to know, and it's best to be prepared so you have a smooth journey.
+  aliases: []
+  timestamp_s: 0.0
+- text: Booking a hotel in China can be a little tricky, as not every hotel is allowed
+    to host foreign nationals.
+  aliases: []
+  timestamp_s: 45.0
+- text: You'll need to register at the police station nearest to the place that you're
+    staying within 24 hours of arriving here in Shanghai.
+  aliases: []
+  timestamp_s: 90.0
+- text: Naturally, your phone doesn't work. You've got no cellular service and no
+    Wi-Fi.
+  aliases: []
+  timestamp_s: 120.0
+- text: Paying for things in China is a little bit different than other countries.
+    Cash is seldom used, especially in the big cities.
+  aliases: []
+  timestamp_s: 240.0
+- text: Most of them, if not all of them, require a reservation. Whether there's a
+    ticket price or not, you still need to make a reservation.
+  aliases: []
+  timestamp_s: 420.0
+- text: Here's a problem. Everything is in Chinese. There's no other language. There's
+    no English here.
+  aliases: []
+  timestamp_s: 480.0
+gold_selling_points:
+- text: Expert guidance from someone with nearly 20 years of living experience in
+    Shanghai
+  aliases: []
+- text: Step-by-step demonstrations of essential tasks like getting free airport Wi-Fi,
+    even without a local phone number
+  aliases: []
+- text: Complete walkthrough of setting up digital payments (Alipay/WeChat) which
+    are essential for daily life in China
+  aliases: []
+- text: Practical solutions for navigating Chinese-only apps and menus with translation
+    workarounds
+  aliases: []
+- text: Insider tips on booking hotels that accept foreign nationals and avoiding
+    common pitfalls
+  aliases: []
+- text: Real-time demonstrations of buying metro and high-speed train tickets as a
+    foreigner without Chinese ID
+  aliases: []
+- text: Critical administrative information like 24-hour police registration requirements
+    explained clearly
+  aliases: []
+- text: Links to official government resources with regularly updated travel information
+  aliases: []
+notes: ''
+transcript_sha256: 686cd2dc4ce760cc8724387e06ecd9c06b68b1244ff485e87766302b2f27f96c
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T02:45:21.891607+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 394.7
+  review_status: pending
+  draft_brief_md_path: dev-vlog-01.brief.md

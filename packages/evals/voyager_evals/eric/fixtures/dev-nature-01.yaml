@@ -1,0 +1,69 @@
+id: dev-nature-01
+video_id: WkK9bJUXnm0
+topic: 2 days in Jiuzhaigou lakes & waterfalls solo (Cherie Diaries)
+difficulty: medium
+content_type: nature
+holdout: false
+gold_hooks:
+- text: come explore the beautiful Jiuzhaigou National Park with me
+  aliases: []
+  timestamp_s: 0.0
+- text: the whole journey has been cut down to around 4 hours in total
+  aliases: []
+  timestamp_s: 0.0
+- text: It's most well known for its many waterfalls and colourful lakes which are
+    especially stunning during autumn
+  aliases: []
+  timestamp_s: 0.0
+- text: In local folklore it's said that there's a monster in the lake
+  aliases: []
+  timestamp_s: 0.0
+- text: I'd pretty much given up on trying to get on the shuttle buses at this point
+  aliases: []
+  timestamp_s: 0.0
+- text: Jiuzhaigou brings together the worst and the best parts of travelling in China
+  aliases: []
+  timestamp_s: 0.0
+gold_selling_points:
+- text: Much faster and more convenient access with new high-speed rail - journey
+    now takes only 4 hours total instead of 8-10 hours
+  aliases: []
+- text: UNESCO World Heritage Site with international recognition since 1992
+  aliases: []
+- text: Famous for stunning waterfalls and colorful lakes, especially beautiful in
+    autumn
+  aliases: []
+- text: Extensive well-maintained infrastructure with 70km of boardwalks throughout
+    the park
+  aliases: []
+- text: Easy ticket booking for foreign travelers through trip.com using passport
+  aliases: []
+- text: Escape from intense heat in cities - cooler mountain climate
+  aliases: []
+- text: Affordable food and snacks available throughout the park (e.g., grilled sausage
+    for 10 RMB / $2-3 AUD)
+  aliases: []
+- text: Multiple diverse valleys to explore with unique lakes and natural scenery
+  aliases: []
+- text: Home to the largest and highest lake in the park at 3,150 meters altitude
+    (Long Lake)
+  aliases: []
+- text: Cultural and historical significance - featured in the 1986 Journey to the
+    West TV series
+  aliases: []
+- text: Well-organized shuttle bus system to access different areas of the park
+  aliases: []
+- text: Abundant facilities including restaurants, stores, public toilets, and rest
+    points throughout
+  aliases: []
+- text: Showcases China's incredible natural beauty outside major cities
+  aliases: []
+notes: ''
+transcript_sha256: 3431c5115d589ee5660e9a3c9ef735f13433518dcf3352be95b895455011a24b
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:30:14.545703+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 479.6
+  review_status: pending
+  draft_brief_md_path: dev-nature-01.brief.md

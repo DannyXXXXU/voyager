@@ -1,0 +1,57 @@
+id: dev-food-02
+video_id: 2GjAX6XoJjw
+topic: Xi'an Street Food Tour - Muslim Quarter 20 Dishes
+difficulty: easy
+content_type: food
+holdout: false
+gold_hooks:
+- text: Did you know that Xi'an is not just home to the Terracotta Warriors, but also
+    one of China's most exciting food destinations?
+  aliases: []
+  timestamp_s: 0.0
+- text: Stick around as we count down the 20 must-try street foods in Xi'an, and trust
+    me, you won't want to miss number 1.
+  aliases: []
+  timestamp_s: 5.0
+gold_selling_points:
+- text: Xi'an is one of China's most exciting food destinations beyond just the Terracotta
+    Warriors
+  aliases: []
+- text: Ancient Silk Road heritage creates unique culinary traditions
+  aliases: []
+- text: Comprehensive guide covering 20 must-try street foods
+  aliases: []
+- text: Features historic establishments with over 100 years of tradition
+  aliases: []
+- text: Authentic local experiences at well-loved spots frequented by locals
+  aliases: []
+- text: Affordable, generous portions at family-run eateries
+  aliases: []
+- text: Bold, unique flavors including cumin, chili, and Sichuan peppercorns
+  aliases: []
+- text: Hand-made traditional cooking techniques like hand-pulled noodles
+  aliases: []
+- text: Diverse range from breakfast soups to late-night skewers and desserts
+  aliases: []
+- text: Perfect balance of spicy, sour, sweet, and savory options for all palates
+  aliases: []
+- text: Signature dishes you can't find elsewhere, like Biang Biang Noodles and Yang
+    Rou Pao Mou
+  aliases: []
+- text: Freshly prepared street food with enticing aromas that draw crowds
+  aliases: []
+- text: Rich cultural experience at Muslim Quarter Night Market
+  aliases: []
+- text: Foods suited for different seasons and weather conditions
+  aliases: []
+- text: Famous establishments that attract long lines, indicating quality and popularity
+  aliases: []
+notes: list-style title → clear selling points
+transcript_sha256: 85cbbad6cc6c63c31edf0b4ecb570fc5f48f6013ee966cdf23ac0a8896ab0c00
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T02:38:47.191906+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 377.6
+  review_status: pending
+  draft_brief_md_path: dev-food-02.brief.md

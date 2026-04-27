@@ -1,0 +1,58 @@
+id: dev-culture-02
+video_id: dP6xJ5FDZ3o
+topic: Laid-back Chengdu teahouse (1.4 Billion)
+difficulty: medium
+content_type: culture
+holdout: false
+gold_hooks:
+- text: 100-year-old tea house
+  aliases: []
+  timestamp_s: 45.0
+- text: They also have this special kung fu tea performance going on here
+  aliases: []
+  timestamp_s: 60.0
+- text: There are two different ways to drink tea. Female, for me, very elegant
+  aliases: []
+  timestamp_s: 95.0
+- text: snowflakes floating in a green lake
+  aliases: []
+  timestamp_s: 155.0
+- text: This means you're not going to pay for the bill
+  aliases: []
+  timestamp_s: 190.0
+- text: This means you are seeking for help
+  aliases: []
+  timestamp_s: 240.0
+- text: Chengdu people have such a laid back lifestyle. They will come here very early
+    from like 7 a.m. in the morning
+  aliases: []
+  timestamp_s: 15.0
+- text: within the top ten teas in China
+  aliases: []
+  timestamp_s: 165.0
+gold_selling_points:
+- text: Visit a historic 100-year-old tea house with authentic cultural significance
+  aliases: []
+- text: Learn traditional Chinese tea drinking etiquette and secret gestures
+  aliases: []
+- text: Experience Chengdu's unique laid-back lifestyle and culture
+  aliases: []
+- text: See special kung fu tea performance with long-bead teapot
+  aliases: []
+- text: Taste premium Chinese teas like Meng Ding yellow tea
+  aliases: []
+- text: Chengdu is China's tea culture capital
+  aliases: []
+- text: Experience vibrant tea culture embraced by all generations
+  aliases: []
+- text: Visit the most famous tea house location in central Chengdu
+  aliases: []
+notes: ''
+transcript_sha256: ca87d51d819f450ac4f961df3b49e115d84b48627bbcd9a802d0b1d922a1ddfc
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:22:14.915413+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 366.0
+  review_status: pending
+  draft_brief_md_path: dev-culture-02.brief.md

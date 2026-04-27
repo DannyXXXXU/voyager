@@ -1,0 +1,50 @@
+id: dev-vlog-02
+video_id: smr_BGmSAyI
+topic: 24hrs Shenzhen Huaqiangbei electronics + nightlife
+difficulty: medium
+content_type: vlog
+holdout: false
+gold_hooks:
+- text: I think I got a robot dog
+  aliases: []
+  timestamp_s: 0.0
+- text: Yeah, man, that's like military shit, yo
+  aliases: []
+  timestamp_s: 0.0
+- text: Killer deal, man, killer deal
+  aliases: []
+  timestamp_s: 0.0
+- text: Can I just give you 50 yuan right now for one, just to test?
+  aliases: []
+  timestamp_s: 0.0
+- text: Is this real? This is Sony
+  aliases: []
+  timestamp_s: 0.0
+- text: It's five times the size
+  aliases: []
+  timestamp_s: 0.0
+gold_selling_points:
+- text: Bulk purchase discounts available - buy 10 pieces to get wholesale pricing
+  aliases: []
+- text: Excellent deals on storage devices - 1TB and 2TB at competitive prices
+  aliases: []
+- text: Can test products before committing to bulk purchase for just 50-60 yuan
+  aliases: []
+- text: Authentic branded products including Sony merchandise
+  aliases: []
+- text: Wide variety of tech and lifestyle products - robot dogs, storage devices,
+    massagers, beauty products
+  aliases: []
+- text: Quality products that look and feel legitimate on inspection
+  aliases: []
+- text: Unisex beauty products suitable for everyone
+  aliases: []
+notes: multi-topic vlog; good for cluster testing
+transcript_sha256: f09bdfb923be5c5ce831123787bad6d1fffa97fe783f35ac3c37aebe7dac0c35
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:09:44.949912+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 349.3
+  review_status: pending
+  draft_brief_md_path: dev-vlog-02.brief.md

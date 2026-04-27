@@ -1,0 +1,61 @@
+id: dev-food-04
+video_id: Zw_tJOwZmac
+topic: Extreme spicy Sichuan death-level hotpot challenge (Food Ranger)
+difficulty: hard
+content_type: food
+holdout: false
+gold_hooks:
+- text: one of the most painfully spicy meals in the world
+  aliases: []
+  timestamp_s: 0.0
+- text: Intense, bubbling pot of death
+  aliases: []
+  timestamp_s: 0.0
+- text: It feels like your soul is burning
+  aliases: []
+  timestamp_s: 0.0
+- text: This is one of the spiciest things you'll ever eat
+  aliases: []
+  timestamp_s: 0.0
+- text: that is like a burning pleasure
+  aliases: []
+  timestamp_s: 0.0
+- text: My face, my tongue. That is so intensely spicy
+  aliases: []
+  timestamp_s: 0.0
+- text: I wanna feel alive
+  aliases: []
+  timestamp_s: 0.0
+- text: That is extreme pain here
+  aliases: []
+  timestamp_s: 0.0
+gold_selling_points:
+- text: Experience one of the most painfully spicy meals in the world
+  aliases: []
+- text: See authentic Sichuan hot pot at a local restaurant in Chengdu
+  aliases: []
+- text: Learn how to order and prepare traditional hot pot like a local
+  aliases: []
+- text: Watch genuine, unfiltered reactions to extreme spice levels
+  aliases: []
+- text: Discover the unique mouth-numbing sensation of Sichuan peppercorns
+  aliases: []
+- text: See a variety of premium hot pot ingredients and cooking techniques
+  aliases: []
+- text: Experience the addictive nature of authentic Sichuan cuisine
+  aliases: []
+- text: Get insider tips on managing extreme spice levels
+  aliases: []
+- text: Part of an extensive Sichuan street food tour series
+  aliases: []
+- text: Understand why Sichuan is called the land of spicy, numbing, fragrant cuisine
+  aliases: []
+notes: long-form challenge; dense hooks
+transcript_sha256: 3814dd25e767dc4f2c4437a4818bffce2f9bf47b71204cf82246773da7b3bcf4
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T04:00:15.716107+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 335.8
+  review_status: pending
+  draft_brief_md_path: dev-food-04.brief.md

@@ -1,0 +1,74 @@
+id: dev-food-01
+video_id: FfLfxvk_nBI
+topic: Worlds Spiciest Hotpot in Chongqing (Food Ranger)
+difficulty: easy
+content_type: food
+holdout: false
+gold_hooks:
+- text: we're gonna attempt to eat the world's spiciest hot pot, so spicy you might
+    start hallucinating
+  aliases: []
+  timestamp_s: 0.0
+- text: Look at all those chilies, that's crazy. Your nose is numbing just from being
+    here
+  aliases: []
+  timestamp_s: 0.0
+- text: today, we're gonna be meeting up with the Chinese Trump, and he's taking us
+    for a full-on, ultra-spicy food tour
+  aliases: []
+  timestamp_s: 0.0
+- text: Go easy on my spice and go crazy on his spice
+  aliases: []
+  timestamp_s: 0.0
+- text: this city is so spicy that as soon as you enter, the air smells like chili
+  aliases: []
+  timestamp_s: 0.0
+- text: I eat the most spicy food in China. You're the best at spice? I'm the best
+    with spice
+  aliases: []
+  timestamp_s: 0.0
+- text: death-level spicy beef
+  aliases: []
+  timestamp_s: 0.0
+- text: That is really spicy. That's very hardcore
+  aliases: []
+  timestamp_s: 0.0
+- text: your nose is numbing just from being here
+  aliases: []
+  timestamp_s: 0.0
+- text: People get shirtless while eating it
+  aliases: []
+  timestamp_s: 0.0
+gold_selling_points:
+- text: Extreme spicy food challenge with progressively hotter dishes culminating
+    in the world's spiciest hot pot
+  aliases: []
+- text: Entertaining collaboration with charismatic 'Chinese Trump' local guide who
+    provides humor and authentic insights
+  aliases: []
+- text: Authentic Chongqing food tour featuring local specialties you can only find
+    in this city
+  aliases: []
+- text: Behind-the-scenes look at traditional food preparation including 10-year veteran
+    chef making hot pot base from scratch
+  aliases: []
+- text: Cultural and health insights about Chinese food philosophy and why locals
+    eat extremely spicy food
+  aliases: []
+- text: Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan
+    of mountains'
+  aliases: []
+- text: Interactive DIY food experience where you pick your own ingredients and cook
+    at the table
+  aliases: []
+- text: Genuine reactions and survival struggle against extreme spice levels
+  aliases: []
+notes: strong hook in title; single-topic
+transcript_sha256: e4d1f990f5e794288845fe4b07a25aa00ff103f4c3b709427c7ed45f5b161831
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T02:32:11.304772+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 394.7
+  review_status: pending
+  draft_brief_md_path: dev-food-01.brief.md

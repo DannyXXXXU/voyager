@@ -1,0 +1,64 @@
+id: dev-travel-03
+video_id: RXG_hxFt4Io
+topic: Harbin Ice & Snow Festival (Blondie in China)
+difficulty: hard
+content_type: travel
+holdout: false
+gold_hooks:
+- text: Hey, want to see something cool? If this isn't cool, both figuratively and
+    literally, then I don't know what is. It's all made of snow!
+  aliases: []
+  timestamp_s: 0.0
+- text: It's actually the biggest one of its kind in the world.
+  aliases: []
+  timestamp_s: 15.0
+- text: I'm standing on it right now!
+  aliases: []
+  timestamp_s: 60.0
+- text: Welcome to China's coldest swimming pool!
+  aliases: []
+  timestamp_s: 120.0
+- text: How old are you? Ninety-six. What?!
+  aliases: []
+  timestamp_s: 180.0
+- text: Keep in mind it's currently minus 25 degrees.
+  aliases: []
+  timestamp_s: 190.0
+- text: 10,000 people, 15 days to build all of this.
+  aliases: []
+  timestamp_s: 240.0
+- text: Oh my god. Yeah, this is absolutely breathtaking. It's literally like being
+    in a fairy tale.
+  aliases: []
+  timestamp_s: 280.0
+gold_selling_points:
+- text: World's largest ice and snow sculpture festival
+  aliases: []
+- text: Massive snow sculptures that are beautiful, intricate, and huge
+  aliases: []
+- text: Multiple festival venues to explore with lots of activities
+  aliases: []
+- text: Walk on the completely frozen Songhua River
+  aliases: []
+- text: Fun winter activities like banana boat rides on the frozen river
+  aliases: []
+- text: Witness unique cultural tradition of cold water swimming
+  aliases: []
+- text: Enormous Ice and Snow World with over 2,000 massive ice carvings covering
+    600,000 square meters
+  aliases: []
+- text: Breathtaking nighttime experience with colorful lights like a fairy tale
+  aliases: []
+- text: Incredible engineering feat built by 10,000 people in 15 days
+  aliases: []
+- text: Once-in-a-lifetime experience with things you'll never see elsewhere
+  aliases: []
+notes: big creator; winter survival angle
+transcript_sha256: ae08bc154bd54f5819a28f6b89f937ed12327a0757290f22a97d656da5153a23
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:48:37.483221+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 378.5
+  review_status: pending
+  draft_brief_md_path: dev-travel-03.brief.md

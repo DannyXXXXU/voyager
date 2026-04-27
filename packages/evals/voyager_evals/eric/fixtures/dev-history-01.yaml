@@ -1,0 +1,55 @@
+id: dev-history-01
+video_id: goMY8fHbJwM
+topic: Great Wall of Mutianyu historical travel guide
+difficulty: hard
+content_type: history
+holdout: false
+gold_hooks:
+- text: The Great Wall of China was opened because of a prostitute
+  aliases: []
+  timestamp_s: 0.0
+- text: Why is the Great Wall of China INSIDE China? Here's the answer
+  aliases: []
+  timestamp_s: 180.0
+- text: Donald Trump wish he could build a wall like this. He can't build a wall like
+    this.
+  aliases: []
+  timestamp_s: 420.0
+- text: We have to bend forward and use both hands and legs to climb the Hero Slope
+  aliases: []
+  timestamp_s: 120.0
+- text: The tale of how one military official's decision changed Chinese history forever
+  aliases: []
+  timestamp_s: 480.0
+- text: The Huns from Mulan were real - and here's who they actually were
+  aliases: []
+  timestamp_s: 240.0
+gold_selling_points:
+- text: Mutianyu is less crowded and touristy than other Great Wall sections
+  aliases: []
+- text: Accessible by public transport in about 3 hours from Beijing city center
+  aliases: []
+- text: Beautiful fall foliage and scenic views
+  aliases: []
+- text: Rich historical and educational content about Chinese dynasties and the wall's
+    purpose
+  aliases: []
+- text: Suitable for average fitness levels - families and elderly can do it
+  aliases: []
+- text: Features the challenging Hero Slope for adventure seekers
+  aliases: []
+- text: Impressive ancient architecture and engineering
+  aliases: []
+- text: Multiple transport options including cable car and ski lift
+  aliases: []
+- text: Complete hiking experience from Watchtower 5 to Watchtower 20
+  aliases: []
+notes: history mixed with practical travel tips
+transcript_sha256: fcecd93e758f36d7019659aea922196d9b8ccffe982aa1aa6ddafa44f5cf8657
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:42:19.004290+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 367.7
+  review_status: pending
+  draft_brief_md_path: dev-history-01.brief.md

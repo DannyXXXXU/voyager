@@ -1,0 +1,59 @@
+id: dev-culture-01
+video_id: guXjPPEmDsc
+topic: Hanfu photoshoot at Forbidden City (CET)
+difficulty: easy
+content_type: culture
+holdout: false
+gold_hooks:
+- text: I'm going to do something super exciting today
+  aliases: []
+  timestamp_s: 5.0
+- text: I want to dress like a princess
+  aliases: []
+  timestamp_s: 120.0
+- text: This was worth thousands of yuan. The best one here. It's for queen.
+  aliases: []
+  timestamp_s: 135.0
+- text: This is magic
+  aliases: []
+  timestamp_s: 280.0
+- text: It's like stepping out of a time machine
+  aliases: []
+  timestamp_s: 450.0
+- text: I honestly feel like I was starring in my own Korean drama
+  aliases: []
+  timestamp_s: 480.0
+- text: Sometimes customers they will change 20 clothes
+  aliases: []
+  timestamp_s: 310.0
+gold_selling_points:
+- text: Professional Hanfu photo shoot services with photographer guidance
+  aliases: []
+- text: Complete styling package including makeup, hair, and accessories all included
+  aliases: []
+- text: Extensive wardrobe selection from multiple Chinese dynasties
+  aliases: []
+- text: Authentic traditional Chinese cultural experience with historical accuracy
+  aliases: []
+- text: Keep the outfit after photoshoot to explore Forbidden City on your own
+  aliases: []
+- text: Services available for everyone - men, women, children, and elderly
+  aliases: []
+- text: Personalized color and style matching consultation
+  aliases: []
+- text: All-inclusive service - everything arranged by China Explore Tour
+  aliases: []
+- text: High-quality authentic costumes with detailed embroidery worth thousands of
+    yuan
+  aliases: []
+- text: Flexibility to try on multiple outfits until you find the perfect one
+  aliases: []
+notes: ''
+transcript_sha256: 8b1bed4d6a33e0a219b497d62ecb56462ff93eb23606aca70f56b40eda472640
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T02:57:55.383090+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 370.7
+  review_status: pending
+  draft_brief_md_path: dev-culture-01.brief.md

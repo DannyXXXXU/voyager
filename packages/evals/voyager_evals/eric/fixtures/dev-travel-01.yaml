@@ -1,0 +1,66 @@
+id: dev-travel-01
+video_id: dYHlVxgEMGc
+topic: China's High-Speed Trains first class experience (BeeRose)
+difficulty: easy
+content_type: travel
+holdout: false
+gold_hooks:
+- text: for the first time ever, I am taking the fanciest class on one of China's
+    high-speed trains
+  aliases: []
+  timestamp_s: 10.0
+- text: America's trains just cannot compare to China's
+  aliases: []
+  timestamp_s: 35.0
+- text: China has the largest high-speed rail network in the world. America can barely
+    connect a few cities
+  aliases: []
+  timestamp_s: 40.0
+- text: This train can go 350 kilometers per hour. That is insane
+  aliases: []
+  timestamp_s: 60.0
+- text: There are three classes available, I'm going to show you all of them
+  aliases: []
+  timestamp_s: 25.0
+- text: they will personally escort you to the train
+  aliases: []
+  timestamp_s: 150.0
+- text: You can even order KFC or McDonald's
+  aliases: []
+  timestamp_s: 420.0
+gold_selling_points:
+- text: China has the world's largest high-speed rail network
+  aliases: []
+- text: Trains reach exceptional speeds of 350 km/h
+  aliases: []
+- text: Business class offers VIP treatment with shorter lines and personal escort
+  aliases: []
+- text: Business class seats fully recline for comfortable sleep
+  aliases: []
+- text: Complimentary beverages and snacks included in business class
+  aliases: []
+- text: Free meals provided that taste good
+  aliases: []
+- text: Can order additional food via QR code including KFC and McDonald's
+  aliases: []
+- text: Clean, western-style toilets with all amenities
+  aliases: []
+- text: Wheelchair accessible features throughout
+  aliases: []
+- text: Hot water available for instant noodles or tea
+  aliases: []
+- text: More spacious and comfortable than airplanes
+  aliases: []
+- text: Business class has private bathroom access
+  aliases: []
+- text: Spacious tables with leather covering in business class
+  aliases: []
+notes: 'clear selling-points: first/business/economy class'
+transcript_sha256: 5db6940b3bdec730abc5b7dddd883b447f3ac91d9142e86d93592e4eaf9ad198
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T02:51:44.649683+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 382.7
+  review_status: pending
+  draft_brief_md_path: dev-travel-01.brief.md

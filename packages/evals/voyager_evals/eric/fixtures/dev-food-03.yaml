@@ -1,0 +1,53 @@
+id: dev-food-03
+video_id: UvTW3ykNb9E
+topic: Yunnan mushroom hotpot (Vegan in China)
+difficulty: medium
+content_type: food
+holdout: false
+gold_hooks:
+- text: it's important to wait until the timer rings before trying these mushrooms
+    otherwise you might start tripping out or you might see lots of weird colors
+  aliases: []
+  timestamp_s: 0.0
+- text: this is our scary mushroom the jian shou qing that if you eat it before it's
+    ready you'll start to hallucinate
+  aliases: []
+  timestamp_s: 180.0
+- text: chilled black tiger feet
+  aliases: []
+  timestamp_s: 25.0
+- text: you might start tripping out like you're in san ti or three body problem with
+    the numbers clocking down
+  aliases: []
+  timestamp_s: 90.0
+- text: all of the meat is actually hidden at the back which is super curious
+  aliases: []
+  timestamp_s: 50.0
+gold_selling_points:
+- text: Unique and exotic mushroom varieties you won't find elsewhere
+  aliases: []
+- text: Can order half portions to try more varieties
+  aliases: []
+- text: Exceptionally rich and complex mushroom soup base
+  aliases: []
+- text: Vegetable-forward menu that prioritizes mushrooms and vegetables
+  aliases: []
+- text: Special homemade dipping sauces
+  aliases: []
+- text: Interesting textures and flavors across different mushrooms
+  aliases: []
+- text: Even the tea is made from mushrooms
+  aliases: []
+- text: Perfect for making incredible mushroom noodle soup at the end
+  aliases: []
+- text: Unique dining experience with exotic ingredients requiring special preparation
+  aliases: []
+notes: ''
+transcript_sha256: 53ddd2fa40b9b8b43b0cdf77545fc6ba3eaf23479d1a5bd50b85399513b5994a
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:03:55.654321+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 360.2
+  review_status: pending
+  draft_brief_md_path: dev-food-03.brief.md

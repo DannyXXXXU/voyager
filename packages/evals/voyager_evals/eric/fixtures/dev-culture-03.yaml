@@ -1,0 +1,51 @@
+id: dev-culture-03
+video_id: bRgF_axTRQQ
+topic: Guangzhou dim sum tour - 5 Michelin restaurants (Athena Chen)
+difficulty: hard
+content_type: culture
+holdout: false
+gold_hooks:
+- text: Look at the size comparing to my face
+  aliases: []
+  timestamp_s: 0.0
+- text: Look at that big ass shrimp in there
+  aliases: []
+  timestamp_s: 0.0
+- text: it's always just eat, eat, eat, and eat
+  aliases: []
+  timestamp_s: 0.0
+- text: the sun is like toxic. Let me tell you guys, it is so hot
+  aliases: []
+  timestamp_s: 0.0
+- text: This place is always, always packed. So come early, or be ready to wait
+  aliases: []
+  timestamp_s: 0.0
+- text: I am so full and low-key a little bit out of dim sum and eating a lot
+  aliases: []
+  timestamp_s: 0.0
+gold_selling_points:
+- text: Guangzhou is the most authentic place for dim sum culture
+  aliases: []
+- text: Visit a Michelin Guide garden-style restaurant with stunning Lingnam architecture
+  aliases: []
+- text: Experience unique dining on a Pearl River cruise with skyline views
+  aliases: []
+- text: Explore historic restaurants with over 140 years of culinary tradition
+  aliases: []
+- text: Visit Guangzhou's first western-style restaurant from 1860
+  aliases: []
+- text: Discover beautiful garden-style restaurants with traditional Chinese aesthetics
+  aliases: []
+- text: Get insider recommendations from a local who visits these restaurants repeatedly
+  aliases: []
+- text: Explore charming traditional alleyways and streets beyond just restaurants
+  aliases: []
+notes: list-style + cultural depth
+transcript_sha256: 4ff2aef8b1bfa54a9a56a80fe7229690a9b1aa5b5a8142f3efc319efdbfef5c1
+_meta:
+  drafted_by: agent
+  drafted_at_utc: '2026-04-27T03:54:39.875190+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 362.4
+  review_status: pending
+  draft_brief_md_path: dev-culture-03.brief.md
