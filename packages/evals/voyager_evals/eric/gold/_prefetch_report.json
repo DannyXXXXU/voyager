@@ -1,0 +1,142 @@
+[
+  {
+    "video_id": "FfLfxvk_nBI",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-food-01",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "2GjAX6XoJjw",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-food-02",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "b4_kkqtPDAs",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-vlog-01",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "dYHlVxgEMGc",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-travel-01",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "guXjPPEmDsc",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-culture-01",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "UvTW3ykNb9E",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-food-03",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "smr_BGmSAyI",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-vlog-02",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "MIWXK7fPRTY",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-travel-02",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "dP6xJ5FDZ3o",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-culture-02",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "WkK9bJUXnm0",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-nature-01",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "mT1BocPphNU",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-vlog-03",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "goMY8fHbJwM",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-history-01",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "RXG_hxFt4Io",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-travel-03",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "bRgF_axTRQQ",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-culture-03",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "Zw_tJOwZmac",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "dev-food-04",
+    "bucket": "dev"
+  },
+  {
+    "video_id": "3Sp9S5htFlo",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "hold-01",
+    "bucket": "holdout"
+  },
+  {
+    "video_id": "H-rw6XFKiqE",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "hold-02",
+    "bucket": "holdout"
+  },
+  {
+    "video_id": "z-bhg4CyN_4",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "hold-03",
+    "bucket": "holdout"
+  },
+  {
+    "video_id": "DfvdOOfeQVs",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "hold-04",
+    "bucket": "holdout"
+  },
+  {
+    "video_id": "BfHAVNgZ6tk",
+    "status": "ok",
+    "errors": [],
+    "fixture_id": "hold-05",
+    "bucket": "holdout"
+  }
+]
