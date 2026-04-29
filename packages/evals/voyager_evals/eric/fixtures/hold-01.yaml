@@ -4,12 +4,19 @@ topic: 10 Best Places in Shanghai first-timer (Lais)
 difficulty: easy
 content_type: vlog
 holdout: true
-gold_hooks: []
-gold_selling_points: []
+gold_hooks: 
+- text: "Are you planning for Shanghai?"
+    aliases:
+      - "Shanghai traveling"
+      - "Plan to Shanghai"
+    timestamp_s: 8.5
+gold_selling_points: 
+  - text: "Now, let's head to one of Shanghai's most iconic waterfronts, the Bund"
+    aliases: ["iconic waterfront"]
 notes: LOCKED — final-gate only
 transcript_sha256: d08a2cae009a0737fd13148cba7df161ae3cabdc7dd11bea294c7ecc2393df8b
 _meta:
   drafted_by: human
-  drafted_at_utc: null
-  review_status: stub
-  labeler: null
+  drafted_at_utc: 2026-04-27T15:00:00Z 
+  review_status: Approve
+  labeler: danny
