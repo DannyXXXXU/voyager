@@ -127,12 +127,12 @@ holdout:
     holdout: true
     notes: "LOCKED — final-gate only"
   - id: hold-02
-    video_id: H-rw6XFKiqE
-    topic: Yunnan Mushroom Hot Pot - taste of nature (Go China)
-    content_type: food
+    video_id: NNOpx09vt4U
+    topic: Li River cruise Guilin to Yangshuo (Yasmine's Journey)
+    content_type: nature
     difficulty: medium
     holdout: true
-    notes: "LOCKED"
+    notes: LOCKED — replaced 2026-05-06 (prev 7YQ0dAgcerA was also Mandarin voiceover; food/medium pool exhausted, swapped to nature/medium for diversity)
   - id: hold-03
     video_id: z-bhg4CyN_4
     topic: Best-preserved ancient city Pingyao (Noah Kartha)

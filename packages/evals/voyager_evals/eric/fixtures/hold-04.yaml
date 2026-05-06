@@ -4,12 +4,70 @@ topic: Backstage Chinese opera troupe (Inside China Lives)
 difficulty: hard
 content_type: culture
 holdout: true
-gold_hooks: []
-gold_selling_points: []
+gold_hooks:
+- text: They perform during the day, tear down the stage at night, then travel overnight
+    to the next location and the next day they perform again, sometimes working non-stop
+    for 36 hours.
+  aliases: []
+  timestamp_s: 15.0
+- text: And what's even more unbelievable is that there are no tickets, anyone can
+    watch for free. So how do they survive?
+  aliases: []
+  timestamp_s: 30.0
+- text: Back in the 1930s, Charlie Chaplin visited China and watched traditional Chinese
+    opera, what you are seeing today looks almost the same as what he saw nearly 100
+    years ago.
+  aliases: []
+  timestamp_s: 120.0
+- text: This troupe has built a following of nearly 1 million on the Chinese version
+    of TikTok.
+  aliases: []
+  timestamp_s: 280.0
+- text: When I asked her about those years during the COVID-19 pandemic... the hardship
+    and struggles of a private opera troupe are not only the reality, but all the
+    difficulties they've faced are fully revealed.
+  aliases: []
+  timestamp_s: 350.0
+- text: A mother walks on stage to perform while others backstage help take care of
+    her baby.
+  aliases: []
+  timestamp_s: 380.0
+- text: What is left behind is a ground covered in trash, creating a striking and
+    overwhelming scene.
+  aliases: []
+  timestamp_s: 480.0
+- text: Every time they arrive at a new destination, it feels like a game of chance.
+    If they are lucky, they can stay in an abandoned house. If not, they have no choice
+    but to set up tents and sleep outdoors.
+  aliases: []
+  timestamp_s: 540.0
+gold_selling_points:
+- text: Exclusive behind-the-scenes access to a private Chinese opera troupe
+  aliases: []
+- text: Witness extreme dedication - performers work non-stop for 36 hours
+  aliases: []
+- text: See a living tradition nearly unchanged for 100 years
+  aliases: []
+- text: Discover how traditional artists survive in modern China
+  aliases: []
+- text: Raw and emotional human stories of struggle and perseverance
+  aliases: []
+- text: Unique cultural insight into rural China rarely seen
+  aliases: []
+- text: See the harsh reality of nomadic performance life
+  aliases: []
+- text: Learn the hidden logistics of traveling performances
+  aliases: []
+- text: Free performances accessible to all - no tickets required
+  aliases: []
+- text: Authentic documentary showing both artistry and hardship
+  aliases: []
 notes: LOCKED
 transcript_sha256: 7fb9f4797474a7b6d0d2959e657d8816eba038dda782bf3ed5ca232ae0a693c5
 _meta:
-  drafted_by: human
-  drafted_at_utc: null
-  review_status: stub
-  labeler: null
+  drafted_by: agent
+  drafted_at_utc: '2026-04-29T06:45:46.626469+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 371.2
+  review_status: pending
+  draft_brief_md_path: hold-04.brief.md

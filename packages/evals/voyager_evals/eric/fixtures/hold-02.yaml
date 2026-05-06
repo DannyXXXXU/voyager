@@ -1,15 +1,54 @@
 id: hold-02
-video_id: H-rw6XFKiqE
-topic: Yunnan Mushroom Hot Pot - taste of nature (Go China)
+video_id: NNOpx09vt4U
+topic: Li River cruise Guilin to Yangshuo (Yasmine's Journey)
 difficulty: medium
-content_type: food
+content_type: nature
 holdout: true
-gold_hooks: []
-gold_selling_points: []
-notes: LOCKED
-transcript_sha256: 17165e4056962adf92944e82a1ec6709af5b08437e40633015ceb7e7eeea7d11
+gold_hooks:
+- text: It's absolutely amazing here, honestly one of the best sceneries I've ever
+    seen in my life
+  aliases: []
+  timestamp_s: 0.0
+- text: It's so famous that it's even featured on the 20 yuan banknote here in China
+  aliases: []
+  timestamp_s: 30.0
+- text: Called by National Geographic one of the 10 watery wonders in the world
+  aliases: []
+  timestamp_s: 45.0
+- text: All of these karst formations are incredible and they are everywhere
+  aliases: []
+  timestamp_s: 180.0
+- text: It tastes like detergent... it smells like soap and it tastes like it
+  aliases: []
+  timestamp_s: 280.0
+- text: We are paying for this room per night only 35 dollars
+  aliases: []
+  timestamp_s: 450.0
+- text: Nobody speaks English, not even our tour guide
+  aliases: []
+  timestamp_s: 90.0
+gold_selling_points:
+- text: Spectacular karst scenery rated among the world's best natural wonders
+  aliases: []
+- text: Affordable cruise experience with good organization
+  aliases: []
+- text: Incredible karst formations visible throughout the entire journey
+  aliases: []
+- text: Warm and generous local people create memorable cultural interactions
+  aliases: []
+- text: Affordable luxury accommodation with stunning views
+  aliases: []
+- text: Authentic cultural food experiences with health benefits
+  aliases: []
+- text: Must-see destination for China travelers
+  aliases: []
+notes: LOCKED — replaced 2026-05-06 (prev 7YQ0dAgcerA was also Mandarin voiceover;
+  food/medium pool exhausted, swapped to nature/medium for diversity)
+transcript_sha256: ee4e7a4c209bb3f80ad6df8ecc8a2cc3b1479cb919fe5de2d897cb68b1a64890
 _meta:
-  drafted_by: human
-  drafted_at_utc: null
-  review_status: stub
-  labeler: null
+  drafted_by: agent
+  drafted_at_utc: '2026-05-06T04:35:15.161660+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 369.9
+  review_status: pending
+  draft_brief_md_path: hold-02.brief.md

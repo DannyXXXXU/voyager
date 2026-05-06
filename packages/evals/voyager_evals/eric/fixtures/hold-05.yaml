@@ -4,12 +4,60 @@ topic: How the Great Wall of China was built (Captivating History)
 difficulty: hard
 content_type: history
 holdout: true
-gold_hooks: []
-gold_selling_points: []
+gold_hooks:
+- text: The myth that you can see the Great Wall of China from space has long been
+    disproven
+  aliases: []
+  timestamp_s: 0.0
+- text: the Great Wall took over 2,000 years to build
+  aliases: []
+  timestamp_s: 15.0
+- text: If we include all the sections that were ever built, the total length would
+    be about 13,171 miles
+  aliases: []
+  timestamp_s: 25.0
+- text: it took just seven years from his coming of age to eliminate his six rival
+    states and declare himself the emperor of all China
+  aliases: []
+  timestamp_s: 90.0
+- text: Legend has it that many of the 400,000 workers who died during construction
+    were buried in the wall itself
+  aliases: []
+  timestamp_s: 150.0
+- text: sometimes sincere diplomacy can be more effective than all the walls in China
+  aliases: []
+  timestamp_s: 600.0
+gold_selling_points:
+- text: Discover the true massive scale of the Great Wall - over 13,000 miles when
+    all historical sections are included
+  aliases: []
+- text: Learn the epic 2,000+ year construction timeline spanning multiple dynasties
+  aliases: []
+- text: Understand the ingenious engineering and adaptive construction techniques
+    used across different terrains
+  aliases: []
+- text: Uncover surprising truths - it's not actually one continuous wall but disconnected
+    segments
+  aliases: []
+- text: Explore the sophisticated military design including signal towers, passes,
+    and defensive systems
+  aliases: []
+- text: Learn about its crucial role in protecting the ancient Silk Road trade routes
+  aliases: []
+- text: Discover how it served both economic and defensive purposes, protecting fertile
+    farmlands
+  aliases: []
+- text: Learn about the Ming Dynasty's sections that still stand today and can be
+    visited
+  aliases: []
+- text: Gain insights into how diplomacy eventually proved more effective than fortification
+  aliases: []
 notes: LOCKED — pure history, no travel tips
 transcript_sha256: 1ad189225e7ef0be8fee1545a37395d89b9fa487a88d9aea6f49252bd88eb6c7
 _meta:
-  drafted_by: human
-  drafted_at_utc: null
-  review_status: stub
-  labeler: null
+  drafted_by: agent
+  drafted_at_utc: '2026-04-29T06:51:36.589574+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 349.9
+  review_status: pending
+  draft_brief_md_path: hold-05.brief.md

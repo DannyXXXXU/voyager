@@ -122,9 +122,9 @@ async def _draft_one(
     return {"fixture": fixture, "brief_md": brief_md}
 
 
-async def _run(force: bool, only: list[str] | None, model: str) -> int:
+async def _run(force: bool, only: list[str] | None, model: str, split: str) -> int:
     seed = yaml.safe_load(SEED_PATH.read_text(encoding="utf-8"))
-    dev_entries = seed.get("dev", [])
+    dev_entries = seed.get(split, [])
     if only:
         dev_entries = [e for e in dev_entries if e["id"] in set(only)]
 
@@ -207,8 +207,9 @@ def main() -> None:
         help="Only draft these fixture ids (e.g. dev-food-01 dev-vlog-01)",
     )
     ap.add_argument("--model", default="claude-sonnet-4.5")
+    ap.add_argument("--split", default="dev", choices=["dev", "holdout"])
     args = ap.parse_args()
-    sys.exit(asyncio.run(_run(args.force, args.only, args.model)))
+    sys.exit(asyncio.run(_run(args.force, args.only, args.model, args.split)))
 
 
 if __name__ == "__main__":

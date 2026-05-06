@@ -4,12 +4,59 @@ topic: Best-preserved ancient city Pingyao (Noah Kartha)
 difficulty: medium
 content_type: travel
 holdout: true
-gold_hooks: []
-gold_selling_points: []
+gold_hooks:
+- text: until midnight, you must be always soaking wet from head to toe
+  aliases: []
+  timestamp_s: 45.0
+- text: the best preserved historical city in all of China
+  aliases: []
+  timestamp_s: 15.0
+- text: At its peak, Rishongchang controlled almost half of China's economy
+  aliases: []
+  timestamp_s: 420.0
+- text: it's got an underground secret vault
+  aliases: []
+  timestamp_s: 450.0
+- text: It was China's first armed escort agency
+  aliases: []
+  timestamp_s: 490.0
+- text: This building was built without any nails, only by using wooden brackets
+  aliases: []
+  timestamp_s: 140.0
+- text: Pingyao is known as the land of wealth and the birthplace of Chinese banking
+  aliases: []
+  timestamp_s: 350.0
+- text: the Wild West of China
+  aliases: []
+  timestamp_s: 475.0
+gold_selling_points:
+- text: Best preserved historical city in all of China
+  aliases: []
+- text: Home to China's best preserved town city wall
+  aliases: []
+- text: Birthplace of Chinese banking with the first modern bank
+  aliases: []
+- text: Features one of the oldest wooden buildings in China
+  aliases: []
+- text: Treasure house of over 2000 ancient painted clay sculptures
+  aliases: []
+- text: Most dense ancient town with unbelievable number of attractions in one square
+    mile
+  aliases: []
+- text: Less crowded alternative to major tourist destinations
+  aliases: []
+- text: Features unique historical sites like China's first armed escort agency
+  aliases: []
+- text: Underground secret vault from ancient banking era
+  aliases: []
+- text: Unique turtle-shaped city design with symbolic meaning
+  aliases: []
 notes: LOCKED
 transcript_sha256: 8a9283b8f0b373179a0ba031ca576b05d1033e67b3af62ae217f71c337c0361f
 _meta:
-  drafted_by: human
-  drafted_at_utc: null
-  review_status: stub
-  labeler: null
+  drafted_by: agent
+  drafted_at_utc: '2026-04-29T06:39:35.399369+00:00'
+  model: claude-sonnet-4.5
+  wall_seconds: 366.4
+  review_status: pending
+  draft_brief_md_path: hold-03.brief.md
