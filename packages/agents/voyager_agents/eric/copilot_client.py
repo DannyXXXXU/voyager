@@ -109,11 +109,13 @@ class CopilotClaudeClient:
         self,
         model: str = "claude-sonnet-4.5",
         timeout_s: int = 180,
-        max_retries: int = 1,
+        max_retries: int = 3,
+        backoff_base_s: float = 2.0,
     ) -> None:
         self._model = model
         self._timeout_s = timeout_s
         self._max_retries = max_retries
+        self._backoff_base_s = backoff_base_s
         _STAGE_WSL.mkdir(parents=True, exist_ok=True)
         if not _PS1_WSL.exists():
             raise CopilotCLIError(f"run_copilot.ps1 not found at {_PS1_WSL}")
@@ -128,7 +130,16 @@ class CopilotClaudeClient:
         last_err: Exception | None = None
 
         for attempt in range(self._max_retries + 1):
-            raw = await self._invoke(prompt)
+            if attempt > 0:
+                # Exponential backoff between retries: 2s, 4s, 8s ...
+                delay = self._backoff_base_s * (2 ** (attempt - 1))
+                await asyncio.sleep(delay)
+            try:
+                raw = await self._invoke(prompt)
+            except CopilotCLIError as e:
+                # Network / CLI failure — also worth retrying with backoff.
+                last_err = e
+                continue
             if schema is None:
                 return raw
             body = _extract_json_text(raw)
@@ -137,7 +148,7 @@ class CopilotClaudeClient:
                 return schema.model_validate(data)
             except (json.JSONDecodeError, ValidationError) as e:
                 last_err = e
-                # Corrective retry.
+                # Corrective retry — feed the error back so the model can fix it.
                 prompt = (
                     self._build_prompt(system, user, schema)
                     + "\n\nPREVIOUS ATTEMPT WAS INVALID. "
