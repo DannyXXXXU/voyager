@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-travel-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.7777777777777777,
+    "selling_point_recall": 0.7,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 327.7623056000002,
+  "error": null,
+  "hooks_predicted": [
+    "Hey, want to see something cool? If this isn't cool, both figuratively and literally, then I don't know what is. It's all made of snow!",
+    "It's actually the biggest one of its kind in the world.",
+    "Actually, I'm standing on it right now!",
+    "Oh my god, oh my god, oh my god! Oh my god, this is so fun!",
+    "Welcome to China's coldest swimming pool!",
+    "How old are you? Ninety-six. What?!",
+    "Keep in mind it's currently minus 25 degrees.",
+    "Wow, 10,000 people, 15 days to build all of this.",
+    "Oh my god. Yeah, this is absolutely breathtaking.",
+    "It's literally like being in a fairy tale."
+  ],
+  "selling_points_predicted": [
+    "World's largest ice and snow sculpture festival",
+    "Massive, intricate, and beautiful snow sculptures at Sun Island",
+    "Multiple festival venues to explore",
+    "Frozen river activities and entertainment",
+    "Unique cultural experience with traditional cold water swimming",
+    "Ice and Snow World with over 2,000 massive ice carvings covering 600,000 square meters",
+    "Breathtaking nighttime illumination transforms the ice sculptures",
+    "Once-in-a-lifetime unique experience"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

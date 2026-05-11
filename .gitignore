@@ -35,3 +35,6 @@ langfuse-data/
 *.webm
 *.part
 /tmp_downloads/
+
+# eval run logs
+/logs/

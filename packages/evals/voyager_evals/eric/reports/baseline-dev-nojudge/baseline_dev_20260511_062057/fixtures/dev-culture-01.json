@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-culture-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.7692307692307692,
+    "selling_point_recall": 0.2,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 373.95776507000005,
+  "error": null,
+  "hooks_predicted": [
+    "I'm going to do something super exciting today",
+    "This was worth thousands of yuan. The best one here. It's for queen.",
+    "I kind of want my boyfriend to wear this one. We could be like historical drama couple.",
+    "Sometimes customers they will change 20 clothes",
+    "It's like stepping out of a time machine",
+    "I honestly feel like I was starring in my own Korean drama"
+  ],
+  "selling_points_predicted": [
+    "Wide variety of authentic Hanfu from different Chinese dynasties to choose from",
+    "Professional all-inclusive service with hair, makeup, and styling included",
+    "Try on multiple outfits to find the perfect look",
+    "Authentic historical details with traditional embroidery and symbols",
+    "Options available for men, women, children, and elderly people",
+    "Professional photo shoot at iconic locations like the Forbidden City",
+    "Keep the Hanfu until 6pm to take your own photos around Beijing",
+    "Authentic dynasty-specific hairstyles and makeup recreated by professionals",
+    "Personalized styling advice based on skin tone and shooting location",
+    "Everything arranged and organized by China Explore Tour - just book and show up",
+    "Feel like a star in your own historical drama",
+    "High-quality authentic pieces including royal and noble dynasty costumes"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

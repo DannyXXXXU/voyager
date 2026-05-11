@@ -1,0 +1,33 @@
+{
+  "fixture_id": "dev-food-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.6666666666666665,
+    "selling_point_recall": 0.3333333333333333,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 383.6765507110001,
+  "error": null,
+  "hooks_predicted": [
+    "it's important to wait until the timer rings before trying these mushrooms otherwise you might start tripping out or you might see lots of weird colors",
+    "this is our scary mushroom the jian shou qing that if you eat it before it's ready you'll start to hallucinate",
+    "when it is exposed to air when raw it turns this vibrant blue shade",
+    "you would never expect this is a mushroom chilled black tiger feet"
+  ],
+  "selling_points_predicted": [
+    "Wide variety of exotic mushrooms including rare varieties like black tiger feet, bigfoot mushrooms, beef liver mushroom, and jian shou qing (hallucinogenic when raw)",
+    "Half portions available so you can try many different types of mushrooms in one meal",
+    "Exceptional mushroom soup base made from top-notch mushrooms with complex, rich flavor",
+    "Vegetarian-friendly restaurant with vegetables and mushrooms featured prominently on the menu",
+    "Special homemade garlic and chili dipping sauce that complements the mushrooms",
+    "Unique mushroom tea with beautiful red color",
+    "Perfect for making delicious mushroom noodle soup at the end of your meal",
+    "Mushrooms offer diverse textures from crunchy to tender to meaty"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

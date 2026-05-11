@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-food-04",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.625,
+    "selling_point_recall": 0.4,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 338.193418715,
+  "error": null,
+  "hooks_predicted": [
+    "one of the most painfully spicy meals in the world",
+    "This is gonna be painfully spicy",
+    "Intense, bubbling pot of death",
+    "It feels like your soul is burning",
+    "This is one of the spiciest things you'll ever eat",
+    "That is so intensely spicy. My face, my tongue.",
+    "I'm in pain",
+    "this is one of the spicier things you can eat in the world. Sichuan hot pot."
+  ],
+  "selling_points_predicted": [
+    "Experience one of the most painfully spicy meals in the world",
+    "Authentic local Sichuan hot pot experience in Chengdu",
+    "Complete guide on how to order and eat hot pot like a local",
+    "Learn about unique Sichuan flavors and ingredients",
+    "Entertaining and visceral reactions to extreme spice levels",
+    "Cultural immersion and food adventure in the heart of Sichuan",
+    "Addictive food experience despite the pain",
+    "Must-try bucket list food experience"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

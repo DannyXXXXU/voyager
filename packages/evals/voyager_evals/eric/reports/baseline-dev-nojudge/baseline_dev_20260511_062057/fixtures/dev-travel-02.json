@@ -1,0 +1,40 @@
+{
+  "fixture_id": "dev-travel-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5,
+    "selling_point_recall": 0.36363636363636365,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 384.5965429470002,
+  "error": null,
+  "hooks_predicted": [
+    "The Hallelujah Mountains of China - inspiration to the highest-grossing film of all time",
+    "Oh my goodness, are we on a movie set? Where is this real life?",
+    "This pillar is so narrow at the base and rises by itself jutting through the earth all the way up to the skies",
+    "The record-breaking Bailong Elevator - three different lanes and each elevator is double-decker",
+    "This bridge is 350 meters in elevation - I can't imagine walking on it before there was any barrier",
+    "Our driver did not fear death - ripping through corners like a Formula One driver at the top of the mountain",
+    "Over 20,000 visitors every single day yet you can still find peace and quiet in corners of the park"
+  ],
+  "selling_points_predicted": [
+    "Inspiration for the highest-grossing film of all time (Avatar)",
+    "Stunning natural beauty with unique towering sandstone pillars",
+    "Five diverse sections to explore with different attractions",
+    "Affordable entrance and unlimited cable car packages",
+    "Record-breaking Bailong Elevator with three lanes and double-decker design",
+    "Natural wonders like the First Bridge Under Heaven",
+    "Scenic cable car rides with mountain views",
+    "Affordable local food throughout the park",
+    "Peaceful areas away from crowds despite 20,000+ daily visitors",
+    "Wildlife encounters with monkeys throughout the park",
+    "Convenient facial recognition entry system",
+    "Multiple viewpoints accessible via loops and trails"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

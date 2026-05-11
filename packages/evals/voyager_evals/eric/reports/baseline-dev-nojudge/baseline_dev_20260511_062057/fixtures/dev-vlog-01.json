@@ -1,0 +1,38 @@
+{
+  "fixture_id": "dev-vlog-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.7142857142857143,
+    "selling_point_recall": 0.25,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 393.21621047199994,
+  "error": null,
+  "hooks_predicted": [
+    "If you're traveling to China for the first time, there are a few things you need to know",
+    "Booking a hotel in China can be a little tricky, as not every hotel is allowed to host foreign nationals",
+    "You'll need to register at the police station nearest to the place that you're staying within 24 hours of arriving",
+    "Naturally, your phone doesn't work. You've got no cellular service and no Wi-Fi",
+    "Cash is seldom used, especially in the big cities",
+    "Most of them, if not all of them, require a reservation",
+    "Here's a problem. Everything is in Chinese. There's no other language"
+  ],
+  "selling_points_predicted": [
+    "Get insider tips from a 20-year Shanghai resident who demonstrates everything firsthand",
+    "Learn how to get WiFi at the airport without a local phone number",
+    "Step-by-step guide to setting up digital payments (Alipay/WeChat) for easy transactions",
+    "Avoid common hotel booking mistakes - not all hotels accept foreign nationals",
+    "Navigate Shanghai's metro system with QR codes instead of buying physical tickets",
+    "Order food in English using Alipay's built-in translation feature",
+    "Learn how to buy high-speed train tickets as a foreign passport holder",
+    "Get tips for translating Chinese-only menus and making tourist reservations",
+    "Access to recommended official resources including english.shanghai.gov.cn",
+    "Covers essential first-timer logistics like police registration and SIM card pickup"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

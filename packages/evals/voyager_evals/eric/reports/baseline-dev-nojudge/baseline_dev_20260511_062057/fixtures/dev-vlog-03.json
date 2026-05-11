@@ -1,0 +1,33 @@
+{
+  "fixture_id": "dev-vlog-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.4444444444444445,
+    "selling_point_recall": 0.5714285714285714,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 348.5966190570002,
+  "error": null,
+  "hooks_predicted": [
+    "Xinjiang has been in the news a lot lately - so I've come here to check out the place with my own eyes",
+    "Come with me to explore one of China's most western cities on the ancient Silk Road",
+    "Getting lost among the winding streets of the ancient city",
+    "You need to wait till about 10pm until the night market really comes to life - but it is worth the wait",
+    "The fragrant concubine who was said to dance around the palace after her unique beauty and scent caught the eyes and nose of the emperor"
+  ],
+  "selling_points_predicted": [
+    "Visit a historic Silk Road gateway city with thousands of years of strategic importance",
+    "See China's biggest mosque for free (outside prayer times)",
+    "Explore the atmospheric ancient city with winding streets and local shops",
+    "Experience authentic Uyghur cuisine including kebabs, Da Pan Ji, and unique ice cream",
+    "Visit the vibrant night market that comes alive after 10pm",
+    "Tour the historic Apak Khoja mausoleum and learn about the legendary fragrant concubine",
+    "Get a first-hand perspective on a place frequently in international news"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

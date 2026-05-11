@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-food-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5555555555555556,
+    "selling_point_recall": 0.375,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 463.442779015,
+  "error": null,
+  "hooks_predicted": [
+    "today, we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating",
+    "Look at all those chilies, that's crazy. Your nose is numbing just from being here",
+    "we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour of Chongqing",
+    "Go easy on my spice and go crazy on his spice",
+    "I put it in my coffee every day. MSG, I put it in my coffee every day",
+    "That is really spicy. That's very hardcore",
+    "It's 20 kg per cube. This is the soul of Chongqing hot pot",
+    "if you want the most spicy hot pot, the oil is kind of like cheating"
+  ],
+  "selling_points_predicted": [
+    "Experience an extreme spicy food challenge with progressively spicier dishes",
+    "Meet and tour with a Chinese Trump impersonator who is a local spice expert",
+    "Visit Chongqing, the spiciest cyberpunk city in China with spectacular skyline",
+    "Try authentic Chongqing Xiaomian noodles that you can only find in this city",
+    "Watch the traditional hot pot making process from scratch with 20kg of beef fat",
+    "Learn the health benefits of spicy food according to Chinese philosophy",
+    "Experience food so good that luxury car owners park to eat there",
+    "Get authentic local guidance from someone who grew up eating this comfort food",
+    "Experience spice levels so intense your nose numbs from the air alone",
+    "Try unique dishes like mao cai where you pick ingredients boiled in extreme spicy broth"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

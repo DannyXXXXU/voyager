@@ -1,0 +1,182 @@
+[
+  {
+    "fixture_id": "dev-food-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.5555555555555556,
+      "selling_point_recall": 0.375,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 463.442779015,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-food-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.8,
+      "selling_point_recall": 0.13333333333333333,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 376.357665712,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-vlog-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.7142857142857143,
+      "selling_point_recall": 0.25,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 393.21621047199994,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-travel-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.5333333333333333,
+      "selling_point_recall": 0.7692307692307693,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 392.59095847899994,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-culture-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.7692307692307692,
+      "selling_point_recall": 0.2,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 373.95776507000005,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-food-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.6666666666666665,
+      "selling_point_recall": 0.3333333333333333,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 383.6765507110001,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-vlog-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.6666666666666666,
+      "selling_point_recall": 0.42857142857142855,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 323.17309080400037,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-travel-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.5,
+      "selling_point_recall": 0.36363636363636365,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 384.5965429470002,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-culture-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.5,
+      "selling_point_recall": 0.75,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 349.90610417000016,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-nature-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.7142857142857143,
+      "selling_point_recall": 0.5384615384615384,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 443.46523077799975,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-vlog-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.4444444444444445,
+      "selling_point_recall": 0.5714285714285714,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 348.5966190570002,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-history-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.16666666666666666,
+      "selling_point_recall": 0.7777777777777778,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 357.41619234300015,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-travel-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.7777777777777777,
+      "selling_point_recall": 0.7,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 327.7623056000002,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-culture-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.0,
+      "selling_point_recall": 0.625,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 359.1297850689998,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-food-04",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.625,
+      "selling_point_recall": 0.4,
+      "schema_validity_rate": 1.0
+    },
+    "cost_usd": 0.0,
+    "wall_seconds": 338.193418715,
+    "error": null
+  }
+]

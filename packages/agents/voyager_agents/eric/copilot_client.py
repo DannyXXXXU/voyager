@@ -32,6 +32,8 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+import json_repair
+
 from pydantic import BaseModel, ValidationError
 
 # --------------------------------------------------------------------------- #
@@ -87,9 +89,28 @@ def _extract_json_text(raw: str) -> str:
     return body
 
 
-# --------------------------------------------------------------------------- #
-# Client
-# --------------------------------------------------------------------------- #
+def _parse_json_with_repair(body: str) -> tuple[Any, str | None]:
+    """Try strict json.loads; on failure, fall back to json_repair.loads.
+
+    Returns (parsed, repair_note). repair_note is None on strict success,
+    or a short message describing the repair attempt outcome.
+    Raises json.JSONDecodeError if both strict and repair fail to produce
+    a non-None object.
+    """
+    try:
+        return json.loads(body), None
+    except json.JSONDecodeError as strict_err:
+        try:
+            repaired = json_repair.loads(body)
+        except Exception as e:  # noqa: BLE001 - json_repair raises various
+            raise strict_err from e
+        if repaired is None or repaired == "":
+            # json_repair returns "" on total failure rather than raising.
+            raise strict_err
+        return repaired, f"repaired ({type(strict_err).__name__}: {strict_err.msg})"
+
+
+
 class CopilotCLIError(RuntimeError):
     """Raised when the Copilot CLI invocation fails or returns unparseable output."""
 
@@ -144,7 +165,7 @@ class CopilotClaudeClient:
                 return raw
             body = _extract_json_text(raw)
             try:
-                data = json.loads(body)
+                data, repair_note = _parse_json_with_repair(body)
                 return schema.model_validate(data)
             except (json.JSONDecodeError, ValidationError) as e:
                 last_err = e

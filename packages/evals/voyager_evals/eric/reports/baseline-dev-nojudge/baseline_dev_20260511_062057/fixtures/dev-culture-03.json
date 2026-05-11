@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-culture-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.0,
+    "selling_point_recall": 0.625,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 359.1297850689998,
+  "error": null,
+  "hooks_predicted": [
+    "Look at the size comparing to my face - this is the biggest dim sum bun you've ever seen!",
+    "Look at that big ass shrimp in there - Guangzhou's dim sum is on another level",
+    "We're eating dim sum on a boat cruising the Pearl River with stunning skyline views",
+    "This Michelin Guide restaurant has pavilions, bridges, and waterfalls inside",
+    "This restaurant has been serving dim sum since 1880 - emperors used to eat here!",
+    "The sun is so toxic in Guangzhou, even I had to use an umbrella",
+    "Every morning in Guangzhou is a different dim sum restaurant - this is how locals live",
+    "These garden-style restaurants look like ancient Chinese palaces but serve the best dim sum"
+  ],
+  "selling_points_predicted": [
+    "Experience authentic Guangzhou dim sum culture at its birthplace",
+    "Visit Michelin Guide listed garden-style restaurant with stunning Lingnam architecture",
+    "Enjoy dim sum on a unique Pearl River cruise with skyline views",
+    "Discover historic restaurants with over 140 years of culinary heritage",
+    "Explore beautiful traditional Chinese alleyways and architecture",
+    "Get insider local recommendations from someone who visits regularly",
+    "See signature dishes like giant Lai Fen buns with large shrimp",
+    "Visit restaurants that hosted celebrities and historical figures",
+    "Experience fusion of traditional Cantonese and Western cuisine",
+    "Practical booking tips and app recommendations included"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

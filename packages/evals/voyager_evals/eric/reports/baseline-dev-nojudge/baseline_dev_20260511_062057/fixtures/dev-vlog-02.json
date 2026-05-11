@@ -1,0 +1,33 @@
+{
+  "fixture_id": "dev-vlog-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.6666666666666666,
+    "selling_point_recall": 0.42857142857142855,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 323.17309080400037,
+  "error": null,
+  "hooks_predicted": [
+    "It's five times the size, it's five times the size",
+    "I think I got a robot dog. Yeah, man, that's like military shit, yo.",
+    "Killer deal, man, killer deal. One TB and two TB, faster.",
+    "Can I just give you 50 yuan right now for one, just to test?",
+    "This is a Sony. Is this real?",
+    "Look at these red-eyed neck massagers."
+  ],
+  "selling_points_predicted": [
+    "Bulk purchase discounts available - buy 10 pieces to get wholesale pricing",
+    "Great deals on storage devices - 1TB and 2TB options at competitive prices",
+    "Negotiable prices - you can haggle down from initial quotes",
+    "Option to buy single units for testing before committing to bulk orders",
+    "Wide variety of products including electronics, beauty products, and gadgets",
+    "Authentic branded products like Sony available"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

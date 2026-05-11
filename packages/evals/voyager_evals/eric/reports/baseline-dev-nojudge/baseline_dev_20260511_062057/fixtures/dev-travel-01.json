@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-travel-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5333333333333333,
+    "selling_point_recall": 0.7692307692307693,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 392.59095847899994,
+  "error": null,
+  "hooks_predicted": [
+    "For the first time ever, I am taking the fanciest class on one of China's high-speed trains",
+    "America's trains just cannot compare to China's",
+    "This train can go 350 kilometers per hour. That is insane.",
+    "When it's time to board the train, they will personally escort you to the train",
+    "I want to show you just how comfortable you can be",
+    "Let's see if it's a squatty potty or a western toilet, and if it's disgusting or if it's clean",
+    "You can scan this QR code and order stuff. Even KFC or McDonald's.",
+    "In the States, I think you can't get a dish like this at KFC"
+  ],
+  "selling_points_predicted": [
+    "China has the world's largest high-speed rail network",
+    "Trains reach incredibly high speeds of 350 km/h",
+    "Business class offers VIP treatment with priority boarding and personal escort",
+    "Business class includes complimentary beverages, snacks, and meals",
+    "Business class seats fully recline for comfortable sleeping",
+    "Order food delivery directly to your seat via QR code including KFC and McDonald's",
+    "Clean, modern facilities with western-style toilets and full amenities",
+    "Accessibility features including handicap toilets and low buttons for wheelchair users",
+    "Three class options to fit different budgets while maintaining comfort",
+    "More comfortable than airplanes even in economy (second class)",
+    "Spacious work tables especially in business class with leather covering",
+    "Hot water stations available for instant noodles or tea",
+    "Superior to American trains in punctuality and speed"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}
