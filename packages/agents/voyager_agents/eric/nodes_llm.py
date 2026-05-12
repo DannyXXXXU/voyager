@@ -12,6 +12,36 @@ from typing import Any, Protocol
 from pydantic import BaseModel, Field
 
 from voyager_agents.eric.state import EricState
+from voyager_tools.models import TranscriptResult
+
+
+def _format_transcript_with_timestamps(tr: TranscriptResult) -> str:
+    """Render transcript as ``[12.5s] text…`` lines when Whisper segments exist.
+
+    P0.6: the model previously saw plain concatenated text and had no way to
+    ground ``timestamp_s`` other than guessing. By tagging each segment with its
+    start-second the LLM can copy the timestamp directly from the source line.
+
+    Falls back to ``tr.text`` when segments are missing or malformed.
+    """
+    segs = tr.segments or []
+    if not segs:
+        return tr.text
+    lines: list[str] = []
+    for seg in segs:
+        # Whisper segment dict: {"start": float, "end": float, "text": str, ...}
+        start = seg.get("start")
+        text = (seg.get("text") or "").strip()
+        if start is None or not text:
+            continue
+        try:
+            start_f = float(start)
+        except (TypeError, ValueError):
+            continue
+        lines.append(f"[{start_f:.1f}s] {text}")
+    if not lines:
+        return tr.text
+    return "\n".join(lines)
 
 # TODO: implement ShellCopilotClient that shells out to `copilot --prompt` once
 # the GitHub Copilot CLI non-interactive interface is confirmed. See:
@@ -107,8 +137,8 @@ _SYS_HOOKS = (
     "no longer than 140 characters.\n"
     "- A hook is a single, concrete, surprising or curiosity-provoking statement "
     "(NOT a topic label, NOT a summary).\n"
-    "- timestamp_s MUST be the start-second of the source line in the transcript "
-    "if known; use 0.0 only if truly unknown.\n"
+    "- timestamp_s MUST be the leading [<seconds>s] tag of the source line. "
+    "Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.\n"
     "- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.\n"
     "- Reject hooks that are generic (\"this place is amazing\") or hallucinated."
 )
@@ -159,9 +189,10 @@ _SYS_BRIEF = (
 
 async def node_extract_hooks(state: EricState, client: CopilotClient) -> EricState:
     for video_id, tr in state.transcripts.items():
+        transcript_block = _format_transcript_with_timestamps(tr)
         result = await client.complete(
             system=_SYS_HOOKS,
-            user=f"VIDEO_ID={video_id}\nTRANSCRIPT:\n{tr.text}",
+            user=f"VIDEO_ID={video_id}\nTRANSCRIPT:\n{transcript_block}",
             schema=HookExtraction,
             log_tag=f"extract_hooks__{video_id}",
         )
@@ -175,9 +206,10 @@ async def node_extract_selling_points(
     state: EricState, client: CopilotClient
 ) -> EricState:
     for video_id, tr in state.transcripts.items():
+        transcript_block = _format_transcript_with_timestamps(tr)
         result = await client.complete(
             system=_SYS_POINTS,
-            user=f"VIDEO_ID={video_id}\nTRANSCRIPT:\n{tr.text}",
+            user=f"VIDEO_ID={video_id}\nTRANSCRIPT:\n{transcript_block}",
             schema=SellingPointExtraction,
             log_tag=f"extract_selling_points__{video_id}",
         )
