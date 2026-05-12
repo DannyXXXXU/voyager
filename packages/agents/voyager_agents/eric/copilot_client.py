@@ -111,6 +111,63 @@ def _parse_json_with_repair(body: str) -> tuple[Any, str | None]:
 
 
 
+def _ts_type(annotation: Any) -> str:
+    """Render a python typing annotation as a TypeScript-ish type string."""
+    import typing as _t
+    origin = _t.get_origin(annotation)
+    args = _t.get_args(annotation)
+    # Union / Optional
+    if origin in (_t.Union,) or str(origin) == "types.UnionType":
+        non_none = [a for a in args if a is not type(None)]
+        rendered = " | ".join(_ts_type(a) for a in non_none)
+        if len(non_none) < len(args):
+            rendered += " | null"
+        return rendered
+    # list / List
+    if origin in (list, _t.List):  # noqa: UP006
+        inner = _ts_type(args[0]) if args else "any"
+        return f"Array<{inner}>"
+    # dict / Dict
+    if origin in (dict, _t.Dict):  # noqa: UP006
+        k = _ts_type(args[0]) if args else "string"
+        v = _ts_type(args[1]) if len(args) > 1 else "any"
+        return f"Record<{k}, {v}>"
+    # Nested pydantic BaseModel — render inline
+    try:
+        if isinstance(annotation, type) and issubclass(annotation, BaseModel):
+            return _pydantic_to_ts_body(annotation)
+    except TypeError:
+        pass
+    # Primitives
+    if annotation is str:
+        return "string"
+    if annotation in (int, float):
+        return "number"
+    if annotation is bool:
+        return "boolean"
+    if annotation is type(None):
+        return "null"
+    # Fallback: use the name if available.
+    return getattr(annotation, "__name__", "any")
+
+
+def _pydantic_to_ts_body(schema: type[BaseModel]) -> str:
+    """Render a pydantic model as an inline TS-style object literal."""
+    lines = ["{"]
+    for name, field in schema.model_fields.items():
+        ts = _ts_type(field.annotation)
+        comment = f"  // {field.description}" if field.description else ""
+        lines.append(f"  {name}: {ts};{comment}")
+    lines.append("}")
+    return "\n".join(lines)
+
+
+def pydantic_to_ts_interface(schema: type[BaseModel]) -> str:
+    """Render `interface <Name> { ... }` for the schema and any nested models."""
+    body = _pydantic_to_ts_body(schema)
+    return f"interface {schema.__name__} {body}"
+
+
 class CopilotCLIError(RuntimeError):
     """Raised when the Copilot CLI invocation fails or returns unparseable output."""
 
@@ -223,8 +280,9 @@ class CopilotClaudeClient:
             parts.append(
                 "RESPONSE FORMAT:\n"
                 "Return ONLY a raw JSON object — no prose, no markdown fences, "
-                "no explanations. The JSON must validate against this schema:\n"
-                f"{json.dumps(schema.model_json_schema(), indent=2)}"
+                "no explanations. The JSON must match this TypeScript interface "
+                "(field types are exact; comments describe constraints):\n"
+                f"{pydantic_to_ts_interface(schema)}"
             )
             # Determinism hint + brace prefill — keeps the model anchored on
             # the JSON-only contract and reduces stochastic preamble drift.

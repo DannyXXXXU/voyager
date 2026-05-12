@@ -42,10 +42,12 @@ def test_freeform_prompt_has_determinism_no_brace_hint() -> None:
     assert "BEGIN YOUR RESPONSE WITH THE CHARACTER `{`" not in p
 
 
-def test_schema_prompt_still_carries_schema_json() -> None:
+def test_schema_prompt_still_carries_schema_fields() -> None:
     p = _client()._build_prompt("sys", "usr", _DummySchema)
     assert "RESPONSE FORMAT:" in p
-    assert '"foo"' in p  # schema field leaks into the json_schema dump
+    # P0.5: schema is rendered as a TypeScript interface, not JSON Schema.
+    assert "interface _DummySchema" in p
+    assert "foo:" in p  # field name appears in TS interface body
 
 
 def test_hooks_system_has_hard_rules() -> None:
