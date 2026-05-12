@@ -194,6 +194,27 @@ class CopilotClaudeClient:
                 "no explanations. The JSON must validate against this schema:\n"
                 f"{json.dumps(schema.model_json_schema(), indent=2)}"
             )
+            # Determinism hint + brace prefill — keeps the model anchored on
+            # the JSON-only contract and reduces stochastic preamble drift.
+            parts.append(
+                "DETERMINISM:\n"
+                "Be deterministic. Identical inputs MUST produce identical output. "
+                "Prefer literal phrasings already present in the transcript. "
+                "Do not invent facts, dates, or place names not in the source. "
+                "Do not add filler, hedging, or commentary."
+            )
+            parts.append(
+                "BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. "
+                "Output NOTHING before the opening brace and NOTHING after the "
+                "closing brace — no markdown fences, no prose, no explanation."
+            )
+        else:
+            # For free-form (e.g. brief) outputs we still want determinism.
+            parts.append(
+                "DETERMINISM:\n"
+                "Be deterministic. Identical inputs MUST produce identical output. "
+                "Do not invent facts not present in the inputs. No filler."
+            )
         return "\n\n".join(parts)
 
     async def _invoke(self, prompt: str) -> str:

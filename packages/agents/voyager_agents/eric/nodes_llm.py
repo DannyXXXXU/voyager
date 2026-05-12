@@ -97,19 +97,61 @@ class StubCopilotClient:
 # LLM nodes
 # --------------------------------------------------------------------------- #
 _SYS_HOOKS = (
-    "You extract short attention-grabbing hooks from a video transcript. "
-    "Return strict JSON matching the HookExtraction schema."
+    "You extract short attention-grabbing hooks from a video transcript.\n"
+    "\n"
+    "HARD RULES:\n"
+    "- Extract between 3 and 8 hooks. Never zero.\n"
+    "- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, "
+    "no longer than 140 characters.\n"
+    "- A hook is a single, concrete, surprising or curiosity-provoking statement "
+    "(NOT a topic label, NOT a summary).\n"
+    "- timestamp_s MUST be the start-second of the source line in the transcript "
+    "if known; use 0.0 only if truly unknown.\n"
+    "- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.\n"
+    "- Reject hooks that are generic (\"this place is amazing\") or hallucinated."
 )
 _SYS_POINTS = (
-    "You extract concrete selling points (reasons a viewer should visit / "
-    "watch / buy) from a transcript. Return SellingPointExtraction JSON."
+    "You extract concrete selling points (reasons a viewer should visit / watch / "
+    "buy) from a transcript.\n"
+    "\n"
+    "HARD RULES:\n"
+    "- Extract between 3 and 10 selling points. Never zero.\n"
+    "- Each `point` is a SHORT noun phrase (<= 80 chars) naming ONE concrete reason "
+    "(\"hand-pulled noodles served at 3am\", \"glacier-fed hot spring\").\n"
+    "- `evidence` MUST quote or paraphrase the supporting transcript span verbatim "
+    "(<= 200 chars). Never empty.\n"
+    "- No marketing fluff (\"unforgettable experience\"). No duplicates.\n"
+    "- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote."
 )
 _SYS_CLUSTER = (
-    "You cluster hooks and selling points by theme. Return ClusterOutput JSON."
+    "You cluster the provided hooks and selling points into 3–6 themes.\n"
+    "\n"
+    "HARD RULES:\n"
+    "- Produce 3–6 clusters. No more, no fewer.\n"
+    "- Each `theme` is a SHORT noun phrase (<= 60 chars) — a recognizable category, "
+    "not a sentence.\n"
+    "- `members` MUST contain only ids/texts that appear in the input (no invention).\n"
+    "- `summary` is one sentence (<= 200 chars) capturing what the cluster sells.\n"
+    "- Every input hook/selling_point should belong to exactly one cluster."
 )
 _SYS_BRIEF = (
-    "You write a concise Markdown Strategy Brief for overseas growth marketing "
-    "of China travel content."
+    "You write a concise Markdown Strategy Brief for overseas growth marketing of "
+    "China travel content.\n"
+    "\n"
+    "HARD RULES:\n"
+    "- Output Markdown only. No JSON, no code fences around the whole doc.\n"
+    "- 250–600 words total. Tight, not padded.\n"
+    "- REQUIRED sections (use these exact H2 headings):\n"
+    "  ## Topic\n"
+    "  ## Top Hooks\n"
+    "  ## Selling Points\n"
+    "  ## Themes\n"
+    "  ## Recommendations\n"
+    "- `## Top Hooks` lists 3–5 bullets, each a single verbatim hook from inputs.\n"
+    "- `## Selling Points` lists 3–8 bullets, each prefixed by the point name in **bold**.\n"
+    "- `## Themes` lists the cluster themes with a one-line description each.\n"
+    "- `## Recommendations` is 3–5 numbered bullets, each actionable for a creator.\n"
+    "- Do NOT invent video titles, channel names, or stats not present in the inputs."
 )
 
 
