@@ -27,6 +27,7 @@ class CopilotClient(Protocol):
         system: str,
         user: str,
         schema: type[BaseModel] | None = None,
+        log_tag: str | None = None,
     ) -> BaseModel | str: ...
 
 
@@ -74,6 +75,7 @@ class StubCopilotClient:
         system: str,
         user: str,
         schema: type[BaseModel] | None = None,
+        log_tag: str | None = None,
     ) -> BaseModel | str:
         if schema is None:
             return "STUB RESPONSE"
@@ -161,6 +163,7 @@ async def node_extract_hooks(state: EricState, client: CopilotClient) -> EricSta
             system=_SYS_HOOKS,
             user=f"VIDEO_ID={video_id}\nTRANSCRIPT:\n{tr.text}",
             schema=HookExtraction,
+            log_tag=f"extract_hooks__{video_id}",
         )
         if isinstance(result, HookExtraction):
             for h in result.hooks:
@@ -176,6 +179,7 @@ async def node_extract_selling_points(
             system=_SYS_POINTS,
             user=f"VIDEO_ID={video_id}\nTRANSCRIPT:\n{tr.text}",
             schema=SellingPointExtraction,
+            log_tag=f"extract_selling_points__{video_id}",
         )
         if isinstance(result, SellingPointExtraction):
             for sp in result.selling_points:
@@ -192,6 +196,7 @@ async def node_cluster_insights(state: EricState, client: CopilotClient) -> Eric
         system=_SYS_CLUSTER,
         user=str(payload),
         schema=ClusterOutput,
+        log_tag="cluster_insights",
     )
     if isinstance(result, ClusterOutput):
         state.clusters = [c.model_dump() for c in result.clusters]
@@ -205,6 +210,8 @@ async def node_write_brief(state: EricState, client: CopilotClient) -> EricState
         f"HOOKS_SAMPLE: {state.hooks[:10]}\n"
         f"SELLING_POINTS_SAMPLE: {state.selling_points[:10]}\n"
     )
-    result = await client.complete(system=_SYS_BRIEF, user=user, schema=None)
+    result = await client.complete(
+        system=_SYS_BRIEF, user=user, schema=None, log_tag="write_brief"
+    )
     state.brief_md = result if isinstance(result, str) else str(result)
     return state

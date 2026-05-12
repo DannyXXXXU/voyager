@@ -62,18 +62,23 @@ class TrackingClient:
         system: str,
         user: str,
         schema: type[BaseModel] | None = None,
+        log_tag: str | None = None,
     ) -> BaseModel | str:
         if schema is None:
             # freeform (brief) — not counted in schema validity
             try:
-                return await self._inner.complete(system=system, user=user, schema=None)
+                return await self._inner.complete(
+                    system=system, user=user, schema=None, log_tag=log_tag
+                )
             except CopilotCLIError as e:
                 self.stats.errors.append(f"brief: {e}")
                 return ""
 
         self.stats.schema_total += 1
         try:
-            result = await self._inner.complete(system=system, user=user, schema=schema)
+            result = await self._inner.complete(
+                system=system, user=user, schema=schema, log_tag=log_tag
+            )
             if isinstance(result, schema):
                 self.stats.schema_ok += 1
                 return result

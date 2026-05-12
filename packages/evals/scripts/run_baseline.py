@@ -173,7 +173,12 @@ async def _run(
     print(f"[baseline] reports → {run_dir}")
     print(f"[baseline] judge: {'SKIPPED' if skip_judge else 'gpt-5 median_of=3 cached'}")
 
-    client = CopilotClaudeClient(model=model, max_retries=1, timeout_s=240)
+    client = CopilotClaudeClient(
+        model=model,
+        max_retries=3,
+        timeout_s=240,
+        log_dir=run_dir / "logs",
+    )
 
     scores: list[dict[str, Any]] = []
     failed = 0

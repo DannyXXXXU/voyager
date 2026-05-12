@@ -23,7 +23,7 @@ class _Out(BaseModel):
 class _FakeOK:
     _model = "fake"
 
-    async def complete(self, system, user, schema=None):
+    async def complete(self, system, user, schema=None, log_tag=None):
         if schema is None:
             return "free text"
         return schema()
@@ -32,7 +32,7 @@ class _FakeOK:
 class _FakeErr:
     _model = "fake"
 
-    async def complete(self, system, user, schema=None):
+    async def complete(self, system, user, schema=None, log_tag=None):
         raise CopilotCLIError("boom")
 
 

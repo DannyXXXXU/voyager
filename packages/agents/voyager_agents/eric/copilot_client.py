@@ -132,11 +132,15 @@ class CopilotClaudeClient:
         timeout_s: int = 180,
         max_retries: int = 3,
         backoff_base_s: float = 2.0,
+        log_dir: Path | str | None = None,
     ) -> None:
         self._model = model
         self._timeout_s = timeout_s
         self._max_retries = max_retries
         self._backoff_base_s = backoff_base_s
+        self._log_dir: Path | None = Path(log_dir) if log_dir else None
+        if self._log_dir is not None:
+            self._log_dir.mkdir(parents=True, exist_ok=True)
         _STAGE_WSL.mkdir(parents=True, exist_ok=True)
         if not _PS1_WSL.exists():
             raise CopilotCLIError(f"run_copilot.ps1 not found at {_PS1_WSL}")
@@ -146,6 +150,7 @@ class CopilotClaudeClient:
         system: str,
         user: str,
         schema: type[BaseModel] | None = None,
+        log_tag: str | None = None,
     ) -> BaseModel | str:
         prompt = self._build_prompt(system, user, schema)
         last_err: Exception | None = None
@@ -160,7 +165,9 @@ class CopilotClaudeClient:
             except CopilotCLIError as e:
                 # Network / CLI failure — also worth retrying with backoff.
                 last_err = e
+                self._dump_log(log_tag, attempt, prompt, raw=None, error=str(e))
                 continue
+            self._dump_log(log_tag, attempt, prompt, raw=raw, error=None)
             if schema is None:
                 return raw
             body = _extract_json_text(raw)
@@ -183,6 +190,31 @@ class CopilotClaudeClient:
     # ------------------------------------------------------------------ #
     # Internals
     # ------------------------------------------------------------------ #
+    def _dump_log(
+        self,
+        log_tag: str | None,
+        attempt: int,
+        prompt: str,
+        raw: str | None,
+        error: str | None,
+    ) -> None:
+        """Persist prompt + raw stdout (or error) to log_dir for post-hoc debugging."""
+        if self._log_dir is None or log_tag is None:
+            return
+        try:
+            path = self._log_dir / f"{log_tag}_{attempt:02d}.txt"
+            parts = [
+                f"=== TAG: {log_tag}  ATTEMPT: {attempt}  MODEL: {self._model} ===",
+                "--- PROMPT ---",
+                prompt,
+                "--- RAW STDOUT ---",
+                raw if raw is not None else "(no stdout — invocation error)",
+            ]
+            if error:
+                parts += ["--- ERROR ---", error]
+            path.write_text("\n".join(parts), encoding="utf-8")
+        except Exception:  # noqa: BLE001 — logging must never break a run
+            pass
     def _build_prompt(
         self, system: str, user: str, schema: type[BaseModel] | None
     ) -> str:
