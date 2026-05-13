@@ -1,0 +1,38 @@
+{
+  "fixture_id": "dev-vlog-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.6153846153846153,
+    "selling_point_recall": 0.375,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 375.80806030100007,
+  "error": null,
+  "hooks_predicted": [
+    "If you're traveling to China for the first time, there are a few things you need to know",
+    "I've been living in Shanghai for nearly 20 years, and in this video, I'll be demonstrating some of the things you can do to make your stay in the city a lot more convenient",
+    "Booking a hotel in China can be a little tricky, as not every hotel is allowed to host foreign nationals",
+    "You'll need to register at the police station nearest to the place that you're staying within 24 hours of arriving here in Shanghai",
+    "Paying for things in China is a little bit different than other countries",
+    "Cash is seldom used, especially in the big cities"
+  ],
+  "selling_points_predicted": [
+    "Expert guidance from someone with nearly 20 years of living in Shanghai",
+    "Step-by-step demonstrations of getting free airport Wi-Fi without a local phone number",
+    "Complete setup guide for linking international credit cards to Alipay and WeChat for cashless payments",
+    "How to avoid hotel booking mistakes with foreign national restrictions explained",
+    "Navigate Shanghai metro system using QR code payments instead of buying tickets",
+    "Order food delivery with built-in translation feature on Alipay for Chinese-only menus",
+    "Official government website referenced for comprehensive arrival checklists and updated travel information",
+    "Digital payment help desk location revealed right at airport arrivals for immediate setup",
+    "How to make required reservations at tourist attractions using WeChat official accounts",
+    "High-speed train ticket purchasing guidance specifically for foreign passport holders",
+    "Phone camera translation technique for Chinese-only restaurant menus"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

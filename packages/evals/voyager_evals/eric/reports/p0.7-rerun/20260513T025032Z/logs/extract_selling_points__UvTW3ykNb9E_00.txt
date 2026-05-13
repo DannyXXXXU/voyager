@@ -1,0 +1,172 @@
+=== TAG: extract_selling_points__UvTW3ykNb9E  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract selling points (reasons a viewer should visit / watch / buy) from a transcript. These are written in marketing-brief style — concise benefit statements a copywriter would use.
+
+HARD RULES:
+- Extract between 5 and 12 selling points. Never zero. Aim high on recall.
+- Each `point` is a concise benefit STATEMENT, 40–180 characters. Full phrases are encouraged when they convey the benefit clearly. Examples:
+  * "UNESCO World Heritage Site with international recognition since 1992"
+  * "Step-by-step demonstrations of getting free airport Wi-Fi without a local phone number"
+  * "Expert guidance from someone with nearly 20 years of living in Shanghai"
+- `evidence` MUST quote or paraphrase the supporting transcript span verbatim (<= 200 chars). Never empty.
+- Reject only empty filler ("unforgettable experience" alone). Specific marketing-style phrasing IS allowed and desired.
+- No duplicates (same benefit, different words).
+- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote.
+
+USER:
+VIDEO_ID=UvTW3ykNb9E
+TRANSCRIPT:
+[0.0s] it's important to wait until the timer rings before trying these mushrooms
+[5.6s] otherwise you might start tripping out or you might see lots of weird colors
+[10.6s] today we're going to Tai Po Tian Fu Shan Zhen for a mushroom meal
+[16.2s] come on let's go eat some hotpot
+[30.0s] going through this menu is really really funny like listen to this one you would never expect
+[35.3s] this is a mushroom chilled black tiger feet wow chilled bigfoot mushrooms wow that really looks
+[44.6s] super meaty another interesting thing i am seeing about this menu is that you have all of the
+[50.6s] delicious vegetables and mushrooms right at the forefront of this menu and it's not even a
+[56.4s] vegetarian restaurant all of the meat is actually hidden at the back which is super curious but
+[63.0s] definitely my style
+[75.6s] and here even the tea is made from mushrooms look at that beautiful red color
+[87.4s] yes, it's a vegetarian dish, no chicken oil or mushroom soup
+[92.6s] it's a soup made from top-notch mushrooms
+[95.0s] what kind of sauce do you recommend?
+[96.5s] I recommend our special garlic and chili sauce
+[100.6s] because the chili sauce is home-made, it's not spicy
+[103.6s] so you have to eat it with the mushrooms
+[106.7s] okay
+[107.4s] one thing I really like about Tai Po is that you can order half portions so that means you can try
+[113.4s] so many more different types of mushrooms
+[123.0s] so it's important to wait until the timer rings before trying these mushrooms otherwise you might
+[130.0s] start tripping out like you're in san ti or three body problem with the numbers clocking down
+[137.1s] or you might see lots of weird colors
+[140.2s] just to be on the safe side I'm gonna wait until the timer's up
+[150.2s] the timer is up and the first thing we've been served is the soup base
+[156.1s] oh wow that is one of the most complex mushroom soups I've ever tasted
+[161.3s] that is so rich
+[163.4s] all right shall we go in for our first mushroom?
+[165.6s] the zhu sun or the bamboo mushroom
+[169.6s] wow that is soaking up so much broth
+[173.0s] let's dip it into our mushroom dipping sauce
+[179.0s] I think I know now why it's called a bamboo mushroom
+[182.9s] it actually has a very similar texture in the mouth to bamboo shoot
+[188.1s] a little bit crunchy, tender
+[190.6s] this mushroom has a very meaty name
+[194.2s] beef liver mushroom and it really looks like liver
+[202.1s] wow it definitely has a mushroom texture but it's super tender and
+[207.4s] I mean I haven't eaten liver in years but it does have that liver
+[214.8s] slipperiness that look to it for sure
+[217.4s] this is our scary mushroom the jian shou qing
+[220.8s] that if you eat it before it's ready you'll start to hallucinate
+[225.5s] so let's hope that I can finish this video without any hallucinations
+[230.6s] this mushroom gets its name because when it is exposed to air when raw
+[236.0s] it turns this vibrant blue shade
+[239.0s] here it's after being boiled it's turned more of a safe looking brown
+[243.5s] so I'm more comfortable eating it this way
+[247.4s] the mushroom is super tender
+[253.2s] it's almost like a mix between yam and a mushroom
+[257.7s] honestly it's very very subtle
+[260.0s] which is I think a good reason to have some of these dipping sauces here
+[263.8s] but we're not just eating mushrooms
+[265.9s] my favorite thing whenever I order hot pot is the fuzhu or bamboo style tofu skin
+[273.0s] and we also have the haozigar
+[275.4s] this is a Chinese favorite green for hot pot
+[279.7s] haozigar has a very particular flavor
+[282.7s] and it doesn't matter how strong the hot pot is
+[285.9s] that flavor will always shine through
+[288.6s] and I'm curious are there any other Chinese dishes that use haozigar
+[292.9s] because I've only ever seen it at hot pot places
+[296.0s] what I like to do towards the end of the meal is make my own mushroom noodle soup
+[301.2s] so we have our noodles in here
+[303.9s] the soup is going to be super fragrant
+[306.1s] because it's had all of those mushrooms and vegetables cooking up
+[310.2s] so just put in the noodles in there
+[311.9s] and let them cook for just a couple of minutes
+[315.0s] and then it will be ready
+[320.7s] bon appetit
+[322.8s] wow that is probably one of the best mushroom noodle soups I've ever had
+[328.6s] it's incredible
+[330.0s] all of those beautiful mushroom earthy flavors
+[333.4s] really make this mushroom soup broth stand out
+[336.9s] you really shouldn't miss out
+[338.6s] I'm Alex from Vegan in China
+[340.4s] see you next time
+[341.5s] bye bye
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "selling_points": [
+    {
+      "point": "Half portions available so you can try many different types of mushrooms in one meal",
+      "evidence": "one thing I really like about Tai Po is that you can order half portions so that means you can try so many more different types of mushrooms",
+      "confidence": 0.85
+    },
+    {
+      "point": "Unique menu design with vegetables and mushrooms at the forefront, meat hidden at the back",
+      "evidence": "you have all of the delicious vegetables and mushrooms right at the forefront of this menu and it's not even a vegetarian restaurant all of the meat is actually hidden at the back",
+      "confidence": 0.85
+    },
+    {
+      "point": "Even the tea is made from mushrooms with a beautiful red color",
+      "evidence": "even the tea is made from mushrooms look at that beautiful red color",
+      "confidence": 0.9
+    },
+    {
+      "point": "Vegetarian soup base made from top-notch mushrooms without chicken oil",
+      "evidence": "yes, it's a vegetarian dish, no chicken oil or mushroom soup it's a soup made from top-notch mushrooms",
+      "confidence": 0.9
+    },
+    {
+      "point": "Homemade special garlic and chili sauce that's not spicy",
+      "evidence": "I recommend our special garlic and chili sauce because the chili sauce is home-made, it's not spicy",
+      "confidence": 0.85
+    },
+    {
+      "point": "One of the most complex and rich mushroom soups available",
+      "evidence": "that is one of the most complex mushroom soups I've ever tasted that is so rich",
+      "confidence": 0.9
+    },
+    {
+      "point": "Exotic jian shou qing mushroom that turns vibrant blue when exposed to air raw",
+      "evidence": "this mushroom gets its name because when it is exposed to air when raw it turns this vibrant blue shade",
+      "confidence": 0.85
+    },
+    {
+      "point": "Bamboo mushroom with crunchy, tender texture similar to bamboo shoot",
+      "evidence": "it actually has a very similar texture in the mouth to bamboo shoot a little bit crunchy, tender",
+      "confidence": 0.85
+    },
+    {
+      "point": "Beef liver mushroom with authentic liver texture and slipperiness",
+      "evidence": "it definitely has a mushroom texture but it's super tender and I mean I haven't eaten liver in years but it does have that liver slipperiness",
+      "confidence": 0.8
+    },
+    {
+      "point": "Create your own mushroom noodle soup at the end of the meal",
+      "evidence": "what I like to do towards the end of the meal is make my own mushroom noodle soup",
+      "confidence": 0.85
+    },
+    {
+      "point": "Probably one of the best mushroom noodle soups with incredible earthy flavors",
+      "evidence": "that is probably one of the best mushroom noodle soups I've ever had it's incredible all of those beautiful mushroom earthy flavors really make this mushroom soup broth stand out",
+      "confidence": 0.9
+    }
+  ]
+}
+```
+

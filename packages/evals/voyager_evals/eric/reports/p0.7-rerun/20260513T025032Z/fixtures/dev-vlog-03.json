@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-vlog-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.8,
+    "selling_point_recall": 0.2857142857142857,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 351.67526951499985,
+  "error": null,
+  "hooks_predicted": [
+    "Now Xinjiang has been in the news a lot lately you would have seen and we all know what the news is like.",
+    "So I've come here to check out the place with my own eyes, come with me.",
+    "It's been famous for thousands of years due to its strategic position on the Silk Road",
+    "the Id Kar Mosque which is not only the biggest mosque in Xinjiang but also in all of China.",
+    "since China has only one time zone, you need to wait till about 10pm until the place gets dark and really comes to life.",
+    "This was also once home to Xiang Fei, the fragrant concubine, who was said to dance around the palace after her unique beauty and scent caught the eyes and nose of the"
+  ],
+  "selling_points_predicted": [
+    "Firsthand exploration of a frequently misrepresented region - see Xinjiang beyond the headlines",
+    "Strategic Silk Road position spanning thousands of years of history as a gateway between China, Central Asia, and Europe",
+    "Visit the Id Kar Mosque, the biggest mosque in all of China",
+    "Free admission for non-Muslims outside prayer times at the mosque",
+    "Explore the ancient city's winding streets at the centre of modern Kashgar",
+    "Authentic local cuisine including Da Pan Ji (big dish of chicken), doner kebabs, hand-pulled noodles, and Uyghur ice cream",
+    "Vibrant night market that comes alive around 10pm due to China's single time zone",
+    "Historic Apak Khoja mausoleum, final resting place of Apak Khoja and his family",
+    "Site connected to Xiang Fei, the legendary fragrant concubine whose unique beauty and scent captivated royalty",
+    "Shopping opportunities for souvenirs in the ancient city streets"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

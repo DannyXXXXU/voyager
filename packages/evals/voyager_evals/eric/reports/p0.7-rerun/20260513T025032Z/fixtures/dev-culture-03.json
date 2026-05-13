@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-culture-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.0,
+    "selling_point_recall": 0.375,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 389.18469216000085,
+  "error": null,
+  "hooks_predicted": [
+    "I highly recommend you guys to get this online.",
+    "Guangzhou is a place that's most popular for ?? and the dim sum culture.",
+    "This is the first restaurant that is a must-go when you visit Guangzhou",
+    "Peng Tou Gui, founded in 1880, is one of Guangzhou's oldest and most famous Cantonese restaurants.",
+    "But be warned, because this place is always, always packed.",
+    "Tai Pingguan Restaurant, established in 1860, is Guangzhou's first western-style eatery"
+  ],
+  "selling_points_predicted": [
+    "Michelin Guide garden-style restaurant with Lingnam architecture at South Garden Restaurant",
+    "Visit one of Guangzhou's oldest Cantonese restaurants, founded in 1880 and serving emperors to modern diners",
+    "Experience Guangzhou's first western-style restaurant from 1860, blending Chinese and western flavors",
+    "Unique dining experience combining traditional dim sum on a scenic Pearl River cruise",
+    "Elegant garden restaurants featuring pavilions, bridges, and waterfalls creating atmospheric dining",
+    "Dine where celebrities held their weddings, including famous figure Zao Wanluo's wedding banquet",
+    "Authentic Cantonese dim sum culture in the city most popular for this culinary tradition",
+    "Two-hour cruise experience with set menus including tea fee, dim sum dishes, and river tour",
+    "Classic yet modern dishes in beautiful Lingnam style architecture attracting young visitors",
+    "Explore historic alleyways and traditional streets with olden day valley-style architecture"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

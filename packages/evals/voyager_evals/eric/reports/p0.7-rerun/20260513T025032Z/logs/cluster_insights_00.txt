@@ -1,0 +1,85 @@
+=== TAG: cluster_insights  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You cluster the provided hooks and selling points into 3–6 themes.
+
+HARD RULES:
+- Produce 3–6 clusters. No more, no fewer.
+- Each `theme` is a SHORT noun phrase (<= 60 chars) — a recognizable category, not a sentence.
+- `members` MUST contain only ids/texts that appear in the input (no invention).
+- `summary` is one sentence (<= 200 chars) capturing what the cluster sells.
+- Every input hook/selling_point should belong to exactly one cluster.
+
+USER:
+{'hooks': [{'video_id': 'Zw_tJOwZmac', 'hook_text': 'to taste one of the most painfully spicy meals in the world.', 'timestamp_s': 6.0, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'this is one of the most spiciest and fragrant meals you can eat in the whole world.', 'timestamp_s': 17.3, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'If you love spicy, this is your heaven.', 'timestamp_s': 70.7, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'the most deadly spicy hot pot available on the menu.', 'timestamp_s': 75.1, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'Intense, bubbling pot of death.', 'timestamp_s': 253.7, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'It feels like your soul is burning.', 'timestamp_s': 539.3, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': "this is one of the spiciest things you'll ever eat, guys.", 'timestamp_s': 589.9, 'confidence': 0.95}], 'selling_points': [{'video_id': 'Zw_tJOwZmac', 'point': 'One of the most painfully spicy meals in the world', 'evidence': "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world", 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Home of authentic spicy and mouth-numbing Sichuan cuisine', 'evidence': 'This is home of spicy and mouth-numbing Sichuan cuisine', 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'One of the most spiciest and fragrant meals you can eat in the whole world', 'evidence': 'this is one of the most spiciest and fragrant meals you can eat in the whole world', 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'Authentic local hot pot experience in Chengdu, the land of spicy cuisine', 'evidence': 'We are in Chengdu, the land of spicy, numbing, fragrant cuisine, the land of plentiful flavor, the land of plenty', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Customizable spice levels from medium to extremely spicy for all tolerance levels', 'evidence': "you're gonna wanna tick either wei la, which is less spicy, zhong la, which is like medium spicy, or te la, which is extremely spicy", 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Traditional sesame oil dipping sauce preparation with fresh chilies and peanuts', 'evidence': 'we are gonna make our dip, which is made with a xiang you, sesame oil...green onions and some peanuts...xiaomila, fresh, not dry, red chilies...xiang cai, cilantro', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Full-on beef oil hot pot packed with red chilies and Sichuan peppercorn', 'evidence': 'This is a full-on beef oil, they call it niu you, in, packed with red chilies, packed with Sichuan peppercorn', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Unique numbing sensation that feels florally, citrusy, and tingly on your tongue', 'evidence': 'The huajiao, the Sichuan peppercorn, the minute you get that flavor on your tongue, you can feel a bit of a tingle. It feels florally, almost a little citrusy and numbing', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Addictive burning pleasure that makes you want to come back for more', 'evidence': "It is burning, and it is actually somehow addictive...You're in pain, but you are also enjoying it...you just wanna go back for more", 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Must-try authentic experience when visiting Sichuan', 'evidence': "This is one of the things you have to try when you come to Sichuan...You've gotta come to the heart of Sichuan to get this", 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'One of thousands of hot pot joints available throughout Chengdu', 'evidence': 'This is just one of thousands of hot pot joints in Chengdu', 'confidence': 0.95}]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface ClusterOutput {
+  clusters: Array<{
+  theme: string;
+  members: Array<string>;
+  summary: string;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "clusters": [
+    {
+      "theme": "Extreme Spiciness Challenge",
+      "members": [
+        "to taste one of the most painfully spicy meals in the world.",
+        "the most deadly spicy hot pot available on the menu.",
+        "Intense, bubbling pot of death.",
+        "It feels like your soul is burning.",
+        "this is one of the spiciest things you'll ever eat, guys.",
+        "One of the most painfully spicy meals in the world",
+        "Customizable spice levels from medium to extremely spicy for all tolerance levels"
+      ],
+      "summary": "Experience one of the world's most painfully spicy meals with customizable extreme heat levels."
+    },
+    {
+      "theme": "Authentic Sichuan Cuisine & Location",
+      "members": [
+        "Home of authentic spicy and mouth-numbing Sichuan cuisine",
+        "Authentic local hot pot experience in Chengdu, the land of spicy cuisine",
+        "Must-try authentic experience when visiting Sichuan",
+        "One of thousands of hot pot joints available throughout Chengdu"
+      ],
+      "summary": "Authentic Sichuan hot pot in Chengdu, the heart of China's spicy cuisine tradition."
+    },
+    {
+      "theme": "Unique Numbing & Fragrant Flavor Profile",
+      "members": [
+        "this is one of the most spiciest and fragrant meals you can eat in the whole world.",
+        "If you love spicy, this is your heaven.",
+        "One of the most spiciest and fragrant meals you can eat in the whole world",
+        "Unique numbing sensation that feels florally, citrusy, and tingly on your tongue"
+      ],
+      "summary": "Spicy heaven with fragrant aromas and signature numbing Sichuan peppercorn sensation."
+    },
+    {
+      "theme": "Hot Pot Preparation & Ingredients",
+      "members": [
+        "Traditional sesame oil dipping sauce preparation with fresh chilies and peanuts",
+        "Full-on beef oil hot pot packed with red chilies and Sichuan peppercorn"
+      ],
+      "summary": "Traditional beef oil hot pot with custom sesame oil dipping sauce and authentic ingredients."
+    },
+    {
+      "theme": "Addictive Pain & Pleasure Experience",
+      "members": [
+        "Addictive burning pleasure that makes you want to come back for more"
+      ],
+      "summary": "An addictive blend of burning pain and pleasure that keeps you coming back."
+    }
+  ]
+}
+```
+

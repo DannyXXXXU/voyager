@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-culture-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.39999999999999997,
+    "selling_point_recall": 0.625,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 378.00964330800025,
+  "error": null,
+  "hooks_predicted": [
+    "That is so hard. The balance is so critical.",
+    "Well, right in the park, the most famous tea house in Chengdu is here.",
+    "It was built 100 years ago.",
+    "They also have this special kung fu tea performance going on here.",
+    "directly translates into English as snowflakes floating in a green lake.",
+    "This means you are seeking for help.",
+    "So actually, this teahouse is the oldest teahouse in Chengdu."
+  ],
+  "selling_points_predicted": [
+    "He Ming Tea House, established in 1923, is the oldest teahouse in Chengdu with nearly 100 years of history",
+    "The most famous tea house in Chengdu, located in People's Park in the city center",
+    "Spectacular kung fu tea performance featuring traditional long-bead teapot demonstrations",
+    "Learn authentic traditional tea drinking etiquette with distinct elegant female and masculine male styles",
+    "Premium Meng Ding yellow tea, ranked within China's top ten most famous teas",
+    "Discover unique historical tea house culture with secret lid positioning signals for service and communication",
+    "Experience Chengdu's distinctive laid-back lifestyle from 7 a.m. with morning tea tradition",
+    "Chengdu has more teahouses than any other city in China due to its deep-rooted tea culture",
+    "Vibrant atmosphere attracting both young people and elderly, defying typical tea house demographics",
+    "Much more relaxed, slower-paced vibe compared to fast-paced cities like Shanghai and Shenzhen",
+    "Jasmine tea called Bi Tan Piao Xue, poetically translating to 'snowflakes floating in a green lake'"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

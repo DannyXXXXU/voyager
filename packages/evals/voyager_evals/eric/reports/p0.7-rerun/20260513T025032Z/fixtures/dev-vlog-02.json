@@ -1,0 +1,35 @@
+{
+  "fixture_id": "dev-vlog-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.4615384615384615,
+    "selling_point_recall": 0.5714285714285714,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 346.1167017130001,
+  "error": null,
+  "hooks_predicted": [
+    "It's five times the size, it's five times the size",
+    "I think I got a robot dog",
+    "Yeah, man, that's like military shit, yo",
+    "You know the prisoner doesn't speak English, right?",
+    "Is this real?",
+    "I've never really handled one legitimately",
+    "Look at these red-eyed neck massagers"
+  ],
+  "selling_points_predicted": [
+    "Demonstrates bulk purchasing discounts with minimum orders starting at 10 pieces",
+    "Shows real negotiation tactics including securing test units before committing to bulk orders",
+    "Features high-capacity storage devices at competitive prices described as killer deals",
+    "Access to advanced tech products including military-grade robot dogs",
+    "Authentic Sony branded products available for purchase",
+    "Wide selection of personal care and beauty products marketed as unisex",
+    "Real-world market experience with unscripted vendor interactions and pricing discussions"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

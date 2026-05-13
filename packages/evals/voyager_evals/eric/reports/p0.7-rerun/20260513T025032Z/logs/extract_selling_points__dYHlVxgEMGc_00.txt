@@ -1,0 +1,255 @@
+=== TAG: extract_selling_points__dYHlVxgEMGc  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract selling points (reasons a viewer should visit / watch / buy) from a transcript. These are written in marketing-brief style — concise benefit statements a copywriter would use.
+
+HARD RULES:
+- Extract between 5 and 12 selling points. Never zero. Aim high on recall.
+- Each `point` is a concise benefit STATEMENT, 40–180 characters. Full phrases are encouraged when they convey the benefit clearly. Examples:
+  * "UNESCO World Heritage Site with international recognition since 1992"
+  * "Step-by-step demonstrations of getting free airport Wi-Fi without a local phone number"
+  * "Expert guidance from someone with nearly 20 years of living in Shanghai"
+- `evidence` MUST quote or paraphrase the supporting transcript span verbatim (<= 200 chars). Never empty.
+- Reject only empty filler ("unforgettable experience" alone). Specific marketing-style phrasing IS allowed and desired.
+- No duplicates (same benefit, different words).
+- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote.
+
+USER:
+VIDEO_ID=dYHlVxgEMGc
+TRANSCRIPT:
+[0.0s] Hey guys, it's Bureauz in China, and today, for the first time ever, I am taking the fanciest
+[6.6s] class on one of China's high-speed trains.
+[9.2s] I'm super excited.
+[10.2s] There are three classes available, I'm going to show you all of them.
+[14.6s] America's trains just cannot compare to China's.
+[18.5s] First off, China has the largest high-speed rail network in the world.
+[23.2s] America can barely connect a few cities.
+[25.5s] You're lucky to go post from post, to be honest.
+[28.3s] Also in America, the trains are never on time, and they don't go that fast.
+[32.9s] This train can go 350 kilometers per hour.
+[37.7s] That is insane.
+[38.7s] So I'm going to tell you guys lots more, and I'm going to show you guys the classes, like
+[42.6s] I said.
+[43.6s] But we better get on right now because I think the train is about to leave, so let's go.
+[51.7s] There's a lot of people here.
+[58.6s] But actually, this place is not even packed, totally.
+[62.8s] I would hate to see it during Spring Festival.
+[69.4s] I'm in the business class right now.
+[71.3s] It's way better than sitting outside because obviously there's way less people.
+[75.4s] Also, they offer you beverages and snacks, and a private bathroom.
+[80.2s] And also, you can do the special line for business class.
+[83.6s] You don't have to get in line with everybody else.
+[85.6s] It's much shorter.
+[86.6s] Actually, when I looked, there was nobody there.
+[88.8s] And when it's time to board the train, they will personally escort you to the train.
+[92.4s] So we have a special number.
+[94.0s] They know when we're supposed to leave.
+[98.3s] Let's go service.
+[99.8s] Can you see my seat number?
+[101.7s] Yes, Mr. Song is on the left, and Mr. Ye is on the right.
+[105.5s] We don't know your seat number.
+[106.9s] Thank you.
+[107.9s] I just got a ticket, and they gave me a schedule.
+[115.2s] They give you beverages, a wet towel, and a snack box.
+[122.4s] The snack box has like dried beef inside, some nuts, some dried peas.
+[128.3s] It's pretty tasty.
+[129.3s] Not gonna lie.
+[130.3s] And there's a lot inside, which is surprising.
+[132.3s] Check out the view.
+[134.7s] This is crazy.
+[135.7s] Look at the view.
+[136.7s] I love it.
+[139.2s] I want to show you guys how far this can recline.
+[141.7s] I want to show you just how comfortable you can be.
+[144.7s] So you can make it go all the way down, lean the seat back, make it go up, or just have
+[150.6s] a footrest.
+[151.6s] Very comfortable.
+[152.6s] Super.
+[153.6s] Very comfortable.
+[154.6s] Very good.
+[155.6s] Pretty good.
+[157.2s] This seat is really comfortable.
+[159.5s] So if you're exhausted, and you're taking the train, and you want to sleep, take business
+[163.2s] class.
+[164.2s] And also, I do need to tell you that in China, it's a little bit different.
+[169.6s] In America, it's going to be economy, then business class, then first class.
+[174.4s] But in China, it's called second class, first class, and then business class.
+[179.2s] So business class is actually the best class you can take.
+[182.2s] A little confusing.
+[188.2s] Oh, it's big.
+[192.2s] It is very big.
+[193.2s] Yeah, I can put my computer here, and also there's a little spot for a drink.
+[198.0s] The cover on this table is different than the other classes.
+[201.5s] It's covered in like a faux leather, and also the ones in the other classes, I think they're
+[207.2s] much smaller.
+[208.2s] So this one's very spacious.
+[210.4s] Fish ball and meatballs.
+[214.2s] Ooh, not bad for train food.
+[219.2s] Ooh, I love this kind of egg with peppers inside.
+[223.2s] Also, it looks like there's spicy sauce.
+[226.2s] It's not bad.
+[229.2s] Oh, it's spicy.
+[232.2s] Spicy.
+[233.2s] Spicy as hell.
+[234.2s] I love it.
+[236.2s] Free food, complimentary food on airplanes or trains.
+[239.2s] You can't expect too much.
+[240.2s] You can't expect gourmet.
+[242.2s] But this does the job, and it doesn't taste like absolute poopoo.
+[246.2s] I'm impressed.
+[248.2s] If you're hungry or thirsty, if this stuff is not enough, you can scan this code here,
+[254.2s] this QR code, and you can order stuff.
+[257.2s] Drinks, snacks, anything you want.
+[259.2s] Even KFC or McDonald's.
+[261.2s] Let's see if it's a squatty potty or a western toilet, and if it's disgusting or if it's
+[265.2s] clean.
+[266.2s] Let's find out.
+[268.2s] Yeah.
+[273.2s] So, here's the toilet.
+[279.2s] It is a western-style toilet.
+[283.2s] There's soap, running water, toilet paper, everything that you could need.
+[288.2s] And it looks very clean.
+[290.2s] Nothing on the floor, the sink is dry.
+[292.2s] I think this one's bigger.
+[294.2s] I'm not sure.
+[296.2s] The difference between the toilets in business class and first class, the first class toilets
+[301.2s] are way smaller, but they are still western toilets.
+[304.2s] There's also a squatty potty.
+[306.2s] Actually, I prefer squatty potty.
+[308.2s] And I was wrong about the soap.
+[310.2s] There is soap.
+[311.2s] You just wash your hands over there.
+[314.2s] Also, there's a handicap toilet.
+[319.2s] Perfect.
+[323.2s] Where the wheelchairs are.
+[325.2s] Yes, and that's why the buttons are so low.
+[328.2s] So people in wheelchairs can reach them.
+[331.2s] Very thoughtful.
+[333.2s] Hot water for noodles or tea, whatever.
+[337.2s] Whatever floats your boat.
+[343.2s] Thank you.
+[355.2s] Thank you.
+[358.2s] I'm in first class right now, and as you can see, things are a bit smaller.
+[362.2s] The seat is smaller, the window is smaller, storage capacity is smaller.
+[367.2s] But there are some things you can do.
+[369.2s] You can lean your seat back or forward, and there are some footrests.
+[378.2s] Yeah, the footrest is pretty solid.
+[388.2s] You're right, it's covered in something different than the other table.
+[391.2s] But the size is still pretty nice.
+[396.2s] There are so many people out there.
+[406.2s] Our food was delivered.
+[409.2s] Thank you.
+[417.2s] Whoa.
+[419.2s] In the States, I think you can't get a dish like this at KFC.
+[424.2s] I mean, I've only been to KFC like once in my life, but I don't think so.
+[429.2s] Let me try.
+[434.2s] I'm in second class right now.
+[436.2s] As you can see, I do have a tray table in front of me.
+[438.2s] It's just like an airplane tray table, so I can latch it here or let it down.
+[443.2s] Also, I can move the seat up, sit very straight up, or I can recline.
+[450.2s] So it's not bad. It's still pretty comfortable.
+[452.2s] But the seat room is not too big.
+[456.2s] You have to really put your hands by your side.
+[459.2s] Otherwise, you might touch someone else.
+[462.2s] So hopefully, when you're traveling in second class,
+[465.2s] you're traveling with your friends or your family because you're pretty close.
+[470.2s] It's still good, though, I think.
+[472.2s] It's not bad. It's better than an airplane.
+[474.2s] Yeah, it's way better.
+[477.2s] So this is going to be my leg room.
+[480.2s] It's not bad, but there's no footrest here.
+[482.2s] Correct.
+[483.2s] Just like in first class, there's a footrest, and in business class, obviously.
+[488.2s] So these go up.
+[491.2s] So if you're sitting next to someone you know or the seat is empty, you can put it up.
+[500.2s] We are about to get off.
+[502.2s] We are going to arrive in Kunming, and we are so excited to go there.
+[505.2s] There will be videos in the future there, so please stay tuned.
+[509.2s] If you guys like this video, please like it.
+[511.2s] Comment, tell me what you thought about it.
+[513.2s] Tell me what class was your favorite, what class you would like to take,
+[516.2s] and if you would like to try a high-speed train in China.
+[518.2s] Alright guys, until next time, bye!
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "selling_points": [
+    {
+      "point": "China has the largest high-speed rail network in the world",
+      "evidence": "China has the largest high-speed rail network in the world",
+      "confidence": 1.0
+    },
+    {
+      "point": "Trains reach speeds of 350 kilometers per hour",
+      "evidence": "This train can go 350 kilometers per hour",
+      "confidence": 1.0
+    },
+    {
+      "point": "Business class includes complimentary beverages, snacks, and private bathroom access",
+      "evidence": "they offer you beverages and snacks, and a private bathroom",
+      "confidence": 0.9
+    },
+    {
+      "point": "Business class passengers use a shorter boarding line with personal escort to the train",
+      "evidence": "you can do the special line for business class...when it's time to board the train, they will personally escort you to the train",
+      "confidence": 0.85
+    },
+    {
+      "point": "Fully reclining seats in business class ideal for sleeping on exhausting journeys",
+      "evidence": "you can make it go all the way down, lean the seat back...if you're exhausted, and you're taking the train, and you want to sleep, take business class",
+      "confidence": 0.85
+    },
+    {
+      "point": "Spacious work tables with premium faux leather covering in business class",
+      "evidence": "this one's very spacious...covered in like a faux leather",
+      "confidence": 0.8
+    },
+    {
+      "point": "Complimentary meals served that exceed typical transport food quality",
+      "evidence": "Free food, complimentary food...this does the job, and it doesn't taste like absolute poopoo. I'm impressed",
+      "confidence": 0.85
+    },
+    {
+      "point": "Order KFC, McDonald's, drinks and snacks via QR code delivered to your seat",
+      "evidence": "you can scan this code here, this QR code, and you can order stuff. Drinks, snacks, anything you want. Even KFC or McDonald's",
+      "confidence": 0.9
+    },
+    {
+      "point": "Clean western-style toilets with soap, running water, and all amenities",
+      "evidence": "There's soap, running water, toilet paper, everything that you could need. And it looks very clean",
+      "confidence": 0.9
+    },
+    {
+      "point": "Hot water stations available for preparing instant noodles or tea",
+      "evidence": "Hot water for noodles or tea, whatever",
+      "confidence": 1.0
+    },
+    {
+      "point": "Three travel classes available: second class, first class, and business class",
+      "evidence": "There are three classes available...in China, it's called second class, first class, and then business class",
+      "confidence": 0.9
+    },
+    {
+      "point": "Wheelchair-accessible facilities with low-positioned buttons and dedicated toilets",
+      "evidence": "there's a handicap toilet...that's why the buttons are so low. So people in wheelchairs can reach them. Very thoughtful",
+      "confidence": 0.85
+    }
+  ]
+}
+```
+

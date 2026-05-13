@@ -1,0 +1,41 @@
+{
+  "fixture_id": "dev-food-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5555555555555556,
+    "selling_point_recall": 0.25,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 413.582519516,
+  "error": null,
+  "hooks_predicted": [
+    "Look at all those chilies, that's crazy.",
+    "Your nose is numbing just from being here.",
+    "This is the spiciest cyberpunk city in China",
+    "today, our challenge is to eat the most extreme spicy Chinese food and survive.",
+    "so spicy you might start hallucinating.",
+    "Nobody knows the spice better than I do.",
+    "Go easy on my spice and go crazy on his spice.",
+    "That is really spicy. That's very hardcore."
+  ],
+  "selling_points_predicted": [
+    "Progressive spicy food challenge culminating in the world's spiciest hot pot",
+    "Guided ultra-spicy food tour with entertaining Chinese Trump impersonator",
+    "Experience Chongqing, the spiciest cyberpunk city in China",
+    "Authentic Chongqing xiaomian noodles unique to this city only",
+    "Behind-the-scenes hot pot base preparation with 10-year veteran chef",
+    "Learn traditional Chinese health philosophy about spice removing body moisture",
+    "Local comfort food beloved by all classes from Ferrari owners to humble locals",
+    "Step-by-step cooking demonstrations including traditional seven up eight down technique",
+    "Insider access to ingredient selection and seasoning secrets for authentic hot pot",
+    "Explore multi-layered city architecture called Manhattan of mountains",
+    "Authentic breakfast maocai with pick-your-own ingredients boiled in spicy broth",
+    "Traditional cooling bingfen jelly dessert to refresh after extreme spice"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

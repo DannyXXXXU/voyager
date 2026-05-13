@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-food-04",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5333333333333333,
+    "selling_point_recall": 0.4,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 370.57659372499984,
+  "error": null,
+  "hooks_predicted": [
+    "to taste one of the most painfully spicy meals in the world.",
+    "this is one of the most spiciest and fragrant meals you can eat in the whole world.",
+    "If you love spicy, this is your heaven.",
+    "the most deadly spicy hot pot available on the menu.",
+    "Intense, bubbling pot of death.",
+    "It feels like your soul is burning.",
+    "this is one of the spiciest things you'll ever eat, guys."
+  ],
+  "selling_points_predicted": [
+    "One of the most painfully spicy meals in the world",
+    "Home of authentic spicy and mouth-numbing Sichuan cuisine",
+    "One of the most spiciest and fragrant meals you can eat in the whole world",
+    "Authentic local hot pot experience in Chengdu, the land of spicy cuisine",
+    "Customizable spice levels from medium to extremely spicy for all tolerance levels",
+    "Traditional sesame oil dipping sauce preparation with fresh chilies and peanuts",
+    "Full-on beef oil hot pot packed with red chilies and Sichuan peppercorn",
+    "Unique numbing sensation that feels florally, citrusy, and tingly on your tongue",
+    "Addictive burning pleasure that makes you want to come back for more",
+    "Must-try authentic experience when visiting Sichuan",
+    "One of thousands of hot pot joints available throughout Chengdu"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

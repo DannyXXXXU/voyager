@@ -1,0 +1,36 @@
+{
+  "fixture_id": "dev-food-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.8,
+    "selling_point_recall": 0.13333333333333333,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 366.8681456459999,
+  "error": null,
+  "hooks_predicted": [
+    "Did you know that Xi'an is not just home to the Terracotta Warriors, but also one of China's most exciting food destinations?",
+    "Stick around as we count down the 20 must-try street foods in Xi'an",
+    "trust me, you won't want to miss number 1."
+  ],
+  "selling_points_predicted": [
+    "One of China's most exciting food destinations beyond the famous Terracotta Warriors",
+    "Ancient Silk Road city offering a street food paradise with 20 must-try dishes",
+    "From hand-pulled noodles to crispy lamb skewers showcasing diverse culinary traditions",
+    "Lao Liu Hulatang opens as early as 6am with locals flocking for authentic breakfast",
+    "Fanji Rugiamo serves hand-shredded meat in freshly-baked fire-grilled flatbread for perfect crisp-to-tender ratio",
+    "Cooling Liangpi cold noodles perfect for Xi'an's hot summers",
+    "Jia San Steamed Bun Shop with over 100 years of history serving traditional soup dumplings",
+    "First Noodle Under the Sun draws large crowds for iconic hand-pulled Biang Biang Noodles",
+    "Lao Sun Jia offers traditional and authentic Yang Rou Pao Mou experience as one of the oldest establishments",
+    "Rich lamb stew slow-cooked for hours creating deeply flavorful and aromatic broth",
+    "Muslim Quarter Night Market vendors sell freshly steamed desserts and fried snacks to order",
+    "Generous portions and affordable prices at family-run local eateries like Huashan Xiaoqi Dian"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -52,7 +52,7 @@ def test_schema_prompt_still_carries_schema_fields() -> None:
 
 def test_hooks_system_has_hard_rules() -> None:
     assert "HARD RULES:" in _SYS_HOOKS
-    assert "3 and 8" in _SYS_HOOKS
+    assert "5 and 12" in _SYS_HOOKS
     assert "verbatim" in _SYS_HOOKS.lower()
 
 

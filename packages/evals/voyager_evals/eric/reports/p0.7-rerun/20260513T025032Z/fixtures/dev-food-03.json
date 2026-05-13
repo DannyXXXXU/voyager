@@ -1,0 +1,38 @@
+{
+  "fixture_id": "dev-food-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.1818181818181818,
+    "selling_point_recall": 0.4444444444444444,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 361.7367249050003,
+  "error": null,
+  "hooks_predicted": [
+    "it's important to wait until the timer rings before trying these mushrooms",
+    "otherwise you might start tripping out or you might see lots of weird colors",
+    "going through this menu is really really funny like listen to this one you would never expect",
+    "and here even the tea is made from mushrooms look at that beautiful red color",
+    "oh wow that is one of the most complex mushroom soups I've ever tasted",
+    "that if you eat it before it's ready you'll start to hallucinate"
+  ],
+  "selling_points_predicted": [
+    "Half portions available so you can try many different types of mushrooms in one meal",
+    "Unique menu design with vegetables and mushrooms at the forefront, meat hidden at the back",
+    "Even the tea is made from mushrooms with a beautiful red color",
+    "Vegetarian soup base made from top-notch mushrooms without chicken oil",
+    "Homemade special garlic and chili sauce that's not spicy",
+    "One of the most complex and rich mushroom soups available",
+    "Exotic jian shou qing mushroom that turns vibrant blue when exposed to air raw",
+    "Bamboo mushroom with crunchy, tender texture similar to bamboo shoot",
+    "Beef liver mushroom with authentic liver texture and slipperiness",
+    "Create your own mushroom noodle soup at the end of the meal",
+    "Probably one of the best mushroom noodle soups with incredible earthy flavors"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

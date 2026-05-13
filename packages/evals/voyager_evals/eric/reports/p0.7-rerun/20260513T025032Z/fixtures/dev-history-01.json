@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-history-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.30769230769230765,
+    "selling_point_recall": 0.3333333333333333,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 368.5778305220001,
+  "error": null,
+  "hooks_predicted": [
+    "right now we are at the Great Wall of China, the Mutianyu side of the Great Wall",
+    "which according to Trip.com is the less like touristy side",
+    "I look at a map of China and the Great Wall of China is inside of China",
+    "in the best Disney movie of all time, Mulan, they said let's get down to business to defeat the Huns",
+    "But who are the Huns?",
+    "Donald Trump wish he could build a wall like that",
+    "this actually all revolves around one prostitute, actually"
+  ],
+  "selling_points_predicted": [
+    "Less touristy alternative to the crowded main section of the Great Wall",
+    "Only three hours total transport time from Beijing city center",
+    "Just 90 minutes by bus from Beijing, making it a convenient day trip",
+    "Complete hike experience from Watchtower 5 to Watchtower 20",
+    "Challenging Hero Slope section requiring hands and legs to climb the steep incline",
+    "Rich historical narration including stories of the Xiongnu, dynasties, and Wu Sangui's betrayal",
+    "Stunning fall foliage and scenic mountain views along the wall",
+    "Accessible to various fitness levels including children and elderly visitors",
+    "Doable for moderate fitness levels (3-4 out of 10), easy for those in decent shape",
+    "Cable car up and scenic ski lift down to minimize exertion",
+    "Watchtowers positioned at mountain peaks offering strategic panoramic views"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}
