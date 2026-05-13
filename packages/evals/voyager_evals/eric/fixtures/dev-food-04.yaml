@@ -6,28 +6,52 @@ content_type: food
 holdout: false
 gold_hooks:
 - text: one of the most painfully spicy meals in the world
-  aliases: []
+  aliases:
+  - among the globe's most agonizingly hot dishes
+  - a dish ranking among the world's most painfully hot foods
+  - globally one of the most torturously spicy foods available
   timestamp_s: 0.0
 - text: Intense, bubbling pot of death
-  aliases: []
+  aliases:
+  - powerful boiling cauldron that could kill you
+  - fierce simmering vessel of destruction
+  - extreme bubbling container of doom
   timestamp_s: 0.0
 - text: It feels like your soul is burning
-  aliases: []
+  aliases:
+  - sensation of your spirit being on fire
+  - your inner being seems to be ablame
+  - feels as though your essence is ablaze
   timestamp_s: 0.0
 - text: This is one of the spiciest things you'll ever eat
-  aliases: []
+  aliases:
+  - among the hottest foods you will ever consume
+  - one of the most fiery meals you will ever taste
+  - this ranks among the most intensely hot dishes you will experience
   timestamp_s: 0.0
 - text: that is like a burning pleasure
-  aliases: []
+  aliases:
+  - it resembles a fiery enjoyment
+  - feels like painful delight
+  - similar to agonizing satisfaction
   timestamp_s: 0.0
 - text: My face, my tongue. That is so intensely spicy
-  aliases: []
+  aliases:
+  - my mouth and face are experiencing extreme heat
+  - the heat is overwhelming my tongue and facial area
+  - incredibly powerful spice affecting my face and tongue
   timestamp_s: 0.0
 - text: I wanna feel alive
-  aliases: []
+  aliases:
+  - desire to experience being fully present
+  - want to sense true vitality
+  - seeking to feel truly living
   timestamp_s: 0.0
 - text: That is extreme pain here
-  aliases: []
+  aliases:
+  - this causes severe agony
+  - experiencing intense suffering right now
+  - the pain level is extremely high
   timestamp_s: 0.0
 gold_selling_points:
 - text: Experience one of the most painfully spicy meals in the world

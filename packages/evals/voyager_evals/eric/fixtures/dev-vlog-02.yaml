@@ -6,22 +6,40 @@ content_type: vlog
 holdout: false
 gold_hooks:
 - text: I think I got a robot dog
-  aliases: []
+  aliases:
+  - I believe I obtained a robotic canine
+  - I might have acquired a mechanical dog
+  - I think I purchased an automated dog
   timestamp_s: 0.0
 - text: Yeah, man, that's like military shit, yo
-  aliases: []
+  aliases:
+  - That looks like military grade equipment
+  - This is military level technology
+  - That appears to be military spec gear
   timestamp_s: 0.0
 - text: Killer deal, man, killer deal
-  aliases: []
+  aliases:
+  - This is an amazing bargain
+  - What an incredible deal
+  - This is a fantastic price
   timestamp_s: 0.0
 - text: Can I just give you 50 yuan right now for one, just to test?
-  aliases: []
+  aliases:
+  - Could I pay you 50 yuan immediately to try one out
+  - Can I hand you 50 yuan now to test one
+  - May I give you 50 yuan right away to test it
   timestamp_s: 0.0
 - text: Is this real? This is Sony
-  aliases: []
+  aliases:
+  - Is this authentic? This is made by Sony
+  - Is this genuine? This is a Sony product
+  - This is actually Sony? Is it real
   timestamp_s: 0.0
 - text: It's five times the size
-  aliases: []
+  aliases:
+  - It is five times larger
+  - The size is five times bigger
+  - It measures five times as large
   timestamp_s: 0.0
 gold_selling_points:
 - text: Bulk purchase discounts available - buy 10 pieces to get wholesale pricing

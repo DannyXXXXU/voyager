@@ -1,0 +1,110 @@
+=== TAG: alias-dev-travel-02-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. These mountains inspired the highest-grossing film of all time
+1. Over 20,000 visitors flood this place every single day
+2. We got unlimited access to everything for just $35
+3. This record-breaking elevator has THREE lanes and each one is double-decker
+4. Oh my goodness, are we on a movie set? Where is this real life?
+5. This pillar is so narrow at the base it defies gravity jutting straight up to the sky
+6. This natural bridge is 350 meters above the ground below
+7. Our bus driver didn't fear death - he drove like a Formula One racer on a mountain cliff
+8. Aggressive monkeys will literally grab food right out of your hands
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "The top-earning movie ever made drew inspiration from these mountains",
+        "These peaks served as inspiration for cinema's biggest box office success",
+        "The world's most financially successful film was inspired by these mountains"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "More than 20,000 people visit this location daily",
+        "This destination attracts upwards of 20,000 tourists each day",
+        "Daily visitor numbers exceed 20,000 at this site"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Everything was accessible without limits for only 35 dollars",
+        "Full unlimited access cost us a mere 35 dollars",
+        "For 35 dollars we received complete unrestricted access"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "The world-record elevator features three lanes with double-decker cars in each",
+        "This elevator holds records with its three double-decker lanes",
+        "Three double-decker lanes make this elevator a record holder"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Is this a film location or actual reality",
+        "Are we standing on a movie set or is this really happening",
+        "This place looks like a movie set but it's completely real"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "The base is incredibly thin yet this column rises vertically defying physics",
+        "Despite its narrow foundation this tower shoots straight upward impossibly",
+        "This slender-based pillar stands impossibly vertical reaching toward the sky"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "The naturally formed bridge sits 350 meters above ground level",
+        "This bridge formed by nature towers 350 meters high",
+        "350 meters of empty space lie beneath this natural bridge"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "The fearless bus driver raced along cliff edges like a Formula One driver",
+        "Our driver navigated mountain cliffs at racing speeds without any fear",
+        "Like a Formula One driver our bus driver sped fearlessly along cliffsides"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Bold monkeys snatch food directly from people's hands",
+        "Monkeys aggressively take food straight from your grasp",
+        "These monkeys will steal food from your hands without hesitation"
+      ]
+    }
+  ]
+}
+

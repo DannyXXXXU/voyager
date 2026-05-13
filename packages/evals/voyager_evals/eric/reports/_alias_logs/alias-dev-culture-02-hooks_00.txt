@@ -1,0 +1,103 @@
+=== TAG: alias-dev-culture-02-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. 100-year-old tea house
+1. They also have this special kung fu tea performance going on here
+2. There are two different ways to drink tea. Female, for me, very elegant
+3. snowflakes floating in a green lake
+4. This means you're not going to pay for the bill
+5. This means you are seeking for help
+6. Chengdu people have such a laid back lifestyle. They will come here very early from like 7 a.m. in the morning
+7. within the top ten teas in China
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "A tea house that is a century old",
+        "This tea house has been around for one hundred years",
+        "A century-old establishment serving tea"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "There is a unique kung fu tea show performed at this location",
+        "You can watch a special tea ceremony with kung fu elements",
+        "A distinctive kung fu tea demonstration takes place here"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Tea can be consumed in two distinct styles, the female method being quite graceful",
+        "Two tea drinking techniques exist, with the feminine approach being especially elegant",
+        "The feminine tea drinking style is one of two methods and very refined"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "White flakes drifting on a jade-colored body of water",
+        "Flakes resembling snow suspended in green-hued liquid",
+        "Snowy particles hovering over green water"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "This signifies that someone else will cover the cost",
+        "This indicates you will not be responsible for payment",
+        "This gesture means the bill is already taken care of"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "This indicates you need assistance",
+        "This signals that you require aid",
+        "This gesture shows you are asking for support"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Residents of Chengdu enjoy a relaxed way of life and arrive as early as seven in the morning",
+        "People from Chengdu live at an easy pace, visiting from seven o'clock onward",
+        "Chengdu locals maintain a leisurely lifestyle, showing up starting at seven a.m."
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Ranked among China's ten best teas",
+        "One of the ten finest teas in China",
+        "Among the top ten Chinese teas"
+      ]
+    }
+  ]
+}
+```
+

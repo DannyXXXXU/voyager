@@ -1,0 +1,28 @@
+=== TAG: alias-dev-food-02-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. Did you know that Xi'an is not just home to the Terracotta Warriors, but also one of China's most exciting food destinations?
+1. Stick around as we count down the 20 must-try street foods in Xi'an, and trust me, you won't want to miss number 1.
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{"items":[{"index":0,"aliases":["Xi'an is famous for the Terracotta Warriors and ranks among China's top food destinations","Beyond the Terracotta Warriors, Xi'an stands as one of China's premier culinary hotspots","While Xi'an houses the Terracotta Warriors, it also serves as a major Chinese food capital"]},{"index":1,"aliases":["We're counting down Xi'an's 20 essential street foods, with the top pick being unmissable","Stay tuned for our list of 20 Xi'an street foods you must try, especially the first one","Watch as we reveal 20 street foods to eat in Xi'an, and the number one is outstanding"]}]}
+

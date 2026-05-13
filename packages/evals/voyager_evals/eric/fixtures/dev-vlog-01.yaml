@@ -7,31 +7,68 @@ holdout: false
 gold_hooks:
 - text: If you're traveling to China for the first time, there are a few things you
     need to know, and it's best to be prepared so you have a smooth journey.
-  aliases: []
+  aliases:
+  - First-time visitors to China should familiarize themselves with several important
+    details to ensure their trip goes smoothly
+  - Being well-prepared with key information will help make your initial visit to
+    China much easier
+  - Several essential things await first-time China travelers who want their experience
+    to go without problems
   timestamp_s: 0.0
 - text: Booking a hotel in China can be a little tricky, as not every hotel is allowed
     to host foreign nationals.
-  aliases: []
+  aliases:
+  - Finding accommodation in China presents challenges since certain hotels cannot
+    accept international guests
+  - Not all Chinese hotels have permission to accommodate foreigners which makes reservations
+    somewhat difficult
+  - Hotel reservations in China are complicated because only some establishments can
+    receive foreign visitors
   timestamp_s: 45.0
 - text: You'll need to register at the police station nearest to the place that you're
     staying within 24 hours of arriving here in Shanghai.
-  aliases: []
+  aliases:
+  - Within one day of reaching Shanghai you must complete registration at your local
+    police station
+  - Registration at the closest police station is required within 24 hours of your
+    Shanghai arrival
+  - You have 24 hours after arriving in Shanghai to register your presence at the
+    nearby police station
   timestamp_s: 90.0
 - text: Naturally, your phone doesn't work. You've got no cellular service and no
     Wi-Fi.
-  aliases: []
+  aliases:
+  - Your mobile device will lack both internet connectivity and cellular network access
+  - Expect your phone to be useless without any data connection or wireless network
+    available
+  - Neither mobile network nor wireless internet will be accessible on your phone
   timestamp_s: 120.0
 - text: Paying for things in China is a little bit different than other countries.
     Cash is seldom used, especially in the big cities.
-  aliases: []
+  aliases:
+  - Payment methods in China differ from elsewhere with physical money rarely utilized
+    in major urban areas
+  - Chinese cities mostly avoid cash transactions making the payment system unlike
+    other nations
+  - Major Chinese cities rarely use physical currency creating a different payment
+    landscape than abroad
   timestamp_s: 240.0
 - text: Most of them, if not all of them, require a reservation. Whether there's a
     ticket price or not, you still need to make a reservation.
-  aliases: []
+  aliases:
+  - Nearly every attraction demands advance booking regardless of whether admission
+    costs money
+  - Reservations are mandatory for virtually all locations even when entry is free
+  - You must book ahead for almost all places whether they charge for tickets or not
   timestamp_s: 420.0
 - text: Here's a problem. Everything is in Chinese. There's no other language. There's
     no English here.
-  aliases: []
+  aliases:
+  - All signage and information appears exclusively in Chinese with no English translations
+    available
+  - You will find only Chinese language used everywhere without any English options
+    present
+  - Nothing is written in English as Chinese is the sole language displayed throughout
   timestamp_s: 480.0
 gold_selling_points:
 - text: Expert guidance from someone with nearly 20 years of living experience in

@@ -1,0 +1,92 @@
+=== TAG: alias-dev-travel-01-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. for the first time ever, I am taking the fanciest class on one of China's high-speed trains
+1. America's trains just cannot compare to China's
+2. China has the largest high-speed rail network in the world. America can barely connect a few cities
+3. This train can go 350 kilometers per hour. That is insane
+4. There are three classes available, I'm going to show you all of them
+5. they will personally escort you to the train
+6. You can even order KFC or McDonald's
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "I'm riding the most luxurious class on a Chinese high-speed train for my very first time",
+        "This is my initial experience traveling in the top class of China's bullet trains",
+        "Never before have I experienced the premium class aboard a Chinese high-speed railway"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Chinese trains are far superior to those found in America",
+        "The trains in America pale in comparison to China's railway system",
+        "China's rail service vastly outperforms what America has to offer"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "The world's biggest high-speed rail network belongs to China while America struggles to link several cities",
+        "China operates the globe's most extensive bullet train system whereas America connects only a handful of cities",
+        "With the planet's largest fast rail network China dwarfs America which links just a few urban areas"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "The train reaches speeds of 350 kilometers per hour which is absolutely crazy",
+        "This railway vehicle travels at 350 kilometers per hour and that's mind-blowing",
+        "It's incredible that this train achieves velocities of 350 kilometers per hour"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Three different classes exist and I will demonstrate each one to you",
+        "I plan to present all three available seating classes to you",
+        "You'll see every one of the three class options I'm about to reveal"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "You receive a personal escort directly to the train",
+        "Staff members accompany you individually all the way to the train",
+        "Personal assistance guides you right to the railway vehicle"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "KFC and McDonald's are both available for ordering",
+        "It's possible to get food from KFC or McDonald's delivered",
+        "McDonald's or KFC can be ordered right to you"
+      ]
+    }
+  ]
+}
+

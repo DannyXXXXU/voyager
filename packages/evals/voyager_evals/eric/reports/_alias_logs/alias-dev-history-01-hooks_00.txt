@@ -1,0 +1,83 @@
+=== TAG: alias-dev-history-01-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. The Great Wall of China was opened because of a prostitute
+1. Why is the Great Wall of China INSIDE China? Here's the answer
+2. Donald Trump wish he could build a wall like this. He can't build a wall like this.
+3. We have to bend forward and use both hands and legs to climb the Hero Slope
+4. The tale of how one military official's decision changed Chinese history forever
+5. The Huns from Mulan were real - and here's who they actually were
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "A prostitute caused the Great Wall of China to open",
+        "The opening of the Great Wall was due to a prostitute",
+        "A sex worker was responsible for opening the Great Wall of China"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "The reason the Great Wall is located inside China explained",
+        "Discover why the Great Wall is positioned within China",
+        "Find out why the Great Wall sits inside China's borders"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Trump wishes he could construct such a wall but cannot",
+        "Donald Trump cannot build a wall of this quality despite wanting to",
+        "Trump wants to build a wall like this but is unable to"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Climbing the Hero Slope requires bending forward and using all four limbs",
+        "You must use your hands and legs while bending forward to climb the Hero Slope",
+        "The Hero Slope demands you bend and use both hands and feet to ascend"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "How a single military commander's choice altered China's history permanently",
+        "A military leader's decision that forever transformed Chinese history",
+        "One officer's choice that changed the course of Chinese history for good"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "The Huns depicted in Mulan actually existed and here's their true identity",
+        "Mulan's Huns were real people and this reveals who they were",
+        "The Huns in Mulan were historical figures and here's the real story"
+      ]
+    }
+  ]
+}
+

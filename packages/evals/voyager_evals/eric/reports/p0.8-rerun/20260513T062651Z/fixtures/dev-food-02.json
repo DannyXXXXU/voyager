@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-food-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5,
+    "selling_point_recall": 0.26666666666666666,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 389.89608745299995,
+  "error": null,
+  "hooks_predicted": [
+    "Did you know that Xi'an is not just home to the Terracotta Warriors, but also one of China's most exciting food destinations?",
+    "From hand-pulled noodles to crispy lamb skewers, this ancient Silk Road city is a street food paradise.",
+    "Stick around as we count down the 20 must-try street foods in Xi'an, and trust me, you won't want to miss number 1.",
+    "with locals flocking in as early as 6am for a steaming bowl.",
+    "with a history spanning over 100 years.",
+    "First Noodle Under the Sun is a famous establishment that draws large crowds eager to try this iconic dish."
+  ],
+  "selling_points_predicted": [
+    "One of China's most exciting food destinations beyond the Terracotta Warriors",
+    "Ancient Silk Road city recognized as a street food paradise",
+    "20 must-try street foods curated in one comprehensive guide",
+    "Hand-pulled noodles and crispy lamb skewers showcasing authentic local specialties",
+    "Establishments with over 100 years of history serving traditional recipes",
+    "Spicy pepper soup served at spots where locals flock in as early as 6am",
+    "Cool, refreshing dishes perfect for Xi'an's hot summers",
+    "Silk Road specialty lamb skewers grilled over hot coals with cumin and chili",
+    "Generous portions at affordable prices from family-run local eateries",
+    "Freshly-made street snacks prepared to order with enticing aromas",
+    "Signature soup dumplings filled with rich, gelatinous broth that melts when steamed",
+    "Iconic Biang Biang Noodles at famous establishment drawing large crowds"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

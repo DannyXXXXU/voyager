@@ -7,26 +7,52 @@ holdout: false
 gold_hooks:
 - text: for the first time ever, I am taking the fanciest class on one of China's
     high-speed trains
-  aliases: []
+  aliases:
+  - I'm riding the most luxurious class on a Chinese high-speed train for my very
+    first time
+  - This is my initial experience traveling in the top class of China's bullet trains
+  - Never before have I experienced the premium class aboard a Chinese high-speed
+    railway
   timestamp_s: 10.0
 - text: America's trains just cannot compare to China's
-  aliases: []
+  aliases:
+  - Chinese trains are far superior to those found in America
+  - The trains in America pale in comparison to China's railway system
+  - China's rail service vastly outperforms what America has to offer
   timestamp_s: 35.0
 - text: China has the largest high-speed rail network in the world. America can barely
     connect a few cities
-  aliases: []
+  aliases:
+  - The world's biggest high-speed rail network belongs to China while America struggles
+    to link several cities
+  - China operates the globe's most extensive bullet train system whereas America
+    connects only a handful of cities
+  - With the planet's largest fast rail network China dwarfs America which links just
+    a few urban areas
   timestamp_s: 40.0
 - text: This train can go 350 kilometers per hour. That is insane
-  aliases: []
+  aliases:
+  - The train reaches speeds of 350 kilometers per hour which is absolutely crazy
+  - This railway vehicle travels at 350 kilometers per hour and that's mind-blowing
+  - It's incredible that this train achieves velocities of 350 kilometers per hour
   timestamp_s: 60.0
 - text: There are three classes available, I'm going to show you all of them
-  aliases: []
+  aliases:
+  - Three different classes exist and I will demonstrate each one to you
+  - I plan to present all three available seating classes to you
+  - You'll see every one of the three class options I'm about to reveal
   timestamp_s: 25.0
 - text: they will personally escort you to the train
-  aliases: []
+  aliases:
+  - You receive a personal escort directly to the train
+  - Staff members accompany you individually all the way to the train
+  - Personal assistance guides you right to the railway vehicle
   timestamp_s: 150.0
 - text: You can even order KFC or McDonald's
-  aliases: []
+  aliases:
+  - KFC and McDonald's are both available for ordering
+  - It's possible to get food from KFC or McDonald's delivered
+  - McDonald's or KFC can be ordered right to you
   timestamp_s: 420.0
 gold_selling_points:
 - text: China has the world's largest high-speed rail network

@@ -1,0 +1,41 @@
+{
+  "fixture_id": "dev-history-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.26666666666666666,
+    "selling_point_recall": 0.4444444444444444,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 360.67535789999965,
+  "error": null,
+  "hooks_predicted": [
+    "which according to Trip.com is the less like touristy side",
+    "it only took maybe three hours of transport time in total",
+    "Beijing is only an hour and a half bus ride from here, which actually I think is pretty close",
+    "I look at a map of China and the Great Wall of China is inside of China",
+    "in the best Disney movie of all time, Mulan",
+    "Donald Trump wish he could build a wall like that",
+    "And this actually all revolves around one prostitute, actually",
+    "he actually opens up the Great Wall of China",
+    "I think if you are a three to four out of ten, it's doable"
+  ],
+  "selling_points_predicted": [
+    "Less touristy section compared to other Great Wall locations with fewer crowds",
+    "Only 3 hours total transport time from Beijing city center via public transportation",
+    "Cable car service available from base to top for easier access",
+    "Full hiking route from Watchtower 5 to Watchtower 20 with challenging Hero Slope",
+    "Stunning fall foliage with orange leaves creating gorgeous scenic views",
+    "Just 90 minutes by bus from Beijing, making it a convenient day trip",
+    "Accessible to various fitness levels including children and elderly visitors",
+    "Rich historical education about the Xiongnu Confederacy and Han Dynasty defenses",
+    "Scenic open-air ski lift ride down with panoramic mountain views",
+    "Multiple watchtowers positioned at mountain peaks offering strategic viewpoints",
+    "Fascinating stories about Wu Sangui and the fall of the Ming Dynasty on-site"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

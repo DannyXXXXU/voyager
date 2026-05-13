@@ -1,0 +1,79 @@
+=== TAG: write_brief  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You write a concise Markdown Strategy Brief for overseas growth marketing of China travel content.
+
+HARD RULES:
+- Output Markdown only. No JSON, no code fences around the whole doc.
+- 250–600 words total. Tight, not padded.
+- REQUIRED sections (use these exact H2 headings):
+  ## Topic
+  ## Top Hooks
+  ## Selling Points
+  ## Themes
+  ## Recommendations
+- `## Top Hooks` lists 3–5 bullets, each a single verbatim hook from inputs.
+- `## Selling Points` lists 3–8 bullets, each prefixed by the point name in **bold**.
+- `## Themes` lists the cluster themes with a one-line description each.
+- `## Recommendations` is 3–5 numbered bullets, each actionable for a creator.
+- Do NOT invent video titles, channel names, or stats not present in the inputs.
+
+USER:
+TOPIC: Extreme spicy Sichuan death-level hotpot challenge (Food Ranger)
+CLUSTERS: [{'theme': 'Extreme Spice Intensity', 'members': ["we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world.", 'this is one of the most spiciest and fragrant meals you can eat in the whole world.', "We're going full on and ordering the most deadly spicy hot pot available on the menu.", 'This is gonna be painfully spicy.', 'Intense, bubbling pot of death.', "this is one of the spiciest things you'll ever eat, guys.", 'this is one of the spicier things you can eat in the world.', 'One of the most painfully spicy meals in the world', 'One of the spiciest and most fragrant meals you can eat in the whole world', 'Customizable spice levels from less spicy to extremely spicy', 'Building spice intensity that gets hotter with each bite as chilies boil in the oil'], 'summary': "Experience one of the world's most painfully spicy meals with customizable intensity that builds with every bite."}, {'theme': 'Authentic Sichuan & Chengdu Experience', 'members': ["We're gonna have classic hot pot.", 'Experience in the authentic heart of Sichuan cuisine in Chengdu', 'Classic Sichuan hot pot at a legit local restaurant', 'Essential must-try experience when visiting Sichuan'], 'summary': 'Authentic Sichuan hot pot experience at a legit local restaurant in Chengdu, the heart of spicy Chinese cuisine.'}, {'theme': 'Unique Numbing & Aromatic Flavor', 'members': ['Unique mouth-numbing sensation from Sichuan peppercorns with floral and citrusy notes', 'Authentic beef oil broth packed with red Sichuan chilies and peppercorns'], 'summary': 'Distinctive mouth-numbing Sichuan peppercorns with floral, citrusy notes in a rich beef oil broth packed with chilies.'}, {'theme': 'Traditional Preparation & Premium Ingredients', 'members': ['Traditional sesame oil dipping bowl with fresh chilies, cilantro, onions, and peanuts', 'Premium ingredients including fatty beef, shrimp, lotus root, and special spiced beef'], 'summary': 'Premium ingredients like fatty beef, shrimp, and lotus root served with traditional sesame oil dipping sauce.'}, {'theme': 'Addictive Pain & Pleasure', 'members': ['that is like a burning pleasure.', 'The first bite of hot pot is just a warm-up.', 'It feels like your soul is burning.', 'It really is painful, and I love spice.', 'Addictive burning pleasure that makes you want to come back for more'], 'summary': "An addictive burning sensation that starts mild and intensifies, creating a painful yet pleasurable experience you'll crave."}]
+HOOKS_SAMPLE: [{'video_id': 'Zw_tJOwZmac', 'hook_text': "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world.", 'timestamp_s': 2.2, 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'this is one of the most spiciest and fragrant meals you can eat in the whole world.', 'timestamp_s': 17.3, 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'hook_text': "We're gonna have classic hot pot.", 'timestamp_s': 31.6, 'confidence': 0.75}, {'video_id': 'Zw_tJOwZmac', 'hook_text': "We're going full on and ordering the most deadly spicy hot pot available on the menu.", 'timestamp_s': 73.3, 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'This is gonna be painfully spicy.', 'timestamp_s': 84.4, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'Intense, bubbling pot of death.', 'timestamp_s': 253.7, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'that is like a burning pleasure.', 'timestamp_s': 483.2, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'The first bite of hot pot is just a warm-up.', 'timestamp_s': 522.1, 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'It feels like your soul is burning.', 'timestamp_s': 539.3, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': "this is one of the spiciest things you'll ever eat, guys.", 'timestamp_s': 589.9, 'confidence': 0.9}]
+SELLING_POINTS_SAMPLE: [{'video_id': 'Zw_tJOwZmac', 'point': 'One of the most painfully spicy meals in the world', 'evidence': "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world", 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'Experience in the authentic heart of Sichuan cuisine in Chengdu', 'evidence': "You've gotta come to the heart of Sichuan to get this. We are in Chengdu, the land of spicy, numbing, fragrant cuisine", 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'One of the spiciest and most fragrant meals you can eat in the whole world', 'evidence': 'this is one of the most spiciest and fragrant meals you can eat in the whole world', 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'Classic Sichuan hot pot at a legit local restaurant', 'evidence': 'Right when you walk into a legit local hot pot joint in Sichuan, the pungent chili aroma hits your nostrils', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Customizable spice levels from less spicy to extremely spicy', 'evidence': 'wei la, which is less spicy, zhong la, which is like medium spicy, or te la, which is extremely spicy', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Unique mouth-numbing sensation from Sichuan peppercorns with floral and citrusy notes', 'evidence': 'huajiao, the Sichuan peppercorn, the minute you get that flavor on your tongue, you can feel a bit of a tingle. It feels florally, almost a little citrusy and numbing', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Traditional sesame oil dipping bowl with fresh chilies, cilantro, onions, and peanuts', 'evidence': 'dip it into that sesame oil with fresh chilies, cilantro, onions, and peanuts', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Authentic beef oil broth packed with red Sichuan chilies and peppercorns', 'evidence': 'full-on beef oil, they call it niu you, packed with red chilies, packed with Sichuan peppercorn', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Premium ingredients including fatty beef, shrimp, lotus root, and special spiced beef', 'evidence': 'fei niu rou, fatty beef... some shrimp... ma la niu rou, so numbing, mouth-numbing, super spicy beef... ou pian... lotus root', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Building spice intensity that gets hotter with each bite as chilies boil in the oil', 'evidence': 'As the chilies boil in the oil and the heat gets higher and higher, the spice level builds and each bite you take gets hotter and hotter', 'confidence': 0.9}]
+
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Do not invent facts not present in the inputs. No filler.
+--- RAW STDOUT ---
+I'll create a concise Markdown Strategy Brief for this Sichuan hotpot challenge content:
+
+## Topic
+
+Extreme spicy Sichuan death-level hotpot challenge featuring the Food Ranger experiencing authentic Chengdu hot pot, one of the world's most painfully spicy meals with customizable intensity, unique numbing sensations from Sichuan peppercorns, and premium ingredients served in a bubbling beef oil broth that delivers an addictive burning pleasure.
+
+## Top Hooks
+
+- "This is gonna be painfully spicy."
+- "Intense, bubbling pot of death."
+- "It feels like your soul is burning."
+- "that is like a burning pleasure."
+- "this is one of the spiciest things you'll ever eat, guys."
+
+## Selling Points
+
+- **One of the most painfully spicy meals in the world** — Sichuan hotpot ranks among the globe's most extreme spice experiences.
+- **One of the spiciest and most fragrant meals you can eat in the whole world** — Combines intense heat with complex aromatic profiles.
+- **Experience in the authentic heart of Sichuan cuisine in Chengdu** — Located in the epicenter of China's spicy food culture.
+- **Customizable spice levels from less spicy to extremely spicy** — Adjustable heat allows both beginners and experts to participate.
+- **Unique mouth-numbing sensation from Sichuan peppercorns with floral and citrusy notes** — Distinctive tingle delivers flavor complexity beyond pure heat.
+- **Authentic beef oil broth packed with red Sichuan chilies and peppercorns** — Traditional preparation method for maximum flavor intensity.
+- **Building spice intensity that gets hotter with each bite as chilies boil in the oil** — Progressive heat escalation creates evolving experience.
+- **Premium ingredients including fatty beef, shrimp, lotus root, and special spiced beef** — High-quality components elevate the challenge beyond novelty.
+
+## Themes
+
+**Extreme Spice Intensity** — Experience one of the world's most painfully spicy meals with customizable intensity that builds with every bite.
+
+**Authentic Sichuan & Chengdu Experience** — Authentic Sichuan hot pot experience at a legit local restaurant in Chengdu, the heart of spicy Chinese cuisine.
+
+**Unique Numbing & Aromatic Flavor** — Distinctive mouth-numbing Sichuan peppercorns with floral, citrusy notes in a rich beef oil broth packed with chilies.
+
+**Traditional Preparation & Premium Ingredients** — Premium ingredients like fatty beef, shrimp, and lotus root served with traditional sesame oil dipping sauce.
+
+**Addictive Pain & Pleasure** — An addictive burning sensation that starts mild and intensifies, creating a painful yet pleasurable experience you'll crave.
+
+## Recommendations
+
+1. Position as an extreme food challenge for adventurous travelers, emphasizing the "death-level" intensity and progressive heat buildup to attract thrill-seeking audiences.
+
+2. Highlight the authentic Chengdu location and local restaurant setting to differentiate from tourist traps and appeal to viewers seeking genuine cultural experiences.
+
+3. Showcase the unique numbing sensation and aromatic complexity beyond basic heat to educate audiences on Sichuan cuisine's sophistication.
+
+4. Feature the customizable spice levels to make the experience accessible while maintaining extreme challenge credibility for broader audience appeal.
+
+5. Frame the addictive "burning pleasure" narrative to create rewatchability and inspire viewers to seek the experience themselves rather than just watch vicariously.
+

@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-food-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.13333333333333333,
+    "selling_point_recall": 0.2222222222222222,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 389.77534511899967,
+  "error": null,
+  "hooks_predicted": [
+    "it's important to wait until the timer rings before trying these mushrooms",
+    "otherwise you might start tripping out or you might see lots of weird colors",
+    "going through this menu is really really funny like listen to this one you would never expect",
+    "and here even the tea is made from mushrooms look at that beautiful red color",
+    "one thing I really like about Tai Po is that you can order half portions so that means you can try so many more different types of mushrooms",
+    "so it's important to wait until the timer rings before trying these mushrooms otherwise you might start tripping out like you're in san ti or three body problem",
+    "oh wow that is one of the most complex mushroom soups I've ever tasted",
+    "that if you eat it before it's ready you'll start to hallucinate",
+    "this mushroom gets its name because when it is exposed to air when raw it turns this vibrant blue shade",
+    "wow that is probably one of the best mushroom noodle soups I've ever had"
+  ],
+  "selling_points_predicted": [
+    "Half portions available so you can try many different types of mushrooms",
+    "Mushroom tea with beautiful red color included",
+    "One of the most complex and rich mushroom soup bases ever tasted",
+    "Vegetarian hotpot with no chicken oil, made from top-notch mushrooms",
+    "House-made special garlic and chili sauce that's not spicy",
+    "Vegetables and mushrooms featured at the forefront, even though not a vegetarian restaurant",
+    "Exotic mushrooms including jian shou qing that turns vibrant blue when raw",
+    "Uniquely-named mushroom varieties like chilled black tiger feet and beef liver mushroom",
+    "Bamboo mushroom (zhu sun) with texture similar to bamboo shoot, crunchy and tender",
+    "Perfect for making your own mushroom noodle soup at the end of the meal",
+    "Beautiful earthy mushroom flavors that make the broth stand out"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

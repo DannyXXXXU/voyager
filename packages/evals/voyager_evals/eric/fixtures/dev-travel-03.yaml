@@ -7,29 +7,53 @@ holdout: false
 gold_hooks:
 - text: Hey, want to see something cool? If this isn't cool, both figuratively and
     literally, then I don't know what is. It's all made of snow!
-  aliases: []
+  aliases:
+  - Check out this amazing structure entirely constructed from snow
+  - This snow creation is incredibly impressive both literally and figuratively
+  - Everything you see here is built completely out of snow
   timestamp_s: 0.0
 - text: It's actually the biggest one of its kind in the world.
-  aliases: []
+  aliases:
+  - This is the world's largest structure of this type
+  - No other similar structure anywhere on Earth is bigger than this
+  - This holds the record as the globe's largest one
   timestamp_s: 15.0
 - text: I'm standing on it right now!
-  aliases: []
+  aliases:
+  - I am currently positioned on top of it
+  - Right at this moment I'm on the structure
+  - You can see me standing directly on it
   timestamp_s: 60.0
 - text: Welcome to China's coldest swimming pool!
-  aliases: []
+  aliases:
+  - This is the most frigid swimming pool in all of China
+  - You're looking at the chilliest pool in the entire country
+  - China's most freezing swimming pool is right here
   timestamp_s: 120.0
 - text: How old are you? Ninety-six. What?!
-  aliases: []
+  aliases:
+  - The person is ninety six years old which is shocking
+  - Someone here is aged ninety six years believe it or not
+  - Ninety six years old that's incredible
   timestamp_s: 180.0
 - text: Keep in mind it's currently minus 25 degrees.
-  aliases: []
+  aliases:
+  - Remember the temperature right now is negative twenty five degrees
+  - The current temperature is twenty five degrees below zero
+  - It's presently minus twenty five degrees outside
   timestamp_s: 190.0
 - text: 10,000 people, 15 days to build all of this.
-  aliases: []
+  aliases:
+  - Ten thousand workers constructed everything in fifteen days
+  - It took fifteen days and ten thousand people to create this
+  - This entire structure required ten thousand people working for fifteen days
   timestamp_s: 240.0
 - text: Oh my god. Yeah, this is absolutely breathtaking. It's literally like being
     in a fairy tale.
-  aliases: []
+  aliases:
+  - This is incredibly stunning like something from a storybook
+  - The beauty is overwhelming it feels like a fantasy world
+  - It's amazingly gorgeous resembling a magical fairy tale setting
   timestamp_s: 280.0
 gold_selling_points:
 - text: World's largest ice and snow sculpture festival

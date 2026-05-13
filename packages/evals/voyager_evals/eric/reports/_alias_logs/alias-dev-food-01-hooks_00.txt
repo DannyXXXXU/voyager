@@ -1,0 +1,119 @@
+=== TAG: alias-dev-food-01-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+1. Look at all those chilies, that's crazy. Your nose is numbing just from being here
+2. today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour
+3. Go easy on my spice and go crazy on his spice
+4. this city is so spicy that as soon as you enter, the air smells like chili
+5. I eat the most spicy food in China. You're the best at spice? I'm the best with spice
+6. death-level spicy beef
+7. That is really spicy. That's very hardcore
+8. your nose is numbing just from being here
+9. People get shirtless while eating it
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "we will try eating the globe's hottest hot pot that could make you see things",
+        "attempting the spiciest hot pot on earth that may cause hallucinations",
+        "going to eat extremely spicy hot pot that might make you hallucinate"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "so many peppers everywhere and your nose goes numb just being present",
+        "incredible amount of chilies making your nose feel numb from proximity alone",
+        "tons of peppers here causing nasal numbness simply by standing nearby"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "meeting the Chinese Trump who will guide us on an extremely spicy food tour",
+        "joining the Chinese Trump for an intense tour of ultra spicy cuisine",
+        "the Chinese Trump is taking us on a complete extreme spice food tour"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "make mine mild but load his up with extreme spice",
+        "keep my portion less spicy and make his extremely hot",
+        "give me less heat and go all out on his serving"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "the city is extremely spicy with chili scent in the air upon arrival",
+        "when you arrive in this city the atmosphere immediately smells of chilies",
+        "entering this city you immediately smell chili in the air everywhere"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "I consume the spiciest food in China and am the top spice expert",
+        "eating the hottest food in China makes me the best at handling spice",
+        "I eat China's spiciest cuisine and am the best with heat"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "beef so spicy it reaches deadly levels of heat",
+        "extremely spicy beef at a lethal intensity level",
+        "beef with dangerously extreme levels of spiciness"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "this is extremely spicy and incredibly intense",
+        "very hot and seriously hardcore level of spice",
+        "extremely spicy and intensely hardcore"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "just being present makes your nose go numb",
+        "your nose loses feeling simply from standing in this location",
+        "merely being in this place numbs your nasal passages"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "folks remove their shirts when eating this dish",
+        "diners take off their tops while consuming it",
+        "people strip their shirts off during the meal"
+      ]
+    }
+  ]
+}
+

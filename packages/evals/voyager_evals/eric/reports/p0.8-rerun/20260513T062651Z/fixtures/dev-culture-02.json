@@ -1,0 +1,43 @@
+{
+  "fixture_id": "dev-culture-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.4210526315789474,
+    "selling_point_recall": 0.75,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 377.65744949200007,
+  "error": null,
+  "hooks_predicted": [
+    "That is so hard. The balance is so critical.",
+    "Well, right in the park, the most famous tea house in Chengdu is here.",
+    "It was built 100 years ago.",
+    "They also have this special kung fu tea performance going on here.",
+    "and directly translates into English as snowflakes floating in a green lake.",
+    "So this is apparently one of the more expensive ones and it's within the top ten teas in China, yeah?",
+    "This means I want to add more water.",
+    "They will think you're not going to pay for the bill.",
+    "This means you are seeking for help.",
+    "So actually, this teahouse is the oldest teahouse in Chengdu.",
+    "And tea culture is so important in Chengdu that the city has more teahouses than other cities in China."
+  ],
+  "selling_points_predicted": [
+    "Visit the most famous tea house in Chengdu, established in 1923 with nearly 100 years of history",
+    "Witness traditional kung fu tea performance with long-bead teapot demonstrations",
+    "Learn authentic tea drinking etiquette with distinct techniques for men and women",
+    "Discover the secret language of tea lid positioning used for service signals",
+    "Sample Meng Ding yellow tea, ranked within the top ten teas in China",
+    "Try jasmine tea poetically named 'snowflakes floating in a green lake'",
+    "Experience Chengdu's distinctive laid-back lifestyle at the oldest teahouse in the city",
+    "Join locals from 7 AM for morning tea in a vibrant, authentically busy atmosphere",
+    "Explore tea culture in a city with more teahouses than other cities in China",
+    "See a surprising mix of young and old people embracing traditional tea culture",
+    "Located conveniently in People's Park in Chengdu's city center"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

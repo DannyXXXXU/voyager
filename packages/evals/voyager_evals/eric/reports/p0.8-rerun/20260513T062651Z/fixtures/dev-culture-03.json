@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-culture-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.26666666666666666,
+    "selling_point_recall": 0.375,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 391.7003851090003,
+  "error": null,
+  "hooks_predicted": [
+    "I highly recommend you guys to get this online.",
+    "This is the first restaurant that is a must-go when you visit Guangzhou",
+    "It is one of Guangzhou's four major garden-style restaurants which includes East, South, North, and West.",
+    "Look at that big ass shrimp in there.",
+    "It's $9 per person for just a tea",
+    "the sun is like toxic",
+    "Peng Tou Gui, founded in 1880, is one of Guangzhou's oldest and most famous Cantonese restaurants.",
+    "But be warned, because this place is always, always packed.",
+    "Tai Pingguan Restaurant, established in 1860, is Guangzhou's first western-style eatery"
+  ],
+  "selling_points_predicted": [
+    "Guangzhou is the most popular place for dim sum culture",
+    "Michelin Guide garden-style restaurant known for its Lingnam architecture",
+    "Features pavilions, bridges, and waterfalls creating an elegant dining atmosphere",
+    "One of Guangzhou's four major garden-style restaurants including East, South, North, and West",
+    "Unique dining experience combining traditional Cantonese dim sum on a scenic river cruise",
+    "Enjoy classic dim sum while cruising along Pearl River with stunning views of Guangzhou's skyline",
+    "Two-hour dining and river cruise experience",
+    "Peng Tou Gui founded in 1880, one of Guangzhou's oldest and most famous Cantonese restaurants",
+    "Local favorite for over a century attracting everyone from empires to modern day food lovers",
+    "Beautiful Lingnam style architecture with classic yet modern dishes attracting young visitors",
+    "Tai Pingguan established in 1860 as Guangzhou's first western-style eatery",
+    "Blends Chinese and western flavors with famous dishes like seared steak and roasted pigeon"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,85 @@
+=== TAG: alias-dev-culture-03-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. Look at the size comparing to my face
+1. Look at that big ass shrimp in there
+2. it's always just eat, eat, eat, and eat
+3. the sun is like toxic. Let me tell you guys, it is so hot
+4. This place is always, always packed. So come early, or be ready to wait
+5. I am so full and low-key a little bit out of dim sum and eating a lot
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "Check out how large this is next to my face",
+        "See how big it is when compared to my face",
+        "Notice the enormous size relative to my face"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Check out that huge shrimp inside",
+        "See that massive shrimp in there",
+        "Notice that enormous prawn inside"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "all we do is constantly eat and eat",
+        "nonstop eating is what happens here",
+        "eating continuously is all that happens"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "the sun feels poisonous because it is extremely hot",
+        "let me tell you the sun is unbearably scorching",
+        "the heat from the sun is intense and almost toxic"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "this spot is constantly crowded so arrive early or expect to wait",
+        "the venue is perpetually full so get here early or prepare to queue",
+        "this restaurant is consistently busy so come early or be prepared to wait"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "I am very stuffed and somewhat tired of dim sum and overeating",
+        "I feel extremely full and kind of done with dim sum and eating so much",
+        "I am really full and slightly over dim sum and all this food"
+      ]
+    }
+  ]
+}
+```
+

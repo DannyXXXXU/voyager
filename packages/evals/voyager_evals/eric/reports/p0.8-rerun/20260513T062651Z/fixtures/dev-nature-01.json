@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-nature-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5333333333333333,
+    "selling_point_recall": 0.46153846153846156,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 382.244668455,
+  "error": null,
+  "hooks_predicted": [
+    "In this chapter of My China Diaries, come explore the beautiful Jiuzhaigou National Park with me.",
+    "It used to take about 8-10 hours from Chengdu by bus but with the opening of the railway station the whole journey has been cut down to around 4 hours in total.",
+    "Jiuzhaigou is located in the north of Sichuan province and has been recognised as a World Heritage Site by UNESCO since 1992.",
+    "It's most well known for its many waterfalls and colourful lakes which are especially stunning during autumn.",
+    "This is the biggest, largest and also highest lake in Jiuzhaigou being at an altitude of 3,150 metres.",
+    "In local folklore it's said that there's a monster in the lake and there's an old man with one arm who guards the lake.",
+    "From this point it's a 17km walk until the next bus stop",
+    "Fortunately the entire scenic area is paved throughout with about 70km of really well maintained boardwalks",
+    "In many ways I do think Jiuzhaigou brings together the worst and the best parts of travelling in China."
+  ],
+  "selling_points_predicted": [
+    "UNESCO World Heritage Site with international recognition since 1992",
+    "Journey time reduced to around 4 hours total with newly opened high-speed railway connection",
+    "Famous for many waterfalls and colourful lakes that are especially stunning during autumn",
+    "Convenient ticket purchasing for foreign travellers through trip.com using passport",
+    "Extensive 70km of well-maintained boardwalks throughout the entire scenic area",
+    "Long Lake is the biggest, largest and highest lake in Jiuzhaigou at 3,150 metres altitude",
+    "Public toilets and rest points selling snacks at reasonable prices throughout the park",
+    "Five Flower Lake showcases various colours and is one of the centrepieces of the scenic area",
+    "Pearl Beach featured in the iconic 1986 version of Journey to the West television series",
+    "Great escape from relentless heat experienced in Chengdu and Chongqing",
+    "Showcases China's abundant natural beauty outside of its major cities",
+    "Well-run and well-maintained scenic area with significant time and resources invested"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "file": "dev-culture-01.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-culture-02.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-culture-03.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-food-01.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-food-02.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-food-03.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-food-04.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-history-01.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-nature-01.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-travel-01.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-travel-02.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-travel-03.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-vlog-01.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-vlog-02.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  },
+  {
+    "file": "dev-vlog-03.yaml",
+    "error": "KeyError: 'hookss_filled'"
+  }
+]

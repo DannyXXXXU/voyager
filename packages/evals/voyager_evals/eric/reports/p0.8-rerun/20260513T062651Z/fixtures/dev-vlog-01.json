@@ -1,0 +1,41 @@
+{
+  "fixture_id": "dev-vlog-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5333333333333333,
+    "selling_point_recall": 0.25,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 408.546228702,
+  "error": null,
+  "hooks_predicted": [
+    "If you're traveling to China for the first time, there are a few things you need to know",
+    "I've been living in Shanghai for nearly 20 years",
+    "not every hotel is allowed to host foreign nationals",
+    "You'll need to register at the police station nearest to the place that you're staying within 24 hours of arriving here in Shanghai",
+    "So you've just arrived at Pudong International Airport, and, naturally, your phone doesn't work",
+    "Cash is seldom used, especially in the big cities",
+    "Most of them, if not all of them, require a reservation",
+    "Everything is in Chinese"
+  ],
+  "selling_points_predicted": [
+    "Expert guidance from someone with nearly 20 years of living in Shanghai",
+    "Official government website with comprehensive arrival information regularly updated",
+    "Step-by-step demonstrations of getting free airport Wi-Fi without a local phone number",
+    "Guidance on booking hotels verified to accept foreign nationals using Ctrip.com",
+    "Convenient airport help desks for local SIM cards and digital payment setup",
+    "Complete tutorial for linking credit cards to Alipay and WeChat for QR code payments",
+    "Metro system that's always on time and easier than the bus system",
+    "Built-in translation feature in Alipay for ordering food from Chinese-only menus",
+    "Phone camera translation for restaurant menus into any language",
+    "How to skip buying subway tickets by generating QR codes directly in Alipay",
+    "Practical train ticket buying process with human assistance for passport holders",
+    "High-speed train as the simplest way to travel to nearby cities"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

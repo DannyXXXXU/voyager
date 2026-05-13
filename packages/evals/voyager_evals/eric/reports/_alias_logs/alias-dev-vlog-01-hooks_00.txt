@@ -1,0 +1,94 @@
+=== TAG: alias-dev-vlog-01-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. If you're traveling to China for the first time, there are a few things you need to know, and it's best to be prepared so you have a smooth journey.
+1. Booking a hotel in China can be a little tricky, as not every hotel is allowed to host foreign nationals.
+2. You'll need to register at the police station nearest to the place that you're staying within 24 hours of arriving here in Shanghai.
+3. Naturally, your phone doesn't work. You've got no cellular service and no Wi-Fi.
+4. Paying for things in China is a little bit different than other countries. Cash is seldom used, especially in the big cities.
+5. Most of them, if not all of them, require a reservation. Whether there's a ticket price or not, you still need to make a reservation.
+6. Here's a problem. Everything is in Chinese. There's no other language. There's no English here.
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "First-time visitors to China should familiarize themselves with several important details to ensure their trip goes smoothly",
+        "Being well-prepared with key information will help make your initial visit to China much easier",
+        "Several essential things await first-time China travelers who want their experience to go without problems"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Finding accommodation in China presents challenges since certain hotels cannot accept international guests",
+        "Not all Chinese hotels have permission to accommodate foreigners which makes reservations somewhat difficult",
+        "Hotel reservations in China are complicated because only some establishments can receive foreign visitors"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Within one day of reaching Shanghai you must complete registration at your local police station",
+        "Registration at the closest police station is required within 24 hours of your Shanghai arrival",
+        "You have 24 hours after arriving in Shanghai to register your presence at the nearby police station"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Your mobile device will lack both internet connectivity and cellular network access",
+        "Expect your phone to be useless without any data connection or wireless network available",
+        "Neither mobile network nor wireless internet will be accessible on your phone"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Payment methods in China differ from elsewhere with physical money rarely utilized in major urban areas",
+        "Chinese cities mostly avoid cash transactions making the payment system unlike other nations",
+        "Major Chinese cities rarely use physical currency creating a different payment landscape than abroad"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Nearly every attraction demands advance booking regardless of whether admission costs money",
+        "Reservations are mandatory for virtually all locations even when entry is free",
+        "You must book ahead for almost all places whether they charge for tickets or not"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "All signage and information appears exclusively in Chinese with no English translations available",
+        "You will find only Chinese language used everywhere without any English options present",
+        "Nothing is written in English as Chinese is the sole language displayed throughout"
+      ]
+    }
+  ]
+}
+```
+

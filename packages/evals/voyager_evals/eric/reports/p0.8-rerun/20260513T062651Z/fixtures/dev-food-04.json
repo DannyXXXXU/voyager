@@ -1,0 +1,45 @@
+{
+  "fixture_id": "dev-food-04",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.4,
+    "selling_point_recall": 0.4,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 373.73090863699963,
+  "error": null,
+  "hooks_predicted": [
+    "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world.",
+    "this is one of the most spiciest and fragrant meals you can eat in the whole world.",
+    "We're gonna have classic hot pot.",
+    "We're going full on and ordering the most deadly spicy hot pot available on the menu.",
+    "This is gonna be painfully spicy.",
+    "Intense, bubbling pot of death.",
+    "that is like a burning pleasure.",
+    "The first bite of hot pot is just a warm-up.",
+    "It feels like your soul is burning.",
+    "this is one of the spiciest things you'll ever eat, guys.",
+    "It really is painful, and I love spice.",
+    "this is one of the spicier things you can eat in the world."
+  ],
+  "selling_points_predicted": [
+    "One of the most painfully spicy meals in the world",
+    "Experience in the authentic heart of Sichuan cuisine in Chengdu",
+    "One of the spiciest and most fragrant meals you can eat in the whole world",
+    "Classic Sichuan hot pot at a legit local restaurant",
+    "Customizable spice levels from less spicy to extremely spicy",
+    "Unique mouth-numbing sensation from Sichuan peppercorns with floral and citrusy notes",
+    "Traditional sesame oil dipping bowl with fresh chilies, cilantro, onions, and peanuts",
+    "Authentic beef oil broth packed with red Sichuan chilies and peppercorns",
+    "Premium ingredients including fatty beef, shrimp, lotus root, and special spiced beef",
+    "Building spice intensity that gets hotter with each bite as chilies boil in the oil",
+    "Addictive burning pleasure that makes you want to come back for more",
+    "Essential must-try experience when visiting Sichuan"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

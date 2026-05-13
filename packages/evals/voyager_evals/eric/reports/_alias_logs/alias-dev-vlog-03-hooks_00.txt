@@ -1,0 +1,67 @@
+=== TAG: alias-dev-vlog-03-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. Xinjiang has been in the news a lot lately - I've come here to check out the place with my own eyes
+1. The biggest mosque not only in Xinjiang but in all of China
+2. China has only one time zone, so you need to wait till about 10pm until the place gets dark
+3. The fragrant concubine, who was said to dance around the palace after her unique beauty and scent caught the eyes and nose of the Emperor
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "I traveled to Xinjiang to see it myself because it has been frequently mentioned in recent news",
+        "Recent media coverage of Xinjiang prompted me to visit and witness the situation firsthand",
+        "Due to extensive news reports about Xinjiang, I decided to personally experience the region"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "The largest mosque in China, surpassing all others in Xinjiang and beyond",
+        "China's most massive mosque, exceeding even those found throughout Xinjiang",
+        "This mosque is the grandest in the entire country, not just Xinjiang"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Because China uses a single time zone, darkness does not arrive until roughly 10pm here",
+        "The country's unified time zone means you must wait until approximately 10pm for nightfall",
+        "Having just one time zone across China results in the area staying light until around 10pm"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "A concubine known for her fragrance reportedly danced in the palace after captivating the Emperor with her beauty and aroma",
+        "The Emperor was enchanted by a concubine's distinctive beauty and scent, leading her to perform dances at the palace",
+        "Her remarkable appearance and fragrance attracted the Emperor's attention, and she became famous for dancing in the palace"
+      ]
+    }
+  ]
+}
+```
+

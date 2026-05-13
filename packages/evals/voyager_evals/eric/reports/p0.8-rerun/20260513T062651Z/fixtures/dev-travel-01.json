@@ -1,0 +1,40 @@
+{
+  "fixture_id": "dev-travel-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5714285714285714,
+    "selling_point_recall": 0.7692307692307693,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 411.08599182299986,
+  "error": null,
+  "hooks_predicted": [
+    "for the first time ever, I am taking the fanciest class on one of China's high-speed trains",
+    "America's trains just cannot compare to China's",
+    "China has the largest high-speed rail network in the world",
+    "in America, the trains are never on time, and they don't go that fast",
+    "This train can go 350 kilometers per hour",
+    "business class is actually the best class you can take",
+    "it doesn't taste like absolute poopoo"
+  ],
+  "selling_points_predicted": [
+    "China has the largest high-speed rail network in the world",
+    "Trains reach speeds of 350 kilometers per hour",
+    "Business class includes complimentary beverages, snacks, and private bathroom access",
+    "Business class passengers get special priority boarding line with no wait",
+    "Personal escort service to the train for business class passengers",
+    "Fully reclining business class seats ideal for sleeping on long journeys",
+    "Large spacious work tables with premium faux leather covering in business class",
+    "Order KFC, McDonald's, drinks and snacks via QR code to your seat",
+    "Clean western-style toilets with soap, running water, and all amenities",
+    "Wheelchair-accessible facilities with thoughtfully designed low-positioned controls",
+    "Free hot water dispensers available for instant noodles or tea",
+    "Second class seating more comfortable than airplane seats"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

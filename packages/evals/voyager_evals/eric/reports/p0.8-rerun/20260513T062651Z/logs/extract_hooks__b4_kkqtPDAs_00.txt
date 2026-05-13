@@ -1,0 +1,244 @@
+=== TAG: extract_hooks__b4_kkqtPDAs  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract attention-grabbing hooks from a video transcript. Hooks are the lines a creator would use to STOP a viewer from scrolling — typically found in the first 30 seconds and at every major section opener.
+
+HARD RULES:
+- Extract between 5 and 12 hooks. Never zero. Aim high on recall — when in doubt, INCLUDE.
+- ALWAYS include the opening hook(s) from the first 30 seconds of the transcript if any exist. Opening CTAs like "Did you know...", "Stick around...", "If you're traveling to X for the first time...", "These mountains inspired..." ARE valid hooks — do NOT reject them as generic.
+- PRIORITIZE these high-value hook types whenever present in the transcript:
+  * Numeric / record claims ("20,000 visitors a day", "$35 for everything", "350 meters high", "4 hours by train", "three-lane double-decker elevator")
+  * Superlatives / firsts ("highest-grossing film of all time", "world's tallest", "first time ever")
+  * Warnings or safety beats ("wait until the timer rings or you'll hallucinate", "the driver drove like a Formula One racer on a cliff")
+  * Vivid contrasts / reactions ("are we on a movie set?", "defies gravity", "the worst and best of travelling in China")
+  Missing one of these when it exists in the transcript is a serious recall failure.
+- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, no longer than 200 characters. Prefer the FULL sentence over a truncated fragment.
+- DO NOT split one sentence into two hooks. If a sentence joins clauses with "otherwise", "and", "which", "because", "so that", keep it as a SINGLE hook covering the whole sentence. One sentence = one hook.
+- Valid hook styles include: opening CTAs, surprising facts, bold claims, rhetorical questions, vivid quotable moments, numeric/record claims, warnings, vivid contrasts. NOT topic labels, NOT summaries.
+- timestamp_s MUST be the leading [<seconds>s] tag of the source line. Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.
+- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.
+- Reject only hooks that are vague filler ("this place is amazing", "it was so cool") or hallucinated text not in the transcript.
+
+USER:
+VIDEO_ID=b4_kkqtPDAs
+TRANSCRIPT:
+[0.0s] If you're traveling to China for the first time, there are a few things you need to know,
+[5.9s] and it's best to be prepared so you have a smooth journey.
+[9.0s] I've been living in Shanghai for nearly 20 years, and in this video, I'll be demonstrating
+[13.6s] some of the things you can do to make your stay in the city a lot more convenient.
+[18.8s] Before we begin, I would recommend visiting english.shanghai.gov.cn.
+[24.3s] The website has any and all information regarding the arrival checklist, public transportation,
+[29.7s] recommended restaurants, points of interest, and more.
+[33.0s] The information on the site is updated regularly.
+[40.2s] Booking a hotel in China can be a little tricky, as not every hotel is allowed to host foreign
+[45.9s] nationals.
+[46.9s] Now, if you're staying at four or five-star hotels, you're fine, but if you're looking
+[50.2s] to do things maybe a little bit cheaper or feeling a little adventurous, you need to
+[54.2s] check and see.
+[55.4s] Now, although you can book a hotel in China on just about any travel app or any booking
+[60.1s] app, it's best to check on Crypt.com because, right here, we'll click here on this hotel,
+[67.8s] they have a window in here where you can actually see whether or not the hotel is allowed to
+[73.4s] cater to foreign nationals.
+[76.9s] One more thing.
+[77.9s] You'll need to register at the police station nearest to the place that you're staying within
+[81.4s] 24 hours of arriving here in Shanghai, but if you stay in a hotel, you should be fine,
+[86.4s] as hotels that service foreign nationals automatically register you at check-in.
+[96.2s] Shanghai has two international airports located about 40 kilometers from each other, Pudong
+[101.3s] International Airport and Hongqiao International Airport.
+[105.3s] Most international flights arrive at Pudong.
+[108.4s] So you've just arrived at Pudong International Airport, and, naturally, your phone doesn't
+[112.9s] work.
+[113.9s] You've got no cellular service and no Wi-Fi.
+[116.8s] I've got a local phone number, so for me, to get Wi-Fi is very simple.
+[122.8s] Simply type in my phone number, and I've received the code 2083.
+[130.7s] And done.
+[131.7s] I'm now connected to the airport Wi-Fi for free.
+[134.6s] However, if you've got a foreign phone card, this will not work.
+[138.6s] So you have to make use of one of these stations right over here.
+[144.6s] It's a Wi-Fi kiosk.
+[148.0s] You place your passport on the deck with the photo page facing out.
+[153.5s] Start scanning, and there you are.
+[158.0s] There's the airport free Wi-Fi, got an account, and a password.
+[164.3s] Now, right after you exit the baggage claim area into the arrivals hall, just at the end
+[168.6s] of the hallway, there's two very, very convenient desks.
+[171.4s] One of them, you can pick up a local SIM card, and that will give you a phone number.
+[176.2s] And right next door to that is a digital payment help desk.
+[179.6s] This will help you hook up your bank card to Alipay, which makes things so much simpler
+[184.2s] in China, whether you want to book a taxi, take a subway, or order food.
+[192.4s] Paying for things in China is a little bit different than other countries.
+[195.5s] Cash is seldom used, especially in the big cities.
+[199.0s] Now, many places do have credit card machines, so you can swipe your credit card, but not
+[203.8s] every place has that.
+[205.2s] The easiest way to pay for things in China is using QR codes, either through WeChat or
+[211.0s] Alipay.
+[212.0s] Now, you can download these two apps into your phone and then link your credit card
+[217.2s] to these apps, making it much easier to make purchases around the city.
+[221.3s] And here's how you do it.
+[222.6s] Okay, so first we'll open up Alipay, and then we'll go to Me.
+[226.9s] Now, if we look through Me, you'll see a heading for Bank Cards.
+[232.1s] And then all you need to do is add a card.
+[235.4s] Very standard practice.
+[236.9s] Success!
+[237.9s] Now, to make purchases on Alipay, once again, we'll go back to the home screen, and then
+[242.9s] you simply either scan the QR code at the venue, or you can generate your own QR code
+[252.0s] and they will scan you.
+[253.0s] You see, right now it's linked to my debit card, but I can easily change that to link
+[256.4s] it to the MasterCard.
+[258.3s] Simple as that.
+[264.9s] I prefer taking the metro, or subway, in Shanghai.
+[268.8s] It's always on time, and it's easier to manage than the city's extensive bus system.
+[272.7s] If you want to take a subway from the airport, you can get to it from any of the airport's
+[276.9s] arrival halls.
+[278.2s] Just follow the signs.
+[279.2s] This is your standard ticket vending machine at a subway station.
+[283.6s] It'll take bank notes, but the most convenient way to do it is to use Alipay or WeChat simply
+[288.3s] by scanning a QR code.
+[289.9s] So here we go.
+[290.9s] This one's handy.
+[291.9s] You can even switch it to English if you want.
+[293.5s] Now, we're at the airport now.
+[294.8s] We're going to go to People's Square, which is on Line 2.
+[297.6s] So you can tap People's Square right there.
+[300.1s] Bang.
+[301.1s] And there you are.
+[302.1s] QR code payment.
+[303.1s] It gives us a QR code.
+[307.7s] We simply open up the Alipay, hit scan, scan the code, 7 Yuan, confirm, put in the password,
+[319.7s] and I got my ticket.
+[327.7s] Of course, if you want to skip buying a ticket altogether, you can generate a QR code right
+[332.2s] on board the Alipay app and use that to get on the subway.
+[344.4s] There are two videos on english.shanghai.gov.cn that show you how to take a bus, ferry, or
+[350.9s] make use of a shared bicycle.
+[357.6s] There are loads and loads and loads of points of interest, tourist attractions, and scenic
+[361.8s] spots you're going to want to check out.
+[364.4s] Here's the thing.
+[366.0s] Most of them, if not all of them, require a reservation.
+[369.0s] Whether there's a ticket price or not, you still need to make a reservation.
+[373.1s] Thankfully, every one of these locations has an official WeChat account.
+[378.4s] So you simply open up your WeChat, you type in the location into the search bar.
+[383.2s] I'm going to go with Shanghai Museum and search.
+[388.3s] There it is.
+[389.3s] Shanghai Museum reservation.
+[391.2s] Here's a problem.
+[393.5s] Everything is in Chinese.
+[394.5s] There's no other language.
+[395.5s] There's no English here.
+[396.5s] So unless your Mandarin is solid, you're going to need a little bit of help.
+[405.4s] If you're feeling a little bit peckish, Alipay can also be used to order food.
+[410.6s] You simply open up the app, and you tap takeout.
+[414.0s] And that will take you to Ullama, which is China's UberEats or DoorDash.
+[418.8s] Now what makes the Alipay version different is that there's this handy-dandy translate
+[423.1s] function down here, because Ullama is all in Chinese.
+[426.1s] You hit the translate, and everything is translated for you, so you know exactly what you're getting.
+[432.8s] If you find yourself at a diner or a restaurant that only has a Chinese menu, you can just
+[437.1s] use your phone to take a photo, and then use whatever translator app you have to change
+[441.6s] the Chinese characters into English or whatever language you want.
+[449.4s] If you want to travel to another city nearby, a high-speed train is the simplest way to
+[453.8s] get there.
+[455.3s] Well, security check's pretty standard.
+[458.3s] I'm through.
+[459.3s] Now, when you approach the gates, they have scanners, but they only work for Chinese ID
+[464.7s] cards.
+[465.7s] You can have one of those, and chances are you don't either.
+[468.3s] But there's always one window where there's an attendant.
+[472.3s] You can show them your passport, and they'll let you through, no problem at all.
+[478.1s] There's lots of different ways you can buy a train ticket.
+[480.8s] There's a phone app, there's the automatic machines over there, and of course, a ticket
+[486.3s] window.
+[487.3s] Now, if you're a passport holder, meaning you don't have a Chinese ID card, your best
+[490.8s] bet is to go to one of these windows, because, well, you can actually talk to a human, they
+[496.1s] can sort you out, and you leave with a ticket.
+[500.0s] One ticket to Suzhou, please.
+[501.0s] Today?
+[502.0s] Yes, ma'am.
+[503.0s] For Suzhou or Suzhou Bay?
+[504.0s] Uh, Suzhou Bay.
+[505.0s] Today, 11.34, to Suzhou Bay.
+[506.0s] Arrive at Suzhou Bay, 12.08.1.
+[507.0s] Take a first class window seat, okay?
+[508.0s] Perfect.
+[509.0s] Thank you.
+[510.0s] You're welcome.
+[511.0s] Bye.
+[512.0s] Bye.
+[513.0s] Bye.
+[514.0s] Bye.
+[515.0s] Bye.
+[516.0s] Bye.
+[517.0s] Bye.
+[519.0s] Thank you.
+[520.0s] You're welcome.
+[521.0s] Bye.
+[522.0s] Well, that was easy.
+[527.0s] Gotta make sure to have your passport handy, even though you have a ticket.
+[531.0s] Okay.
+[532.0s] Xie xie.
+[533.0s] Now, remember, if you're staying at a hotel, you can always ask the front desk to help
+[537.0s] you book train tickets, but if you have to do it yourself, it's not that difficult.
+[541.4s] There's usually always someone behind the counter who can speak English.
+[545.0s] And that's pretty much it.
+[547.5s] I hope this video helps you prepare for your trip.
+[549.5s] Please leave a comment if you have any questions or suggestions.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hooks": [
+    {
+      "hook_text": "If you're traveling to China for the first time, there are a few things you need to know",
+      "timestamp_s": 0.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "I've been living in Shanghai for nearly 20 years",
+      "timestamp_s": 9.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "not every hotel is allowed to host foreign nationals",
+      "timestamp_s": 40.2,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "You'll need to register at the police station nearest to the place that you're staying within 24 hours of arriving here in Shanghai",
+      "timestamp_s": 77.9,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "So you've just arrived at Pudong International Airport, and, naturally, your phone doesn't work",
+      "timestamp_s": 108.4,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Cash is seldom used, especially in the big cities",
+      "timestamp_s": 195.5,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Most of them, if not all of them, require a reservation",
+      "timestamp_s": 366.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Everything is in Chinese",
+      "timestamp_s": 393.5,
+      "confidence": 0.85
+    }
+  ]
+}
+```
+

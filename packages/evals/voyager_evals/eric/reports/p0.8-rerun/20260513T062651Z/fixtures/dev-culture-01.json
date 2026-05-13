@@ -1,0 +1,43 @@
+{
+  "fixture_id": "dev-culture-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.47058823529411764,
+    "selling_point_recall": 0.2,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 396.51431479999997,
+  "error": null,
+  "hooks_predicted": [
+    "I'm going to do something super exciting today.",
+    "So Hanfu, it's basically traditional Chinese clothing that has been around for thousands of years.",
+    "From super elegant to really royal.",
+    "This was worth thousands of yuan. The best one here.",
+    "There's so many different parts and it's all for free.",
+    "Gonna take you about 1 hour 50 minutes.",
+    "Sometimes customers they will change 20 clothes.",
+    "These headpieces will make from silk, beads and even gold.",
+    "It's like stepping out of a time machine.",
+    "You need to return these clothes by 6 pm."
+  ],
+  "selling_points_predicted": [
+    "Professional Hanfu photoshoot services with expert styling and photographer guidance",
+    "Wide selection of traditional Chinese clothing spanning multiple dynasties and styles",
+    "Intricate embroidery and patterns based on authentic traditional Chinese symbols",
+    "Complete hair and makeup styling included, taking approximately 1 hour 50 minutes",
+    "Traditional hairstyles and hair accessories included at no extra charge",
+    "Photoshoot at the iconic Forbidden City exterior for authentic historical backdrop",
+    "Keep your Hanfu outfit until 6 PM to explore and take personal photos independently",
+    "Hanfu options available for men, women, children, and elderly - everyone can participate",
+    "All-inclusive booking - China Explore Tour arranges hairstyle, makeup, and wardrobe selection",
+    "Authentic Qing dynasty qi tou headpiece representing Manchu culture and historical status",
+    "Expert styling advice on color selection and location matching for optimal photos",
+    "Personalized costume matching to find the perfect style and colors for each customer"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

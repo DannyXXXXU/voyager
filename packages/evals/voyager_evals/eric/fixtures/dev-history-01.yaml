@@ -6,23 +6,41 @@ content_type: history
 holdout: false
 gold_hooks:
 - text: The Great Wall of China was opened because of a prostitute
-  aliases: []
+  aliases:
+  - A prostitute caused the Great Wall of China to open
+  - The opening of the Great Wall was due to a prostitute
+  - A sex worker was responsible for opening the Great Wall of China
   timestamp_s: 0.0
 - text: Why is the Great Wall of China INSIDE China? Here's the answer
-  aliases: []
+  aliases:
+  - The reason the Great Wall is located inside China explained
+  - Discover why the Great Wall is positioned within China
+  - Find out why the Great Wall sits inside China's borders
   timestamp_s: 180.0
 - text: Donald Trump wish he could build a wall like this. He can't build a wall like
     this.
-  aliases: []
+  aliases:
+  - Trump wishes he could construct such a wall but cannot
+  - Donald Trump cannot build a wall of this quality despite wanting to
+  - Trump wants to build a wall like this but is unable to
   timestamp_s: 420.0
 - text: We have to bend forward and use both hands and legs to climb the Hero Slope
-  aliases: []
+  aliases:
+  - Climbing the Hero Slope requires bending forward and using all four limbs
+  - You must use your hands and legs while bending forward to climb the Hero Slope
+  - The Hero Slope demands you bend and use both hands and feet to ascend
   timestamp_s: 120.0
 - text: The tale of how one military official's decision changed Chinese history forever
-  aliases: []
+  aliases:
+  - How a single military commander's choice altered China's history permanently
+  - A military leader's decision that forever transformed Chinese history
+  - One officer's choice that changed the course of Chinese history for good
   timestamp_s: 480.0
 - text: The Huns from Mulan were real - and here's who they actually were
-  aliases: []
+  aliases:
+  - The Huns depicted in Mulan actually existed and here's their true identity
+  - Mulan's Huns were real people and this reveals who they were
+  - The Huns in Mulan were historical figures and here's the real story
   timestamp_s: 240.0
 gold_selling_points:
 - text: Mutianyu is less crowded and touristy than other Great Wall sections

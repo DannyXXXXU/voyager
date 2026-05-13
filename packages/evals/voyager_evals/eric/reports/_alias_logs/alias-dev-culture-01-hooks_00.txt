@@ -1,0 +1,94 @@
+=== TAG: alias-dev-culture-01-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. I'm going to do something super exciting today
+1. I want to dress like a princess
+2. This was worth thousands of yuan. The best one here. It's for queen.
+3. This is magic
+4. It's like stepping out of a time machine
+5. I honestly feel like I was starring in my own Korean drama
+6. Sometimes customers they will change 20 clothes
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "Today I will do something really thrilling",
+        "Something very exciting is happening for me today",
+        "I plan to do an extremely fun activity today"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "I wish to wear clothing that resembles a princess",
+        "My goal is to look like royalty in my outfit",
+        "I desire to put on princess style attire"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "This costs thousands of yuan and is the finest one available for royalty",
+        "The top piece here is worth thousands of yuan and meant for a queen",
+        "This item for queens is the best here and valued at thousands of yuan"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "This feels magical",
+        "This is absolutely magical",
+        "This seems like pure magic"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "This feels like emerging from a time travel device",
+        "It resembles exiting a time machine",
+        "This is similar to coming out of a time machine"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "I genuinely felt like the lead in my personal Korean drama",
+        "I truly feel like I am the main character in a Korean drama",
+        "I really felt like I was the star of a Korean drama"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Some customers will try on twenty different outfits",
+        "Occasionally patrons change into twenty different garments",
+        "Customers sometimes swap through twenty clothing items"
+      ]
+    }
+  ]
+}
+```
+

@@ -7,21 +7,41 @@ holdout: false
 gold_hooks:
 - text: it's important to wait until the timer rings before trying these mushrooms
     otherwise you might start tripping out or you might see lots of weird colors
-  aliases: []
+  aliases:
+  - wait for the timer before eating these mushrooms or you could hallucinate and
+    see strange colors
+  - don't try these mushrooms until the timer goes off or you may trip out and see
+    weird colors
+  - you need to wait for the timer or eating these mushrooms could make you hallucinate
+    with odd colors
   timestamp_s: 0.0
 - text: this is our scary mushroom the jian shou qing that if you eat it before it's
     ready you'll start to hallucinate
-  aliases: []
+  aliases:
+  - the jian shou qing is a dangerous mushroom that makes you hallucinate if eaten
+    too early
+  - eating this scary jian shou qing mushroom before it's properly prepared will cause
+    hallucinations
+  - if you consume the jian shou qing mushroom prematurely you will begin hallucinating
   timestamp_s: 180.0
 - text: chilled black tiger feet
-  aliases: []
+  aliases:
+  - cold black tiger feet
+  - black tiger feet served chilled
+  - tiger feet in black variety chilled
   timestamp_s: 25.0
 - text: you might start tripping out like you're in san ti or three body problem with
     the numbers clocking down
-  aliases: []
+  aliases:
+  - you could hallucinate like in three body problem with countdown numbers appearing
+  - tripping out similar to san ti with numbers counting down
+  - hallucinating like the three body problem scenario with numbers ticking down
   timestamp_s: 90.0
 - text: all of the meat is actually hidden at the back which is super curious
-  aliases: []
+  aliases:
+  - the meat is surprisingly located in the back portion
+  - you'll find all the meat tucked away at the rear
+  - the meat sits entirely in the back area
   timestamp_s: 50.0
 gold_selling_points:
 - text: Unique and exotic mushroom varieties you won't find elsewhere

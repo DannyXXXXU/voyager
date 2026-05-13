@@ -6,33 +6,60 @@ content_type: travel
 holdout: false
 gold_hooks:
 - text: These mountains inspired the highest-grossing film of all time
-  aliases: []
+  aliases:
+  - The top-earning movie ever made drew inspiration from these mountains
+  - These peaks served as inspiration for cinema's biggest box office success
+  - The world's most financially successful film was inspired by these mountains
   timestamp_s: 5.0
 - text: Over 20,000 visitors flood this place every single day
-  aliases: []
+  aliases:
+  - More than 20,000 people visit this location daily
+  - This destination attracts upwards of 20,000 tourists each day
+  - Daily visitor numbers exceed 20,000 at this site
   timestamp_s: 15.0
 - text: We got unlimited access to everything for just $35
-  aliases: []
+  aliases:
+  - Everything was accessible without limits for only 35 dollars
+  - Full unlimited access cost us a mere 35 dollars
+  - For 35 dollars we received complete unrestricted access
   timestamp_s: 95.0
 - text: This record-breaking elevator has THREE lanes and each one is double-decker
-  aliases: []
+  aliases:
+  - The world-record elevator features three lanes with double-decker cars in each
+  - This elevator holds records with its three double-decker lanes
+  - Three double-decker lanes make this elevator a record holder
   timestamp_s: 145.0
 - text: Oh my goodness, are we on a movie set? Where is this real life?
-  aliases: []
+  aliases:
+  - Is this a film location or actual reality
+  - Are we standing on a movie set or is this really happening
+  - This place looks like a movie set but it's completely real
   timestamp_s: 210.0
 - text: This pillar is so narrow at the base it defies gravity jutting straight up
     to the sky
-  aliases: []
+  aliases:
+  - The base is incredibly thin yet this column rises vertically defying physics
+  - Despite its narrow foundation this tower shoots straight upward impossibly
+  - This slender-based pillar stands impossibly vertical reaching toward the sky
   timestamp_s: 230.0
 - text: This natural bridge is 350 meters above the ground below
-  aliases: []
+  aliases:
+  - The naturally formed bridge sits 350 meters above ground level
+  - This bridge formed by nature towers 350 meters high
+  - 350 meters of empty space lie beneath this natural bridge
   timestamp_s: 420.0
 - text: Our bus driver didn't fear death - he drove like a Formula One racer on a
     mountain cliff
-  aliases: []
+  aliases:
+  - The fearless bus driver raced along cliff edges like a Formula One driver
+  - Our driver navigated mountain cliffs at racing speeds without any fear
+  - Like a Formula One driver our bus driver sped fearlessly along cliffsides
   timestamp_s: 580.0
 - text: Aggressive monkeys will literally grab food right out of your hands
-  aliases: []
+  aliases:
+  - Bold monkeys snatch food directly from people's hands
+  - Monkeys aggressively take food straight from your grasp
+  - These monkeys will steal food from your hands without hesitation
   timestamp_s: 920.0
 gold_selling_points:
 - text: See the real-life inspiration for Avatar's floating mountains - towering quartz

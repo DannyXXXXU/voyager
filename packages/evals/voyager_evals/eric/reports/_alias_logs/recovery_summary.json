@@ -1,0 +1,77 @@
+[
+  {
+    "fixture": "dev-culture-01",
+    "hooks_filled": 7,
+    "total_hooks": 7
+  },
+  {
+    "fixture": "dev-culture-02",
+    "hooks_filled": 8,
+    "total_hooks": 8
+  },
+  {
+    "fixture": "dev-culture-03",
+    "hooks_filled": 6,
+    "total_hooks": 6
+  },
+  {
+    "fixture": "dev-food-01",
+    "hooks_filled": 10,
+    "total_hooks": 10
+  },
+  {
+    "fixture": "dev-food-02",
+    "hooks_filled": 2,
+    "total_hooks": 2
+  },
+  {
+    "fixture": "dev-food-03",
+    "hooks_filled": 5,
+    "total_hooks": 5
+  },
+  {
+    "fixture": "dev-food-04",
+    "hooks_filled": 8,
+    "total_hooks": 8
+  },
+  {
+    "fixture": "dev-history-01",
+    "hooks_filled": 6,
+    "total_hooks": 6
+  },
+  {
+    "fixture": "dev-nature-01",
+    "hooks_filled": 6,
+    "total_hooks": 6
+  },
+  {
+    "fixture": "dev-travel-01",
+    "hooks_filled": 7,
+    "total_hooks": 7
+  },
+  {
+    "fixture": "dev-travel-02",
+    "hooks_filled": 9,
+    "total_hooks": 9
+  },
+  {
+    "fixture": "dev-travel-03",
+    "hooks_filled": 8,
+    "total_hooks": 8
+  },
+  {
+    "fixture": "dev-vlog-01",
+    "hooks_filled": 7,
+    "total_hooks": 7
+  },
+  {
+    "fixture": "dev-vlog-02",
+    "hooks_filled": 6,
+    "total_hooks": 6
+  },
+  {
+    "fixture": "dev-vlog-03",
+    "hooks_filled": 4,
+    "total_hooks": 4
+  }
+]

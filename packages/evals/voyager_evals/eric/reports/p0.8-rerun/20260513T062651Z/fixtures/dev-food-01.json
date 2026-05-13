@@ -1,0 +1,44 @@
+{
+  "fixture_id": "dev-food-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.45454545454545453,
+    "selling_point_recall": 0.25,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 431.25413709400004,
+  "error": null,
+  "hooks_predicted": [
+    "Look at all those chilies, that's crazy.",
+    "Your nose is numbing just from being here.",
+    "This is the spiciest cyberpunk city in China",
+    "and today, our challenge is to eat the most extreme spicy Chinese food and survive.",
+    "Each dish getting spicier and spicier along the way.",
+    "And finally, we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating.",
+    "Oh, that is really spicy.",
+    "Go easy on my spice and go crazy on his spice.",
+    "It's 20 kg per cube.",
+    "And then next up, look at all those chilies.",
+    "That is really spicy.",
+    "That's very hardcore."
+  ],
+  "selling_points_predicted": [
+    "Ultra-spicy food tour featuring the world's spiciest hot pot that might make you hallucinate",
+    "Guided tour with a famous local personality known as 'Chinese Trump' who specializes in extreme spice",
+    "Experience Chongqing, described as the spiciest cyberpunk city in China with stunning multi-layered architecture",
+    "Authentic Chongqing Xiaomian noodles available only in this city, unavailable elsewhere",
+    "Step-by-step demonstrations of preparing traditional dishes from scratch with authentic local ingredients",
+    "Hot pot chef with 10 years of professional experience making the soul of Chongqing hot pot",
+    "Egalitarian dining culture where Ferrari and Mercedes owners eat alongside humble locals at street stalls",
+    "Traditional Chinese medicine health benefits: spicy food removes harmful moisture from your body",
+    "Pick-your-own-ingredients mao cai experience with customizable spice levels up to death-level",
+    "Behind-the-scenes look at making authentic hot pot base with 20 kg beef tallow cubes and dozens of ingredients",
+    "Local comfort food that natives grew up eating and continue to enjoy year-round despite extreme heat"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

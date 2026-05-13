@@ -6,23 +6,44 @@ content_type: nature
 holdout: false
 gold_hooks:
 - text: come explore the beautiful Jiuzhaigou National Park with me
-  aliases: []
+  aliases:
+  - join me on a visit to stunning Jiuzhaigou National Park
+  - let's discover the scenic Jiuzhaigou National Park together
+  - accompany me to see the gorgeous Jiuzhaigou National Park
   timestamp_s: 0.0
 - text: the whole journey has been cut down to around 4 hours in total
-  aliases: []
+  aliases:
+  - the entire trip now takes approximately 4 hours altogether
+  - total travel time has been reduced to roughly 4 hours
+  - the complete route is now about 4 hours long
   timestamp_s: 0.0
 - text: It's most well known for its many waterfalls and colourful lakes which are
     especially stunning during autumn
-  aliases: []
+  aliases:
+  - it's famous for numerous waterfalls and vibrant lakes that look particularly beautiful
+    in fall
+  - the park is best recognized for its abundant waterfalls and colorful lakes that
+    shine brightest in autumn
+  - its reputation comes from multiple waterfalls and multicolored lakes that are
+    exceptionally gorgeous during fall
   timestamp_s: 0.0
 - text: In local folklore it's said that there's a monster in the lake
-  aliases: []
+  aliases:
+  - local legends claim a creature lives in the lake
+  - according to local mythology there is a monster dwelling in the lake
+  - traditional stories say a beast inhabits the lake
   timestamp_s: 0.0
 - text: I'd pretty much given up on trying to get on the shuttle buses at this point
-  aliases: []
+  aliases:
+  - I had basically abandoned attempts to board the shuttle buses by then
+  - by this time I had nearly stopped trying to catch the shuttle buses
+  - I had almost quit attempting to get onto the shuttle buses by now
   timestamp_s: 0.0
 - text: Jiuzhaigou brings together the worst and the best parts of travelling in China
-  aliases: []
+  aliases:
+  - Jiuzhaigou combines both the finest and poorest aspects of China travel
+  - Jiuzhaigou showcases the highs and lows of traveling through China
+  - the park represents both excellent and terrible elements of Chinese tourism
   timestamp_s: 0.0
 gold_selling_points:
 - text: Much faster and more convenient access with new high-speed rail - journey

@@ -1,0 +1,83 @@
+=== TAG: alias-dev-vlog-02-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. I think I got a robot dog
+1. Yeah, man, that's like military shit, yo
+2. Killer deal, man, killer deal
+3. Can I just give you 50 yuan right now for one, just to test?
+4. Is this real? This is Sony
+5. It's five times the size
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "I believe I obtained a robotic canine",
+        "I might have acquired a mechanical dog",
+        "I think I purchased an automated dog"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "That looks like military grade equipment",
+        "This is military level technology",
+        "That appears to be military spec gear"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "This is an amazing bargain",
+        "What an incredible deal",
+        "This is a fantastic price"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Could I pay you 50 yuan immediately to try one out",
+        "Can I hand you 50 yuan now to test one",
+        "May I give you 50 yuan right away to test it"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Is this authentic? This is made by Sony",
+        "Is this genuine? This is a Sony product",
+        "This is actually Sony? Is it real"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "It is five times larger",
+        "The size is five times bigger",
+        "It measures five times as large"
+      ]
+    }
+  ]
+}
+

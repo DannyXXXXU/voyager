@@ -7,11 +7,21 @@ holdout: false
 gold_hooks:
 - text: Did you know that Xi'an is not just home to the Terracotta Warriors, but also
     one of China's most exciting food destinations?
-  aliases: []
+  aliases:
+  - Xi'an is famous for the Terracotta Warriors and ranks among China's top food destinations
+  - Beyond the Terracotta Warriors, Xi'an stands as one of China's premier culinary
+    hotspots
+  - While Xi'an houses the Terracotta Warriors, it also serves as a major Chinese
+    food capital
   timestamp_s: 0.0
 - text: Stick around as we count down the 20 must-try street foods in Xi'an, and trust
     me, you won't want to miss number 1.
-  aliases: []
+  aliases:
+  - We're counting down Xi'an's 20 essential street foods, with the top pick being
+    unmissable
+  - Stay tuned for our list of 20 Xi'an street foods you must try, especially the
+    first one
+  - Watch as we reveal 20 street foods to eat in Xi'an, and the number one is outstanding
   timestamp_s: 5.0
 gold_selling_points:
 - text: Xi'an is one of China's most exciting food destinations beyond just the Terracotta

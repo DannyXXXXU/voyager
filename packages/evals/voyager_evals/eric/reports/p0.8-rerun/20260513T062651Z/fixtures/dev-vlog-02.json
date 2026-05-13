@@ -1,0 +1,35 @@
+{
+  "fixture_id": "dev-vlog-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.6153846153846153,
+    "selling_point_recall": 0.5714285714285714,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 342.607051254,
+  "error": null,
+  "hooks_predicted": [
+    "It's five times the size, it's five times the size",
+    "I think I got a robot dog.",
+    "Yeah, man, that's like military shit, yo.",
+    "Killer deal, man, killer deal.",
+    "You know the prisoner doesn't speak English, right?",
+    "Is this real?",
+    "Look at these red-eyed neck massagers."
+  ],
+  "selling_points_predicted": [
+    "Bulk purchase discounts available with minimum order of 10 pieces at 5,000 yuan",
+    "Option to test products with single-unit purchases before committing to bulk orders",
+    "Competitive pricing on storage drives described as a killer deal",
+    "Authentic Sony branded products available for purchase",
+    "Wide variety of products including advanced technology like robot dogs",
+    "Negotiable pricing through direct bargaining with sellers",
+    "Beauty and wellness products with unisex appeal"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

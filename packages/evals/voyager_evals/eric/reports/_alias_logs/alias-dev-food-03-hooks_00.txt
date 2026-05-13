@@ -1,0 +1,74 @@
+=== TAG: alias-dev-food-03-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. it's important to wait until the timer rings before trying these mushrooms otherwise you might start tripping out or you might see lots of weird colors
+1. this is our scary mushroom the jian shou qing that if you eat it before it's ready you'll start to hallucinate
+2. chilled black tiger feet
+3. you might start tripping out like you're in san ti or three body problem with the numbers clocking down
+4. all of the meat is actually hidden at the back which is super curious
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "wait for the timer before eating these mushrooms or you could hallucinate and see strange colors",
+        "don't try these mushrooms until the timer goes off or you may trip out and see weird colors",
+        "you need to wait for the timer or eating these mushrooms could make you hallucinate with odd colors"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "the jian shou qing is a dangerous mushroom that makes you hallucinate if eaten too early",
+        "eating this scary jian shou qing mushroom before it's properly prepared will cause hallucinations",
+        "if you consume the jian shou qing mushroom prematurely you will begin hallucinating"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "cold black tiger feet",
+        "black tiger feet served chilled",
+        "tiger feet in black variety chilled"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "you could hallucinate like in three body problem with countdown numbers appearing",
+        "tripping out similar to san ti with numbers counting down",
+        "hallucinating like the three body problem scenario with numbers ticking down"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "the meat is surprisingly located in the back portion",
+        "you'll find all the meat tucked away at the rear",
+        "the meat sits entirely in the back area"
+      ]
+    }
+  ]
+}
+

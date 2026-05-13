@@ -1,0 +1,41 @@
+{
+  "fixture_id": "dev-travel-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.35294117647058826,
+    "selling_point_recall": 0.6363636363636364,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 399.3880347549998,
+  "error": null,
+  "hooks_predicted": [
+    "land inspiration to the highest-grossing film of all time",
+    "the park's natural beauty draws in over 20,000 visitors every single day",
+    "Our first stop was the record-breaking Bailong Elevator.",
+    "there's three different lanes and by the way, each elevator is actually double-decker",
+    "Oh my goodness, are we on a movie set? Where is this real life?",
+    "this bridge is 350 meters in elevation compared to the ground below",
+    "Our driver did not fear death.",
+    "It felt like he was a Formula One driver. He's just ripping through those corners at the top of the mountain on speeds I've never seen."
+  ],
+  "selling_points_predicted": [
+    "Land inspiration to the highest-grossing film of all time, Avatar",
+    "Over 20,000 visitors daily yet still offers peace and quiet in various corners",
+    "Five distinct areas to explore including Yuanjiajie, Yangjiajie, Tianzi Mountain, Huangshi Village, and Golden Whip Stream",
+    "Massive discounts available when booking tickets through your hotel, including unlimited cable car rides",
+    "Record-breaking Bailong Elevator with double-decker cabins and three lanes",
+    "Convenient facial recognition entry system eliminates need to show tickets or passports repeatedly",
+    "Abundant affordable food options throughout the park with street stalls and fresh local cuisine",
+    "First Bridge Under Heaven, a completely natural bridge archway 350 meters above ground",
+    "Spectacular 15-minute cable car rides offering incredible mountain views from above",
+    "Iconic towering quartz sandstone pillar mountains jutting dramatically from the earth",
+    "Abundant wildlife including monkeys visible throughout multiple sections of the park",
+    "Peaceful Golden Whip Stream walk along the mountain base with soaring towers overhead"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

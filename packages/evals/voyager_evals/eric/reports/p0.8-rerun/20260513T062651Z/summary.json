@@ -1,0 +1,14 @@
+{
+  "label": "p0.8-rerun",
+  "run_id": "20260513T062651Z",
+  "passed": false,
+  "dev_pass_rate": 0.0,
+  "holdout_pass_rate": 1.0,
+  "total_cost_usd": 0.0,
+  "total_wall_seconds": 5778.697865850999,
+  "failures": [
+    "dev_pass_rate 0.00 < 0.80",
+    "wall 5779s > 900s"
+  ],
+  "fixture_count": 15
+}

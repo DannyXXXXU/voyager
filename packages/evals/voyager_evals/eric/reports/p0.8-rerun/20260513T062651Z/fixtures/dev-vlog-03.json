@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-vlog-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5,
+    "selling_point_recall": 0.5714285714285714,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 346.520447676,
+  "error": null,
+  "hooks_predicted": [
+    "Hey you guys I'm here in Kashgar in Xinjiang.",
+    "Now Xinjiang has been in the news a lot lately you would have seen and we all know what the news is like.",
+    "So I've come here to check out the place with my own eyes, come with me.",
+    "Kashgar is home to one of China's western most cities.",
+    "It's been famous for thousands of years due to its strategic position on the Silk Road",
+    "Top of the list of must visit places is the Id Kar Mosque which is not only the biggest mosque in Xinjiang but also in all of China.",
+    "Apart from prayer time non-Muslims are welcome to visit the mosque for free.",
+    "But since China has only one time zone, you need to wait till about 10pm until the place gets dark and really comes to life."
+  ],
+  "selling_points_predicted": [
+    "Historic Silk Road city famous for thousands of years in a strategic location",
+    "Gateway between China and Central Asia all the way to Europe",
+    "Home to the biggest mosque in all of China - the Id Kah Mosque",
+    "Non-Muslims welcome to visit the mosque for free outside prayer times",
+    "Explore the ancient city with winding streets for fun and adventure",
+    "Rich variety of authentic local Uyghur cuisine including doner kebabs, Da Pan Ji, and hand-pulled noodles",
+    "Vibrant night market that comes alive around 10pm and is worth the wait",
+    "Historic Apak Khoja mausoleum, final resting place of Apak Khoja and his family",
+    "Site connected to Xiang Fei, the legendary fragrant concubine with unique beauty and scent",
+    "Shop for souvenirs in the ancient city's markets and streets"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

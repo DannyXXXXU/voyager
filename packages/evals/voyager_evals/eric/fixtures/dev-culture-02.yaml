@@ -6,29 +6,55 @@ content_type: culture
 holdout: false
 gold_hooks:
 - text: 100-year-old tea house
-  aliases: []
+  aliases:
+  - A tea house that is a century old
+  - This tea house has been around for one hundred years
+  - A century-old establishment serving tea
   timestamp_s: 45.0
 - text: They also have this special kung fu tea performance going on here
-  aliases: []
+  aliases:
+  - There is a unique kung fu tea show performed at this location
+  - You can watch a special tea ceremony with kung fu elements
+  - A distinctive kung fu tea demonstration takes place here
   timestamp_s: 60.0
 - text: There are two different ways to drink tea. Female, for me, very elegant
-  aliases: []
+  aliases:
+  - Tea can be consumed in two distinct styles, the female method being quite graceful
+  - Two tea drinking techniques exist, with the feminine approach being especially
+    elegant
+  - The feminine tea drinking style is one of two methods and very refined
   timestamp_s: 95.0
 - text: snowflakes floating in a green lake
-  aliases: []
+  aliases:
+  - White flakes drifting on a jade-colored body of water
+  - Flakes resembling snow suspended in green-hued liquid
+  - Snowy particles hovering over green water
   timestamp_s: 155.0
 - text: This means you're not going to pay for the bill
-  aliases: []
+  aliases:
+  - This signifies that someone else will cover the cost
+  - This indicates you will not be responsible for payment
+  - This gesture means the bill is already taken care of
   timestamp_s: 190.0
 - text: This means you are seeking for help
-  aliases: []
+  aliases:
+  - This indicates you need assistance
+  - This signals that you require aid
+  - This gesture shows you are asking for support
   timestamp_s: 240.0
 - text: Chengdu people have such a laid back lifestyle. They will come here very early
     from like 7 a.m. in the morning
-  aliases: []
+  aliases:
+  - Residents of Chengdu enjoy a relaxed way of life and arrive as early as seven
+    in the morning
+  - People from Chengdu live at an easy pace, visiting from seven o'clock onward
+  - Chengdu locals maintain a leisurely lifestyle, showing up starting at seven a.m.
   timestamp_s: 15.0
 - text: within the top ten teas in China
-  aliases: []
+  aliases:
+  - Ranked among China's ten best teas
+  - One of the ten finest teas in China
+  - Among the top ten Chinese teas
   timestamp_s: 165.0
 gold_selling_points:
 - text: Visit a historic 100-year-old tea house with authentic cultural significance

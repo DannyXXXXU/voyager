@@ -6,22 +6,40 @@ content_type: culture
 holdout: false
 gold_hooks:
 - text: Look at the size comparing to my face
-  aliases: []
+  aliases:
+  - Check out how large this is next to my face
+  - See how big it is when compared to my face
+  - Notice the enormous size relative to my face
   timestamp_s: 0.0
 - text: Look at that big ass shrimp in there
-  aliases: []
+  aliases:
+  - Check out that huge shrimp inside
+  - See that massive shrimp in there
+  - Notice that enormous prawn inside
   timestamp_s: 0.0
 - text: it's always just eat, eat, eat, and eat
-  aliases: []
+  aliases:
+  - all we do is constantly eat and eat
+  - nonstop eating is what happens here
+  - eating continuously is all that happens
   timestamp_s: 0.0
 - text: the sun is like toxic. Let me tell you guys, it is so hot
-  aliases: []
+  aliases:
+  - the sun feels poisonous because it is extremely hot
+  - let me tell you the sun is unbearably scorching
+  - the heat from the sun is intense and almost toxic
   timestamp_s: 0.0
 - text: This place is always, always packed. So come early, or be ready to wait
-  aliases: []
+  aliases:
+  - this spot is constantly crowded so arrive early or expect to wait
+  - the venue is perpetually full so get here early or prepare to queue
+  - this restaurant is consistently busy so come early or be prepared to wait
   timestamp_s: 0.0
 - text: I am so full and low-key a little bit out of dim sum and eating a lot
-  aliases: []
+  aliases:
+  - I am very stuffed and somewhat tired of dim sum and overeating
+  - I feel extremely full and kind of done with dim sum and eating so much
+  - I am really full and slightly over dim sum and all this food
   timestamp_s: 0.0
 gold_selling_points:
 - text: Guangzhou is the most authentic place for dim sum culture

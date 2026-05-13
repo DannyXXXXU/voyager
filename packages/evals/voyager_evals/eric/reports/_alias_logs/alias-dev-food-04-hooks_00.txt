@@ -1,0 +1,103 @@
+=== TAG: alias-dev-food-04-hooks  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate paraphrase aliases for evaluation gold items. Given a list of gold items (hooks or selling points) extracted from a video transcript, produce exactly 3 short paraphrases per item. Each paraphrase MUST: (a) preserve the same factual claim/meaning, (b) use different surface words (no trivial reorderings), (c) be 4-20 words, plain English, no markdown, no quotes. Do NOT invent new facts or numbers not present in the original. Return strictly valid JSON matching the schema.
+
+USER:
+Gold items (kind=hooks):
+0. one of the most painfully spicy meals in the world
+1. Intense, bubbling pot of death
+2. It feels like your soul is burning
+3. This is one of the spiciest things you'll ever eat
+4. that is like a burning pleasure
+5. My face, my tongue. That is so intensely spicy
+6. I wanna feel alive
+7. That is extreme pain here
+
+Return JSON: {"items":[{"index":0,"aliases":[...3 strings]}, ...]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  items: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "items": [
+    {
+      "index": 0,
+      "aliases": [
+        "among the globe's most agonizingly hot dishes",
+        "a dish ranking among the world's most painfully hot foods",
+        "globally one of the most torturously spicy foods available"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "powerful boiling cauldron that could kill you",
+        "fierce simmering vessel of destruction",
+        "extreme bubbling container of doom"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "sensation of your spirit being on fire",
+        "your inner being seems to be ablame",
+        "feels as though your essence is ablaze"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "among the hottest foods you will ever consume",
+        "one of the most fiery meals you will ever taste",
+        "this ranks among the most intensely hot dishes you will experience"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "it resembles a fiery enjoyment",
+        "feels like painful delight",
+        "similar to agonizing satisfaction"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "my mouth and face are experiencing extreme heat",
+        "the heat is overwhelming my tongue and facial area",
+        "incredibly powerful spice affecting my face and tongue"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "desire to experience being fully present",
+        "want to sense true vitality",
+        "seeking to feel truly living"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "this causes severe agony",
+        "experiencing intense suffering right now",
+        "the pain level is extremely high"
+      ]
+    }
+  ]
+}
+```
+

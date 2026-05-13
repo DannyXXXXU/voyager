@@ -54,6 +54,9 @@ def test_hooks_system_has_hard_rules() -> None:
     assert "HARD RULES:" in _SYS_HOOKS
     assert "5 and 12" in _SYS_HOOKS
     assert "verbatim" in _SYS_HOOKS.lower()
+    # P0.9: anti-merge — split distinct claims; capture short specific-noun hooks
+    assert "ONE HOOK = ONE DISTINCT CLAIM" in _SYS_HOOKS
+    assert "named food/dish" in _SYS_HOOKS
 
 
 def test_selling_points_system_has_hard_rules() -> None:

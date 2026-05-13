@@ -1,0 +1,171 @@
+=== TAG: extract_hooks__smr_BGmSAyI  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract attention-grabbing hooks from a video transcript. Hooks are the lines a creator would use to STOP a viewer from scrolling — typically found in the first 30 seconds and at every major section opener.
+
+HARD RULES:
+- Extract between 5 and 12 hooks. Never zero. Aim high on recall — when in doubt, INCLUDE.
+- ALWAYS include the opening hook(s) from the first 30 seconds of the transcript if any exist. Opening CTAs like "Did you know...", "Stick around...", "If you're traveling to X for the first time...", "These mountains inspired..." ARE valid hooks — do NOT reject them as generic.
+- PRIORITIZE these high-value hook types whenever present in the transcript:
+  * Numeric / record claims ("20,000 visitors a day", "$35 for everything", "350 meters high", "4 hours by train", "three-lane double-decker elevator")
+  * Superlatives / firsts ("highest-grossing film of all time", "world's tallest", "first time ever")
+  * Warnings or safety beats ("wait until the timer rings or you'll hallucinate", "the driver drove like a Formula One racer on a cliff")
+  * Vivid contrasts / reactions ("are we on a movie set?", "defies gravity", "the worst and best of travelling in China")
+  Missing one of these when it exists in the transcript is a serious recall failure.
+- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, no longer than 200 characters. Prefer the FULL sentence over a truncated fragment.
+- DO NOT split one sentence into two hooks. If a sentence joins clauses with "otherwise", "and", "which", "because", "so that", keep it as a SINGLE hook covering the whole sentence. One sentence = one hook.
+- Valid hook styles include: opening CTAs, surprising facts, bold claims, rhetorical questions, vivid quotable moments, numeric/record claims, warnings, vivid contrasts. NOT topic labels, NOT summaries.
+- timestamp_s MUST be the leading [<seconds>s] tag of the source line. Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.
+- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.
+- Reject only hooks that are vague filler ("this place is amazing", "it was so cool") or hallucinated text not in the transcript.
+
+USER:
+VIDEO_ID=smr_BGmSAyI
+TRANSCRIPT:
+[0.0s] It's five times the size, it's five times the size, I believe it because there's also
+[20.0s] a WhatsApp service, and then you log in.
+[40.0s] I think he's still in the line probably.
+[65.0s] All right, let's go here.
+[83.0s] Thank you, thank you.
+[124.0s] You want to just go see, for fun?
+[141.0s] Let's go see, for fun.
+[144.0s] I think I got a robot dog.
+[154.0s] Yeah, man, that's like military shit, yo.
+[184.0s] Okay, let's go.
+[214.0s] Yeah, I don't need it, I'm just asking.
+[226.0s] What quality?
+[227.0s] Yeah.
+[228.0s] How much does it cost?
+[229.0s] One thousand something.
+[230.0s] Two TB?
+[231.0s] Killer deal, man, killer deal.
+[232.0s] One TB and two TB, faster.
+[233.0s] Why don't you just get one for yourself, then?
+[234.0s] Yes.
+[235.0s] Hello?
+[237.0s] That's the one right there, man, that's the shop right there.
+[264.0s] What is the warranty on this?
+[278.0s] Can you use this?
+[280.0s] How much do I have to buy before the price becomes lower?
+[288.0s] You know the prisoner doesn't speak English, right?
+[294.0s] How many more you want to buy and I'll give you a discount.
+[301.0s] How much do I have to buy to get this technology?
+[304.0s] I don't know.
+[306.0s] How much do I have to buy to get this technology?
+[309.0s] I don't know.
+[313.0s] The lowest, the lowest, the lowest.
+[315.0s] The lowest, the lowest, the lowest, the lowest.
+[318.0s] Minimum, minimum.
+[320.0s] 80.
+[322.0s] No, no, no. 5,000.
+[324.0s] Yeah, it's 5,000.
+[326.0s] 10 pieces.
+[328.0s] 10 pieces.
+[330.0s] Yeah.
+[332.0s] Okay.
+[334.0s] Can I just give you 50 yuan right now for one, just to test it?
+[339.0s] You can only get 50 yuan for one test.
+[344.0s] 60.
+[346.0s] 60.
+[348.0s] 60.
+[350.0s] 60.
+[354.0s] 60.
+[358.0s] 60.
+[360.0s] Ask the gentleman behind you if he agrees.
+[363.0s] Okay.
+[365.0s] 50.
+[367.0s] 50.
+[369.0s] 50.
+[371.0s] This is a Sony.
+[373.0s] Is this real?
+[375.0s] This is Sony.
+[378.0s] Oh.
+[380.0s] I see it.
+[402.0s] I used to play this all the time.
+[408.0s] Yo, yo, yo.
+[410.0s] You're going to fall asleep.
+[417.0s] Oh, wow.
+[419.0s] For fans.
+[421.0s] Dude.
+[423.0s] Every ****** can go.
+[425.0s] Boys.
+[437.0s] Oh.
+[441.0s] Yo, can you tell the difference?
+[443.0s] I've never really handled one legitimately.
+[447.0s] On the real.
+[449.0s] Just on the surface, it looks pretty decent.
+[452.0s] What is this?
+[454.0s] Yeah, it looks pretty decent.
+[468.0s] Look at these red-eyed neck massagers.
+[472.0s] That's a haircut.
+[487.0s] It is cold.
+[489.0s] Oh, my gosh.
+[491.0s] I'm just going to sleep.
+[493.0s] What does this do?
+[495.0s] Yeah, I guess.
+[498.0s] These beauty products feel unisex.
+[501.0s] Yeah.
+[525.0s] That's what you want.
+[555.0s] Everything is so nice.
+[585.0s] Thank you for watching.
+[587.0s] Don't forget to subscribe to my channel.
+[589.0s] See you next time.
+[591.0s] Bye.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hooks": [
+    {
+      "hook_text": "It's five times the size, it's five times the size",
+      "timestamp_s": 0.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "I think I got a robot dog.",
+      "timestamp_s": 144.0,
+      "confidence": 0.82
+    },
+    {
+      "hook_text": "Yeah, man, that's like military shit, yo.",
+      "timestamp_s": 154.0,
+      "confidence": 0.88
+    },
+    {
+      "hook_text": "Killer deal, man, killer deal.",
+      "timestamp_s": 231.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "You know the prisoner doesn't speak English, right?",
+      "timestamp_s": 288.0,
+      "confidence": 0.83
+    },
+    {
+      "hook_text": "Is this real?",
+      "timestamp_s": 373.0,
+      "confidence": 0.80
+    },
+    {
+      "hook_text": "Look at these red-eyed neck massagers.",
+      "timestamp_s": 468.0,
+      "confidence": 0.81
+    }
+  ]
+}
+```
+

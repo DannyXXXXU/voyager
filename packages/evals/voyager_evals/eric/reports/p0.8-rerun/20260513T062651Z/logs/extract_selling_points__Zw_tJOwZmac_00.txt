@@ -1,0 +1,369 @@
+=== TAG: extract_selling_points__Zw_tJOwZmac  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract selling points (reasons a viewer should visit / watch / buy) from a transcript. These are written in marketing-brief style — concise benefit statements a copywriter would use.
+
+HARD RULES:
+- Extract between 5 and 12 selling points. Never zero. Aim high on recall.
+- Each `point` is a concise benefit STATEMENT, 40–180 characters. Full phrases are encouraged when they convey the benefit clearly. Examples:
+  * "UNESCO World Heritage Site with international recognition since 1992"
+  * "Step-by-step demonstrations of getting free airport Wi-Fi without a local phone number"
+  * "Expert guidance from someone with nearly 20 years of living in Shanghai"
+- `evidence` MUST quote or paraphrase the supporting transcript span verbatim (<= 200 chars). Never empty.
+- Reject only empty filler ("unforgettable experience" alone). Specific marketing-style phrasing IS allowed and desired.
+- No duplicates (same benefit, different words).
+- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote.
+
+USER:
+VIDEO_ID=Zw_tJOwZmac
+TRANSCRIPT:
+[0.0s] Coming up for all you food rangers,
+[2.2s] we're going deep into the heart of Sichuan and Chengdu
+[6.0s] to taste one of the most painfully spicy meals in the world.
+[10.4s] This is home of spicy and mouth-numbing Sichuan cuisine.
+[14.7s] So if you love spice, you're in for a treat,
+[17.3s] because this is one of the most spiciest
+[19.2s] and fragrant meals you can eat in the whole world.
+[22.8s] Let's eat.
+[23.6s] All right, so check it out, guys.
+[24.6s] It's Trevor James.
+[25.5s] We are back in Chengdu, Sichuan,
+[28.0s] and today we're gonna go for an extremely spicy meal here.
+[31.6s] We're gonna have classic hot pot.
+[34.2s] Let's go check it out.
+[35.2s] All right, we're gonna go get a big spicy hot pot.
+[59.7s] I can't wait.
+[60.5s] Right when you walk into a legit local hot pot joint
+[64.2s] in Sichuan, the pungent chili aroma hits your nostrils,
+[68.3s] and you can almost feel it on your skin.
+[70.7s] If you love spicy, this is your heaven.
+[73.3s] We're going full on and ordering
+[75.1s] the most deadly spicy hot pot available on the menu.
+[79.3s] Get ready.
+[80.9s] Feels like I'm walking into a hot pot temple here.
+[84.4s] This is gonna be painfully spicy.
+[87.8s] Beautiful.
+[94.8s] All right, guys, take a look at this.
+[96.8s] So this is the classic hot pot experience.
+[99.4s] First thing you notice when you get this full-on menu
+[103.1s] of hot pot dishes, right down here,
+[105.8s] you're gonna wanna tick either wei la, which is less spicy,
+[109.4s] zhong la, which is like medium spicy,
+[111.1s] or te la, which is extremely spicy,
+[114.6s] and that's what we're gonna order, extremely spicy.
+[117.7s] Okay, so next up, we're gonna get some of the classic stuff
+[120.6s] to go with the hot pot.
+[122.0s] We are gonna get here.
+[124.7s] This is fei niu rou, fatty beef.
+[128.3s] And then down here, we are gonna get some shrimp.
+[132.2s] Oh, yeah.
+[133.3s] So this is all part of the experience, checking the menu.
+[136.8s] And then up here, some more meat.
+[139.7s] We're gonna get here, neng niu rou, so less fatty beef.
+[144.0s] And then down here, ma la niu rou,
+[145.7s] so numbing, mouth-numbing, super spicy beef.
+[151.0s] And then we're gonna get some quail eggs.
+[153.7s] Awesome.
+[154.8s] And then some veg, just to finish it off.
+[157.0s] We are going to get some ou pian, right here.
+[162.2s] That is lotus root.
+[163.9s] Awesome, those go so well with hot pot.
+[166.0s] And then we are gonna get some tu dou pian here,
+[169.3s] potato slices, and then I think dou fu pi,
+[173.7s] which is tofu skin, but I don't see it here.
+[177.7s] I'm just gonna get some huang dou pi.
+[180.2s] I think that's what it is.
+[181.1s] Awesome, and that should be a perfect spicy start.
+[194.2s] I don't know what I'm getting myself into here.
+[195.8s] Usually I order zhong la, just the medium spice,
+[199.0s] but today we're gonna get the full on.
+[201.8s] Tu la ke yi, mei guan xi, xie xie.
+[208.3s] He just gave me a warning.
+[212.2s] There we go.
+[213.2s] So before the hot pot arrives, we are gonna make our dip,
+[216.2s] which is made with a xiang you, sesame oil.
+[220.4s] It's made with a xiang you.
+[221.8s] Just pour that right into there.
+[223.0s] That is a sesame oil.
+[228.5s] We're getting some of the stuff to come along with it now.
+[230.4s] We got the dou fu pi, and oh, xie xie,
+[234.8s] and tu dou pian, potato slices, and then ou pian here,
+[240.0s] which is lotus root slices.
+[243.0s] And this is all gonna go in that extremely,
+[245.2s] extremely spicy broth.
+[252.2s] Look at that.
+[253.7s] Intense, bubbling pot of death.
+[261.4s] Okay, that is intense.
+[265.6s] So we wait for this to boil.
+[267.4s] This is just packed full of those red Sichuan chilies,
+[272.8s] Sichuan peppercorns, and spice.
+[278.0s] Okay, we're gonna let that boil.
+[281.0s] This is an extremely powerful meal here, guys.
+[283.6s] Extremely spicy, extremely garlicky, and potent.
+[288.7s] And there's the beef.
+[291.1s] Look at all that.
+[294.5s] Now we're gonna load it up with some green onions
+[299.9s] and some peanuts.
+[303.5s] Wow.
+[306.0s] Beautiful.
+[306.9s] And I think I need some xiaomila for this.
+[313.0s] We gotta add some chili to the dip
+[314.4s] because we need it to be extra spicy.
+[317.1s] I wanna feel alive.
+[318.6s] So just in case this isn't spicy enough,
+[321.3s] which I'm sure it's gonna be deadly,
+[323.4s] we're gonna add some xiaomila,
+[324.8s] fresh, not dry, red chilies in there,
+[329.0s] and a little bit of xiang cai, cilantro.
+[333.2s] Wow, that is gonna be beautiful.
+[335.7s] We're just gonna put a little bit of chou,
+[337.0s] just a touch of vinegar in there,
+[338.5s] and then just a touch of haoyou, oyster sauce.
+[342.0s] This is intense.
+[343.2s] This is a full-on beef oil, they call it niu you,
+[347.5s] in, packed with red chilies, packed with Sichuan peppercorn.
+[353.1s] It's just packed with red chili,
+[355.5s] packed with Sichuan peppercorn,
+[357.8s] that oil, niu you, they call it beef oil.
+[361.7s] Wow.
+[362.9s] And then we're gonna take,
+[364.1s] so what you do, there's a couple ways.
+[366.3s] You can take one by one if you want,
+[368.7s] and then hold it in, the bubbles,
+[371.3s] and eat it and wait for it to cook,
+[373.6s] or you can just put a ton in.
+[376.6s] And that's my tactic, because you can just feast.
+[380.2s] You don't have to worry about individual pieces cooking.
+[383.2s] And then we have the ma la niu you, look at this, guys.
+[385.6s] This is packed, covered in red chilies,
+[388.2s] dried red chilies, raw beef,
+[390.3s] covered in that super spicy spice mix,
+[394.2s] and we're just gonna put that right in as well.
+[399.3s] I don't know how much trouble
+[400.4s] I'm getting myself into right now.
+[402.2s] This is gonna be an intense, intense hot pot delight.
+[407.0s] So we've also got, oh, which is lotus root.
+[409.9s] We have some beautiful chopped up shrimp.
+[413.9s] So we have some nice chopped up shrimp we can add in there.
+[417.0s] Those will be delicious.
+[420.0s] Oh yeah.
+[421.6s] And I think we're gonna let those cook now.
+[424.6s] I don't know what I'm getting myself into here.
+[426.6s] Look at that, that just looks deadly.
+[429.6s] This is full-on Sichuan experience.
+[433.1s] You've gotta come to the heart of Sichuan to get this.
+[435.8s] We are in Chengdu, the land of spicy,
+[439.3s] numbing, fragrant cuisine,
+[441.9s] the land of plentiful flavor, the land of plenty.
+[445.9s] It's all here, guys.
+[447.5s] The deal is you just fish around
+[452.3s] and you just take out pieces that look good.
+[457.0s] And you can sort of shake them off,
+[460.0s] because you don't want to eat dried chilies, of course.
+[463.8s] And you can sort of dip them off,
+[465.5s] and then you can just dip it into that sesame oil
+[468.0s] with fresh chilies, cilantro, onions, and peanuts,
+[473.0s] and go for the kill.
+[477.4s] Mm.
+[479.5s] Oh, that is burning.
+[483.2s] Oh wow, guys, that is like a burning pleasure.
+[486.4s] Mm.
+[489.3s] Mm.
+[519.9s] It's gonna be a hot chili.
+[521.2s] Wow.
+[522.1s] The first bite of hot pot is just a warm-up.
+[525.2s] As the chilies boil in the oil
+[527.3s] and the heat gets higher and higher,
+[529.7s] the spice level builds
+[531.3s] and each bite you take gets hotter and hotter,
+[534.4s] with your tongue, your lips,
+[536.1s] and even your face getting really hot.
+[539.3s] It feels like your soul is burning.
+[543.3s] Feels like you can feel it in your throat
+[546.8s] and your stomach.
+[547.6s] The instant it goes down,
+[550.3s] wow, that is extreme pain here.
+[554.4s] I don't know how I'm gonna eat that, guys.
+[557.8s] I wanna eat it, but I don't wanna waste.
+[564.1s] I'm in pain.
+[565.3s] Over time, your dipping bowl,
+[567.5s] full of that sesame oil and chilies
+[569.6s] and garlic and peanuts,
+[571.6s] that also gets spicy because the oil,
+[574.8s] some of the oil from the hot pot gets in there.
+[580.3s] Oh.
+[583.1s] Now that is,
+[589.9s] this is one of the spiciest things you'll ever eat, guys.
+[592.4s] This is just one of thousands
+[593.5s] of hot pot joints in Chengdu that,
+[599.2s] give me a minute here.
+[600.4s] Okay.
+[606.9s] That is so spicy, guys.
+[610.3s] Look at that.
+[613.5s] My face, my tongue.
+[617.8s] That is so intensely spicy.
+[620.8s] Wow.
+[623.3s] Oh, man.
+[625.1s] I'm just burning the red chilies.
+[628.3s] Give it an instant burn.
+[630.1s] The huajiao, the Sichuan peppercorn,
+[633.0s] the minute you get that flavor on your tongue,
+[636.4s] you can feel a bit of a tingle.
+[638.9s] It feels florally, almost a little citrusy and numbing.
+[643.7s] Your face and your lips and tongue feel a slight tingle.
+[649.6s] It really is painful, and I love spice.
+[651.5s] This is,
+[654.0s] I think next time I'm gonna stick with the zhong la.
+[659.0s] Ting, you wanna try?
+[660.1s] I'm gonna try the shrimp.
+[661.5s] It's really spicy, Ting.
+[662.6s] Those shrimp have been in there a few minutes now,
+[665.6s] and they're gonna be overcooked
+[667.7s] and extremely, extremely spicy.
+[670.3s] I mean, this is one of the spicier things
+[673.6s] you can eat in the world.
+[674.9s] Sichuan hot pot.
+[675.7s] Yeah, I'm a little nervous for you from Guangdong,
+[679.2s] not used to that spice,
+[681.5s] but if you wanna try it, go for it.
+[686.5s] Where is it?
+[688.7s] That's the shrimp.
+[689.9s] I'm gonna try it.
+[690.9s] Try it out.
+[698.3s] Is that spicy?
+[700.3s] No.
+[701.1s] No?
+[701.9s] No.
+[702.8s] You're kidding.
+[704.1s] No, I'm not kidding.
+[705.9s] You're saying that that is not spicy and I'm a baby.
+[710.6s] I think maybe because the first bite,
+[712.6s] I'm not good.
+[713.5s] Yeah, you're cheating.
+[714.3s] You're putting it in your oil,
+[716.8s] and that's cleaning it from the spice.
+[719.2s] Yeah, that's gonna help.
+[720.1s] You're cheating, for sure.
+[723.5s] Well, I don't wanna be painful.
+[724.9s] I wanna just enjoy it.
+[727.7s] I want the food to taste good.
+[731.7s] That flavor inside from those chilies and peppercorns
+[735.8s] is infused into the oil,
+[737.9s] and every single bite you take
+[740.7s] gets that spice and that numbing sensation.
+[744.1s] It is burning, and it is actually somehow addictive.
+[748.5s] You take that first bite,
+[749.7s] the first time you come for hot pot,
+[751.3s] and it is like, oh, I see something here.
+[754.9s] You're in pain, but you are also enjoying it.
+[758.3s] And after you're finished, you go home,
+[760.1s] your mouth is still slightly alive,
+[762.9s] and you just wanna go back for more.
+[765.1s] This is one of the things you have to try
+[769.1s] when you come to Sichuan, and look at that.
+[771.1s] That is such condensed spice.
+[814.9s] Oh.
+[829.1s] If you enjoy these food and trial videos,
+[830.8s] please click that little subscribe
+[832.5s] and bell button down below.
+[834.4s] I would love to hear your thoughts
+[835.5s] about this food and trial video.
+[837.1s] We've got a ton more street food videos
+[838.8s] coming up for you guys.
+[839.8s] We're gonna be going on a deep Sichuan street food tour
+[843.0s] all around Sichuan into the rural areas
+[845.3s] and making our way down to the south of China.
+[847.8s] I cannot wait to film this series and share it with you.
+[850.4s] We're gonna be going on the Tea Horse Road
+[852.5s] through the ancient roots that tea used to be traded
+[855.4s] from Yunnan up to Tibet.
+[857.1s] It is gonna be an amazing journey,
+[858.8s] and I would love to hear from you in the comments below
+[860.7s] what you've thought about the last few videos,
+[862.7s] this video, and all the spicy,
+[864.3s] delicious food we've been eating.
+[865.5s] Thanks a lot for watching, guys,
+[866.8s] and I'll see you on the next video.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "selling_points": [
+    {
+      "point": "One of the most painfully spicy meals in the world",
+      "evidence": "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world",
+      "confidence": 0.95
+    },
+    {
+      "point": "Experience in the authentic heart of Sichuan cuisine in Chengdu",
+      "evidence": "You've gotta come to the heart of Sichuan to get this. We are in Chengdu, the land of spicy, numbing, fragrant cuisine",
+      "confidence": 0.9
+    },
+    {
+      "point": "One of the spiciest and most fragrant meals you can eat in the whole world",
+      "evidence": "this is one of the most spiciest and fragrant meals you can eat in the whole world",
+      "confidence": 0.95
+    },
+    {
+      "point": "Classic Sichuan hot pot at a legit local restaurant",
+      "evidence": "Right when you walk into a legit local hot pot joint in Sichuan, the pungent chili aroma hits your nostrils",
+      "confidence": 0.85
+    },
+    {
+      "point": "Customizable spice levels from less spicy to extremely spicy",
+      "evidence": "wei la, which is less spicy, zhong la, which is like medium spicy, or te la, which is extremely spicy",
+      "confidence": 0.9
+    },
+    {
+      "point": "Unique mouth-numbing sensation from Sichuan peppercorns with floral and citrusy notes",
+      "evidence": "huajiao, the Sichuan peppercorn, the minute you get that flavor on your tongue, you can feel a bit of a tingle. It feels florally, almost a little citrusy and numbing",
+      "confidence": 0.9
+    },
+    {
+      "point": "Traditional sesame oil dipping bowl with fresh chilies, cilantro, onions, and peanuts",
+      "evidence": "dip it into that sesame oil with fresh chilies, cilantro, onions, and peanuts",
+      "confidence": 0.85
+    },
+    {
+      "point": "Authentic beef oil broth packed with red Sichuan chilies and peppercorns",
+      "evidence": "full-on beef oil, they call it niu you, packed with red chilies, packed with Sichuan peppercorn",
+      "confidence": 0.9
+    },
+    {
+      "point": "Premium ingredients including fatty beef, shrimp, lotus root, and special spiced beef",
+      "evidence": "fei niu rou, fatty beef... some shrimp... ma la niu rou, so numbing, mouth-numbing, super spicy beef... ou pian... lotus root",
+      "confidence": 0.85
+    },
+    {
+      "point": "Building spice intensity that gets hotter with each bite as chilies boil in the oil",
+      "evidence": "As the chilies boil in the oil and the heat gets higher and higher, the spice level builds and each bite you take gets hotter and hotter",
+      "confidence": 0.9
+    },
+    {
+      "point": "Addictive burning pleasure that makes you want to come back for more",
+      "evidence": "it is actually somehow addictive... after you're finished, you go home, your mouth is still slightly alive, and you just wanna go back for more",
+      "confidence": 0.85
+    },
+    {
+      "point": "Essential must-try experience when visiting Sichuan",
+      "evidence": "This is one of the things you have to try when you come to Sichuan",
+      "confidence": 0.9
+    }
+  ]
+}
+```
+

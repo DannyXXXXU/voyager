@@ -1,0 +1,257 @@
+=== TAG: extract_hooks__goMY8fHbJwM  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract attention-grabbing hooks from a video transcript. Hooks are the lines a creator would use to STOP a viewer from scrolling — typically found in the first 30 seconds and at every major section opener.
+
+HARD RULES:
+- Extract between 5 and 12 hooks. Never zero. Aim high on recall — when in doubt, INCLUDE.
+- ALWAYS include the opening hook(s) from the first 30 seconds of the transcript if any exist. Opening CTAs like "Did you know...", "Stick around...", "If you're traveling to X for the first time...", "These mountains inspired..." ARE valid hooks — do NOT reject them as generic.
+- PRIORITIZE these high-value hook types whenever present in the transcript:
+  * Numeric / record claims ("20,000 visitors a day", "$35 for everything", "350 meters high", "4 hours by train", "three-lane double-decker elevator")
+  * Superlatives / firsts ("highest-grossing film of all time", "world's tallest", "first time ever")
+  * Warnings or safety beats ("wait until the timer rings or you'll hallucinate", "the driver drove like a Formula One racer on a cliff")
+  * Vivid contrasts / reactions ("are we on a movie set?", "defies gravity", "the worst and best of travelling in China")
+  Missing one of these when it exists in the transcript is a serious recall failure.
+- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, no longer than 200 characters. Prefer the FULL sentence over a truncated fragment.
+- DO NOT split one sentence into two hooks. If a sentence joins clauses with "otherwise", "and", "which", "because", "so that", keep it as a SINGLE hook covering the whole sentence. One sentence = one hook.
+- Valid hook styles include: opening CTAs, surprising facts, bold claims, rhetorical questions, vivid quotable moments, numeric/record claims, warnings, vivid contrasts. NOT topic labels, NOT summaries.
+- timestamp_s MUST be the leading [<seconds>s] tag of the source line. Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.
+- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.
+- Reject only hooks that are vague filler ("this place is amazing", "it was so cool") or hallucinated text not in the transcript.
+
+USER:
+VIDEO_ID=goMY8fHbJwM
+TRANSCRIPT:
+[0.0s] Alright, so right now we are at the Great Wall of China, the Mutianyu side of the Great Wall,
+[3.5s] which according to Trip.com is the less like touristy side. The bottom-least side apparently has just like crowds all like year-long and people are
+[11.4s] just like shoulder-to-shoulder. So we decided to do this one. How's it going Andrew? It's going great. You see my little logo right here?
+[17.1s] I'm a tourist. We are all tourists. Let's go. But essentially we took three separate modes of transport here.
+[22.3s] We have the DD first to a subway station and then we took a bus from Beijing City Center all the way to the entrance
+[27.0s] and then finally we took a shuttle stop. Actually, and then we took a cable car from the base to the top,
+[30.7s] but we're finally here and it only took maybe three hours of transport time in total.
+[34.3s] We are planning to hike the entirety of the Mutianyu side,
+[37.9s] so that's from Watchtower 5 to Watchtower 20 and we're gonna go to the Hero Slope right now,
+[41.8s] which is gonna be the really uphill part of the wall.
+[44.0s] Alright, we're approaching the Hero's Path right now.
+[45.6s] Apparently we have to bend forward, use kind of both hands and legs to get up,
+[48.1s] which is probably definitely gonna be the most intense part of the hike. It's okay. Jeffrey likes to bend. Mr. Dover. Bend over.
+[53.9s] Alright, great. Thank you for the commentary.
+[58.0s] We're in a central watchtower right now.
+[60.5s] This entire hike is built on a mountain, right? So it slopes up, it slopes down.
+[64.4s] The watchtowers are kind of like at the apex of each of these peaks.
+[67.3s] But if you look, this is the north side where they were defending against nomadic invaders
+[71.4s] and that's the south side that leads into China proper.
+[73.5s] Beijing is only an hour and a half bus ride from here, which actually I think is pretty close.
+[77.7s] And as a kid, I was always like very curious, right?
+[80.0s] Like I look at a map of China and the Great Wall of China is inside of China.
+[83.2s] Like it's not bordering like China and Mongolia right now.
+[85.5s] Why is that? Well, it's because the current territory of the People's Republic of China
+[89.1s] actually incorporates a lot of Inner Mongolia as well.
+[91.1s] And so while this is the current border of China, it didn't always used to be the case back then.
+[95.3s] Back then, the Great Wall of China really defined the borders between nomadic tribes,
+[98.3s] the Khitans, the Jurchens, the Mongolians, the Manchurians, and China proper.
+[101.8s] It was only until the Qing Dynasty, which was actually ruled by Manchurian outsiders, did territory change.
+[107.4s] You know, in the best Disney movie of all time, Mulan, they said let's get down to business to defeat the Huns.
+[111.6s] But who are the Huns? Well, the Huns were nomadic pastoralists north of the Great Wall.
+[114.8s] They settled in the Central Asian steppe and they actually attacked a lot of different parts of the world,
+[118.5s] in Eurasia, in China, and Europe as well.
+[120.2s] Huns is actually the Latin term for it.
+[122.0s] The Mongolian term is Hunu, which translates to Chinese as Xiongnu.
+[125.0s] The Xiongnu Confederacy was the group of tribes who did invade the Han Dynasty
+[128.6s] in order to get their resource-rich and more fertile agricultural lands.
+[132.1s] And so what did the Han Dynasty do?
+[133.9s] They built the Great Wall of China to defend against the Xiongnu people.
+[137.0s] For the entirety of the Han Dynasty, they had a very weird tributary relationship, right?
+[141.1s] The Xiongnu would come and they would demand tributes, say,
+[143.4s] if you want us to stop invading, pay us money.
+[145.4s] And so the Han Dynasty had no choice but to pay them money.
+[147.8s] And so eventually, they didn't want to continue doing this.
+[150.2s] And so this large bulwark, the Great Wall of China, was used to stop these tributary payments.
+[154.7s] Although throughout nomadic history and Chinese history,
+[157.5s] a lot of different nomadic tribes did continue to raid China.
+[160.2s] The Kitan Liao Dynasty, later in the Tang and Song Dynasties,
+[163.7s] the Jin Jurchen Dynasty comes and encroaches on China,
+[166.2s] and in fact, moves the Song Dynasty down south.
+[168.4s] And of course, the most famous Genghis Khan and Kublai Khan in the Mongol Yuan Dynasty
+[172.1s] come and actually take all over China.
+[174.1s] Where are we right now?
+[175.0s] We are on the Hero Slope because we are heroes.
+[178.1s] Do you do leg day?
+[179.7s] You skip leg day.
+[181.4s] I'm doing it now.
+[182.4s] This is leg day, okay?
+[183.6s] It's getting steeper and steeper by the moment.
+[185.0s] I feel like I got to use my hands at some point.
+[187.1s] You know Po from Kung Fu Panda?
+[188.9s] He doesn't like stairs.
+[189.8s] I don't like stairs either.
+[190.9s] This entire wall is all stairs.
+[192.7s] But look at that architectural masterpiece, man.
+[194.3s] Donald Trump wish he could build a wall like that.
+[195.8s] He can't build a wall like this.
+[197.0s] Hans was just carrying a bamboo stick with four trash bags,
+[200.6s] chugging it down the slope.
+[202.6s] Whereas I'm in my prime years right now with only a backpack,
+[207.0s] and I'm sweating my rear end off.
+[208.5s] Never-ending staircase.
+[210.0s] I'm gassed.
+[211.0s] Almost there at the next watchtower.
+[213.4s] A lot of people resting on the side.
+[214.9s] Might do the same soon.
+[216.2s] But look at that view.
+[217.6s] That is a wall.
+[218.6s] All right, it's 4 p.m. now.
+[219.7s] We just finished the Hero's Path,
+[220.8s] and I want to talk about the tale of Li Sangui,
+[223.0s] who is the guy who is responsible for allowing the Manchurian Qing Dynasty
+[226.2s] to invade and conquer China.
+[227.9s] And this establishes the last dynasty of all of China
+[230.5s] from 1644 to 1911, right?
+[232.4s] The Ming Dynasty had just fallen.
+[233.7s] The last Ming emperor, Tongzhen, had killed himself
+[235.9s] by suicide hanging on a tree in Jintan Park.
+[238.0s] And so there are two people who would be in contention.
+[241.0s] There was Li Zicheng, the peasant rebellion.
+[243.0s] And then there's the Manchurian Qing Dynasty,
+[244.6s] who have been already encroaching on the Great Wall of China for three years,
+[247.3s] but also planning the invasion of China for the last 10 years.
+[250.2s] And so Li Sangui, he is a military official
+[252.7s] on the Great Wall of China,
+[253.7s] and he has a choice to make.
+[254.6s] Should I allow Li Zicheng to take Beijing himself,
+[257.3s] or should I allow the Manchurian Qing Dynasty
+[259.2s] to come in and encroach on China?
+[260.6s] And this actually all revolves around one prostitute, actually.
+[263.6s] Wu Sangui's prostitute, who apparently at the time
+[265.5s] was one of the four beauties of China.
+[267.0s] She was captured by Li Zicheng's peasant rebellion.
+[270.4s] And when Wu Sangui asked for the prostitute back,
+[273.4s] they say, no, we're not going to give you the prostitute back.
+[275.2s] And so in a petty response,
+[276.5s] he actually opens up the Great Wall of China.
+[278.4s] And that's why these nomadic tribes are able to get into China.
+[281.8s] It's amongst a lot of other reasons as well.
+[283.4s] The Qing Dynasty, the Manchurians promised him political power.
+[286.3s] They end up respecting this promise, actually.
+[288.4s] They give him the military governorship of Yunnan,
+[290.7s] and this becomes a feudatory that is semi-autonomous
+[293.0s] in the first few years of the Qing Dynasty,
+[294.5s] until the Qing ask for power back,
+[296.6s] and Wu Sangui decides that he doesn't want to give it back,
+[299.3s] leading to the revolt of the three feudatories,
+[301.1s] which is a story for another day.
+[302.4s] But essentially, at the end of the day,
+[303.8s] the Great Wall of China was opened.
+[305.3s] This part of the Great Wall is so pretty in my opinion,
+[307.2s] but this is just past the eighth watchtower.
+[309.4s] I think the fall foliage is really coming in.
+[311.4s] It's around 4.30, 4.15, 4.30,
+[313.4s] so going to be the tail end of our Great Wall trip,
+[315.9s] but just look at the fall foliage on the side.
+[318.4s] I think that's absolutely gorgeous.
+[320.5s] What do you think, Andrew?
+[321.2s] It's beautiful.
+[322.7s] I mean, it's one thing to just come here,
+[325.0s] and there's another thing to see,
+[326.3s] like all these orange leaves,
+[328.5s] these soldiers that were on the Great Wall all year round.
+[331.4s] They saw bear trees.
+[333.2s] They saw this fall foliage.
+[334.6s] They probably saw it when it was green, everything in between, so.
+[337.4s] How tired are you, I think, from a scale from one through ten?
+[339.8s] How athletic do you think you have to be to do this?
+[342.0s] I think if you are a three to four out of ten, it's doable.
+[346.2s] For it to be easy, if you're like a six, seven out of ten in shape.
+[350.1s] There's a lot of little kids and old people doing this, right?
+[352.0s] So this is definitely doable,
+[353.8s] but I will say I am pretty tired, I'm not gonna lie.
+[360.8s] We are on a date on a ski lift.
+[363.5s] This is too romantic for two men,
+[365.3s] but essentially we're on the ski lift down.
+[367.0s] We did not get a chance to go on the toboggan,
+[368.9s] but it's okay.
+[369.4s] It's different from the cable car when you go up.
+[371.0s] The ski lift, you're outside.
+[372.7s] I've just never taken a ski lift down
+[374.0s] because usually you'd be skiing down, right?
+[375.9s] All right, so that's gonna be the end of this video,
+[377.3s] but if you enjoyed it or learned something historically,
+[379.1s] please like, comment, and subscribe.
+[381.0s] Hitting that subscribe button really helps me out
+[382.8s] because I do spend a lot of time editing this stuff,
+[385.0s] like after work, and it takes a lot of my time.
+[387.8s] And I'm trying to grow my channel to 2,000 subscribers,
+[390.4s] so please help me out.
+[392.0s] But keep on the lookout for my other China videos
+[393.8s] where I explain your city historically
+[395.5s] and prepare you for your next trip,
+[396.8s] including my terracotta army video.
+[398.5s] Okay, bye.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hooks": [
+    {
+      "hook_text": "which according to Trip.com is the less like touristy side",
+      "timestamp_s": 3.5,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "it only took maybe three hours of transport time in total",
+      "timestamp_s": 30.7,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "Beijing is only an hour and a half bus ride from here, which actually I think is pretty close",
+      "timestamp_s": 73.5,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "I look at a map of China and the Great Wall of China is inside of China",
+      "timestamp_s": 80.0,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "in the best Disney movie of all time, Mulan",
+      "timestamp_s": 107.4,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "Donald Trump wish he could build a wall like that",
+      "timestamp_s": 194.3,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "And this actually all revolves around one prostitute, actually",
+      "timestamp_s": 260.6,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "he actually opens up the Great Wall of China",
+      "timestamp_s": 276.5,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "I think if you are a three to four out of ten, it's doable",
+      "timestamp_s": 342.0,
+      "confidence": 0.9
+    }
+  ]
+}
+```
+

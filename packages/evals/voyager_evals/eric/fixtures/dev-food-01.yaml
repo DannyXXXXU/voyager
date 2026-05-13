@@ -7,37 +7,67 @@ holdout: false
 gold_hooks:
 - text: we're gonna attempt to eat the world's spiciest hot pot, so spicy you might
     start hallucinating
-  aliases: []
+  aliases:
+  - we will try eating the globe's hottest hot pot that could make you see things
+  - attempting the spiciest hot pot on earth that may cause hallucinations
+  - going to eat extremely spicy hot pot that might make you hallucinate
   timestamp_s: 0.0
 - text: Look at all those chilies, that's crazy. Your nose is numbing just from being
     here
-  aliases: []
+  aliases:
+  - so many peppers everywhere and your nose goes numb just being present
+  - incredible amount of chilies making your nose feel numb from proximity alone
+  - tons of peppers here causing nasal numbness simply by standing nearby
   timestamp_s: 0.0
 - text: today, we're gonna be meeting up with the Chinese Trump, and he's taking us
     for a full-on, ultra-spicy food tour
-  aliases: []
+  aliases:
+  - meeting the Chinese Trump who will guide us on an extremely spicy food tour
+  - joining the Chinese Trump for an intense tour of ultra spicy cuisine
+  - the Chinese Trump is taking us on a complete extreme spice food tour
   timestamp_s: 0.0
 - text: Go easy on my spice and go crazy on his spice
-  aliases: []
+  aliases:
+  - make mine mild but load his up with extreme spice
+  - keep my portion less spicy and make his extremely hot
+  - give me less heat and go all out on his serving
   timestamp_s: 0.0
 - text: this city is so spicy that as soon as you enter, the air smells like chili
-  aliases: []
+  aliases:
+  - the city is extremely spicy with chili scent in the air upon arrival
+  - when you arrive in this city the atmosphere immediately smells of chilies
+  - entering this city you immediately smell chili in the air everywhere
   timestamp_s: 0.0
 - text: I eat the most spicy food in China. You're the best at spice? I'm the best
     with spice
-  aliases: []
+  aliases:
+  - I consume the spiciest food in China and am the top spice expert
+  - eating the hottest food in China makes me the best at handling spice
+  - I eat China's spiciest cuisine and am the best with heat
   timestamp_s: 0.0
 - text: death-level spicy beef
-  aliases: []
+  aliases:
+  - beef so spicy it reaches deadly levels of heat
+  - extremely spicy beef at a lethal intensity level
+  - beef with dangerously extreme levels of spiciness
   timestamp_s: 0.0
 - text: That is really spicy. That's very hardcore
-  aliases: []
+  aliases:
+  - this is extremely spicy and incredibly intense
+  - very hot and seriously hardcore level of spice
+  - extremely spicy and intensely hardcore
   timestamp_s: 0.0
 - text: your nose is numbing just from being here
-  aliases: []
+  aliases:
+  - just being present makes your nose go numb
+  - your nose loses feeling simply from standing in this location
+  - merely being in this place numbs your nasal passages
   timestamp_s: 0.0
 - text: People get shirtless while eating it
-  aliases: []
+  aliases:
+  - folks remove their shirts when eating this dish
+  - diners take off their tops while consuming it
+  - people strip their shirts off during the meal
   timestamp_s: 0.0
 gold_selling_points:
 - text: Extreme spicy food challenge with progressively hotter dishes culminating
