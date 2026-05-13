@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-travel-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.625,
+    "selling_point_recall": 0.4,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 362.57965951700044,
+  "error": null,
+  "hooks_predicted": [
+    "It's all made of snow!",
+    "It's actually the biggest one of its kind in the world.",
+    "Actually, I'm standing on it right now!",
+    "Welcome to China's coldest swimming pool!",
+    "Ninety-six.",
+    "Keep in mind it's currently minus 25 degrees.",
+    "10,000 people, 15 days to build all of this.",
+    "It's literally like being in a fairy tale."
+  ],
+  "selling_points_predicted": [
+    "World's largest ice and snow sculpture festival",
+    "Ice and Snow World with 600,000 square meters and 2,000+ ice carvings",
+    "Sun Island Snow Sculpture Exhibition",
+    "Frozen Songhua River with winter activities",
+    "Banana boat rides on frozen river",
+    "Traditional ice swimming in minus 25 degree weather",
+    "Illuminated ice sculptures after sunset",
+    "Massive construction effort: 10,000 people, 15 days"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

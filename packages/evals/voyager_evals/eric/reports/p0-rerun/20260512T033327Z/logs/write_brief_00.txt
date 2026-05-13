@@ -1,0 +1,75 @@
+=== TAG: write_brief  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You write a concise Markdown Strategy Brief for overseas growth marketing of China travel content.
+
+HARD RULES:
+- Output Markdown only. No JSON, no code fences around the whole doc.
+- 250–600 words total. Tight, not padded.
+- REQUIRED sections (use these exact H2 headings):
+  ## Topic
+  ## Top Hooks
+  ## Selling Points
+  ## Themes
+  ## Recommendations
+- `## Top Hooks` lists 3–5 bullets, each a single verbatim hook from inputs.
+- `## Selling Points` lists 3–8 bullets, each prefixed by the point name in **bold**.
+- `## Themes` lists the cluster themes with a one-line description each.
+- `## Recommendations` is 3–5 numbered bullets, each actionable for a creator.
+- Do NOT invent video titles, channel names, or stats not present in the inputs.
+
+USER:
+TOPIC: Extreme spicy Sichuan death-level hotpot challenge (Food Ranger)
+CLUSTERS: [{'theme': 'Extreme Spice Level', 'members': ['one of the most painfully spicy meals in the world', 'Intense, bubbling pot of death', "this is one of the spiciest things you'll ever eat", 'Extremely spicy hot pot (te la level)'], 'summary': 'This hot pot offers an extremely spicy, painful experience at the highest spice level available.'}, {'theme': 'Addictive Burning Sensation', 'members': ['I wanna feel alive', 'that is like a burning pleasure', 'It feels like your soul is burning', 'It is burning, and it is actually somehow addictive', 'Addictive burning pleasure experience'], 'summary': 'The intense burning sensation creates an addictive, pleasurable experience that makes you feel alive.'}, {'theme': 'Authentic Chengdu Experience', 'members': ['the pungent chili aroma hits your nostrils, and you can almost feel it on your skin', 'Authentic Chengdu Sichuan hot pot experience', 'Pungent chili aroma in legit local hot pot joints', 'One of thousands of hot pot joints in Chengdu'], 'summary': 'Experience authentic Chengdu hot pot culture with the characteristic pungent chili aroma of legit local joints.'}, {'theme': 'Ingredients & Broth Composition', 'members': ['Beef oil (niu you) broth packed with red chilies and Sichuan peppercorns', 'Sichuan peppercorn (huajiao) numbing sensation', 'Sesame oil (xiang you) dipping sauce with fresh chilies and peanuts', 'Variety of ingredients: fatty beef, shrimp, lotus root, potato slices'], 'summary': 'Rich beef oil broth with Sichuan peppercorns, sesame oil dipping sauce, and diverse ingredients create the complete experience.'}]
+HOOKS_SAMPLE: [{'video_id': 'Zw_tJOwZmac', 'hook_text': 'one of the most painfully spicy meals in the world', 'timestamp_s': 6.0, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'the pungent chili aroma hits your nostrils, and you can almost feel it on your skin', 'timestamp_s': 64.2, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'Intense, bubbling pot of death', 'timestamp_s': 253.7, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'I wanna feel alive', 'timestamp_s': 317.1, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'that is like a burning pleasure', 'timestamp_s': 483.2, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'It feels like your soul is burning', 'timestamp_s': 539.3, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': "this is one of the spiciest things you'll ever eat", 'timestamp_s': 589.9, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'It is burning, and it is actually somehow addictive', 'timestamp_s': 744.1, 'confidence': 0.95}]
+SELLING_POINTS_SAMPLE: [{'video_id': 'Zw_tJOwZmac', 'point': 'Extremely spicy hot pot (te la level)', 'evidence': 'one of the most painfully spicy meals in the world...the most deadly spicy hot pot available on the menu...te la, which is extremely spicy', 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'Authentic Chengdu Sichuan hot pot experience', 'evidence': 'We are in Chengdu, the land of spicy, numbing, fragrant cuisine, the land of plentiful flavor', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Beef oil (niu you) broth packed with red chilies and Sichuan peppercorns', 'evidence': 'full-on beef oil, they call it niu you...packed with red chilies, packed with Sichuan peppercorn', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Sichuan peppercorn (huajiao) numbing sensation', 'evidence': 'The huajiao, the Sichuan peppercorn...you can feel a bit of a tingle. It feels florally, almost a little citrusy and numbing', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Pungent chili aroma in legit local hot pot joints', 'evidence': 'Right when you walk into a legit local hot pot joint in Sichuan, the pungent chili aroma hits your nostrils', 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'Sesame oil (xiang you) dipping sauce with fresh chilies and peanuts', 'evidence': 'make our dip, which is made with a xiang you, sesame oil...with fresh chilies, cilantro, onions, and peanuts', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Variety of ingredients: fatty beef, shrimp, lotus root, potato slices', 'evidence': 'fei niu rou, fatty beef...some shrimp...ou pian...lotus root...tu dou pian, potato slices', 'confidence': 0.8}, {'video_id': 'Zw_tJOwZmac', 'point': 'Addictive burning pleasure experience', 'evidence': "burning pleasure...it is actually somehow addictive...You're in pain, but you are also enjoying it...you just wanna go back for more", 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'One of thousands of hot pot joints in Chengdu', 'evidence': 'This is just one of thousands of hot pot joints in Chengdu', 'confidence': 0.95}]
+
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Do not invent facts not present in the inputs. No filler.
+--- RAW STDOUT ---
+## Topic
+
+Extreme spicy Sichuan death-level hotpot challenge featuring authentic Chengdu te la (extreme spice) hotpot. This content showcases the intense, addictive experience of one of the world's spiciest meals at a local Chengdu hotpot joint, emphasizing the burning pleasure sensation and authentic Sichuan culinary culture.
+
+## Top Hooks
+
+- one of the most painfully spicy meals in the world
+- Intense, bubbling pot of death
+- I wanna feel alive
+- It feels like your soul is burning
+- It is burning, and it is actually somehow addictive
+
+## Selling Points
+
+- **Extremely spicy hot pot (te la level)** — The highest spice level available, delivering one of the most painfully spicy meals in the world
+- **Authentic Chengdu Sichuan hot pot experience** — Located in Chengdu, the land of spicy, numbing, fragrant cuisine with plentiful flavor
+- **Beef oil (niu you) broth packed with red chilies and Sichuan peppercorns** — Full-bodied broth base creating the signature intense heat
+- **Sichuan peppercorn (huajiao) numbing sensation** — Floral, citrusy tingling that creates the characteristic numbing effect
+- **Pungent chili aroma in legit local hot pot joints** — Overwhelming chili scent that hits your nostrils and skin upon entry
+- **Sesame oil (xiang you) dipping sauce with fresh chilies and peanuts** — Custom-made dipping sauce balancing the extreme heat
+- **Variety of ingredients: fatty beef, shrimp, lotus root, potato slices** — Diverse ingredients to experience different textures with the intense broth
+- **Addictive burning pleasure experience** — Painful yet enjoyable sensation that makes you want to return for more
+
+## Themes
+
+**Extreme Spice Level** — This hotpot offers an extremely spicy, painful experience at the highest spice level available, positioning it as an extreme challenge for adventurous eaters.
+
+**Addictive Burning Sensation** — The intense burning creates an addictive, pleasurable experience that makes you feel alive, appealing to thrill-seekers and those chasing intense sensory experiences.
+
+**Authentic Chengdu Experience** — Experience authentic Chengdu hotpot culture with the characteristic pungent chili aroma of legit local joints, emphasizing cultural authenticity over tourist experiences.
+
+**Ingredients & Broth Composition** — Rich beef oil broth with Sichuan peppercorns, sesame oil dipping sauce, and diverse ingredients create the complete experience, demonstrating the complexity beyond just heat.
+
+## Recommendations
+
+1. Lead with the extreme challenge angle and pain-to-pleasure transformation narrative — position as a bucket list food experience for adventurous travelers seeking authentic, intense sensory experiences.
+
+2. Emphasize the addictive quality and "burning pleasure" paradox to differentiate from typical spicy food challenges — focus on the unique psychological appeal of willingly enduring pain for enjoyment.
+
+3. Showcase the authentic local setting and cultural context of Chengdu's thousands of hotpot joints to establish credibility and differentiate from tourist-trap experiences.
+
+4. Detail the specific ingredients and techniques (niu you broth, huajiao numbing, xiang you dipping sauce) to educate viewers and build anticipation for the multi-layered flavor experience.
+
+5. Create content series potential by featuring the journey from arrival (pungent aroma) through the challenge to the addictive aftermath, providing multiple content hooks and shareability moments.
+

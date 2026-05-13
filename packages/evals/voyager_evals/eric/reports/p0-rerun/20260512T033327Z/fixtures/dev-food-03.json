@@ -1,0 +1,36 @@
+{
+  "fixture_id": "dev-food-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.16666666666666666,
+    "selling_point_recall": 0.1111111111111111,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 351.219187186,
+  "error": null,
+  "hooks_predicted": [
+    "it's important to wait until the timer rings before trying these mushrooms",
+    "you might start tripping out or you might see lots of weird colors",
+    "even the tea is made from mushrooms",
+    "beef liver mushroom and it really looks like liver",
+    "if you eat it before it's ready you'll start to hallucinate",
+    "it turns this vibrant blue shade",
+    "one of the most complex mushroom soups I've ever tasted"
+  ],
+  "selling_points_predicted": [
+    "Half portions to try more mushroom varieties",
+    "Mushroom tea with beautiful red color",
+    "Vegetarian soup made from top-notch mushrooms, no chicken oil",
+    "Home-made non-spicy chili sauce",
+    "Complex, rich mushroom soup base",
+    "Bamboo mushroom with crunchy, tender bamboo shoot-like texture",
+    "Jian shou qing mushroom that turns vibrant blue when raw",
+    "Mushroom and vegetable-forward menu (meat hidden at back)"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

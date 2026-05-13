@@ -1,0 +1,270 @@
+[
+  {
+    "fixture_id": "dev-food-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.588235294117647,
+      "selling_point_recall": 0.125,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.588<0.750",
+      "selling_point_recall:0.125<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 413.45765183099996,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-food-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.0,
+      "selling_point_recall": 0.13333333333333333,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.000<0.750",
+      "selling_point_recall:0.133<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 386.1362462420001,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-vlog-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.30769230769230765,
+      "selling_point_recall": 0.0,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.308<0.750",
+      "selling_point_recall:0.000<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 373.9077632279998,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-travel-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.7142857142857143,
+      "selling_point_recall": 0.6923076923076923,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.714<0.750",
+      "selling_point_recall:0.692<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 359.45205538799996,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-culture-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.4615384615384615,
+      "selling_point_recall": 0.2,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.462<0.750",
+      "selling_point_recall:0.200<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 363.17450091399974,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-food-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.16666666666666666,
+      "selling_point_recall": 0.1111111111111111,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.167<0.750",
+      "selling_point_recall:0.111<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 351.219187186,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-vlog-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.3636363636363636,
+      "selling_point_recall": 0.42857142857142855,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.364<0.750",
+      "selling_point_recall:0.429<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 344.1439161420003,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-travel-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.13333333333333333,
+      "selling_point_recall": 0.5454545454545454,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.133<0.750",
+      "selling_point_recall:0.545<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 374.5815175399998,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-culture-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.7142857142857143,
+      "selling_point_recall": 0.625,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.714<0.750",
+      "selling_point_recall:0.625<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 362.1390131369999,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-nature-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.3333333333333333,
+      "selling_point_recall": 0.3076923076923077,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.333<0.750",
+      "selling_point_recall:0.308<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 373.7787027899999,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-vlog-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.8,
+      "selling_point_recall": 0.2857142857142857,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "selling_point_recall:0.286<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 358.92892659400013,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-history-01",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.3333333333333333,
+      "selling_point_recall": 0.3333333333333333,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.333<0.750",
+      "selling_point_recall:0.333<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 360.50435714500054,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-travel-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.625,
+      "selling_point_recall": 0.4,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.625<0.750",
+      "selling_point_recall:0.400<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 362.57965951700044,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-culture-03",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.5,
+      "selling_point_recall": 0.25,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.500<0.750",
+      "selling_point_recall:0.250<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 374.95054421700024,
+    "error": null
+  },
+  {
+    "fixture_id": "dev-food-04",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.75,
+      "selling_point_recall": 0.2,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "selling_point_recall:0.200<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 358.06631450199984,
+    "error": null
+  }
+]

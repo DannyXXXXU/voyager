@@ -58,7 +58,7 @@ def test_hooks_system_has_hard_rules() -> None:
 
 def test_selling_points_system_has_hard_rules() -> None:
     assert "HARD RULES:" in _SYS_POINTS
-    assert "3 and 10" in _SYS_POINTS
+    assert "5 and 12" in _SYS_POINTS
     assert "evidence" in _SYS_POINTS.lower()
 
 

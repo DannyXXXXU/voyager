@@ -1,0 +1,36 @@
+{
+  "fixture_id": "dev-culture-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5,
+    "selling_point_recall": 0.25,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 374.95054421700024,
+  "error": null,
+  "hooks_predicted": [
+    "Look at that big ass shrimp in there.",
+    "every time when I come back to Guangzhou, it's always just eat, eat, eat, and eat.",
+    "It's $9 per person for just a tea",
+    "the sun is like toxic",
+    "this place is always, always packed",
+    "I am so full and low-key a little bit out of, you know, dim sum and eating a lot"
+  ],
+  "selling_points_predicted": [
+    "Michelin Guide garden-style restaurant with Lingnam architecture",
+    "Dim sum cruise on Pearl River with Canton Tower skyline views",
+    "Restaurant founded in 1880, over 140 years of history",
+    "Large shrimp-filled signature buns",
+    "Garden dining with pavilions, bridges, and waterfalls",
+    "First western-style eatery from 1860 blending Chinese and Western flavors",
+    "Two-hour river cruise dining experience",
+    "Historic venue that hosted celebrity wedding banquets",
+    "Classic yet modern dishes attracting young diners"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

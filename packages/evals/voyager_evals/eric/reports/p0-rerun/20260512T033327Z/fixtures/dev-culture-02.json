@@ -1,0 +1,36 @@
+{
+  "fixture_id": "dev-culture-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.7142857142857143,
+    "selling_point_recall": 0.625,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 362.1390131369999,
+  "error": null,
+  "hooks_predicted": [
+    "It was built 100 years ago.",
+    "snowflakes floating in a green lake",
+    "They will think you're not going to pay for the bill.",
+    "This means you are seeking for help.",
+    "within the top ten teas in China",
+    "Chengdu people have such a laid back lifestyle."
+  ],
+  "selling_points_predicted": [
+    "He Ming Tea House established in 1923",
+    "Kung fu tea performance with long-bead teapot",
+    "Traditional gender-specific tea drinking etiquette",
+    "Jasmine tea 'snowflakes floating in a green lake'",
+    "Meng Ding yellow tea (top ten teas in China)",
+    "Historic tea lid signaling system for service requests",
+    "Tea culture starting at 7am in People's Park",
+    "Chengdu has more teahouses than other cities in China",
+    "Young people actively participating in tea culture"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

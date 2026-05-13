@@ -1,0 +1,38 @@
+{
+  "fixture_id": "dev-travel-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.7142857142857143,
+    "selling_point_recall": 0.6923076923076923,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 359.45205538799996,
+  "error": null,
+  "hooks_predicted": [
+    "America's trains just cannot compare to China's.",
+    "This train can go 350 kilometers per hour.",
+    "China has the largest high-speed rail network in the world.",
+    "they will personally escort you to the train.",
+    "Even KFC or McDonald's.",
+    "America can barely connect a few cities.",
+    "business class is actually the best class you can take."
+  ],
+  "selling_points_predicted": [
+    "350 km/h train speed",
+    "World's largest high-speed rail network",
+    "Business class priority boarding with personal escort",
+    "Business class complimentary beverages, snacks, and meals",
+    "Business class fully-reclining seats with footrests",
+    "Business class private bathroom",
+    "On-train food delivery via QR code (KFC, McDonald's)",
+    "Clean western-style toilets with full amenities",
+    "Free hot water for noodles or tea",
+    "Wheelchair-accessible facilities with low-positioned buttons"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

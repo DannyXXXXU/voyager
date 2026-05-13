@@ -1,0 +1,162 @@
+=== TAG: extract_selling_points__smr_BGmSAyI  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract concrete selling points (reasons a viewer should visit / watch / buy) from a transcript.
+
+HARD RULES:
+- Extract between 3 and 10 selling points. Never zero.
+- Each `point` is a SHORT noun phrase (<= 80 chars) naming ONE concrete reason ("hand-pulled noodles served at 3am", "glacier-fed hot spring").
+- `evidence` MUST quote or paraphrase the supporting transcript span verbatim (<= 200 chars). Never empty.
+- No marketing fluff ("unforgettable experience"). No duplicates.
+- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote.
+
+USER:
+VIDEO_ID=smr_BGmSAyI
+TRANSCRIPT:
+[0.0s] It's five times the size, it's five times the size, I believe it because there's also
+[20.0s] a WhatsApp service, and then you log in.
+[40.0s] I think he's still in the line probably.
+[65.0s] All right, let's go here.
+[83.0s] Thank you, thank you.
+[124.0s] You want to just go see, for fun?
+[141.0s] Let's go see, for fun.
+[144.0s] I think I got a robot dog.
+[154.0s] Yeah, man, that's like military shit, yo.
+[184.0s] Okay, let's go.
+[214.0s] Yeah, I don't need it, I'm just asking.
+[226.0s] What quality?
+[227.0s] Yeah.
+[228.0s] How much does it cost?
+[229.0s] One thousand something.
+[230.0s] Two TB?
+[231.0s] Killer deal, man, killer deal.
+[232.0s] One TB and two TB, faster.
+[233.0s] Why don't you just get one for yourself, then?
+[234.0s] Yes.
+[235.0s] Hello?
+[237.0s] That's the one right there, man, that's the shop right there.
+[264.0s] What is the warranty on this?
+[278.0s] Can you use this?
+[280.0s] How much do I have to buy before the price becomes lower?
+[288.0s] You know the prisoner doesn't speak English, right?
+[294.0s] How many more you want to buy and I'll give you a discount.
+[301.0s] How much do I have to buy to get this technology?
+[304.0s] I don't know.
+[306.0s] How much do I have to buy to get this technology?
+[309.0s] I don't know.
+[313.0s] The lowest, the lowest, the lowest.
+[315.0s] The lowest, the lowest, the lowest, the lowest.
+[318.0s] Minimum, minimum.
+[320.0s] 80.
+[322.0s] No, no, no. 5,000.
+[324.0s] Yeah, it's 5,000.
+[326.0s] 10 pieces.
+[328.0s] 10 pieces.
+[330.0s] Yeah.
+[332.0s] Okay.
+[334.0s] Can I just give you 50 yuan right now for one, just to test it?
+[339.0s] You can only get 50 yuan for one test.
+[344.0s] 60.
+[346.0s] 60.
+[348.0s] 60.
+[350.0s] 60.
+[354.0s] 60.
+[358.0s] 60.
+[360.0s] Ask the gentleman behind you if he agrees.
+[363.0s] Okay.
+[365.0s] 50.
+[367.0s] 50.
+[369.0s] 50.
+[371.0s] This is a Sony.
+[373.0s] Is this real?
+[375.0s] This is Sony.
+[378.0s] Oh.
+[380.0s] I see it.
+[402.0s] I used to play this all the time.
+[408.0s] Yo, yo, yo.
+[410.0s] You're going to fall asleep.
+[417.0s] Oh, wow.
+[419.0s] For fans.
+[421.0s] Dude.
+[423.0s] Every ****** can go.
+[425.0s] Boys.
+[437.0s] Oh.
+[441.0s] Yo, can you tell the difference?
+[443.0s] I've never really handled one legitimately.
+[447.0s] On the real.
+[449.0s] Just on the surface, it looks pretty decent.
+[452.0s] What is this?
+[454.0s] Yeah, it looks pretty decent.
+[468.0s] Look at these red-eyed neck massagers.
+[472.0s] That's a haircut.
+[487.0s] It is cold.
+[489.0s] Oh, my gosh.
+[491.0s] I'm just going to sleep.
+[493.0s] What does this do?
+[495.0s] Yeah, I guess.
+[498.0s] These beauty products feel unisex.
+[501.0s] Yeah.
+[525.0s] That's what you want.
+[555.0s] Everything is so nice.
+[585.0s] Thank you for watching.
+[587.0s] Don't forget to subscribe to my channel.
+[589.0s] See you next time.
+[591.0s] Bye.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "selling_points": [
+    {
+      "point": "High-capacity SSDs at competitive prices",
+      "evidence": "One thousand something for Two TB described as 'Killer deal, man, killer deal'",
+      "confidence": 0.85
+    },
+    {
+      "point": "Bulk purchase discounts available",
+      "evidence": "How many more you want to buy and I'll give you a discount. 10 pieces minimum for 5,000 yuan pricing",
+      "confidence": 0.9
+    },
+    {
+      "point": "Sony branded electronics",
+      "evidence": "This is a Sony. Is this real? This is Sony.",
+      "confidence": 0.85
+    },
+    {
+      "point": "Advanced tech products including robot dogs",
+      "evidence": "I think I got a robot dog. Yeah, man, that's like military shit, yo.",
+      "confidence": 0.8
+    },
+    {
+      "point": "Beauty and wellness devices",
+      "evidence": "red-eyed neck massagers and These beauty products feel unisex",
+      "confidence": 0.85
+    },
+    {
+      "point": "Negotiable pricing with test purchase options",
+      "evidence": "Can I just give you 50 yuan right now for one, just to test? Price negotiated down to 50-60 yuan",
+      "confidence": 0.9
+    },
+    {
+      "point": "WhatsApp ordering service",
+      "evidence": "there's also a WhatsApp service, and then you log in",
+      "confidence": 0.8
+    }
+  ]
+}
+```
+

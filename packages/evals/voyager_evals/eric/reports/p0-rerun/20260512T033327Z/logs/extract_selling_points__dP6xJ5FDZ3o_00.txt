@@ -1,0 +1,307 @@
+=== TAG: extract_selling_points__dP6xJ5FDZ3o  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract concrete selling points (reasons a viewer should visit / watch / buy) from a transcript.
+
+HARD RULES:
+- Extract between 3 and 10 selling points. Never zero.
+- Each `point` is a SHORT noun phrase (<= 80 chars) naming ONE concrete reason ("hand-pulled noodles served at 3am", "glacier-fed hot spring").
+- `evidence` MUST quote or paraphrase the supporting transcript span verbatim (<= 200 chars). Never empty.
+- No marketing fluff ("unforgettable experience"). No duplicates.
+- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote.
+
+USER:
+VIDEO_ID=dP6xJ5FDZ3o
+TRANSCRIPT:
+[0.0s] ♪
+[8.6s] ♪
+[15.5s] ♪
+[22.6s] That is so hard. The balance is so critical.
+[36.6s] ♪
+[44.6s] Our second day in Chengdu.
+[45.6s] We are right now at the People's Park in the city center
+[48.6s] and it's quite busy right now in the morning.
+[50.6s] It is, and do you know when I was here at 7 o'clock this morning,
+[53.6s] it was pretty busy.
+[54.6s] There was people playing badminton, people doing tai chi,
+[57.6s] all sorts of activities going on.
+[59.6s] And there was even people drinking tea.
+[61.6s] Yeah, at 7 a.m.
+[63.6s] Well, right in the park, the most famous tea house in Chengdu is here.
+[67.6s] It's called He Ming Tea House.
+[69.6s] And here it is.
+[70.6s] Let's go try some.
+[71.6s] Yeah, let's do it.
+[77.6s] So this is one of the oldest tea houses, right?
+[80.6s] It is. It was built 100 years ago.
+[82.6s] Wow, 100 years.
+[85.6s] Look.
+[86.6s] Oh, yeah.
+[87.6s] 100-year-old tea house.
+[88.6s] Oh, wow.
+[89.6s] I bet they make a fortune here.
+[90.6s] They must do.
+[100.6s] They also have this special kung fu tea performance going on here.
+[104.6s] They're going to use the long-bead teapot.
+[111.6s] It's really, really cool.
+[112.6s] Yeah, yeah.
+[116.6s] Thank you.
+[118.6s] We've got our tea.
+[119.6s] We have.
+[120.6s] Peanuts and sunflower seeds, too.
+[122.6s] So this is the set, the standard set for Chengdu people when they are having tea.
+[128.6s] So I live in Shenzhen.
+[130.6s] That's in Guangdong province, as you know.
+[133.6s] And the cups are very different.
+[134.6s] They're very small.
+[135.6s] These are much bigger.
+[136.6s] Actually, they're kind of like British tea cups without the handle.
+[140.6s] But I'm a bit confused.
+[142.6s] Do I drink it like this?
+[143.6s] No, no, no.
+[144.6s] Put it down.
+[145.6s] Okay.
+[146.6s] Do I drink it like this?
+[147.6s] Because it's really hot here.
+[149.6s] Oh, it is actually, yeah.
+[150.6s] There are two different ways to drink tea.
+[153.6s] Female, for me, very elegant.
+[156.6s] You hold the saucer here.
+[158.6s] And then you use one hand to take the lid and do this.
+[163.6s] This is to drift away the leaves and also the foam.
+[168.6s] Okay.
+[169.6s] And then you drink it.
+[171.6s] Oh, it is very elegant.
+[172.6s] Nice, isn't it?
+[173.6s] Yeah, just for women.
+[174.6s] That's a lady's way, right?
+[175.6s] Yeah.
+[176.6s] And for men, you do this.
+[179.6s] Use your index finger.
+[181.6s] Put it on the lid.
+[182.6s] On the lid, yeah.
+[183.6s] And also you move it a little bit over here.
+[186.6s] Okay, so the tea can come out, right?
+[188.6s] Yes, like this.
+[190.6s] Pick it up like this.
+[192.6s] Yeah, three fingers.
+[193.6s] Okay.
+[197.6s] This is very masculine.
+[198.6s] Oh, it is, yeah.
+[200.6s] Right, feel good?
+[201.6s] Yeah.
+[202.6s] Mine is jasmine tea.
+[204.6s] It's called Bi Tan Piao Xue in Chinese
+[206.6s] and directly translates into English as snowflakes floating in a green lake.
+[214.6s] And mine is Meng Ding yellow tea, right?
+[217.6s] Yeah, yeah.
+[218.6s] So this is apparently one of the more expensive ones
+[221.6s] and it's within the top ten teas in China, yeah?
+[224.6s] Yeah, it's very famous.
+[225.6s] Yeah.
+[226.6s] But don't do that.
+[227.6s] Oh, yeah, yeah.
+[228.6s] Don't do that.
+[229.6s] Oh, you're going to tell me why later, right?
+[230.6s] Yeah, so this is what I do to put the lid aside here.
+[234.6s] This means I want to add more water.
+[237.6s] You know, in the past, there used to be waiters and waitresses
+[241.6s] serving in a tea house, so you don't need to do it yourself.
+[244.6s] Oh, you don't pour the water yourself.
+[245.6s] No.
+[246.6s] So you do this, they will come and pour you more water.
+[249.6s] Add more water.
+[250.6s] And if you do this, this means no water for now.
+[256.6s] Okay.
+[257.6s] Now there are some other positions of the lid.
+[260.6s] Can you tell me about those?
+[261.6s] Sure.
+[262.6s] So you just put it here.
+[265.6s] They will think you're not going to pay for the bill.
+[268.6s] Oh, that's okay.
+[269.6s] Free tea, right?
+[271.6s] So I don't understand.
+[273.6s] What do you mean you're not going to pay?
+[275.6s] You're not going to pay because, for example, in the past,
+[278.6s] you're here to drink tea, and you see a bunch of your friends
+[281.6s] also at a tea house.
+[283.6s] You want to treat them.
+[284.6s] You want to buy tea for them, but you don't have enough money on you.
+[287.6s] Okay.
+[288.6s] So you do this.
+[290.6s] So the waiters and waitresses here working at a tea house will know.
+[294.6s] I mean, of course, you have to be a regular customer.
+[297.6s] They have to know you, right?
+[299.6s] They know you.
+[300.6s] So they will know, okay, this customer, this VIP here,
+[304.6s] doesn't have enough money on him, so we'll not bother him.
+[307.6s] We'll not take the bill to him.
+[309.6s] This will embarrass him.
+[310.6s] Ah.
+[311.6s] Yeah.
+[312.6s] So he can set his tab at the end of the week or something.
+[315.6s] Yes, like open the tab.
+[316.6s] Actually, nowadays, that's not going to be such an issue with
+[319.6s] WeChat and Alipay, right?
+[321.6s] Yes, yes.
+[322.6s] Electronic payment is everywhere.
+[324.6s] Payments, yeah, yeah.
+[325.6s] Right.
+[326.6s] And also there are, if you do it this, this way.
+[330.6s] So the opposite way, right?
+[331.6s] The opposite way.
+[332.6s] This means you are seeking for help.
+[335.6s] Oh.
+[336.6s] Yes.
+[337.6s] Interesting.
+[338.6s] Because, you know, in the past, Chinese people had this philosophy
+[341.6s] that everybody is your friend.
+[344.6s] You have friends everywhere.
+[345.6s] So if you do this in a tea house, it means you encounter some difficulties
+[350.6s] in your life, but you are too shy to say it out.
+[353.6s] Ah.
+[354.6s] So they will come over and ask you how they can help you.
+[358.6s] Wow.
+[359.6s] Like if you want to travel home, that's a long way.
+[362.6s] Because, you know, they don't have airplane or train at that time.
+[365.6s] Yeah, sure.
+[366.6s] So you may not have enough money, right?
+[367.6s] Yeah, you don't have enough money.
+[368.6s] So they will give you what they have.
+[370.6s] Wow.
+[371.6s] Just to help you out.
+[372.6s] Oh.
+[373.6s] Yeah.
+[374.6s] So it really does date back a long way.
+[376.6s] Yes.
+[377.6s] I think these kind of gestures are probably not so relevant nowadays.
+[382.6s] Yeah.
+[383.6s] So there's one where I see like this.
+[386.6s] Oh, yeah, yeah.
+[387.6s] People do that.
+[388.6s] So what's that all about?
+[389.6s] If you're here alone and you want to go to the restaurant.
+[392.6s] Ah.
+[393.6s] Yeah.
+[394.6s] So you put it here.
+[395.6s] It means you will be back.
+[396.6s] To save your space, right?
+[397.6s] Yes, you will be back.
+[398.6s] Ah, OK.
+[399.6s] So that the waitresses won't clean it up.
+[400.6s] And what's that one there?
+[401.6s] This one?
+[402.6s] Yeah.
+[403.6s] Are you finished?
+[404.6s] No.
+[405.6s] Are you finished?
+[406.6s] Is that the sign for finish?
+[407.6s] Yeah.
+[408.6s] They will take you to bed.
+[409.6s] Ah, I see.
+[410.6s] OK.
+[411.6s] So actually, this teahouse is the oldest teahouse in Chengdu.
+[414.6s] It was established in 1923.
+[417.6s] So it's almost 100 years old.
+[419.6s] Almost 100 years old.
+[420.6s] Wow.
+[421.6s] Yeah.
+[422.6s] And tea culture is so important in Chengdu that the city has more teahouses than other
+[427.6s] cities in China.
+[428.6s] OK.
+[429.6s] And this one is the teahouse with the longest history.
+[432.6s] Yeah.
+[433.6s] I'm surprised how busy it is in there.
+[435.6s] Yes.
+[436.6s] And you know, Chengdu people have such a laid back lifestyle.
+[440.6s] They will come here very early from like 7 a.m. in the morning.
+[443.6s] They will be here.
+[445.6s] They have a cup of morning tea.
+[447.6s] Uh-huh.
+[448.6s] And then after that, they will go to work, go to school, and start their daily life.
+[452.6s] Actually, the vibe of Chengdu is much more relaxed than Shenzhen and Shanghai.
+[457.6s] You know, in those cities, everybody's rushing around.
+[460.6s] Here, it's like, you know, look at all the people.
+[464.6s] And it's not just old people.
+[466.6s] There's many young people there, too, which really surprised me.
+[469.6s] I didn't think young people would be into tea culture like this.
+[472.6s] I think it's just Chengdu.
+[486.6s] Now, we've experienced the C20 and we've showed you some key facts of the C20 culture.
+[490.6s] I hope you learned something new today.
+[492.6s] And if you've experienced tea culture here in Sichuan, let us know in the comments and
+[497.6s] tell us about your experience with the tea culture.
+[499.6s] And if you enjoyed this video, give it a thumbs up and comment below with what crazy adventures I should go on next.
+[505.6s] And if you like the channel, consider hitting that subscribe button.
+[509.6s] So we can keep on going on more adventures together.
+[511.6s] Have a wonderful day.
+[513.6s] Bye-bye.
+[514.6s] As always, take care.
+[515.6s] Do this.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "selling_points": [
+    {
+      "point": "He Ming Tea House established in 1923",
+      "evidence": "It was established in 1923. So it's almost 100 years old.",
+      "confidence": 0.95
+    },
+    {
+      "point": "Kung fu tea performance with long-bead teapot",
+      "evidence": "They also have this special kung fu tea performance going on here. They're going to use the long-bead teapot.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Traditional gender-specific tea drinking etiquette",
+      "evidence": "There are two different ways to drink tea. Female, for me, very elegant... And for men, you do this.",
+      "confidence": 0.85
+    },
+    {
+      "point": "Jasmine tea 'snowflakes floating in a green lake'",
+      "evidence": "It's called Bi Tan Piao Xue in Chinese and directly translates into English as snowflakes floating in a green lake.",
+      "confidence": 0.95
+    },
+    {
+      "point": "Meng Ding yellow tea (top ten teas in China)",
+      "evidence": "this is apparently one of the more expensive ones and it's within the top ten teas in China",
+      "confidence": 0.9
+    },
+    {
+      "point": "Historic tea lid signaling system for service requests",
+      "evidence": "you just put it here. This means I want to add more water... And if you do this, this means no water for now.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Tea culture starting at 7am in People's Park",
+      "evidence": "when I was here at 7 o'clock this morning, it was pretty busy. There was people playing badminton, people doing tai chi... And there was even people drinking tea.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Chengdu has more teahouses than other cities in China",
+      "evidence": "tea culture is so important in Chengdu that the city has more teahouses than other cities in China",
+      "confidence": 0.85
+    },
+    {
+      "point": "Young people actively participating in tea culture",
+      "evidence": "And it's not just old people. There's many young people there, too, which really surprised me.",
+      "confidence": 0.85
+    }
+  ]
+}
+```
+

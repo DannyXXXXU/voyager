@@ -1,0 +1,106 @@
+=== TAG: extract_hooks__mT1BocPphNU  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract short attention-grabbing hooks from a video transcript.
+
+HARD RULES:
+- Extract between 3 and 8 hooks. Never zero.
+- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, no longer than 140 characters.
+- A hook is a single, concrete, surprising or curiosity-provoking statement (NOT a topic label, NOT a summary).
+- timestamp_s MUST be the leading [<seconds>s] tag of the source line. Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.
+- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.
+- Reject hooks that are generic ("this place is amazing") or hallucinated.
+
+USER:
+VIDEO_ID=mT1BocPphNU
+TRANSCRIPT:
+[0.0s] Hey you guys I'm here in Kashgar in Xinjiang.
+[8.2s] Now Xinjiang has been in the news a lot lately you would have seen and we all know what the
+[11.2s] news is like.
+[12.2s] So I've come here to check out the place with my own eyes, come with me.
+[24.5s] Kashgar is home to one of China's western most cities.
+[27.6s] It's been famous for thousands of years due to its strategic position on the Silk Road
+[32.3s] acting as a gateway between China and Central Asia all the way to Europe.
+[37.9s] Most people here speak Uyghur but you can get by with Mandarin luckily, signage is only
+[43.0s] in Uyghur and Mandarin.
+[47.8s] Now there are a few places you must visit when you come to Kashgar and plenty of delicious
+[51.5s] food you must eat.
+[53.4s] Let me break it down for you.
+[62.4s] Top of the list of must visit places is the Id Kar Mosque which is not only the biggest
+[67.5s] mosque in Xinjiang but also in all of China.
+[75.0s] Apart from prayer time non-Muslims are welcome to visit the mosque for free.
+[83.8s] The mosque is located inside the ancient city which is right at the centre of modern day
+[88.4s] Kashgar.
+[113.9s] It's really quite fun getting lost among the winding streets.
+[117.7s] You can also buy souvenirs and eat local food here.
+[129.2s] My favourites in terms of local food are
+[131.7s] Doner kebabs with chicken or beef, french fries and lots of yummy sauce.
+[136.0s] Da Pan Ji which literally translates as big dish of chicken.
+[140.0s] Served with potato, capsicum and freshly pulled noodles.
+[143.7s] Cold local yoghurt with lots of sugar sprinkled on top.
+[147.3s] Ham noodles freshly pulled.
+[150.9s] Xinjiang salad with raw onions and juicy tomato.
+[165.8s] And last but not least, Uyghur ice cream, otherwise known as Xinjiang ice cream.
+[170.8s] Mmm, different but really good.
+[182.7s] A main part of the ancient city is the night market.
+[185.3s] But since China has only one time zone, you need to wait till about 10pm until the place
+[189.2s] gets dark and really comes to life.
+[191.3s] But it is worth the wait.
+[213.6s] Another must visit is the Apak Khoja mausoleum, the final resting place of Apak Khoja and
+[218.4s] his family.
+[219.8s] This was also once home to Xiang Fei, the fragrant concubine, who was said to dance
+[225.2s] around the palace after her unique beauty and scent caught the eyes and nose of the
+[260.5s] Wow, I think you guys will agree there is a lot to Kashgar so I'm really excited about
+[287.5s] my next stop which is Xinjiang's capital, Urumqi.
+[290.1s] See you guys then, bye bye.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hooks": [
+    {
+      "hook_text": "Xinjiang has been in the news a lot lately",
+      "timestamp_s": 8.2,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "I've come here to check out the place with my own eyes",
+      "timestamp_s": 12.2,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "the biggest mosque in Xinjiang but also in all of China",
+      "timestamp_s": 67.5,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "non-Muslims are welcome to visit the mosque for free",
+      "timestamp_s": 75.0,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "China has only one time zone, you need to wait till about 10pm until the place gets dark",
+      "timestamp_s": 185.3,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "the fragrant concubine, who was said to dance around the palace after her unique beauty and scent",
+      "timestamp_s": 219.8,
+      "confidence": 0.85
+    }
+  ]
+}
+

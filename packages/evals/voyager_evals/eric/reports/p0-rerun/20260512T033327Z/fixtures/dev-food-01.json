@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-food-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.588235294117647,
+    "selling_point_recall": 0.125,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 413.45765183099996,
+  "error": null,
+  "hooks_predicted": [
+    "Your nose is numbing just from being here.",
+    "This is the spiciest cyberpunk city in China",
+    "so spicy you might start hallucinating",
+    "as soon as you enter, the air smells like chili",
+    "MSG, I put it in my coffee every day.",
+    "Go easy on my spice and go crazy on his spice.",
+    "People get shirtless while eating it."
+  ],
+  "selling_points_predicted": [
+    "World's spiciest hot pot (may cause hallucinations)",
+    "Chongqing xiaomian noodles (only found in Chongqing)",
+    "Pick-your-own mao cai boiled in extreme spicy broth",
+    "Ultra-spicy food challenge with escalating heat levels",
+    "Guided tour with Chinese Trump celebrity",
+    "Live hot pot base-making with 20kg beef fat cubes",
+    "Traditional moisture-removing health benefits from Sichuan pepper",
+    "Cyberpunk multi-layered mountain city atmosphere",
+    "Bingfen cold jelly dessert with brown sugar for cooling relief"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

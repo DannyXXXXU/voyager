@@ -1,0 +1,247 @@
+=== TAG: extract_hooks__bRgF_axTRQQ  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract short attention-grabbing hooks from a video transcript.
+
+HARD RULES:
+- Extract between 3 and 8 hooks. Never zero.
+- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, no longer than 140 characters.
+- A hook is a single, concrete, surprising or curiosity-provoking statement (NOT a topic label, NOT a summary).
+- timestamp_s MUST be the leading [<seconds>s] tag of the source line. Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.
+- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.
+- Reject hooks that are generic ("this place is amazing") or hallucinated.
+
+USER:
+VIDEO_ID=bRgF_axTRQQ
+TRANSCRIPT:
+[0.0s] I highly recommend you guys to get this online.
+[8.0s] Hello!
+[30.0s] Good morning everyone!
+[48.0s] Fresh start to a new day as I always say, but it really is because it's quite early
+[53.0s] in the morning right now.
+[54.0s] It is, I believe, just 8am in the morning.
+[58.2s] I am, as you can tell from the title of this video, back in Guangzhou.
+[62.8s] I am going to be here for about 3 weeks because I can only take 3 weeks off.
+[69.0s] But yeah, I'm here.
+[71.3s] And I've actually been here, today's my third day.
+[74.0s] Like for the first two days I've been doing a lot of errands.
+[76.2s] I've been going to the hospital, getting body checks and everything.
+[79.1s] So today is officially the day where I can actually explore Guangzhou and bring you guys
+[84.5s] along with me.
+[85.5s] So our first stop, or I guess today's episode, I will show you guys some of my favourite
+[90.8s] and really good restaurants for drumrolls, dim sum or what we say 飲茶.
+[100.4s] As you know that Guangzhou is a place that's most popular for 飲茶 and the dim sum culture.
+[108.1s] So today we are in this area, this is the first restaurant that we're going to be trying
+[113.3s] out.
+[114.3s] It's called 南院酒家.
+[116.1s] And it's located in one of their back alleys which is absolutely beautiful.
+[118.7s] So I am going to be heading over to that way and show you guys how it looks inside.
+[123.6s] This is the first restaurant that is a must-go when you visit Guangzhou, 南院酒家, which
+[129.6s] literally translates to South Garden Restaurant, is a Michelin Guide garden-style restaurant
+[135.4s] known for its Lingnam architecture.
+[138.4s] So this restaurant actually did a huge, huge renovation, like probably like 5-6 years ago.
+[145.6s] Because when I first came here, it did not look like this.
+[147.6s] This is the back of the restaurant and it actually has a bit of like European features
+[152.4s] or stuff like this here, where that is the restaurant, that is kind of like the main
+[156.6s] area for, you know, like even dim sum, lunch and dinner.
+[161.7s] I've been here multiple times throughout, you know, my entire life here.
+[166.2s] Every single time when I come back to Guangzhou, at least once of whichever meal that I'm going
+[171.5s] to eat will be in this restaurant.
+[182.2s] Well, that was a big fail, so that was kind of stuffed, but...
+[187.6s] This restaurant features pavilions, bridges, and waterfalls, creating an elegant dining
+[192.7s] atmosphere.
+[193.7s] It is one of Guangzhou's four major garden-style restaurants which includes East, South, North,
+[200.5s] and West.
+[201.5s] And of course, it specializes in Cantonese cuisine, like dim sum, while also serving
+[206.8s] ziu jiao and Sajan dishes as well.
+[215.0s] On the menu for this dish, it's actually number one, so definitely if you guys ever come,
+[219.8s] highly recommend you guys get this one.
+[222.7s] This is the popular Lai Fen.
+[224.6s] This is a really big bun, guys.
+[230.1s] Look at the size comparing to my face.
+[243.8s] Oopsies.
+[246.7s] Resume.
+[248.4s] Mmm.
+[251.8s] Let me eat a bigger bite so I can show you guys what's inside.
+[257.4s] Whoa.
+[258.2s] Look at that big ass shrimp in there.
+[261.4s] We just got out of the restaurant, and you won't believe it, but we're actually gonna
+[265.4s] head over to another restaurant as always.
+[267.9s] I feel like every time when I come back to Guangzhou, it's always just eat, eat, eat,
+[271.6s] and eat.
+[272.2s] Like, there's so many things that we can eat, and it's just eating non-stop.
+[278.3s] Next up on the list, we have Guangzhou's Pearl River Water Tea House.
+[289.4s] It offers a unique dining experience that combines traditional Cantonese dim sum on
+[294.6s] a scenic river cruise.
+[296.6s] We can enjoy classic dim sum dishes such as shrimp dumplings, siu mai, rice noodle rolls,
+[303.0s] and boat congee while cruising along the Pearl River, taking in stunning views of the Guangzhou's
+[308.7s] skyline.
+[309.8s] There's an option to either select singular dishes, or you can select the set menus on
+[314.9s] an app called Daizhong Limping, where it includes the tea fee, set dim sum dishes, and the cruise,
+[321.1s] which I think is definitely more worth it.
+[324.1s] Earlier, we tried this at the restaurant for breakfast.
+[326.8s] I want to try this because we also ordered it.
+[330.3s] Ta-da!
+[331.2s] I'm gonna try it from this.
+[332.1s] Let's see if it's better.
+[339.3s] So this is the boat that we're on.
+[340.7s] We're actually, I'm at the very front, and we can see the Xi'an Tower.
+[344.9s] Not the Xi'an Tower, the Canton Tower from right here, which is really nice.
+[348.5s] So yeah, this is the view.
+[349.8s] Honestly, the weather is shit right now because it's so humid, but at least it's sunny and
+[354.6s] everything.
+[355.0s] It's not raining or anything, and we're on the boat.
+[357.1s] So nice!
+[357.8s] We boarded the cruise at Tianzi Mantao.
+[361.0s] There's also another boarding area, which I will put the details in the description
+[365.2s] box down below.
+[366.7s] The experience lasted about two hours, including dining and the river tour.
+[371.2s] So if you plan to add this into your itinerary, make sure to double check the boarding time
+[375.9s] before you visit.
+[377.8s] Today is actually day two, the next day, and we are at our third restaurant for dim sum
+[384.2s] for this video, and we are currently at Bun Kai Zou Ga, so it's actually really pretty.
+[390.2s] I feel like all the pretty ones are very Chinese-style, which I personally really like.
+[397.4s] So yeah, we're walking in right now.
+[400.2s] Look how beautiful this is.
+[402.9s] Yeah, hopefully there's a spot.
+[404.2s] It's actually quite expensive here.
+[405.7s] It's $9 per person for just a tea, and then we have to obviously order other stuff, like
+[411.4s] all the other dishes.
+[412.4s] So yeah, let's go.
+[413.4s] Oh, it literally says right here, $9.
+[417.0s] This is the second garden-style restaurant we're visiting in Guangzhou, located in Laiyuan
+[422.5s] District, Guangdong Province.
+[424.5s] So we're going to go to the second one, and we're going to go to the third one, and we're
+[428.6s] going to go to the third one.
+[430.2s] Located in Laiyuan District, it is a bit pricier than the others in terms of the tea fee and
+[436.2s] dishes, and its large pond at the center is their signature scenic feature.
+[450.5s] We are currently in Laiyuan Gongming, which is actually just right beside the restaurant
+[455.6s] that we were in, and of course, I have my umbrella because when you're in Asia, or
+[459.9s] I guess specifically when I'm in China right now, the sun is like toxic.
+[465.3s] Let me tell you guys, it is so hot.
+[467.2s] Someone that doesn't even like holding onto an umbrella has to hold onto an umbrella.
+[472.1s] So we're currently kind of like, you know, like those alleyways that I absolutely love.
+[476.6s] So I'm just going to walk around.
+[478.0s] I feel like this is my second time coming here.
+[480.3s] First time was very rushed.
+[482.3s] So yeah, we'll see where we can go.
+[490.7s] Alright, our next stop, we're actually going to take the taxi for once, and we're actually
+[517.7s] going to go to our next destination, which is a restaurant that is really popular in
+[527.1s] Guangzhou, and you guys will actually know, so.
+[530.6s] We are at our fourth restaurant for this episode, and this is one of the most popular,
+[547.2s] popular, I guess dim sum area, or even just a regular restaurant, and it's called Baifeng.
+[552.2s] So I'm going to go and check it out.
+[556.1s] You know, jaywalk.
+[560.6s] I think my cousins and my grandparents already got a spot card, so we're just going to go.
+[571.6s] Peng Tou Gui, founded in 1880, is one of Guangzhou's oldest and most famous Cantonese
+[577.4s] restaurants.
+[578.6s] This has been a local favorite for over a century, attracting everyone from literally
+[583.6s] empires to modern day food lovers just like us.
+[586.7s] My grandparents said that up in fourth floor is really pretty, and they're like, like this,
+[593.4s] I don't even know, there's something, so I'm just going to go up and check it out myself
+[598.0s] when they're downstairs looking at the menu and ordering.
+[602.3s] Lots of legwork today, lots of steps.
+[607.4s] Alright, I'm finally up.
+[609.9s] Oh my god, literally panting, but this is what they wanted me to show you guys.
+[617.1s] Which is really pretty.
+[619.0s] Pretty sure we can't go in, of course.
+[621.4s] Oh, actually, no, there's actually like a, I think I came up a little too high, but that
+[626.0s] is okay.
+[627.6s] Pretty.
+[629.5s] And then you can see the entire view, and that's the restaurant.
+[641.9s] Okay, now let's go, actually, go back downstairs.
+[644.2s] It is so sunny, I can't even open my eyes.
+[647.4s] Round two.
+[667.2s] Along with the beautiful Lingnam style architecture, the dishes are also classic yet modern,
+[672.9s] attracting many young visitors to dine in.
+[676.2s] So, whether you're here for the history, the food, or just a taste of Guangzhou's past,
+[682.1s] this place is a must visit.
+[684.5s] But be warned, because this place is always, always packed.
+[688.7s] So come early, or be ready to wait.
+[692.5s] Hello, hello, good afternoon from day two.
+[696.1s] So currently, we are at this very, very popular place in Guangzhou, where it's kind of like
+[702.2s] a tourist area, but I've never been, so it's really exciting for me to be here.
+[706.2s] It is called Guanyingfang, and there's like a lot of cute stores, and they're like, the
+[710.8s] streets are really nice, like they're very like olden day style, like a valley, which
+[714.6s] I personally really, really like.
+[716.9s] So, yeah, we're just gonna be walking here, you know, digest some food that we ate earlier,
+[721.3s] because we've literally been eating so, so much, so I really need to walk all those away.
+[726.8s] So my cousin and I will be walking around, and she's in the store right now, where she's
+[731.6s] in the store, so I'm just gonna go in and find her, and hopefully I can show you guys
+[735.8s] some of the stores that we explore.
+[738.6s] Yeah, let's get going.
+[791.6s] Tai Pingguan Restaurant, established in 1860, is Guangzhou's first western-style eatery,
+[809.7s] known for blending Chinese and western flavors with many famous dishes like seared steak
+[815.0s] and roasted pigeon.
+[816.7s] Over the years, it has hosted many celebrities, one being the most famous would be Zao Wanluo's
+[822.0s] wedding banquet.
+[823.4s] The restaurant has remained a symbol of Guangzhou's rich culinary history, offering a unique fusion
+[828.8s] of tradition and innovation.
+[846.7s] Hello, good morning, but this is the end, the last of this episode.
+[870.2s] Hope you guys enjoyed my ginseng adventure in Guangzhou.
+[873.3s] I definitely had a lot of fun, but I am so full and low-key a little bit out of, you
+[880.6s] know, dim sum and eating a lot, because I'm literally, like, extremely stuffed from eating
+[885.9s] out almost every single day.
+[887.9s] But, as you guys can tell, I don't know if you guys can guess where I'm at, but I am
+[893.0s] at the first first restaurant that we went to, that we explored, it's called Lam Yun,
+[898.3s] for another morning of dim sum.
+[900.9s] So, yeah, literally every single time when I come back, every single morning, it's just
+[904.5s] different types of restaurants for dim sum.
+[906.5s] I mean, I definitely enjoy it, but sometimes I also need a break, if you guys can understand.
+[911.4s] But, yeah, yeah, that is the end of this episode.
+[914.6s] Hope you guys enjoyed it.
+[916.1s] Thank you so much for watching this vlog, and I'll see you guys in the next one.
+[919.9s] Bye!
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hooks": [
+    {
+      "hook_text": "Look at that big ass shrimp in there.",
+      "timestamp_s": 258.2,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "every time when I come back to Guangzhou, it's always just eat, eat, eat, and eat.",
+      "timestamp_s": 267.9,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "It's $9 per person for just a tea",
+      "timestamp_s": 405.7,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "the sun is like toxic",
+      "timestamp_s": 459.9,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "this place is always, always packed",
+      "timestamp_s": 684.5,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "I am so full and low-key a little bit out of, you know, dim sum and eating a lot",
+      "timestamp_s": 873.3,
+      "confidence": 0.85
+    }
+  ]
+}
+```
+

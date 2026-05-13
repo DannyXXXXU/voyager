@@ -1,0 +1,212 @@
+=== TAG: extract_hooks__2GjAX6XoJjw  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract short attention-grabbing hooks from a video transcript.
+
+HARD RULES:
+- Extract between 3 and 8 hooks. Never zero.
+- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, no longer than 140 characters.
+- A hook is a single, concrete, surprising or curiosity-provoking statement (NOT a topic label, NOT a summary).
+- timestamp_s MUST be the leading [<seconds>s] tag of the source line. Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.
+- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.
+- Reject hooks that are generic ("this place is amazing") or hallucinated.
+
+USER:
+VIDEO_ID=2GjAX6XoJjw
+TRANSCRIPT:
+[0.0s] Did you know that Xi'an is not just home to the Terracotta Warriors,
+[3.4s] but also one of China's most exciting food destinations?
+[7.4s] From hand-pulled noodles to crispy lamb skewers, this ancient Silk Road city is a street food
+[12.6s] paradise. Stick around as we count down the 20 must-try street foods in Xi'an,
+[18.3s] and trust me, you won't want to miss number 1.
+[21.6s] Number 20. Hulatang or Spicy Pepper Soup at
+[26.5s] Lao Liu Hulatang A classic Xi'an breakfast dish,
+[30.6s] hulatang is a thick, spicy soup made with black pepper, beef, potatoes, and vegetables.
+[36.5s] The dish is known for its bold heat and comforting texture,
+[39.8s] making it the perfect morning meal, especially in cold weather.
+[43.7s] Lao Liu Hulatang is one of the oldest and most well-loved spots for this dish,
+[48.2s] with locals flocking in as early as 6am for a steaming bowl.
+[52.1s] Number 19. Rugiamo or Chinese Hamburger at Fanji Rugiamo
+[57.4s] Known as the Chinese Burger, Rugiamo features slow-cooked,
+[61.0s] spiced meat stuffed inside a crispy, baked flatbread.
+[64.6s] Traditionally made with fatty pork braised in a fragrant blend of soy sauce,
+[68.9s] star anise, and spices, it has a rich, juicy texture that melts in your mouth.
+[74.3s] Fanji Rugiamo is a must-visit, serving hand-shredded meat inside freshly-baked
+[79.3s] fire-grilled flatbread, ensuring the perfect crisp-to-tender ratio.
+[83.7s] Number 18. Liangpi or Cold Skin Noodles at Biangbiang Mianguan
+[89.5s] These cold, chewy wheat noodles are tossed with garlic, vinegar, chili oil, and shredded cucumbers,
+[95.1s] creating a perfect balance of spice and freshness.
+[98.3s] Originally a working-class meal, Liangpi is now a citywide favorite,
+[102.6s] perfect for cooling down during Xi'an's hot summers.
+[106.0s] Biangbiang Mianguan is particularly famous for its homemade extra-thin Liangpi noodles,
+[111.7s] giving them an ideal bouncy texture that absorbs the flavors of the sauce beautifully.
+[117.1s] Number 17. Jinggao or Sticky Rice Cake at Muslim Quarter Night Market
+[122.7s] This traditional sticky rice cake is topped with honey,
+[125.7s] nuts, and osmanthus syrup, making it a sweet and floral dessert.
+[130.4s] The texture is delightfully chewy, and the honey-glazed topping gives it a natural sweetness
+[135.7s] that isn't overpowering. Vendors at the Muslim Quarter Night Market sell these cakes freshly
+[141.5s] steamed, and they are a go-to dessert for locals who want a light but satisfying treat after a meal.
+[148.0s] Number 16. Yangru Chuan or Lamb Skewers at Laowang's Skewers
+[154.5s] A Silk Road specialty, Yangru Chuan consists of grilled lamb skewers
+[159.2s] marinated in cumin, chili, and garlic before being cooked over hot coals. These skewers are smoky,
+[166.0s] spicy, and packed with deep flavors that make them a local favorite.
+[170.5s] Laowang's Skewers is particularly famous for its generous portions and extra-crispy texture,
+[176.7s] attracting late-night food lovers from across the city.
+[179.8s] Number 15. Huashan Fried Noodles at Huashan Xiaoqi Dian
+[185.2s] These thick, hand-pulled noodles are stir-fried with vegetables,
+[188.8s] eggs, and soy sauce, absorbing a rich, smoky wakei flavor. A simple yet satisfying dish,
+[195.4s] Huashan Fried Noodles are especially delicious when topped with a crispy fried egg and a drizzle
+[201.1s] of chili oil for extra heat. Served at Huashan Xiaoqi Dian, a modest, family-run eatery tucked
+[207.9s] in a local market area, this dish is loved for its generous portions and affordable prices.
+[214.1s] Number 14. Qishan Shaoxi Mian at Lao Qishan Mian Guan
+[219.0s] This spicy, vinegary noodle soup is packed with bold flavors, featuring minced pork, tofu,
+[224.9s] and potatoes in a rich red chili broth. Qishan Shaoxi Mian is known for its perfect balance of
+[230.7s] savory, spicy, and sour notes, making it a favorite among those who love a flavorful kick.
+[237.2s] At Lao Qishan Mian Guan, a cozy, no-frills eatery, this dish is served in generous
+[242.7s] portions at affordable prices. The broth's deep umami and tangy undertones combined with chewy
+[248.7s] noodles create a satisfying, warming meal that keeps locals coming back for more.
+[254.0s] Number 13. Fried Persimmon Cake at Muslim Street
+[258.5s] A beloved street snack, fried persimmon cakes have a crispy golden crust and a soft,
+[263.8s] chewy interior, traditionally filled with sweet red bean paste or crushed walnuts. The natural
+[270.5s] sweetness of persimmons pairs perfectly with the rich, nutty, or velvety filling,
+[275.5s] creating a satisfying bite. At Muslim Street, these treats are freshly fried to order,
+[281.5s] drawing in crowds with their enticing aroma and warm, comforting taste.
+[286.2s] Number 12. He Li or Hot and Sour Dumpling Soup at Defa Chang
+[292.9s] This tangy and spicy soup is packed with delicate dumplings filled with minced pork and leeks,
+[298.3s] floating in a flavorful broth infused with black vinegar, Sichuan peppercorns, and garlic. The bold
+[305.4s] mix of sour, spicy, and umami flavors makes He Li a must-try for those who love a bit of heat.
+[313.0s] At Defa Chang, a well-known spot for traditional dumplings,
+[316.8s] this dish is served fresh with a perfect balance of rich broth and tender dumplings.
+[322.4s] Its comforting warmth and bold seasoning make it a favorite among both locals and visitors,
+[328.1s] craving an authentic taste of Northern Chinese cuisine.
+[331.5s] Number 11. Swantong Shuijiao or Sour Soup Dumplings at Wong Family Dumpling House
+[338.4s] These delicate pork and cabbage dumplings are served in a tangy,
+[342.1s] aromatic broth made with black vinegar, garlic, and chili oil, creating a bold mix of sour and
+[348.9s] spicy flavors. The broth is light yet packed with depth, perfectly complementing the tender dumplings.
+[356.0s] At Wong Family Dumpling House, this dish is a local favorite for those looking for a unique
+[361.0s] twist on traditional dumplings. The balance of acidity and spice makes it a refreshing
+[366.0s] and comforting option, drawing in food lovers eager for something different.
+[370.2s] Number 10. Xi'an Stuffed Pancakes at Mahjia Pancake Stall
+[375.7s] These crispy, flaky pancakes are stuffed with savory fillings like minced beef,
+[380.6s] lamb, or vegetables, then pan-fried to perfection. The layers are crunchy on the outside,
+[386.7s] while remaining soft and flavorful inside. The dough is kneaded by hand and allowed to rest,
+[393.1s] creating an ultra-flaky texture when fried.
+[396.5s] Mahjia Pancake Stall is a well-known local favorite,
+[399.7s] often attracting long lines of eager customers waiting for fresh, hot pancakes.
+[404.7s] Number 9. Osmanthus Jelly at Huimin Market
+[409.8s] Osmanthus jelly is a delicate, floral dessert made from osmanthus flowers, sugar, and agar,
+[416.3s] resulting in a light, fragrant, and subtly sweet treat. The jelly is often served chilled,
+[423.5s] making it a refreshing option after indulging in Xi'an's spicier foods.
+[428.2s] It has a soft, bouncy texture with bits of osmanthus flowers suspended throughout,
+[433.5s] giving it a visually appealing look. At Huimin Market, vendors sell this dessert in small
+[439.6s] portions, usually topped with extra osmanthus syrup for added sweetness.
+[444.0s] Number 8. Spicy Cumin Lamb Bun at Lao Liu Rougiamo
+[449.0s] A spicy twist on the classic Rougiamo, this version is packed with tender cumin-spiced lamb,
+[455.7s] slow-cooked until juicy and flavorful. The meat is shredded and placed inside a crispy,
+[461.1s] oven-baked flatbread, making for a rich, spicy, and crispy bite. The addition of chili oil and
+[467.2s] pickled vegetables enhances the flavor, giving it a delicious kick. Lao Liu Rougiamo is famous
+[474.1s] for its generous portions and the strong, fragrant aroma of its cumin-seasoned lamb.
+[479.7s] Number 7. Fried Stuffed Tofu at Muslim Quarter Night Market
+[485.0s] Fried Stuffed Tofu is a popular Xi'an street snack featuring crispy fried tofu pockets stuffed
+[491.4s] with seasoned minced meat and vegetables. The tofu is deep-fried to create a golden,
+[496.6s] crunchy shell while keeping the inside juicy and packed with umami flavors.
+[501.9s] Some versions are topped with garlic sauce, vinegar,
+[505.0s] and chili oil, making them extra flavorful. Vendors at the Muslim Quarter Night Market
+[511.0s] prepare this snack fresh, making it a favorite for those looking for a crunchy,
+[515.4s] savory street food option. Number 6.
+[518.9s] Hand-Pulled Beef Noodles at Liu's Beef Noodle House
+[522.2s] Hand-pulled noodles, or la mian, are a staple of Xi'an's food scene. These springy, chewy noodles
+[528.5s] are served in a rich beef broth topped with tender braised beef, scallions, and pickled mustard
+[534.4s] greens. The process of pulling the noodles by hand results in varying thicknesses, adding a delightful
+[541.4s] textural contrast. Liu's Beef Noodle House is a well-respected name in the city, known for its
+[548.2s] deep, flavorful beef broth that is slow-cooked for hours. Number 5.
+[553.4s] Liangfen or Mung Bean Jelly at Ma Jia Liangfen Stall
+[557.6s] Liangfen is a cool, spicy street food dish made from mung bean starch cut into soft,
+[563.1s] slippery noodles and drenched in vinegar, garlic, chili oil, and sesame paste. This dish is
+[569.3s] incredibly refreshing and has a smooth, jelly-like texture that contrasts with the bold flavors of
+[575.1s] the sauce. Ma Jia Liangfen Stall is a famous vendor in Xi'an's food scene, serving their
+[580.9s] signature chilled mung bean jelly noodles with an extra dose of numbing Sichuan peppercorns.
+[586.3s] Number 4. Jia San Guan Tang Bao Zi or Soup Dumplings at Jia San Steamed Bun Shop
+[593.9s] These juicy, soup-filled dumplings are a must-try in Xi'an. Unlike typical dumplings,
+[600.0s] Guan Tang Bao Zi are thicker and filled with rich, gelatinous broth that melts when steamed.
+[606.0s] The meat filling is savory and fragrant, often featuring a blend of pork,
+[610.2s] lamb, or beef. Jia San Steamed Bun Shop is one of the oldest and most reputable places in Xi'an
+[616.9s] to enjoy these delicacies, with a history spanning over 100 years.
+[621.3s] Number 3. Biang Biang Noodles at First Noodle Under the Sun
+[626.3s] Named after the long, belt-like shape of the noodles, Biang Biang Noodles are served in a
+[631.0s] bowl with garlic, vinegar, chili oil, and braised meat. The noodles are hand-pulled to an impressive
+[637.7s] thickness, making them chewy and hearty. They are typically topped with crushed garlic, spring
+[643.7s] onions, and a generous amount of chili oil, resulting in a bold, aromatic dish.
+[650.4s] First Noodle Under the Sun is a famous establishment that
+[654.6s] draws large crowds eager to try this iconic dish.
+[658.1s] Number 2. Yangzhou Fried Rice at Lao Mi Jia Fried Rice
+[663.9s] Yangzhou Fried Rice is a colorful, flavorful dish packed with shrimp, scrambled eggs, green peas,
+[670.6s] diced carrots, and Chinese sausage, all stir-fried with fragrant jasmine rice.
+[676.4s] Each grain of rice is perfectly coated in oil and stir-fried over high heat,
+[681.0s] giving it a delicious smoky aroma known as wok hei. Lao Mi Jia is well-known in Xi'an for its
+[687.7s] classic take on this dish, using high-quality ingredients and a perfect balance of soy sauce
+[692.9s] and seasonings. Number 1. Yang Rou Pao Mou or Lamb Soup
+[697.9s] with Crumbled Flatbread at Lao Sun Jia A Xi'an signature dish, Yang Rou Pao Mou,
+[704.3s] is a rich lamb stew where diners break up pieces of flatbread into the broth,
+[709.4s] allowing it to soak up the flavors. The result is a hearty, fragrant, and filling meal.
+[715.5s] The lamb is slow-cooked for hours, creating a broth that is deeply flavorful and aromatic.
+[721.7s] Lao Sun Jia is one of the oldest establishments serving this dish,
+[725.5s] ensuring a traditional and authentic experience.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hooks": [
+    {
+      "hook_text": "this ancient Silk Road city is a street food paradise",
+      "timestamp_s": 7.4,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "locals flocking in as early as 6am for a steaming bowl",
+      "timestamp_s": 48.2,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "Known as the Chinese Burger",
+      "timestamp_s": 57.4,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "it has a rich, juicy texture that melts in your mouth",
+      "timestamp_s": 68.9,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "with a history spanning over 100 years",
+      "timestamp_s": 621.3,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "diners break up pieces of flatbread into the broth",
+      "timestamp_s": 709.4,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "The lamb is slow-cooked for hours",
+      "timestamp_s": 715.5,
+      "confidence": 0.95
+    }
+  ]
+}
+```
+

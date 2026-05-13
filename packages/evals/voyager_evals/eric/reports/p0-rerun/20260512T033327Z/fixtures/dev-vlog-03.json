@@ -1,0 +1,36 @@
+{
+  "fixture_id": "dev-vlog-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.8,
+    "selling_point_recall": 0.2857142857142857,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 358.92892659400013,
+  "error": null,
+  "hooks_predicted": [
+    "Xinjiang has been in the news a lot lately",
+    "I've come here to check out the place with my own eyes",
+    "the biggest mosque in Xinjiang but also in all of China",
+    "non-Muslims are welcome to visit the mosque for free",
+    "China has only one time zone, you need to wait till about 10pm until the place gets dark",
+    "the fragrant concubine, who was said to dance around the palace after her unique beauty and scent"
+  ],
+  "selling_points_predicted": [
+    "Id Kar Mosque, biggest mosque in China",
+    "Free mosque visits for non-Muslims outside prayer time",
+    "Ancient city with winding streets",
+    "Doner kebabs with chicken or beef, fries and sauce",
+    "Da Pan Ji (big dish of chicken with potato and fresh noodles)",
+    "Night market that comes alive around 10pm",
+    "Apak Khoja mausoleum, resting place of Apak Khoja and family",
+    "Uyghur ice cream (Xinjiang ice cream)",
+    "Historic Silk Road gateway between China and Central Asia"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

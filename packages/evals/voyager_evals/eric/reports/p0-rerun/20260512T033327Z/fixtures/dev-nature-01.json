@@ -1,0 +1,36 @@
+{
+  "fixture_id": "dev-nature-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.3333333333333333,
+    "selling_point_recall": 0.3076923076923077,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 373.7787027899999,
+  "error": null,
+  "hooks_predicted": [
+    "the whole journey has been cut down to around 4 hours in total",
+    "there's a monster in the lake and there's an old man with one arm who guards the lake",
+    "it's a 17km walk until the next bus stop",
+    "where the buses are directed is all randomised and the drivers find out themselves",
+    "70km of really well maintained boardwalks",
+    "Jiuzhaigou brings together the worst and the best parts of travelling in China"
+  ],
+  "selling_points_predicted": [
+    "High-speed rail from Chengdu (under 4 hours total, down from 8-10 hours)",
+    "UNESCO World Heritage Site since 1992",
+    "Colourful lakes and many waterfalls, especially stunning during autumn",
+    "Long Lake at 3,150 metres altitude (biggest and highest lake in park)",
+    "70km of well-maintained boardwalks throughout the scenic area",
+    "Five Flower Lake (centrepiece known for various colours in the water)",
+    "Pearl Beach featured in 1986 Journey to the West TV series",
+    "Shuttle buses with multiple drop-off points throughout three valleys",
+    "Rest points selling snacks at reasonable prices (10-15 RMB)"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

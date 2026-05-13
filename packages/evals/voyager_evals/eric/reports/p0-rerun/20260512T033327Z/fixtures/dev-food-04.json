@@ -1,0 +1,38 @@
+{
+  "fixture_id": "dev-food-04",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.75,
+    "selling_point_recall": 0.2,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 358.06631450199984,
+  "error": null,
+  "hooks_predicted": [
+    "one of the most painfully spicy meals in the world",
+    "the pungent chili aroma hits your nostrils, and you can almost feel it on your skin",
+    "Intense, bubbling pot of death",
+    "I wanna feel alive",
+    "that is like a burning pleasure",
+    "It feels like your soul is burning",
+    "this is one of the spiciest things you'll ever eat",
+    "It is burning, and it is actually somehow addictive"
+  ],
+  "selling_points_predicted": [
+    "Extremely spicy hot pot (te la level)",
+    "Authentic Chengdu Sichuan hot pot experience",
+    "Beef oil (niu you) broth packed with red chilies and Sichuan peppercorns",
+    "Sichuan peppercorn (huajiao) numbing sensation",
+    "Pungent chili aroma in legit local hot pot joints",
+    "Sesame oil (xiang you) dipping sauce with fresh chilies and peanuts",
+    "Variety of ingredients: fatty beef, shrimp, lotus root, potato slices",
+    "Addictive burning pleasure experience",
+    "One of thousands of hot pot joints in Chengdu"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

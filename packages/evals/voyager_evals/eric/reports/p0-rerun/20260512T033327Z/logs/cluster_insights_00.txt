@@ -1,0 +1,78 @@
+=== TAG: cluster_insights  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You cluster the provided hooks and selling points into 3–6 themes.
+
+HARD RULES:
+- Produce 3–6 clusters. No more, no fewer.
+- Each `theme` is a SHORT noun phrase (<= 60 chars) — a recognizable category, not a sentence.
+- `members` MUST contain only ids/texts that appear in the input (no invention).
+- `summary` is one sentence (<= 200 chars) capturing what the cluster sells.
+- Every input hook/selling_point should belong to exactly one cluster.
+
+USER:
+{'hooks': [{'video_id': 'Zw_tJOwZmac', 'hook_text': 'one of the most painfully spicy meals in the world', 'timestamp_s': 6.0, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'the pungent chili aroma hits your nostrils, and you can almost feel it on your skin', 'timestamp_s': 64.2, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'Intense, bubbling pot of death', 'timestamp_s': 253.7, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'I wanna feel alive', 'timestamp_s': 317.1, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'that is like a burning pleasure', 'timestamp_s': 483.2, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'It feels like your soul is burning', 'timestamp_s': 539.3, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': "this is one of the spiciest things you'll ever eat", 'timestamp_s': 589.9, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'It is burning, and it is actually somehow addictive', 'timestamp_s': 744.1, 'confidence': 0.95}], 'selling_points': [{'video_id': 'Zw_tJOwZmac', 'point': 'Extremely spicy hot pot (te la level)', 'evidence': 'one of the most painfully spicy meals in the world...the most deadly spicy hot pot available on the menu...te la, which is extremely spicy', 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'Authentic Chengdu Sichuan hot pot experience', 'evidence': 'We are in Chengdu, the land of spicy, numbing, fragrant cuisine, the land of plentiful flavor', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Beef oil (niu you) broth packed with red chilies and Sichuan peppercorns', 'evidence': 'full-on beef oil, they call it niu you...packed with red chilies, packed with Sichuan peppercorn', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Sichuan peppercorn (huajiao) numbing sensation', 'evidence': 'The huajiao, the Sichuan peppercorn...you can feel a bit of a tingle. It feels florally, almost a little citrusy and numbing', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Pungent chili aroma in legit local hot pot joints', 'evidence': 'Right when you walk into a legit local hot pot joint in Sichuan, the pungent chili aroma hits your nostrils', 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'point': 'Sesame oil (xiang you) dipping sauce with fresh chilies and peanuts', 'evidence': 'make our dip, which is made with a xiang you, sesame oil...with fresh chilies, cilantro, onions, and peanuts', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Variety of ingredients: fatty beef, shrimp, lotus root, potato slices', 'evidence': 'fei niu rou, fatty beef...some shrimp...ou pian...lotus root...tu dou pian, potato slices', 'confidence': 0.8}, {'video_id': 'Zw_tJOwZmac', 'point': 'Addictive burning pleasure experience', 'evidence': "burning pleasure...it is actually somehow addictive...You're in pain, but you are also enjoying it...you just wanna go back for more", 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'One of thousands of hot pot joints in Chengdu', 'evidence': 'This is just one of thousands of hot pot joints in Chengdu', 'confidence': 0.95}]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface ClusterOutput {
+  clusters: Array<{
+  theme: string;
+  members: Array<string>;
+  summary: string;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "clusters": [
+    {
+      "theme": "Extreme Spice Level",
+      "members": [
+        "one of the most painfully spicy meals in the world",
+        "Intense, bubbling pot of death",
+        "this is one of the spiciest things you'll ever eat",
+        "Extremely spicy hot pot (te la level)"
+      ],
+      "summary": "This hot pot offers an extremely spicy, painful experience at the highest spice level available."
+    },
+    {
+      "theme": "Addictive Burning Sensation",
+      "members": [
+        "I wanna feel alive",
+        "that is like a burning pleasure",
+        "It feels like your soul is burning",
+        "It is burning, and it is actually somehow addictive",
+        "Addictive burning pleasure experience"
+      ],
+      "summary": "The intense burning sensation creates an addictive, pleasurable experience that makes you feel alive."
+    },
+    {
+      "theme": "Authentic Chengdu Experience",
+      "members": [
+        "the pungent chili aroma hits your nostrils, and you can almost feel it on your skin",
+        "Authentic Chengdu Sichuan hot pot experience",
+        "Pungent chili aroma in legit local hot pot joints",
+        "One of thousands of hot pot joints in Chengdu"
+      ],
+      "summary": "Experience authentic Chengdu hot pot culture with the characteristic pungent chili aroma of legit local joints."
+    },
+    {
+      "theme": "Ingredients & Broth Composition",
+      "members": [
+        "Beef oil (niu you) broth packed with red chilies and Sichuan peppercorns",
+        "Sichuan peppercorn (huajiao) numbing sensation",
+        "Sesame oil (xiang you) dipping sauce with fresh chilies and peanuts",
+        "Variety of ingredients: fatty beef, shrimp, lotus root, potato slices"
+      ],
+      "summary": "Rich beef oil broth with Sichuan peppercorns, sesame oil dipping sauce, and diverse ingredients create the complete experience."
+    }
+  ]
+}
+```
+

@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-culture-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.4615384615384615,
+    "selling_point_recall": 0.2,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 363.17450091399974,
+  "error": null,
+  "hooks_predicted": [
+    "This was worth thousands of yuan. The best one here.",
+    "Gonna take you about 1 hour 50 minutes.",
+    "Sometimes customers they will change 20 clothes.",
+    "These headpieces will make from silk, beads and even gold.",
+    "I honestly feel like I was starring in my own Korean drama.",
+    "traditional Chinese clothing that has been around for thousands of years"
+  ],
+  "selling_points_predicted": [
+    "Professional Hanfu photoshoot services with photographer",
+    "Wide variety of authentic Hanfu from different Chinese dynasties",
+    "1 hour 50 minute traditional hair and makeup styling included",
+    "Costumes for men, women, children, and elderly",
+    "Photoshoot at the Forbidden City exterior",
+    "Keep clothes until 6pm for self-guided photos",
+    "Elaborate traditional hair accessories and qi tou headpieces",
+    "Dynasty-specific makeup styles (soft elegant to bold royal)",
+    "Premium costume options worth thousands of yuan",
+    "All-inclusive service arranged by China Explore Tour"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

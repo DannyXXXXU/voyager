@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-vlog-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.30769230769230765,
+    "selling_point_recall": 0.0,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 373.9077632279998,
+  "error": null,
+  "hooks_predicted": [
+    "I've been living in Shanghai for nearly 20 years",
+    "not every hotel is allowed to host foreign nationals",
+    "You'll need to register at the police station within 24 hours of arriving",
+    "Cash is seldom used, especially in the big cities",
+    "Most of them, if not all of them, require a reservation",
+    "Everything is in Chinese. There's no other language."
+  ],
+  "selling_points_predicted": [
+    "Free airport Wi-Fi via passport-scanning kiosk",
+    "Metro system that's always on time",
+    "Digital payment help desk at Pudong Airport arrivals",
+    "English government website with arrival checklist and restaurant info",
+    "High-speed trains to nearby cities",
+    "Food delivery app with built-in translation function",
+    "QR code payment for metro tickets without buying physical tickets",
+    "Local SIM cards available at airport after baggage claim",
+    "Hotels automatically register foreign guests with police",
+    "English-speaking staff at train ticket windows"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

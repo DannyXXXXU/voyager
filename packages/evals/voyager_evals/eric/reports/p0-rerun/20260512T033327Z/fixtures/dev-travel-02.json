@@ -1,0 +1,37 @@
+{
+  "fixture_id": "dev-travel-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.13333333333333333,
+    "selling_point_recall": 0.5454545454545454,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 374.5815175399998,
+  "error": null,
+  "hooks_predicted": [
+    "the park's natural beauty draws in over 20,000 visitors every single day",
+    "each elevator is actually double-decker",
+    "it is so narrow at the base and it rises by itself jutting through the earth all the way up to the skies",
+    "this bridge is 350 meters in elevation compared to the ground below",
+    "Our driver did not fear death",
+    "they can be aggressive as we're looking for food"
+  ],
+  "selling_points_predicted": [
+    "Avatar/Hallelujah Mountains with towering quartz sandstone pillars",
+    "Five distinct sections to explore across the park",
+    "Four-day unlimited cable car and elevator pass for 248 yuan",
+    "Record-breaking Bailong Elevator with double-decker cabins",
+    "First Bridge Under Heaven, a natural bridge 350 meters high",
+    "Street food stalls throughout the park serving fresh local dishes",
+    "Scenic cable car rides offering 15-minute mountain views",
+    "Abundant wild monkeys throughout Huangshi Village and Golden Whip Stream",
+    "Facial recognition entry system eliminating need for tickets or passports",
+    "Golden Whip Stream two-hour peaceful base trail along the mountains"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}
