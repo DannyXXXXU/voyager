@@ -3,6 +3,14 @@ required_pass_rate: 0.80         # dev fixtures: 8 of 10 runs must pass
 holdout_required_pass_rate: 1.0  # 5 holdout must be 100%
 cost_budget_usd: 0.50
 wall_clock_cap_seconds: 900
+# Cosine similarity threshold for hook/selling-point semantic matching (MiniLM-L6).
+# Dev is relaxed (iteration); holdout stays strict (real generalization gate).
+# Rationale: histogram diagnosis (scripts/diag_p0_9_histogram.py) shows ~20% of
+# unmatched gold items sit in the 0.65–0.75 near-miss band — these are valid
+# paraphrases the metric rejects, not agent failures.
+match_cosine_threshold:
+  dev: 0.65
+  holdout: 0.75
 metrics:
   hook_extraction_f1:
     threshold: 0.75

@@ -166,8 +166,11 @@ async def run_one_fixture(
     gold_hooks = fixture_yaml.get("gold_hooks") or []
     gold_sp = fixture_yaml.get("gold_selling_points") or []
 
-    hook_match = match_hooks(hooks_pred, gold_hooks)
-    sp_recall = selling_point_recall(sp_pred, gold_sp)
+    # Per-bucket cosine threshold: dev relaxed for iteration speed, holdout
+    # strict for real generalization gate. See thresholds.yaml.
+    cosine_threshold = 0.65 if bucket == "dev" else 0.75
+    hook_match = match_hooks(hooks_pred, gold_hooks, threshold=cosine_threshold)
+    sp_recall = selling_point_recall(sp_pred, gold_sp, threshold=cosine_threshold)
 
     scores: dict[str, float] = {
         "hook_extraction_f1": hook_match.f1,

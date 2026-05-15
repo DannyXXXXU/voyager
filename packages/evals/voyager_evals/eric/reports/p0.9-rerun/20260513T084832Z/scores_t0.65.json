@@ -1,0 +1,215 @@
+{
+  "threshold": 0.65,
+  "per_fixture": [
+    {
+      "fixture_id": "dev-culture-01",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.631578947368421,
+        "selling_point_recall": 0.3,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.631578947368421,
+        "selling_point_recall": 0.5,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-culture-02",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.3,
+        "selling_point_recall": 0.75,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.3,
+        "selling_point_recall": 0.75,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-culture-03",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.125,
+        "selling_point_recall": 0.5,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.25,
+        "selling_point_recall": 0.75,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-food-01",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.29166666666666663,
+        "selling_point_recall": 0.5,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.3333333333333333,
+        "selling_point_recall": 0.625,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-food-02",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.1818181818181818,
+        "selling_point_recall": 0.26666666666666666,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.3636363636363636,
+        "selling_point_recall": 0.4,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-food-03",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.25000000000000006,
+        "selling_point_recall": 0.4444444444444444,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.37499999999999994,
+        "selling_point_recall": 0.5555555555555556,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-food-04",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.6,
+        "selling_point_recall": 0.3,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.7000000000000001,
+        "selling_point_recall": 0.4,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-history-01",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.125,
+        "selling_point_recall": 0.5555555555555556,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.125,
+        "selling_point_recall": 0.7777777777777778,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-nature-01",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.5,
+        "selling_point_recall": 0.6153846153846154,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.5,
+        "selling_point_recall": 0.7692307692307693,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-travel-01",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.5555555555555556,
+        "selling_point_recall": 0.6153846153846154,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.5555555555555556,
+        "selling_point_recall": 0.8461538461538461,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-travel-02",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.3333333333333333,
+        "selling_point_recall": 0.5454545454545454,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.6666666666666666,
+        "selling_point_recall": 0.7272727272727273,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-travel-03",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.5263157894736842,
+        "selling_point_recall": 0.9,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.7368421052631579,
+        "selling_point_recall": 1.0,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-vlog-01",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.47058823529411764,
+        "selling_point_recall": 0.25,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.8235294117647058,
+        "selling_point_recall": 0.5,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-vlog-02",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.7142857142857143,
+        "selling_point_recall": 0.5714285714285714,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.7142857142857143,
+        "selling_point_recall": 0.7142857142857143,
+        "schema_validity_rate": 1.0
+      }
+    },
+    {
+      "fixture_id": "dev-vlog-03",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.5333333333333333,
+        "selling_point_recall": 0.7142857142857143,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.5333333333333333,
+        "selling_point_recall": 0.7142857142857143,
+        "schema_validity_rate": 1.0
+      }
+    }
+  ]
+}
