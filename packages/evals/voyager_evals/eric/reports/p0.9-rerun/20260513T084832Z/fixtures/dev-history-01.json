@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-history-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.125,
+    "selling_point_recall": 0.5555555555555556,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 363.3624763380003,
+  "error": null,
+  "hooks_predicted": [
+    "the Mutianyu side of the Great Wall, which according to Trip.com is the less like touristy side",
+    "people are just like shoulder-to-shoulder",
+    "it only took maybe three hours of transport time in total",
+    "from Watchtower 5 to Watchtower 20",
+    "Beijing is only an hour and a half bus ride from here",
+    "the best Disney movie of all time, Mulan",
+    "Donald Trump wish he could build a wall like that",
+    "The last Ming emperor, Tongzhen, had killed himself by suicide hanging on a tree",
+    "this actually all revolves around one prostitute",
+    "one of the four beauties of China"
+  ],
+  "selling_points_predicted": [
+    "Mutianyu side is less touristy than other Great Wall sections, avoiding year-round shoulder-to-shoulder crowds",
+    "Accessible from Beijing City Center with only three hours total transport time",
+    "Cable car available to eliminate the steep climb from base to the top of the wall",
+    "Full hiking route from Watchtower 5 to Watchtower 20 for those seeking a complete experience",
+    "Rich historical education about the Xiongnu Confederacy, nomadic invasions, and Chinese dynasties",
+    "Stunning fall foliage scenery with orange leaves along the wall",
+    "Doable for average fitness levels including kids and elderly visitors",
+    "Scenic ski lift descent option offering outdoor mountain views on the way down",
+    "Challenging Hero Slope section for adventure seekers requiring hands and legs to climb",
+    "Watchtowers positioned at mountain peaks offering strategic viewpoints and rest stops",
+    "Only an hour and a half bus ride from Beijing, making it a convenient day trip"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

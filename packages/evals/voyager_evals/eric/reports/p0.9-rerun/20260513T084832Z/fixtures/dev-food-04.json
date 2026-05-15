@@ -1,0 +1,45 @@
+{
+  "fixture_id": "dev-food-04",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.6,
+    "selling_point_recall": 0.3,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 377.41421903599985,
+  "error": null,
+  "hooks_predicted": [
+    "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world",
+    "this is one of the most spiciest and fragrant meals you can eat in the whole world",
+    "the pungent chili aroma hits your nostrils, and you can almost feel it on your skin",
+    "the most deadly spicy hot pot available on the menu",
+    "This is gonna be painfully spicy",
+    "He just gave me a warning",
+    "Intense, bubbling pot of death",
+    "I wanna feel alive",
+    "that is like a burning pleasure",
+    "It feels like your soul is burning",
+    "that is extreme pain here",
+    "this is one of the spiciest things you'll ever eat"
+  ],
+  "selling_points_predicted": [
+    "One of the most painfully spicy meals in the world",
+    "Authentic local Sichuan hot pot experience at a legit joint where pungent chili aroma hits your nostrils",
+    "Choice of three spice levels from less spicy to extremely spicy",
+    "Located in Chengdu, the land of spicy, numbing, fragrant cuisine and plentiful flavor",
+    "Unique floral, citrusy, numbing sensation from Sichuan peppercorns on your tongue",
+    "Addictive burning pleasure that makes you want to go back for more despite the pain",
+    "Must-try essential experience when visiting Sichuan",
+    "Traditional beef oil (niu you) base packed with red chilies and Sichuan peppercorns",
+    "Intensifying spice level where each bite gets hotter as the chilies boil in the oil",
+    "Wide variety of ingredients including fatty beef, shrimp, lotus root, potato, and tofu skin",
+    "Customizable sesame oil dipping sauce with green onions, peanuts, cilantro, and fresh chilies",
+    "Full-body burning sensation where you feel it in your throat, stomach, tongue, lips, and face"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

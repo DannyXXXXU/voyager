@@ -1,0 +1,41 @@
+{
+  "fixture_id": "dev-vlog-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5333333333333333,
+    "selling_point_recall": 0.7142857142857143,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 377.3233502799999,
+  "error": null,
+  "hooks_predicted": [
+    "Xinjiang has been in the news a lot lately",
+    "I've come here to check out the place with my own eyes, come with me",
+    "the Id Kar Mosque which is not only the biggest mosque in Xinjiang but also in all of China",
+    "Doner kebabs with chicken or beef, french fries and lots of yummy sauce",
+    "Da Pan Ji which literally translates as big dish of chicken",
+    "Cold local yoghurt with lots of sugar sprinkled on top",
+    "Ham noodles freshly pulled",
+    "Xinjiang salad with raw onions and juicy tomato",
+    "Uyghur ice cream, otherwise known as Xinjiang ice cream",
+    "China has only one time zone, you need to wait till about 10pm until the place gets dark",
+    "Xiang Fei, the fragrant concubine, who was said to dance around the palace after her unique beauty and scent caught the eyes and nose"
+  ],
+  "selling_points_predicted": [
+    "First-hand authentic perspective on Xinjiang away from typical news coverage",
+    "Thousands of years of Silk Road heritage as a gateway between China, Central Asia and Europe",
+    "Id Kar Mosque - the biggest mosque in all of China",
+    "Free mosque entry for non-Muslims outside prayer times",
+    "Ancient city center with winding streets perfect for exploration",
+    "Diverse local cuisine including Doner kebabs, Da Pan Ji, Uyghur ice cream and hand-pulled noodles",
+    "Vibrant night market that comes alive after 10pm and is worth the wait",
+    "Apak Khoja mausoleum with the legendary story of the Fragrant Concubine",
+    "Shopping opportunities for local souvenirs in the ancient city"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

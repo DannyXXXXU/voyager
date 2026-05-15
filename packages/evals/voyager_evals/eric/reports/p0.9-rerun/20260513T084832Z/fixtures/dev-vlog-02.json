@@ -1,0 +1,36 @@
+{
+  "fixture_id": "dev-vlog-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.7142857142857143,
+    "selling_point_recall": 0.5714285714285714,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 350.72780811600023,
+  "error": null,
+  "hooks_predicted": [
+    "It's five times the size",
+    "I think I got a robot dog",
+    "that's like military shit",
+    "One thousand something",
+    "Killer deal, man, killer deal",
+    "Can I just give you 50 yuan right now for one, just to test it?",
+    "Is this real?",
+    "red-eyed neck massagers"
+  ],
+  "selling_points_predicted": [
+    "Storage devices available at competitive prices, described as a 'killer deal' for 1TB and 2TB options",
+    "Bulk purchase discounts available with minimum order of 10 pieces at reduced pricing",
+    "Opportunity to test products before committing to bulk orders for as low as 50-60 yuan",
+    "Real-time price negotiation demonstrations showing how to bargain in Chinese markets",
+    "Access to Sony branded products and authenticity verification discussions",
+    "Wide variety of product categories including electronics, beauty products, and health devices",
+    "Insider view of wholesale electronics shopping with detailed pricing structures"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

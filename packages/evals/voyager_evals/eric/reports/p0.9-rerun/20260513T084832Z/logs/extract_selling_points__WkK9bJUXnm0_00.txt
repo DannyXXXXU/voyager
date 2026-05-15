@@ -1,0 +1,248 @@
+=== TAG: extract_selling_points__WkK9bJUXnm0  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You extract selling points (reasons a viewer should visit / watch / buy) from a transcript. These are written in marketing-brief style — concise benefit statements a copywriter would use.
+
+HARD RULES:
+- Extract between 5 and 12 selling points. Never zero. Aim high on recall.
+- Each `point` is a concise benefit STATEMENT, 40–180 characters. Full phrases are encouraged when they convey the benefit clearly. Examples:
+  * "UNESCO World Heritage Site with international recognition since 1992"
+  * "Step-by-step demonstrations of getting free airport Wi-Fi without a local phone number"
+  * "Expert guidance from someone with nearly 20 years of living in Shanghai"
+- `evidence` MUST quote or paraphrase the supporting transcript span verbatim (<= 200 chars). Never empty.
+- Reject only empty filler ("unforgettable experience" alone). Specific marketing-style phrasing IS allowed and desired.
+- No duplicates (same benefit, different words).
+- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote.
+
+USER:
+VIDEO_ID=WkK9bJUXnm0
+TRANSCRIPT:
+[0.0s] Hi friends, welcome back to my channel. In this chapter of My China Diaries, come explore
+[25.1s] the beautiful Jiuzhaigou National Park with me. Our journey starts at Chengdu East Railway
+[30.1s] Station where I boarded a high speed train to the newly opened Huanglong Jiuzhai Railway
+[34.2s] Station. The train ride took a little less than 2 hours and then I got on another bus
+[38.3s] that would take me close to the scenic area. The bus first stopped by a rest area where
+[42.6s] we could go to the bathroom and also shop for some food and clothing. If you've watched
+[47.2s] my previous videos, you'd probably know that these sausages are my favourite treat
+[51.0s] when travelling so I picked one up here before we set off for another 2 hours on the road.
+[55.4s] It used to take about 8-10 hours from Chengdu by bus but with the opening of the railway
+[59.4s] station the whole journey has been cut down to around 4 hours in total.
+[63.7s] Jiuzhaigou is located in the north of Sichuan province and has been recognised as a World
+[68.0s] Heritage Site by UNESCO since 1992. It's most well known for its many waterfalls and
+[73.1s] colourful lakes which are especially stunning during autumn. I plan to spend 2 days exploring
+[78.7s] the area towards the end of September.
+[81.6s] The bus dropped everyone off about a 30 minute walk from the entrance of the scenic area
+[85.5s] but luckily my accommodation was on the way so I just went to check in and drop off my
+[89.5s] luggage as well.
+[90.5s] I'm staying at a hotel about 300-400 metres away from the entrance to the park. It's called
+[100.8s] Renzen Retreat and it's meant to have a hot tub for people to use but that's not available
+[106.7s] currently which I don't really care about anyways.
+[109.3s] As with most attractions in China you do need to purchase a ticket and provide the details
+[113.1s] of your ID. They then verify your ID when you enter the park.
+[117.4s] For Jiuzhaigou I was able to buy a ticket through trip.com with my passport which does
+[121.9s] make it quite convenient for foreign travellers.
+[136.6s] Once I enter the park I join the line for the shuttle buses which will pick you up and
+[151.2s] drop you off at different locations in the scenic area depending on when you're entering.
+[155.8s] In the afternoon you enter the park through the ground floor and the buses will drop you
+[159.3s] off at Norilang Centre which is at the intersection of the three valleys that comprise of Jiuzhaigou.
+[167.0s] For this initial bus ride I recommend sitting on the left hand side of the bus if you can
+[170.5s] to catch some of the natural scenery.
+[173.0s] Norilang Centre offers many restaurants and stores where you can stock up on food and
+[177.2s] souvenirs but more importantly it acts as a transit point where you can take a bus up
+[182.6s] either the eastern route or the western route in Jiuzhaigou.
+[185.8s] These two valleys are called Zichawa Valley and Zhizhe Valley respectively.
+[191.0s] I decided to take the eastern route which dropped me off at the end destination of Changhai
+[195.6s] which is also known as Long Lake in English.
+[198.8s] This is the biggest, largest and also highest lake in Jiuzhaigou being at an altitude of
+[203.7s] 3,150 metres.
+[205.9s] I'm not sure if it was the high altitude here or just me being out of shape overall but
+[210.0s] I did feel quite out of breath.
+[211.6s] In local folklore it's said that there's a monster in the lake and there's an old man
+[215.6s] with one arm who guards the lake.
+[218.0s] This one armed old man in question is actually a cypress tree also known as qishu or flag
+[223.8s] tree and it's named for its unique branches which only grow on one side.
+[230.2s] From Long Lake I then walked to Wucaishi or Five Coloured Pond.
+[234.7s] It's one of the smaller lakes in Jiuzhaigou but still very beautiful and rich in colours.
+[240.0s] Despite the weather the park was still quite crowded.
+[243.8s] From this point it's a 17km walk until the next bus stop so I decided to just get on
+[248.6s] here and take the bus back to Norirang Centre where I then walked to Norirang Waterfall.
+[273.8s] There's a viewing platform that you can access from across the road which I really recommend
+[286.4s] trekking up.
+[300.8s] Because the buses departing from Norirang were so crowded I decided to just walk from
+[304.8s] Norirang Waterfall to explore the third valley which is called Shuzheng Valley.
+[309.5s] It was about a 2-3km walk from Norirang Waterfall to Xinyuhai or Rhino Lake.
+[315.1s] This part of the park was really really peaceful and quiet and probably one of my favourite
+[319.6s] parts of day one in the national park.
+[401.3s] Day two was my full day in the national park.
+[416.3s] Because I entered in the morning they direct the flow of people via the upstairs entrance.
+[421.9s] The buses in the morning will drop you off at three randomised points either in the middle
+[426.7s] of Shuzheng Valley, at the end of Zechaowa Valley where Long Lake is or at the end of
+[433.5s] Rize Valley.
+[434.9s] So according to the tour guides on these buses, where the buses are directed is all randomised
+[440.6s] and the drivers find out themselves as they depart from the entrance of the park.
+[444.9s] Unfortunately I got dropped off at Shuzheng Valley which means I had to do a little walk
+[449.7s] to the next bus stop before I could be picked up.
+[479.8s] The bus that picks you up at this point will drop you off at the end of the park.
+[508.8s] The bus that picks you up at this point will then randomly drop you off at either the end
+[512.2s] of the eastern or the western valley.
+[515.1s] Again they announce this around the time you get to the Noralung Centre.
+[519.3s] So you can tell them that you actually need to get off and change routes if the bus is
+[522.9s] going to take you down a path you've already been.
+[526.2s] This is what happened to me because the second bus that I got on ended up being one that
+[530.6s] went towards Long Lake which I had visited the day before so I jumped off the bus when
+[535.4s] they paused at Noralung Centre.
+[537.8s] The starting point of the western route which takes you through Yuzhe Valley is Yuanxi Senlin
+[542.0s] or Primeval Forest.
+[543.9s] A lot of the online guides that I read actually recommended skipping this location and getting
+[548.1s] off the bus earlier because there's a 3.5km walk from this location to the next bus pickup
+[553.7s] point.
+[554.7s] Understandably, if you've only got one day in Jiuzhaigou, fitting this into your itinerary
+[559.4s] might be a little bit too tight but if you do have multiple days in the scenic area then
+[564.0s] I definitely recommend doing this walk.
+[566.7s] I personally found that the western route was a lot more packed than the eastern route
+[570.4s] which I took on the first day, probably because there's just more sights to see in this side
+[574.6s] of the park.
+[575.6s] At times I didn't really have the best experience with some of the crowds so I really appreciated
+[581.5s] the moments of peace that I got in this part of the park.
+[627.7s] to Jianzhuhai which is also known as Bamboo Arrow Lake.
+[631.1s] There was an option to take a longer route here rather than walk next to the roads which
+[635.1s] I decided to take.
+[637.8s] Throughout the park and a lot of these routes there are a lot of public toilets and also
+[641.8s] rest points that sell various snacks including my favourite sausages, instant milk tea and
+[647.9s] instant noodles so I packed pretty light for my time inside the scenic area.
+[652.6s] While the prices will obviously be a little bit more expensive than you might expect for
+[656.5s] China I still found it to be pretty reasonable.
+[659.1s] For example, my favourite grilled sausage snack was 10 RMB which is around 2-3 AUD depending
+[667.4s] on the FX rate.
+[686.5s] By the time that I got to Xiaomahai or Panda Lake it was around time for lunch so I got
+[694.5s] some instant noodles and just ate them by the lake.
+[697.1s] This was 15 RMB.
+[698.7s] Honestly by this point I was pretty fed up with being shoved around by people and had
+[702.6s] also lost my lens cap which fell off when I was trying to get off a super crowded bus.
+[707.8s] One thing that I would flag here is that Panda Lake is one of the more popular destinations
+[711.7s] within the park.
+[713.5s] Unfortunately the water here is a really gorgeous colour so the lines to get back onto
+[717.3s] the shuttle bus here were really really long and congested.
+[720.9s] Fortunately the entire scenic area is paved throughout with about 70km of really well
+[726.4s] maintained boardwalks and these are a really good alternative if you do have the energy
+[730.6s] to walk as a way of getting around the park.
+[733.8s] After my quick lunch break I walked about another 2km from Panda Lake to Hua Hai or
+[738.5s] Five Flower Lake which is one of the centrepieces of the scenic area.
+[742.9s] It's known for the various colours that can be seen in the lake and it's definitely one
+[746.7s] of the more crowded areas in the park.
+[772.9s] I'd pretty much given up on trying to get on the shuttle buses at this point so I decided
+[803.6s] to explore the rest of Reserve Valley on foot.
+[806.8s] From Five Flower Lake I walked by Peacock River or Peacock River, Jin Ling Hai or Golden
+[813.3s] Bell Lake down to Zhen Zhu Tan which is also known as Pearl Beach.
+[817.9s] Pearl Beach was featured in the 1986 version of Xi You Ji which is also known as Journey
+[822.7s] to the West and you can take photos with the various characters here.
+[882.7s] My last stop in Reserve Valley was very fittingly named Jing Hai or Mirror Lake.
+[904.4s] I walked along the shore here and got back on the shuttle bus down towards Shuzheng Valley.
+[908.8s] There were only a few more lakes that I wanted to see before I was ready to wrap up my time
+[912.5s] in the scenic area.
+[925.0s] I got off at the Shuzheng Waterfall stop and walked by Shuang Long Hai or Dragon's Lake.
+[929.8s] It has this name because it looks like there are two dragons at the bottom of the lake
+[933.1s] but honestly it was a little difficult for me to make them out.
+[936.4s] I also walked by Huo Hua Hai or Firework Lake.
+[939.6s] On sunny days the sun is said to reflect off of the lake's surface which looks as
+[943.4s] if there are fireworks dancing across the water.
+[946.1s] Unfortunately both of my two days in the park were either met with rainy or very cloudy
+[951.0s] conditions.
+[952.9s] I continued walking down past Lu Wei Hai or Reed Lake.
+[957.1s] Reed Lake was really beautiful and the little stream running through it is called Jade Belt
+[961.4s] River by the locals for its beautiful colours.
+[982.5s] The last stop of my trip was Penjingtan or Banzai Beach before I got on the bus and got
+[987.1s] ready to leave the park.
+[998.7s] And that brings us to the end of my two day adventure in Jiuzhaigou.
+[1002.3s] I really enjoyed my time here for the most part and it was great getting away from the
+[1006.3s] relentless heat that I was experiencing in Chengdu and Chongqing.
+[1010.4s] In many ways I do think Jiuzhaigou brings together the worst and the best parts of travelling
+[1014.5s] in China.
+[1016.0s] Outside of its big cities, China has so much to offer in terms of natural beauty which
+[1020.2s] is one of the reasons why I keep on coming back here.
+[1023.1s] You can tell a lot of time and resources have been invested into this scenic area which
+[1027.6s] is well run and well maintained but I do think more could be done to make the overall experience
+[1032.3s] better and also safer for visitors.
+[1034.7s] With the opening of Huanglong Jiuzhai Railway Station, getting to Jiuzhaigou has never been
+[1038.5s] as convenient as it is now so if you have even just a full day to spare I would very
+[1043.1s] much recommend fitting this into your China itinerary.
+[1046.1s] As usual feel free to leave any comments or questions down below and I'll try my best
+[1049.9s] to answer them but otherwise thank you for watching and see you next time.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "selling_points": [
+    {
+      "point": "UNESCO World Heritage Site with international recognition since 1992",
+      "evidence": "recognised as a World Heritage Site by UNESCO since 1992",
+      "confidence": 0.95
+    },
+    {
+      "point": "Journey time dramatically reduced from 8-10 hours to around 4 hours total with newly opened railway",
+      "evidence": "It used to take about 8-10 hours from Chengdu by bus but with the opening of the railway station the whole journey has been cut down to around 4 hours in total",
+      "confidence": 0.95
+    },
+    {
+      "point": "Famous for spectacular waterfalls and colorful lakes, especially stunning during autumn",
+      "evidence": "It's most well known for its many waterfalls and colourful lakes which are especially stunning during autumn",
+      "confidence": 0.95
+    },
+    {
+      "point": "Convenient ticket purchasing for foreign travelers through trip.com using passport",
+      "evidence": "I was able to buy a ticket through trip.com with my passport which does make it quite convenient for foreign travellers",
+      "confidence": 0.9
+    },
+    {
+      "point": "70km of well-maintained paved boardwalks throughout the entire scenic area",
+      "evidence": "the entire scenic area is paved throughout with about 70km of really well maintained boardwalks",
+      "confidence": 0.95
+    },
+    {
+      "point": "Features the largest, highest lake in Jiuzhaigou at 3,150 meters altitude",
+      "evidence": "This is the biggest, largest and also highest lake in Jiuzhaigou being at an altitude of 3,150 metres",
+      "confidence": 0.95
+    },
+    {
+      "point": "Public toilets and rest points with reasonably priced snacks throughout the park",
+      "evidence": "a lot of public toilets and also rest points that sell various snacks... I still found it to be pretty reasonable. For example, my favourite grilled sausage snack was 10 RMB",
+      "confidence": 0.85
+    },
+    {
+      "point": "Featured filming location from the iconic 1986 Journey to the West television series",
+      "evidence": "Pearl Beach was featured in the 1986 version of Xi You Ji which is also known as Journey to the West",
+      "confidence": 0.9
+    },
+    {
+      "point": "Escape from relentless summer heat with cooler mountain climate",
+      "evidence": "it was great getting away from the relentless heat that I was experiencing in Chengdu and Chongqing",
+      "confidence": 0.85
+    },
+    {
+      "point": "Well-resourced and well-maintained scenic area with significant investment",
+      "evidence": "You can tell a lot of time and resources have been invested into this scenic area which is well run and well maintained",
+      "confidence": 0.9
+    },
+    {
+      "point": "Showcases natural beauty of China outside major cities worth returning for",
+      "evidence": "China has so much to offer in terms of natural beauty which is one of the reasons why I keep on coming back here",
+      "confidence": 0.85
+    }
+  ]
+}
+```
+

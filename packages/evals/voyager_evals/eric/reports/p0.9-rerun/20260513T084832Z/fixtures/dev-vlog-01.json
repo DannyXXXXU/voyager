@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-vlog-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.47058823529411764,
+    "selling_point_recall": 0.25,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 367.04255269300006,
+  "error": null,
+  "hooks_predicted": [
+    "If you're traveling to China for the first time, there are a few things you need to know",
+    "I've been living in Shanghai for nearly 20 years",
+    "not every hotel is allowed to host foreign nationals",
+    "You'll need to register at the police station nearest to the place that you're staying within 24 hours of arriving here in Shanghai",
+    "Shanghai has two international airports located about 40 kilometers from each other",
+    "your phone doesn't work",
+    "Cash is seldom used, especially in the big cities",
+    "The easiest way to pay for things in China is using QR codes",
+    "Most of them, if not all of them, require a reservation",
+    "Everything is in Chinese. There's no other language"
+  ],
+  "selling_points_predicted": [
+    "Expert guidance from someone with nearly 20 years of living in Shanghai",
+    "Official Shanghai government website with regularly updated arrival checklists, transportation, restaurants, and points of interest",
+    "Step-by-step demonstrations of getting free airport Wi-Fi without a local phone number using passport kiosks",
+    "Convenient help desks at Pudong Airport for local SIM cards and digital payment setup with Alipay",
+    "Complete walkthrough of linking foreign credit cards to Alipay and WeChat for QR code payments throughout China",
+    "Detailed guidance on which hotels are legally allowed to host foreign nationals and automatic police registration",
+    "Shanghai metro system that is always on time and easier to navigate than the extensive bus system",
+    "Demonstrated method for buying subway tickets using Alipay QR codes with English language option",
+    "Built-in translation feature in Alipay for ordering food from Chinese-only menus on delivery apps",
+    "Practical advice for passport holders buying high-speed train tickets at staffed windows with English-speaking attendants",
+    "Real demonstrations filmed on-location at Pudong Airport, metro stations, and train terminals"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-nature-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5,
+    "selling_point_recall": 0.6153846153846154,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 375.3215783169999,
+  "error": null,
+  "hooks_predicted": [
+    "come explore the beautiful Jiuzhaigou National Park with me",
+    "The train ride took a little less than 2 hours",
+    "the whole journey has been cut down to around 4 hours in total",
+    "has been recognised as a World Heritage Site by UNESCO since 1992",
+    "at an altitude of 3,150 metres",
+    "In local folklore it's said there's a monster in the lake",
+    "an old man with one arm who guards the lake",
+    "it's a 17km walk until the next bus stop",
+    "about 70km of really well maintained boardwalks",
+    "Jiuzhaigou brings together the worst and the best parts of travelling in China"
+  ],
+  "selling_points_predicted": [
+    "UNESCO World Heritage Site with international recognition since 1992",
+    "Journey time dramatically reduced from 8-10 hours to around 4 hours total with newly opened railway",
+    "Famous for spectacular waterfalls and colorful lakes, especially stunning during autumn",
+    "Convenient ticket purchasing for foreign travelers through trip.com using passport",
+    "70km of well-maintained paved boardwalks throughout the entire scenic area",
+    "Features the largest, highest lake in Jiuzhaigou at 3,150 meters altitude",
+    "Public toilets and rest points with reasonably priced snacks throughout the park",
+    "Featured filming location from the iconic 1986 Journey to the West television series",
+    "Escape from relentless summer heat with cooler mountain climate",
+    "Well-resourced and well-maintained scenic area with significant investment",
+    "Showcases natural beauty of China outside major cities worth returning for"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-food-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.1818181818181818,
+    "selling_point_recall": 0.26666666666666666,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 362.71624773400004,
+  "error": null,
+  "hooks_predicted": [
+    "Did you know that Xi'an is not just home to the Terracotta Warriors",
+    "one of China's most exciting food destinations",
+    "Stick around as we count down the 20 must-try street foods in Xi'an",
+    "you won't want to miss number 1",
+    "locals flocking in as early as 6am for a steaming bowl",
+    "Known as the Chinese Burger",
+    "a history spanning over 100 years",
+    "First Noodle Under the Sun",
+    "diners break up pieces of flatbread into the broth, allowing it to soak up the flavors"
+  ],
+  "selling_points_predicted": [
+    "Home to the Terracotta Warriors and one of China's most exciting food destinations",
+    "Ancient Silk Road city offering a street food paradise with diverse culinary traditions",
+    "20 must-try street foods ranging from hand-pulled noodles to crispy lamb skewers",
+    "Historic establishments like Jia San Steamed Bun Shop with over 100 years of history",
+    "Generous portions at affordable prices from family-run eateries and local vendors",
+    "Fresh, made-to-order dishes prepared throughout the day, some starting at 6am",
+    "Authentic local favorites drawing long lines of eager customers daily",
+    "Traditional hand-pulled noodles and hand-shredded meat prepared using artisanal techniques",
+    "Bold flavor profiles balancing spicy, tangy, sweet, and savory with floral and umami notes",
+    "Interactive dining experience where you crumble your own flatbread into rich lamb stew",
+    "Signature smoky wok hei flavor achieved through high-heat stir-frying techniques",
+    "Slow-cooked dishes with meat braised for hours creating deeply flavorful, aromatic broths"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

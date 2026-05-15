@@ -1,0 +1,77 @@
+=== TAG: write_brief  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You write a concise Markdown Strategy Brief for overseas growth marketing of China travel content.
+
+HARD RULES:
+- Output Markdown only. No JSON, no code fences around the whole doc.
+- 250–600 words total. Tight, not padded.
+- REQUIRED sections (use these exact H2 headings):
+  ## Topic
+  ## Top Hooks
+  ## Selling Points
+  ## Themes
+  ## Recommendations
+- `## Top Hooks` lists 3–5 bullets, each a single verbatim hook from inputs.
+- `## Selling Points` lists 3–8 bullets, each prefixed by the point name in **bold**.
+- `## Themes` lists the cluster themes with a one-line description each.
+- `## Recommendations` is 3–5 numbered bullets, each actionable for a creator.
+- Do NOT invent video titles, channel names, or stats not present in the inputs.
+
+USER:
+TOPIC: Extreme spicy Sichuan death-level hotpot challenge (Food Ranger)
+CLUSTERS: [{'theme': 'Extreme Spice Level', 'members': ["we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world", 'this is one of the most spiciest and fragrant meals you can eat in the whole world', 'the most deadly spicy hot pot available on the menu', 'This is gonna be painfully spicy', 'Intense, bubbling pot of death', 'that is extreme pain here', "this is one of the spiciest things you'll ever eat", 'One of the most painfully spicy meals in the world', 'Intensifying spice level where each bite gets hotter as the chilies boil in the oil'], 'summary': "This hot pot ranks among the world's most painfully spicy meals with escalating heat that intensifies with each bite."}, {'theme': 'Multi-Sensory Burning Experience', 'members': ['the pungent chili aroma hits your nostrils, and you can almost feel it on your skin', 'that is like a burning pleasure', 'It feels like your soul is burning', 'Authentic local Sichuan hot pot experience at a legit joint where pungent chili aroma hits your nostrils', 'Unique floral, citrusy, numbing sensation from Sichuan peppercorns on your tongue', 'Full-body burning sensation where you feel it in your throat, stomach, tongue, lips, and face'], 'summary': 'The experience delivers a full-body burning sensation with pungent aromas and unique numbing, floral notes from Sichuan peppercorns.'}, {'theme': 'Addictive Challenge', 'members': ['He just gave me a warning', 'I wanna feel alive', 'Addictive burning pleasure that makes you want to go back for more despite the pain', 'Must-try essential experience when visiting Sichuan'], 'summary': "Despite warnings and intense pain, the addictive burning pleasure creates an essential, life-affirming challenge you'll crave again."}, {'theme': 'Authentic Chengdu Origin', 'members': ['Located in Chengdu, the land of spicy, numbing, fragrant cuisine and plentiful flavor'], 'summary': 'Located in Chengdu, the epicenter of spicy, numbing, fragrant Sichuan cuisine with abundant flavor.'}, {'theme': 'Ingredients & Customization', 'members': ['Choice of three spice levels from less spicy to extremely spicy', 'Traditional beef oil (niu you) base packed with red chilies and Sichuan peppercorns', 'Wide variety of ingredients including fatty beef, shrimp, lotus root, potato, and tofu skin', 'Customizable sesame oil dipping sauce with green onions, peanuts, cilantro, and fresh chilies'], 'summary': 'Features traditional beef oil base with customizable spice levels, diverse ingredients, and personalized sesame oil dipping sauce.'}]
+HOOKS_SAMPLE: [{'video_id': 'Zw_tJOwZmac', 'hook_text': "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world", 'timestamp_s': 2.2, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'this is one of the most spiciest and fragrant meals you can eat in the whole world', 'timestamp_s': 17.3, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'the pungent chili aroma hits your nostrils, and you can almost feel it on your skin', 'timestamp_s': 64.2, 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'the most deadly spicy hot pot available on the menu', 'timestamp_s': 75.1, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'This is gonna be painfully spicy', 'timestamp_s': 84.4, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'He just gave me a warning', 'timestamp_s': 208.3, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'Intense, bubbling pot of death', 'timestamp_s': 253.7, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'I wanna feel alive', 'timestamp_s': 317.1, 'confidence': 0.95}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'that is like a burning pleasure', 'timestamp_s': 483.2, 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'hook_text': 'It feels like your soul is burning', 'timestamp_s': 539.3, 'confidence': 0.9}]
+SELLING_POINTS_SAMPLE: [{'video_id': 'Zw_tJOwZmac', 'point': 'One of the most painfully spicy meals in the world', 'evidence': "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world", 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Authentic local Sichuan hot pot experience at a legit joint where pungent chili aroma hits your nostrils', 'evidence': 'Right when you walk into a legit local hot pot joint in Sichuan, the pungent chili aroma hits your nostrils', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Choice of three spice levels from less spicy to extremely spicy', 'evidence': 'wei la, which is less spicy, zhong la, which is like medium spicy, or te la, which is extremely spicy', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Located in Chengdu, the land of spicy, numbing, fragrant cuisine and plentiful flavor', 'evidence': 'We are in Chengdu, the land of spicy, numbing, fragrant cuisine, the land of plentiful flavor, the land of plenty', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Unique floral, citrusy, numbing sensation from Sichuan peppercorns on your tongue', 'evidence': 'The huajiao, the Sichuan peppercorn...feels florally, almost a little citrusy and numbing. Your face and your lips and tongue feel a slight tingle', 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Addictive burning pleasure that makes you want to go back for more despite the pain', 'evidence': "it is actually somehow addictive...You're in pain, but you are also enjoying it...your mouth is still slightly alive, and you just wanna go back for more", 'confidence': 0.85}, {'video_id': 'Zw_tJOwZmac', 'point': 'Must-try essential experience when visiting Sichuan', 'evidence': 'This is one of the things you have to try when you come to Sichuan', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Traditional beef oil (niu you) base packed with red chilies and Sichuan peppercorns', 'evidence': 'full-on beef oil, they call it niu you, in, packed with red chilies, packed with Sichuan peppercorn', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Intensifying spice level where each bite gets hotter as the chilies boil in the oil', 'evidence': 'As the chilies boil in the oil and the heat gets higher and higher, the spice level builds and each bite you take gets hotter and hotter', 'confidence': 0.9}, {'video_id': 'Zw_tJOwZmac', 'point': 'Wide variety of ingredients including fatty beef, shrimp, lotus root, potato, and tofu skin', 'evidence': 'fei niu rou, fatty beef...some shrimp...ou pian...lotus root...tu dou pian, potato slices...dou fu pi, which is tofu skin', 'confidence': 0.8}]
+
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Do not invent facts not present in the inputs. No filler.
+--- RAW STDOUT ---
+## Topic
+
+Extreme spicy Sichuan death-level hotpot challenge featuring authentic Chengdu hot pot that ranks among the world's most painfully spicy meals. The experience delivers escalating heat from traditional beef oil bases packed with red chilies and Sichuan peppercorns, creating a multi-sensory burning sensation that is simultaneously painful and addictive.
+
+## Top Hooks
+
+- "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world"
+- "the most deadly spicy hot pot available on the menu"
+- "This is gonna be painfully spicy"
+- "Intense, bubbling pot of death"
+- "It feels like your soul is burning"
+
+## Selling Points
+
+- **One of the most painfully spicy meals in the world** — authenticated extreme spice experience that viewers can't find elsewhere
+- **Authentic local Sichuan hot pot experience** — legit joint where pungent chili aroma hits your nostrils from the moment you walk in
+- **Unique floral, citrusy, numbing sensation** — Sichuan peppercorns create distinctive tingling on tongue, lips, and face
+- **Addictive burning pleasure** — makes you want to go back for more despite the pain
+- **Traditional beef oil base** — packed with red chilies and Sichuan peppercorns for authentic flavor
+- **Intensifying spice level** — each bite gets hotter as chilies boil in the oil
+- **Located in Chengdu** — the epicenter of spicy, numbing, fragrant cuisine and plentiful flavor
+- **Must-try essential experience** — when visiting Sichuan
+
+## Themes
+
+**Extreme Spice Level** — This hot pot ranks among the world's most painfully spicy meals with escalating heat that intensifies with each bite.
+
+**Multi-Sensory Burning Experience** — The experience delivers a full-body burning sensation with pungent aromas and unique numbing, floral notes from Sichuan peppercorns.
+
+**Addictive Challenge** — Despite warnings and intense pain, the addictive burning pleasure creates an essential, life-affirming challenge you'll crave again.
+
+**Authentic Chengdu Origin** — Located in Chengdu, the epicenter of spicy, numbing, fragrant Sichuan cuisine with abundant flavor.
+
+**Ingredients & Customization** — Features traditional beef oil base with customizable spice levels, diverse ingredients, and personalized sesame oil dipping sauce.
+
+## Recommendations
+
+1. **Lead with pain-and-pleasure contrast** — Open videos emphasizing the "burning pleasure" paradox and soul-burning sensation to immediately hook viewers seeking extreme culinary experiences.
+
+2. **Showcase the multi-sensory assault** — Capture close-ups of the bubbling red oil, demonstrate the pungent aroma hitting you, and film real-time reactions to the numbing Sichuan peppercorn sensation for visceral engagement.
+
+3. **Position as essential bucket-list experience** — Frame this as a must-do when visiting Sichuan rather than just another food video, creating urgency for travel planning.
+
+4. **Emphasize authentic Chengdu location** — Highlight that this is the real deal in the birthplace of the cuisine, not a watered-down tourist version, to appeal to authenticity-seeking travelers.
+
+5. **Build escalation narrative** — Document the intensifying heat level throughout the meal as chilies boil in the oil, creating a natural story arc that keeps viewers watching to see if you can handle it.
+

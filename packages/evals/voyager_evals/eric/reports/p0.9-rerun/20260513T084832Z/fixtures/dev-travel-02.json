@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-travel-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.3333333333333333,
+    "selling_point_recall": 0.5454545454545454,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 385.5866872349998,
+  "error": null,
+  "hooks_predicted": [
+    "land inspiration to the highest-grossing film of all time",
+    "over 20,000 visitors every single day",
+    "210 yuan for the entrance and 248 yuan for unlimited rides on all the cable cars as well as the elevator",
+    "record-breaking Bailong Elevator",
+    "each elevator is actually double-decker",
+    "are we on a movie set?",
+    "this bridge is 350 meters in elevation compared to the ground below",
+    "Our driver did not fear death",
+    "It felt like he was a Formula One driver"
+  ],
+  "selling_points_predicted": [
+    "Land inspiration to Avatar, the highest-grossing film of all time",
+    "Over 20,000 visitors every single day, testament to the park's popularity",
+    "Five distinct sections to explore: Yuanjiajie, Yangjiajie, Qianzi Mountain, Huangshi Village, and Golden Whip Stream",
+    "Best value through hotel booking: 210 yuan entrance plus 248 yuan for unlimited cable cars and elevator across four days",
+    "Record-breaking Bailong Elevator with double-decker design for rapid mountain access",
+    "Convenient face-scan entry system eliminates need for tickets or passports at checkpoints",
+    "Abundant food options throughout the park with street stalls and fresh local cuisine",
+    "First Bridge Under Heaven, a completely natural 350-meter high bridge between mountains",
+    "Scenic 15-minute cable car rides offering incredible mountain views from above",
+    "Peace and quiet available in various corners despite high visitor numbers",
+    "Wildlife encounters with monkeys throughout multiple areas of the park",
+    "Towering quartz sandstone pillar mountains that jut out of the earth create movie-like scenery"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "fixture_id": "dev-food-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.25000000000000006,
+    "selling_point_recall": 0.4444444444444444,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 373.53427439799975,
+  "error": null,
+  "hooks_predicted": [
+    "it's important to wait until the timer rings before trying these mushrooms",
+    "otherwise you might start tripping out or you might see lots of weird colors",
+    "chilled black tiger feet",
+    "even the tea is made from mushrooms",
+    "that is one of the most complex mushroom soups I've ever tasted",
+    "the zhu sun or the bamboo mushroom",
+    "beef liver mushroom and it really looks like liver",
+    "the jian shou qing",
+    "if you eat it before it's ready you'll start to hallucinate",
+    "it turns this vibrant blue shade",
+    "that is probably one of the best mushroom noodle soups I've ever had"
+  ],
+  "selling_points_predicted": [
+    "Experience the famous jian shou qing mushroom that turns vibrant blue when raw and requires careful cooking",
+    "Half portions available so you can sample many more different types of mushrooms in one visit",
+    "Incredibly complex and rich mushroom soup base made from top-notch mushrooms without chicken oil",
+    "Even the tea is made from mushrooms with a beautiful red color",
+    "Creative menu with unusual items like chilled black tiger feet mushrooms that look super meaty",
+    "Vegetable and mushroom-forward menu design with meat options discretely placed at the back",
+    "House-made garlic and chili sauce that is not spicy, specially designed to complement the mushrooms",
+    "Unique mushroom varieties including bamboo mushroom with bamboo shoot-like texture and beef liver mushroom",
+    "Perfect for creating your own mushroom noodle soup at the end with super fragrant broth",
+    "Located at Tai Po Tian Fu Shan Zhen specializing in mushroom hotpot meals"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

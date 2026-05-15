@@ -1,0 +1,44 @@
+{
+  "fixture_id": "dev-travel-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5555555555555556,
+    "selling_point_recall": 0.6153846153846154,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 377.66344090300004,
+  "error": null,
+  "hooks_predicted": [
+    "for the first time ever, I am taking the fanciest class on one of China's high-speed trains",
+    "There are three classes available, I'm going to show you all of them",
+    "America's trains just cannot compare to China's",
+    "China has the largest high-speed rail network in the world",
+    "America can barely connect a few cities",
+    "in America, the trains are never on time, and they don't go that fast",
+    "This train can go 350 kilometers per hour",
+    "Fish ball and meatballs",
+    "I love this kind of egg with peppers inside",
+    "Spicy as hell",
+    "it doesn't taste like absolute poopoo"
+  ],
+  "selling_points_predicted": [
+    "China has the largest high-speed rail network in the world",
+    "Trains reach speeds of 350 kilometers per hour",
+    "Business class passengers skip lines with personal escort to the train",
+    "Complimentary beverages, snacks, and meals included in business class",
+    "Fully reclining seats in business class ideal for sleeping on long journeys",
+    "Private bathroom facilities exclusively for business class passengers",
+    "Spacious faux-leather covered tables with built-in drink holders",
+    "On-demand food ordering including KFC and McDonald's via QR code",
+    "Clean western-style toilets with soap, running water, and toilet paper",
+    "Hot water dispensers available for making noodles or tea",
+    "Three distinct seating classes to fit different budgets and comfort preferences",
+    "Second class offers more legroom and comfort than airplane seating"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "fixture_id": "dev-culture-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.125,
+    "selling_point_recall": 0.5,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 382.51037301199995,
+  "error": null,
+  "hooks_predicted": [
+    "I highly recommend you guys to get this online.",
+    "I am going to be here for about 3 weeks because I can only take 3 weeks off.",
+    "South Garden Restaurant, is a Michelin Guide garden-style restaurant",
+    "It is one of Guangzhou's four major garden-style restaurants which includes East, South, North, and West.",
+    "This is the popular Lai Fen.",
+    "Look at that big ass shrimp in there.",
+    "It's $9 per person for just a tea",
+    "Peng Tou Gui, founded in 1880",
+    "this place is always, always packed",
+    "Guangzhou's first western-style eatery"
+  ],
+  "selling_points_predicted": [
+    "Guangzhou is the most popular destination for authentic dim sum and yum cha culture",
+    "Michelin Guide garden-style restaurant known for traditional Lingnam architecture",
+    "Unique dining experience combining traditional Cantonese dim sum on a scenic Pearl River cruise with stunning skyline views",
+    "Historic restaurant founded in 1880 that has served everyone from empires to modern day food lovers for over a century",
+    "Guangzhou's first western-style eatery established in 1860, blending Chinese and western flavors with famous dishes",
+    "Restaurant that hosted celebrity wedding banquets including the famous Zao Wanluo",
+    "Elegant garden-style restaurants featuring pavilions, bridges, and waterfalls creating atmospheric dining experiences",
+    "One of Guangzhou's four major historic garden-style restaurants (East, South, North, and West)",
+    "Classic dim sum dishes including shrimp dumplings, siu mai, rice noodle rolls, and boat congee showcased",
+    "Comprehensive guide featuring five different authentic dim sum restaurants in one video",
+    "Restaurant recommendations from a regular visitor who eats there every time returning to Guangzhou",
+    "Two-hour cruise experience including traditional dim sum dining and Pearl River tour with Canton Tower views"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

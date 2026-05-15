@@ -1,0 +1,43 @@
+{
+  "fixture_id": "dev-culture-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.3,
+    "selling_point_recall": 0.75,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 359.5526991679999,
+  "error": null,
+  "hooks_predicted": [
+    "That is so hard. The balance is so critical.",
+    "the most famous tea house in Chengdu is here",
+    "It's called He Ming Tea House",
+    "It was built 100 years ago",
+    "special kung fu tea performance",
+    "long-bead teapot",
+    "snowflakes floating in a green lake",
+    "Meng Ding yellow tea",
+    "within the top ten teas in China",
+    "this teahouse is the oldest teahouse in Chengdu",
+    "It was established in 1923",
+    "the city has more teahouses than other cities in China"
+  ],
+  "selling_points_predicted": [
+    "Century-old tea house established in 1923, the oldest in Chengdu with nearly 100 years of history",
+    "Live kung fu tea performance featuring traditional long-bead teapot demonstrations",
+    "Learn traditional tea-drinking etiquette with distinct techniques for men and women",
+    "Taste Meng Ding yellow tea, one of the top ten most famous teas in China",
+    "Discover historic lid-positioning signals for service, including requests for water and help",
+    "Experience authentic Chengdu laid-back lifestyle starting as early as 7 AM",
+    "Located in People's Park right in the city center, easily accessible and bustling",
+    "Vibrant atmosphere with locals of all ages, including surprising numbers of young people",
+    "Chengdu has more teahouses than other cities in China, making it the tea culture capital",
+    "Traditional tea set includes jasmine tea with poetic name 'snowflakes floating in a green lake'"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}
