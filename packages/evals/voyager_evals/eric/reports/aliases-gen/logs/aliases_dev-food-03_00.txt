@@ -1,0 +1,221 @@
+=== TAG: aliases_dev-food-03  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-food-03
+TOPIC: Yunnan mushroom hotpot (Vegan in China)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "it's important to wait until the timer rings before trying these mushrooms otherwise you might start tripping out or you might see lots of weird colors"
+  },
+  {
+    "index": 1,
+    "text": "this is our scary mushroom the jian shou qing that if you eat it before it's ready you'll start to hallucinate"
+  },
+  {
+    "index": 2,
+    "text": "chilled black tiger feet"
+  },
+  {
+    "index": 3,
+    "text": "you might start tripping out like you're in san ti or three body problem with the numbers clocking down"
+  },
+  {
+    "index": 4,
+    "text": "all of the meat is actually hidden at the back which is super curious"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Unique and exotic mushroom varieties you won't find elsewhere"
+  },
+  {
+    "index": 1,
+    "text": "Can order half portions to try more varieties"
+  },
+  {
+    "index": 2,
+    "text": "Exceptionally rich and complex mushroom soup base"
+  },
+  {
+    "index": 3,
+    "text": "Vegetable-forward menu that prioritizes mushrooms and vegetables"
+  },
+  {
+    "index": 4,
+    "text": "Special homemade dipping sauces"
+  },
+  {
+    "index": 5,
+    "text": "Interesting textures and flavors across different mushrooms"
+  },
+  {
+    "index": 6,
+    "text": "Even the tea is made from mushrooms"
+  },
+  {
+    "index": 7,
+    "text": "Perfect for making incredible mushroom noodle soup at the end"
+  },
+  {
+    "index": 8,
+    "text": "Unique dining experience with exotic ingredients requiring special preparation"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Wait for the timer before eating these mushrooms or you could hallucinate and see strange colors",
+        "Don't try these mushrooms until the timer goes off, otherwise you might trip out and experience vivid color visions",
+        "You must wait for the timer to ring before consuming these mushrooms to avoid tripping and seeing weird colors"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "This scary jian shou qing mushroom will make you hallucinate if eaten before it's properly cooked",
+        "The jian shou qing is our dangerous mushroom that causes hallucinations when eaten uncooked",
+        "Our frightening jian shou qing mushroom triggers hallucinations if you consume it before it's ready"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Cold black tiger feet",
+        "Black tiger feet served chilled",
+        "Chilled black tiger paw mushrooms"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "You could hallucinate like you're in Three Body Problem or San Ti watching numbers count down",
+        "You may trip out as if you're experiencing San Ti or Three Body Problem with countdown numbers",
+        "You might start seeing things like in Three Body Problem with the numbers ticking down"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "The meat is surprisingly tucked away in the back",
+        "It's really interesting that all the meat options are hidden at the back",
+        "Curiously, they keep all the meat hidden in the back section"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Rare mushroom varieties unavailable anywhere else",
+        "Exotic mushroom types you can't get at other places",
+        "One-of-a-kind mushroom selections not found in other restaurants"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Half portions available so you can sample multiple varieties",
+        "Order half servings to taste a wider range of mushrooms",
+        "Half-size options let you try more different types"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Deeply flavorful and layered mushroom broth",
+        "Rich, complex soup base made from mushrooms",
+        "Mushroom broth with exceptional depth and complexity"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Menu focused primarily on vegetables and mushrooms",
+        "Plant-based menu emphasizing mushrooms and vegetables",
+        "Vegetable-centered offerings with mushrooms taking priority"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "House-made dipping sauces",
+        "Unique dipping sauces made in-house",
+        "Specially prepared homemade sauces for dipping"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Diverse textures and tastes among the various mushroom types",
+        "Each mushroom variety offers distinct flavors and textures",
+        "Different mushrooms provide varied and intriguing textures and flavors"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "The tea is mushroom-based as well",
+        "They even use mushrooms to make the tea",
+        "Mushrooms are used to prepare the tea too"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Ideal for creating amazing mushroom noodle soup to finish",
+        "Great for making delicious mushroom noodle soup at the meal's end",
+        "Excellent for finishing with fantastic mushroom noodle soup"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Distinctive experience featuring rare ingredients needing careful preparation",
+        "One-of-a-kind meal with unusual ingredients that demand special cooking",
+        "Unique culinary experience with exotic items requiring specific preparation methods"
+      ]
+    }
+  ]
+}
+```
+

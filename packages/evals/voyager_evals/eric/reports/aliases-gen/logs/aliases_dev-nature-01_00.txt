@@ -1,0 +1,279 @@
+=== TAG: aliases_dev-nature-01  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-nature-01
+TOPIC: 2 days in Jiuzhaigou lakes & waterfalls solo (Cherie Diaries)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "come explore the beautiful Jiuzhaigou National Park with me"
+  },
+  {
+    "index": 1,
+    "text": "the whole journey has been cut down to around 4 hours in total"
+  },
+  {
+    "index": 2,
+    "text": "It's most well known for its many waterfalls and colourful lakes which are especially stunning during autumn"
+  },
+  {
+    "index": 3,
+    "text": "In local folklore it's said that there's a monster in the lake"
+  },
+  {
+    "index": 4,
+    "text": "I'd pretty much given up on trying to get on the shuttle buses at this point"
+  },
+  {
+    "index": 5,
+    "text": "Jiuzhaigou brings together the worst and the best parts of travelling in China"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Much faster and more convenient access with new high-speed rail - journey now takes only 4 hours total instead of 8-10 hours"
+  },
+  {
+    "index": 1,
+    "text": "UNESCO World Heritage Site with international recognition since 1992"
+  },
+  {
+    "index": 2,
+    "text": "Famous for stunning waterfalls and colorful lakes, especially beautiful in autumn"
+  },
+  {
+    "index": 3,
+    "text": "Extensive well-maintained infrastructure with 70km of boardwalks throughout the park"
+  },
+  {
+    "index": 4,
+    "text": "Easy ticket booking for foreign travelers through trip.com using passport"
+  },
+  {
+    "index": 5,
+    "text": "Escape from intense heat in cities - cooler mountain climate"
+  },
+  {
+    "index": 6,
+    "text": "Affordable food and snacks available throughout the park (e.g., grilled sausage for 10 RMB / $2-3 AUD)"
+  },
+  {
+    "index": 7,
+    "text": "Multiple diverse valleys to explore with unique lakes and natural scenery"
+  },
+  {
+    "index": 8,
+    "text": "Home to the largest and highest lake in the park at 3,150 meters altitude (Long Lake)"
+  },
+  {
+    "index": 9,
+    "text": "Cultural and historical significance - featured in the 1986 Journey to the West TV series"
+  },
+  {
+    "index": 10,
+    "text": "Well-organized shuttle bus system to access different areas of the park"
+  },
+  {
+    "index": 11,
+    "text": "Abundant facilities including restaurants, stores, public toilets, and rest points throughout"
+  },
+  {
+    "index": 12,
+    "text": "Showcases China's incredible natural beauty outside major cities"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "join me in exploring the stunning Jiuzhaigou National Park",
+        "let's discover the beauty of Jiuzhaigou National Park together",
+        "explore Jiuzhaigou National Park's beauty alongside me"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "the entire trip now only takes about 4 hours total",
+        "travel time has been reduced to approximately 4 hours overall",
+        "the full journey is just around 4 hours now"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "famous for numerous waterfalls and colorful lakes that look particularly beautiful in autumn",
+        "renowned for its waterfalls and vibrant lakes, most spectacular in fall",
+        "best known for many waterfalls and colorful lakes, especially breathtaking during autumn"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "local legends claim a monster lives in the lake",
+        "according to local folklore, the lake is home to a monster",
+        "local stories tell of a monster dwelling in the lake"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "I had basically stopped trying to board the shuttle buses by then",
+        "at this stage, I'd nearly abandoned attempts to catch the shuttle buses",
+        "I'd almost quit trying to get on the shuttle buses by this time"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Jiuzhaigou combines both the best and worst aspects of China travel",
+        "traveling in Jiuzhaigou showcases the extremes of visiting China",
+        "Jiuzhaigou embodies China travel at its best and worst"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "new high-speed rail makes access much quicker - total journey reduced from 8-10 hours to just 4 hours",
+        "high-speed rail provides faster, easier access - trip now 4 hours instead of 8-10 hours",
+        "journey cut from 8-10 hours to only 4 hours total with new convenient high-speed rail"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "internationally recognized UNESCO World Heritage Site from 1992",
+        "designated as UNESCO World Heritage Site in 1992",
+        "has been a UNESCO World Heritage Site with global recognition since 1992"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "renowned for spectacular waterfalls and vibrant lakes, particularly gorgeous during fall",
+        "known for breathtaking waterfalls and colorful lakes that shine in autumn",
+        "celebrated for its waterfalls and colorful lakes, most stunning in autumn"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "park features 70km of well-kept boardwalks and excellent infrastructure",
+        "well-maintained 70km boardwalk network spans the entire park",
+        "70km of maintained boardwalks provide extensive infrastructure across the park"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "foreign travelers can easily book tickets on trip.com with passport",
+        "simple ticket purchasing for international visitors via trip.com using passport",
+        "trip.com allows straightforward ticket booking for foreigners with passport"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "cooler mountain weather offers relief from hot city temperatures",
+        "enjoy mountain climate as escape from sweltering urban heat",
+        "retreat from city heat to cooler mountain environment"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "reasonably priced food and snacks offered across the park (grilled sausage 10 RMB / $2-3 AUD)",
+        "budget-friendly snacks throughout the park like grilled sausage for 10 RMB / $2-3 AUD",
+        "inexpensive food options available parkwide (e.g., 10 RMB / $2-3 AUD grilled sausage)"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "various valleys offer unique lakes and distinct natural landscapes to discover",
+        "explore several different valleys featuring unique lakes and natural beauty",
+        "numerous valleys with distinctive lakes and natural scenery await exploration"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Long Lake is the park's largest and highest lake at 3,150 meters altitude",
+        "features the park's biggest and tallest lake (Long Lake) at 3,150 meters elevation",
+        "contains Long Lake, the park's largest lake and highest at 3,150 meters altitude"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "historically and culturally significant - appeared in 1986 Journey to the West TV series",
+        "featured in the 1986 Journey to the West series, adding cultural importance",
+        "holds cultural heritage value - filming location for 1986 Journey to the West TV show"
+      ]
+    },
+    {
+      "index": 10,
+      "aliases": [
+        "efficient shuttle bus network connects various park areas",
+        "organized shuttle buses provide access to different park sections",
+        "shuttle bus system efficiently serves different areas throughout the park"
+      ]
+    },
+    {
+      "index": 11,
+      "aliases": [
+        "plenty of amenities like restaurants, shops, restrooms, and rest areas across the park",
+        "extensive facilities throughout: restaurants, stores, toilets, and resting spots",
+        "numerous restaurants, stores, public toilets, and rest points available parkwide"
+      ]
+    },
+    {
+      "index": 12,
+      "aliases": [
+        "displays China's stunning natural landscapes beyond urban centers",
+        "demonstrates China's remarkable nature outside metropolitan areas",
+        "highlights China's amazing natural beauty away from big cities"
+      ]
+    }
+  ]
+}
+

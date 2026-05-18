@@ -1,0 +1,269 @@
+=== TAG: aliases_dev-food-04  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-food-04
+TOPIC: Extreme spicy Sichuan death-level hotpot challenge (Food Ranger)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "one of the most painfully spicy meals in the world"
+  },
+  {
+    "index": 1,
+    "text": "Intense, bubbling pot of death"
+  },
+  {
+    "index": 2,
+    "text": "It feels like your soul is burning"
+  },
+  {
+    "index": 3,
+    "text": "This is one of the spiciest things you'll ever eat"
+  },
+  {
+    "index": 4,
+    "text": "that is like a burning pleasure"
+  },
+  {
+    "index": 5,
+    "text": "My face, my tongue. That is so intensely spicy"
+  },
+  {
+    "index": 6,
+    "text": "I wanna feel alive"
+  },
+  {
+    "index": 7,
+    "text": "That is extreme pain here"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Experience one of the most painfully spicy meals in the world"
+  },
+  {
+    "index": 1,
+    "text": "See authentic Sichuan hot pot at a local restaurant in Chengdu"
+  },
+  {
+    "index": 2,
+    "text": "Learn how to order and prepare traditional hot pot like a local"
+  },
+  {
+    "index": 3,
+    "text": "Watch genuine, unfiltered reactions to extreme spice levels"
+  },
+  {
+    "index": 4,
+    "text": "Discover the unique mouth-numbing sensation of Sichuan peppercorns"
+  },
+  {
+    "index": 5,
+    "text": "See a variety of premium hot pot ingredients and cooking techniques"
+  },
+  {
+    "index": 6,
+    "text": "Experience the addictive nature of authentic Sichuan cuisine"
+  },
+  {
+    "index": 7,
+    "text": "Get insider tips on managing extreme spice levels"
+  },
+  {
+    "index": 8,
+    "text": "Part of an extensive Sichuan street food tour series"
+  },
+  {
+    "index": 9,
+    "text": "Understand why Sichuan is called the land of spicy, numbing, fragrant cuisine"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "among the world's most excruciatingly hot dishes",
+        "a globally extreme spicy meal that brings intense pain",
+        "the world's most agonizingly spicy food experience"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "A boiling cauldron of lethal intensity",
+        "Death pot bubbling with fierce heat",
+        "Ferocious bubbling death cauldron"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Your soul feels ablaze",
+        "A sensation of your spirit on fire",
+        "Like flames consuming your very soul"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "You'll rarely eat anything spicier than this",
+        "Among the hottest foods you will ever consume",
+        "One of the most fiery dishes you'll encounter"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "a pleasurable burning sensation",
+        "pleasure that scorches",
+        "fiery enjoyment"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "My tongue and face feel incredibly spicy heat",
+        "The intense spice hits my face and tongue",
+        "Such extreme spiciness on my tongue and face"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "I want to experience being alive",
+        "I need that living sensation",
+        "Make me feel truly alive"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "This brings severe pain",
+        "The pain here is extreme",
+        "Intense agony right here"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Try one of the globe's most agonizingly hot meals",
+        "Taste a globally extreme spicy dish that delivers intense pain",
+        "Sample among the world's most excruciatingly spicy dining experiences"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Witness genuine Chengdu Sichuan hot pot at a local eatery",
+        "View real Sichuan hot pot in a Chengdu neighborhood restaurant",
+        "Observe traditional Sichuan hot pot at a Chengdu local spot"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Discover local techniques for ordering and making traditional hot pot",
+        "Master the local way of ordering and cooking authentic hot pot",
+        "Understand how locals order and prepare classic hot pot"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "See real, raw responses to intense heat levels",
+        "Witness authentic unedited reactions to extreme spiciness",
+        "Observe honest reactions to severe spice intensity"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Experience the distinctive numbing effect of Sichuan peppercorns",
+        "Learn about Sichuan peppercorns' signature mouth-numbing quality",
+        "Find the special tingling sensation from Sichuan peppercorns"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Witness diverse high-quality hot pot components and preparation methods",
+        "View various premium ingredients and cooking styles for hot pot",
+        "Observe multiple quality hot pot ingredients and culinary techniques"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Discover why genuine Sichuan food is so addictive",
+        "Feel the irresistible pull of real Sichuan cooking",
+        "Understand the compelling addiction of traditional Sichuan dishes"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Learn expert advice for handling intense heat levels",
+        "Receive pro tips for dealing with severe spiciness",
+        "Gain local knowledge on controlling extreme spice"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Featured in a comprehensive Sichuan street food series",
+        "One episode in a broad Sichuan street food tour collection",
+        "Segment of an expansive Sichuan street food exploration series"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "Learn why Sichuan earns its title as the region of spicy, numbing, aromatic food",
+        "Discover the reason Sichuan is known for spicy, numbing, fragrant dishes",
+        "See why they call Sichuan the land of hot, numbing, aromatic cooking"
+      ]
+    }
+  ]
+}
+```
+

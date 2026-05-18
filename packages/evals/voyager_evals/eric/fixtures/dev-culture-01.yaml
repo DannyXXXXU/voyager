@@ -7,68 +7,99 @@ holdout: false
 gold_hooks:
 - text: I'm going to do something super exciting today
   aliases:
-  - Today I will do something really thrilling
-  - Something very exciting is happening for me today
-  - I plan to do an extremely fun activity today
+  - Today I'm doing something incredibly thrilling
+  - I'm about to do something really exciting today
+  - Something super thrilling is happening for me today
   timestamp_s: 5.0
 - text: I want to dress like a princess
   aliases:
-  - I wish to wear clothing that resembles a princess
-  - My goal is to look like royalty in my outfit
-  - I desire to put on princess style attire
+  - I want to wear princess-style clothing
+  - I wish to dress in princess attire
+  - I want to be dressed like royalty
   timestamp_s: 120.0
 - text: This was worth thousands of yuan. The best one here. It's for queen.
   aliases:
-  - This costs thousands of yuan and is the finest one available for royalty
-  - The top piece here is worth thousands of yuan and meant for a queen
-  - This item for queens is the best here and valued at thousands of yuan
+  - This costs thousands of yuan. The finest available. Made for royalty.
+  - Worth thousands of yuan. The top choice here. Fit for a queen.
+  - This one is thousands of yuan. The best option. It's queen-worthy.
   timestamp_s: 135.0
 - text: This is magic
   aliases:
+  - This is magical
+  - It's like magic
   - This feels magical
-  - This is absolutely magical
-  - This seems like pure magic
   timestamp_s: 280.0
 - text: It's like stepping out of a time machine
   aliases:
-  - This feels like emerging from a time travel device
-  - It resembles exiting a time machine
-  - This is similar to coming out of a time machine
+  - It feels like emerging from a time machine
+  - Like walking out of a time machine
+  - It's as if I stepped from a time machine
   timestamp_s: 450.0
 - text: I honestly feel like I was starring in my own Korean drama
   aliases:
-  - I genuinely felt like the lead in my personal Korean drama
-  - I truly feel like I am the main character in a Korean drama
-  - I really felt like I was the star of a Korean drama
+  - I genuinely feel like the star of my own K-drama
+  - I truly feel like I'm in my own Korean drama series
+  - I really feel like the lead in my own Korean drama
   timestamp_s: 480.0
 - text: Sometimes customers they will change 20 clothes
   aliases:
-  - Some customers will try on twenty different outfits
-  - Occasionally patrons change into twenty different garments
-  - Customers sometimes swap through twenty clothing items
+  - Some customers try on 20 different outfits
+  - Customers sometimes change into 20 outfits
+  - Some clients will try 20 different clothes
   timestamp_s: 310.0
 gold_selling_points:
 - text: Professional Hanfu photo shoot services with photographer guidance
-  aliases: []
+  aliases:
+  - Expert Hanfu photography services with guided photoshoot direction
+  - Professional Hanfu photoshoot with photographer assistance
+  - Hanfu photo session services with professional photographer guidance
 - text: Complete styling package including makeup, hair, and accessories all included
-  aliases: []
+  aliases:
+  - Full styling service with makeup, hairstyling, and accessories included
+  - 'All-in-one styling package: makeup, hair, and accessories provided'
+  - Complete package with makeup, hair styling, and accessories all in
 - text: Extensive wardrobe selection from multiple Chinese dynasties
-  aliases: []
+  aliases:
+  - Wide range of costumes from various Chinese dynasties
+  - Large collection of clothing spanning different Chinese dynasties
+  - Broad wardrobe choices from different Chinese dynasty periods
 - text: Authentic traditional Chinese cultural experience with historical accuracy
-  aliases: []
+  aliases:
+  - Genuine traditional Chinese cultural experience with historical authenticity
+  - Real traditional Chinese experience that's historically accurate
+  - Authentic Chinese cultural experience with true historical detail
 - text: Keep the outfit after photoshoot to explore Forbidden City on your own
-  aliases: []
+  aliases:
+  - Retain the costume after photos to explore the Forbidden City yourself
+  - Keep your outfit post-photoshoot for independent Forbidden City exploration
+  - Wear the outfit after shooting to tour the Forbidden City solo
 - text: Services available for everyone - men, women, children, and elderly
-  aliases: []
+  aliases:
+  - Available for all - men, women, kids, and seniors
+  - 'Services open to everyone: men, women, children, elderly'
+  - Suitable for all ages and genders - men, women, children, seniors
 - text: Personalized color and style matching consultation
-  aliases: []
+  aliases:
+  - Custom color and style matching guidance
+  - Individual consultation for color and style coordination
+  - Tailored style and color matching advice
 - text: All-inclusive service - everything arranged by China Explore Tour
-  aliases: []
+  aliases:
+  - Full-service experience - China Explore Tour handles everything
+  - Everything included - all arranged by China Explore Tour
+  - Complete service - China Explore Tour organizes it all
 - text: High-quality authentic costumes with detailed embroidery worth thousands of
     yuan
-  aliases: []
+  aliases:
+  - Premium authentic outfits with intricate embroidery valued at thousands of yuan
+  - Genuine high-quality costumes featuring detailed embroidery worth thousands of
+    yuan
+  - Authentic quality costumes with elaborate embroidery costing thousands of yuan
 - text: Flexibility to try on multiple outfits until you find the perfect one
-  aliases: []
+  aliases:
+  - Freedom to try many outfits until finding your perfect match
+  - Option to try multiple costumes until you discover the ideal one
+  - Ability to test various outfits until selecting the perfect fit
 notes: ''
 transcript_sha256: 8b1bed4d6a33e0a219b497d62ecb56462ff93eb23606aca70f56b40eda472640
 _meta:

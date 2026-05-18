@@ -7,73 +7,103 @@ holdout: false
 gold_hooks:
 - text: one of the most painfully spicy meals in the world
   aliases:
-  - among the globe's most agonizingly hot dishes
-  - a dish ranking among the world's most painfully hot foods
-  - globally one of the most torturously spicy foods available
+  - among the world's most excruciatingly hot dishes
+  - a globally extreme spicy meal that brings intense pain
+  - the world's most agonizingly spicy food experience
   timestamp_s: 0.0
 - text: Intense, bubbling pot of death
   aliases:
-  - powerful boiling cauldron that could kill you
-  - fierce simmering vessel of destruction
-  - extreme bubbling container of doom
+  - A boiling cauldron of lethal intensity
+  - Death pot bubbling with fierce heat
+  - Ferocious bubbling death cauldron
   timestamp_s: 0.0
 - text: It feels like your soul is burning
   aliases:
-  - sensation of your spirit being on fire
-  - your inner being seems to be ablame
-  - feels as though your essence is ablaze
+  - Your soul feels ablaze
+  - A sensation of your spirit on fire
+  - Like flames consuming your very soul
   timestamp_s: 0.0
 - text: This is one of the spiciest things you'll ever eat
   aliases:
-  - among the hottest foods you will ever consume
-  - one of the most fiery meals you will ever taste
-  - this ranks among the most intensely hot dishes you will experience
+  - You'll rarely eat anything spicier than this
+  - Among the hottest foods you will ever consume
+  - One of the most fiery dishes you'll encounter
   timestamp_s: 0.0
 - text: that is like a burning pleasure
   aliases:
-  - it resembles a fiery enjoyment
-  - feels like painful delight
-  - similar to agonizing satisfaction
+  - a pleasurable burning sensation
+  - pleasure that scorches
+  - fiery enjoyment
   timestamp_s: 0.0
 - text: My face, my tongue. That is so intensely spicy
   aliases:
-  - my mouth and face are experiencing extreme heat
-  - the heat is overwhelming my tongue and facial area
-  - incredibly powerful spice affecting my face and tongue
+  - My tongue and face feel incredibly spicy heat
+  - The intense spice hits my face and tongue
+  - Such extreme spiciness on my tongue and face
   timestamp_s: 0.0
 - text: I wanna feel alive
   aliases:
-  - desire to experience being fully present
-  - want to sense true vitality
-  - seeking to feel truly living
+  - I want to experience being alive
+  - I need that living sensation
+  - Make me feel truly alive
   timestamp_s: 0.0
 - text: That is extreme pain here
   aliases:
-  - this causes severe agony
-  - experiencing intense suffering right now
-  - the pain level is extremely high
+  - This brings severe pain
+  - The pain here is extreme
+  - Intense agony right here
   timestamp_s: 0.0
 gold_selling_points:
 - text: Experience one of the most painfully spicy meals in the world
-  aliases: []
+  aliases:
+  - Try one of the globe's most agonizingly hot meals
+  - Taste a globally extreme spicy dish that delivers intense pain
+  - Sample among the world's most excruciatingly spicy dining experiences
 - text: See authentic Sichuan hot pot at a local restaurant in Chengdu
-  aliases: []
+  aliases:
+  - Witness genuine Chengdu Sichuan hot pot at a local eatery
+  - View real Sichuan hot pot in a Chengdu neighborhood restaurant
+  - Observe traditional Sichuan hot pot at a Chengdu local spot
 - text: Learn how to order and prepare traditional hot pot like a local
-  aliases: []
+  aliases:
+  - Discover local techniques for ordering and making traditional hot pot
+  - Master the local way of ordering and cooking authentic hot pot
+  - Understand how locals order and prepare classic hot pot
 - text: Watch genuine, unfiltered reactions to extreme spice levels
-  aliases: []
+  aliases:
+  - See real, raw responses to intense heat levels
+  - Witness authentic unedited reactions to extreme spiciness
+  - Observe honest reactions to severe spice intensity
 - text: Discover the unique mouth-numbing sensation of Sichuan peppercorns
-  aliases: []
+  aliases:
+  - Experience the distinctive numbing effect of Sichuan peppercorns
+  - Learn about Sichuan peppercorns' signature mouth-numbing quality
+  - Find the special tingling sensation from Sichuan peppercorns
 - text: See a variety of premium hot pot ingredients and cooking techniques
-  aliases: []
+  aliases:
+  - Witness diverse high-quality hot pot components and preparation methods
+  - View various premium ingredients and cooking styles for hot pot
+  - Observe multiple quality hot pot ingredients and culinary techniques
 - text: Experience the addictive nature of authentic Sichuan cuisine
-  aliases: []
+  aliases:
+  - Discover why genuine Sichuan food is so addictive
+  - Feel the irresistible pull of real Sichuan cooking
+  - Understand the compelling addiction of traditional Sichuan dishes
 - text: Get insider tips on managing extreme spice levels
-  aliases: []
+  aliases:
+  - Learn expert advice for handling intense heat levels
+  - Receive pro tips for dealing with severe spiciness
+  - Gain local knowledge on controlling extreme spice
 - text: Part of an extensive Sichuan street food tour series
-  aliases: []
+  aliases:
+  - Featured in a comprehensive Sichuan street food series
+  - One episode in a broad Sichuan street food tour collection
+  - Segment of an expansive Sichuan street food exploration series
 - text: Understand why Sichuan is called the land of spicy, numbing, fragrant cuisine
-  aliases: []
+  aliases:
+  - Learn why Sichuan earns its title as the region of spicy, numbing, aromatic food
+  - Discover the reason Sichuan is known for spicy, numbing, fragrant dishes
+  - See why they call Sichuan the land of hot, numbing, aromatic cooking
 notes: long-form challenge; dense hooks
 transcript_sha256: 3814dd25e767dc4f2c4437a4818bffce2f9bf47b71204cf82246773da7b3bcf4
 _meta:

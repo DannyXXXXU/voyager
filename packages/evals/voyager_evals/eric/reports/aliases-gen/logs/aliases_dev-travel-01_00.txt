@@ -1,0 +1,293 @@
+=== TAG: aliases_dev-travel-01  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-travel-01
+TOPIC: China's High-Speed Trains first class experience (BeeRose)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "for the first time ever, I am taking the fanciest class on one of China's high-speed trains"
+  },
+  {
+    "index": 1,
+    "text": "America's trains just cannot compare to China's"
+  },
+  {
+    "index": 2,
+    "text": "China has the largest high-speed rail network in the world. America can barely connect a few cities"
+  },
+  {
+    "index": 3,
+    "text": "This train can go 350 kilometers per hour. That is insane"
+  },
+  {
+    "index": 4,
+    "text": "There are three classes available, I'm going to show you all of them"
+  },
+  {
+    "index": 5,
+    "text": "they will personally escort you to the train"
+  },
+  {
+    "index": 6,
+    "text": "You can even order KFC or McDonald's"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "China has the world's largest high-speed rail network"
+  },
+  {
+    "index": 1,
+    "text": "Trains reach exceptional speeds of 350 km/h"
+  },
+  {
+    "index": 2,
+    "text": "Business class offers VIP treatment with shorter lines and personal escort"
+  },
+  {
+    "index": 3,
+    "text": "Business class seats fully recline for comfortable sleep"
+  },
+  {
+    "index": 4,
+    "text": "Complimentary beverages and snacks included in business class"
+  },
+  {
+    "index": 5,
+    "text": "Free meals provided that taste good"
+  },
+  {
+    "index": 6,
+    "text": "Can order additional food via QR code including KFC and McDonald's"
+  },
+  {
+    "index": 7,
+    "text": "Clean, western-style toilets with all amenities"
+  },
+  {
+    "index": 8,
+    "text": "Wheelchair accessible features throughout"
+  },
+  {
+    "index": 9,
+    "text": "Hot water available for instant noodles or tea"
+  },
+  {
+    "index": 10,
+    "text": "More spacious and comfortable than airplanes"
+  },
+  {
+    "index": 11,
+    "text": "Business class has private bathroom access"
+  },
+  {
+    "index": 12,
+    "text": "Spacious tables with leather covering in business class"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "I'm riding China's most luxurious high-speed train class for the very first time",
+        "This is my first experience in the premium class of a Chinese high-speed train",
+        "I'm trying out the fanciest option on China's high-speed rail for the first time"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "China's trains far surpass what America has to offer",
+        "US rail systems simply don't measure up to China's trains",
+        "There's no comparison between American and Chinese trains"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "The world's biggest high-speed rail network is in China, while the US struggles to link even a handful of cities",
+        "China boasts the globe's most extensive high-speed train system; America barely manages connections between a few cities",
+        "With the planet's largest high-speed rail network, China dwarfs America's limited city-to-city connections"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "This train reaches speeds of 350 km/h, which is absolutely crazy",
+        "350 kilometers per hour - that's an insane speed for this train",
+        "The train hits 350 km/h, that's incredible"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "I'll show you each of the three available classes",
+        "Three classes are offered and I'm going to demonstrate all of them",
+        "I'm presenting all three class options available"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "you get a personal escort to your train",
+        "staff personally accompany you to the train",
+        "they provide personal accompaniment to the train"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "KFC and McDonald's can even be ordered",
+        "You're able to order fast food like KFC or McDonald's",
+        "Even McDonald's or KFC delivery is available"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "The largest high-speed rail network globally belongs to China",
+        "China operates the biggest high-speed train system on Earth",
+        "The world's most extensive high-speed rail system is China's"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Trains achieve remarkable speeds up to 350 kilometers per hour",
+        "350 km/h speeds are reached by these trains",
+        "The trains hit extraordinary velocities of 350 km/h"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "VIP service in business class includes reduced wait times and personal accompaniment",
+        "Business class provides VIP perks like shorter queues and staff escort",
+        "Personal escort and expedited lines come with business class VIP treatment"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Seats in business class recline completely for sleeping comfort",
+        "Full seat recline in business class enables comfortable rest",
+        "Business class features fully reclining seats for a good sleep"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Free drinks and snacks come with business class",
+        "Business class includes snacks and beverages at no charge",
+        "Beverages and snacks are provided complimentary in business class"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Complimentary meals are served and they're tasty",
+        "Good-tasting meals are included at no cost",
+        "Meals are free and delicious"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Additional food orders via QR code include options like McDonald's and KFC",
+        "QR code ordering allows you to get KFC, McDonald's, and more",
+        "Scan a QR code to order extra food such as KFC or McDonald's"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Western-style bathrooms with full amenities are kept clean",
+        "Toilets are western-style, well-maintained, and fully equipped",
+        "All amenities in clean, western-design restrooms"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Full wheelchair accessibility across all areas",
+        "Wheelchair-friendly features are present throughout",
+        "Comprehensive wheelchair access available"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "Hot water is provided for tea or instant noodles",
+        "You can get hot water for making tea or noodles",
+        "Available hot water for preparing instant noodles or tea"
+      ]
+    },
+    {
+      "index": 10,
+      "aliases": [
+        "More comfortable and roomy compared to planes",
+        "Greater space and comfort than air travel",
+        "Offers more room and comfort than flying"
+      ]
+    },
+    {
+      "index": 11,
+      "aliases": [
+        "Private restroom access is available in business class",
+        "Business class features exclusive bathroom facilities",
+        "Business class provides access to private toilets"
+      ]
+    },
+    {
+      "index": 12,
+      "aliases": [
+        "Business class features large leather-covered tables",
+        "Leather-topped tables are spacious in business class",
+        "Large tables covered in leather in business class"
+      ]
+    }
+  ]
+}
+```
+

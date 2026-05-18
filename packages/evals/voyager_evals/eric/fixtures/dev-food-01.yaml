@@ -8,91 +8,142 @@ gold_hooks:
 - text: we're gonna attempt to eat the world's spiciest hot pot, so spicy you might
     start hallucinating
   aliases:
-  - we will try eating the globe's hottest hot pot that could make you see things
-  - attempting the spiciest hot pot on earth that may cause hallucinations
-  - going to eat extremely spicy hot pot that might make you hallucinate
+  - we're going to try eating the spiciest hot pot on earth, so hot it could make
+    you hallucinate
+  - attempting the world's hottest hot pot challenge, spicy enough to cause hallucinations
+  - we'll be eating the planet's spiciest hot pot, it's so extreme you might hallucinate
   timestamp_s: 0.0
 - text: Look at all those chilies, that's crazy. Your nose is numbing just from being
     here
   aliases:
-  - so many peppers everywhere and your nose goes numb just being present
-  - incredible amount of chilies making your nose feel numb from proximity alone
-  - tons of peppers here causing nasal numbness simply by standing nearby
+  - Check out all these chilies, that's insane. Just being here makes your nose go
+    numb
+  - So many chilies, it's wild. Your nose numbs from simply standing here
+  - Look at those chilies everywhere, incredible. The air alone numbs your nose
   timestamp_s: 0.0
 - text: today, we're gonna be meeting up with the Chinese Trump, and he's taking us
     for a full-on, ultra-spicy food tour
   aliases:
-  - meeting the Chinese Trump who will guide us on an extremely spicy food tour
-  - joining the Chinese Trump for an intense tour of ultra spicy cuisine
-  - the Chinese Trump is taking us on a complete extreme spice food tour
+  - we're meeting the Chinese Trump today, and he's guiding us on an ultra-spicy food
+    adventure
+  - today we'll join the Chinese Trump for a complete extreme-spice food tour
+  - the Chinese Trump is taking us on a full ultra-spicy culinary journey today
   timestamp_s: 0.0
 - text: Go easy on my spice and go crazy on his spice
   aliases:
-  - make mine mild but load his up with extreme spice
-  - keep my portion less spicy and make his extremely hot
-  - give me less heat and go all out on his serving
+  - Be gentle with my spice level but go all out on his
+  - Keep mine mild but make his super spicy
+  - Easy spice for me, crazy spice for him
   timestamp_s: 0.0
 - text: this city is so spicy that as soon as you enter, the air smells like chili
   aliases:
-  - the city is extremely spicy with chili scent in the air upon arrival
-  - when you arrive in this city the atmosphere immediately smells of chilies
-  - entering this city you immediately smell chili in the air everywhere
+  - this city's so spicy that the moment you arrive, you smell chili in the air
+  - the air literally smells like chili as soon as you enter this incredibly spicy
+    city
+  - when you get to this city, you immediately smell chili everywhere because it's
+    so spicy
   timestamp_s: 0.0
 - text: I eat the most spicy food in China. You're the best at spice? I'm the best
     with spice
   aliases:
-  - I consume the spiciest food in China and am the top spice expert
-  - eating the hottest food in China makes me the best at handling spice
-  - I eat China's spiciest cuisine and am the best with heat
+  - I consume the spiciest food in China. You're number one with spice? I'm number
+    one with spice
+  - I eat China's hottest food. Are you the spice master? I'm the spice master
+  - The spiciest Chinese food is what I eat. You're the best at handling heat? I'm
+    the best at handling heat
   timestamp_s: 0.0
 - text: death-level spicy beef
   aliases:
-  - beef so spicy it reaches deadly levels of heat
-  - extremely spicy beef at a lethal intensity level
-  - beef with dangerously extreme levels of spiciness
+  - beef with death-level heat
+  - extremely spicy beef at fatal heat levels
+  - deadly-hot spicy beef
   timestamp_s: 0.0
 - text: That is really spicy. That's very hardcore
   aliases:
-  - this is extremely spicy and incredibly intense
-  - very hot and seriously hardcore level of spice
-  - extremely spicy and intensely hardcore
+  - This is extremely spicy. It's seriously hardcore
+  - That's incredibly hot. Super intense
+  - Wow, really spicy. That's genuinely hardcore
   timestamp_s: 0.0
 - text: your nose is numbing just from being here
   aliases:
-  - just being present makes your nose go numb
-  - your nose loses feeling simply from standing in this location
-  - merely being in this place numbs your nasal passages
+  - just being here numbs your nose
+  - the air alone makes your nose go numb
+  - simply standing here causes your nose to numb
   timestamp_s: 0.0
 - text: People get shirtless while eating it
   aliases:
-  - folks remove their shirts when eating this dish
-  - diners take off their tops while consuming it
-  - people strip their shirts off during the meal
+  - Diners take their shirts off while eating it
+  - Customers go shirtless when they eat this
+  - It makes people remove their shirts during the meal
   timestamp_s: 0.0
 gold_selling_points:
 - text: Extreme spicy food challenge with progressively hotter dishes culminating
     in the world's spiciest hot pot
-  aliases: []
+  aliases:
+  - Progressive spicy food challenge building to the planet's hottest hot pot as the
+    ultimate test
+  - Escalating heat challenge featuring increasingly spicy dishes ending with the
+    world's spiciest hot pot
+  - Step-by-step extreme spice challenge that peaks with eating the globe's hottest
+    hot pot
 - text: Entertaining collaboration with charismatic 'Chinese Trump' local guide who
     provides humor and authentic insights
-  aliases: []
+  aliases:
+  - Fun partnership with humorous 'Chinese Trump' local expert who delivers comedy
+    and genuine cultural perspective
+  - Engaging team-up with the charismatic 'Chinese Trump' guide offering laughs and
+    real local knowledge
+  - Hilarious collaboration with the 'Chinese Trump' personality who brings both entertainment
+    and authentic regional expertise
 - text: Authentic Chongqing food tour featuring local specialties you can only find
     in this city
-  aliases: []
+  aliases:
+  - Real Chongqing culinary journey showcasing regional dishes exclusive to this location
+  - Genuine food exploration of Chongqing highlighting local delicacies unique to
+    the city
+  - Traditional Chongqing food experience with specialty items you won't find anywhere
+    else
 - text: Behind-the-scenes look at traditional food preparation including 10-year veteran
     chef making hot pot base from scratch
-  aliases: []
+  aliases:
+  - Insider view of classic cooking methods with a chef who has 10 years experience
+    creating hot pot base from zero
+  - Backstage access to traditional preparation techniques featuring a decade-experienced
+    chef hand-making hot pot base
+  - Exclusive look at authentic food-making process with 10-year veteran chef crafting
+    hot pot base traditionally
 - text: Cultural and health insights about Chinese food philosophy and why locals
     eat extremely spicy food
-  aliases: []
+  aliases:
+  - Educational perspective on Chinese culinary traditions and the reasons behind
+    extreme spice consumption by locals
+  - Cultural exploration of Chinese food beliefs and explanations for why residents
+    favor intensely hot food
+  - Insights into Chinese dietary philosophy plus health reasons locals eat such spicy
+    cuisine
 - text: Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan
     of mountains'
-  aliases: []
+  aliases:
+  - Discovery of Chongqing's distinctive futuristic mountain scenery called the 'Manhattan
+    of mountains'
+  - Journey through Chongqing's one-of-a-kind cyberpunk terrain known as 'Manhattan
+    of mountains'
+  - Experience of Chongqing's unusual sci-fi urban landscape dubbed 'Manhattan of
+    mountains'
 - text: Interactive DIY food experience where you pick your own ingredients and cook
     at the table
-  aliases: []
+  aliases:
+  - Hands-on cooking activity where diners select their ingredients and prepare food
+    at their table
+  - Personalized DIY dining where you choose your own items and cook them yourself
+    tableside
+  - Self-service food adventure allowing guests to pick ingredients and cook directly
+    at the table
 - text: Genuine reactions and survival struggle against extreme spice levels
-  aliases: []
+  aliases:
+  - Authentic responses and real battle to survive the extreme heat levels
+  - Unfiltered reactions and genuine fight to endure the intense spice
+  - Real-time struggle and honest responses to the brutal spice intensity
 notes: strong hook in title; single-topic
 transcript_sha256: e4d1f990f5e794288845fe4b07a25aa00ff103f4c3b709427c7ed45f5b161831
 _meta:

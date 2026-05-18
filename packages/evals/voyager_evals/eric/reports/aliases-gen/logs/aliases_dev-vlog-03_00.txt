@@ -1,0 +1,185 @@
+=== TAG: aliases_dev-vlog-03  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-vlog-03
+TOPIC: Kashgar Xinjiang vlog (Reports on China)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Xinjiang has been in the news a lot lately - I've come here to check out the place with my own eyes"
+  },
+  {
+    "index": 1,
+    "text": "The biggest mosque not only in Xinjiang but in all of China"
+  },
+  {
+    "index": 2,
+    "text": "China has only one time zone, so you need to wait till about 10pm until the place gets dark"
+  },
+  {
+    "index": 3,
+    "text": "The fragrant concubine, who was said to dance around the palace after her unique beauty and scent caught the eyes and nose of the Emperor"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Visit the largest mosque in China"
+  },
+  {
+    "index": 1,
+    "text": "Experience a historic Silk Road city"
+  },
+  {
+    "index": 2,
+    "text": "Explore the ancient city with winding streets"
+  },
+  {
+    "index": 3,
+    "text": "Try authentic Uyghur cuisine"
+  },
+  {
+    "index": 4,
+    "text": "Experience the vibrant night market"
+  },
+  {
+    "index": 5,
+    "text": "Visit historic mausoleums with fascinating stories"
+  },
+  {
+    "index": 6,
+    "text": "See the real Xinjiang beyond news headlines"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "I've traveled to Xinjiang to see it for myself after all the recent media coverage",
+        "With Xinjiang frequently making headlines, I decided to visit and witness it firsthand",
+        "After hearing so much about Xinjiang in the news, I'm here to experience it personally"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "China's largest mosque, not just in Xinjiang but nationwide",
+        "The most massive mosque across all of China, including Xinjiang",
+        "Not just Xinjiang's biggest mosque, but the largest in the entire country"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Because China uses a single time zone, darkness doesn't arrive until around 10pm here",
+        "With China operating on just one time zone, it stays light until roughly 10pm",
+        "Due to China's single time zone, you have to wait until approximately 10pm for nightfall"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "A concubine known for her fragrance, said to have danced in the palace after captivating the Emperor with her beauty and aroma",
+        "The scented concubine who reportedly danced through palace halls once her beauty and perfume enchanted the Emperor",
+        "Legend says the fragrant concubine performed dances in the palace after her distinctive scent and beauty attracted the Emperor"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "See China's biggest mosque",
+        "Tour the most massive mosque in the country",
+        "Explore China's largest mosque"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Discover a city along the ancient Silk Road",
+        "Visit a historic trading hub on the Silk Road",
+        "Explore an ancient Silk Road city"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Wander through the old city's twisting streets",
+        "Discover the ancient city and its maze-like streets",
+        "Navigate the old city's labyrinthine streets"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Sample genuine Uyghur food",
+        "Taste traditional Uyghur dishes",
+        "Experience authentic Uyghur cooking"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Visit the lively night market",
+        "Explore the bustling evening market",
+        "Discover the energetic night bazaar"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Tour ancient tombs with captivating tales",
+        "Explore historic burial sites and their intriguing legends",
+        "See mausoleums steeped in fascinating history"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Witness Xinjiang beyond media reports",
+        "Discover the authentic Xinjiang behind the news coverage",
+        "Experience Xinjiang firsthand, beyond what headlines show"
+      ]
+    }
+  ]
+}
+```
+

@@ -7,72 +7,96 @@ holdout: false
 gold_hooks:
 - text: 100-year-old tea house
   aliases:
-  - A tea house that is a century old
-  - This tea house has been around for one hundred years
-  - A century-old establishment serving tea
+  - A century-old tea house
+  - Tea house that's been around for 100 years
+  - Historic tea house dating back a century
   timestamp_s: 45.0
 - text: They also have this special kung fu tea performance going on here
   aliases:
-  - There is a unique kung fu tea show performed at this location
-  - You can watch a special tea ceremony with kung fu elements
-  - A distinctive kung fu tea demonstration takes place here
+  - A special kung fu tea performance takes place here
+  - There's a unique kung fu tea show happening at this location
+  - You can watch a special kung fu tea performance here
   timestamp_s: 60.0
 - text: There are two different ways to drink tea. Female, for me, very elegant
   aliases:
-  - Tea can be consumed in two distinct styles, the female method being quite graceful
-  - Two tea drinking techniques exist, with the feminine approach being especially
-    elegant
-  - The feminine tea drinking style is one of two methods and very refined
+  - Tea can be enjoyed in two distinct styles. The female way is very elegant for
+    me
+  - Two different tea drinking methods exist. I prefer the elegant female style
+  - Two ways to drink tea are offered. The female method is quite elegant
   timestamp_s: 95.0
 - text: snowflakes floating in a green lake
   aliases:
-  - White flakes drifting on a jade-colored body of water
-  - Flakes resembling snow suspended in green-hued liquid
-  - Snowy particles hovering over green water
+  - Snowflakes drifting on a green lake
+  - Like snowflakes on a green lake
+  - Flakes of snow floating on green water
   timestamp_s: 155.0
 - text: This means you're not going to pay for the bill
   aliases:
-  - This signifies that someone else will cover the cost
-  - This indicates you will not be responsible for payment
-  - This gesture means the bill is already taken care of
+  - This signals that you won't be paying the bill
+  - It means the bill won't be paid by you
+  - This indicates you're not covering the cost
   timestamp_s: 190.0
 - text: This means you are seeking for help
   aliases:
-  - This indicates you need assistance
-  - This signals that you require aid
-  - This gesture shows you are asking for support
+  - This signals you're asking for assistance
+  - It means you need help
+  - This indicates you're requesting help
   timestamp_s: 240.0
 - text: Chengdu people have such a laid back lifestyle. They will come here very early
     from like 7 a.m. in the morning
   aliases:
-  - Residents of Chengdu enjoy a relaxed way of life and arrive as early as seven
-    in the morning
-  - People from Chengdu live at an easy pace, visiting from seven o'clock onward
-  - Chengdu locals maintain a leisurely lifestyle, showing up starting at seven a.m.
+  - Chengdu residents enjoy a relaxed lifestyle. They arrive as early as 7 a.m.
+  - The laid-back lifestyle of Chengdu locals means they come here from 7 a.m. onward
+  - People in Chengdu live leisurely. They visit here starting from 7 a.m. in the
+    morning
   timestamp_s: 15.0
 - text: within the top ten teas in China
   aliases:
-  - Ranked among China's ten best teas
-  - One of the ten finest teas in China
-  - Among the top ten Chinese teas
+  - Among China's top ten teas
+  - Ranked in the top 10 Chinese teas
+  - One of the ten best teas in China
   timestamp_s: 165.0
 gold_selling_points:
 - text: Visit a historic 100-year-old tea house with authentic cultural significance
-  aliases: []
+  aliases:
+  - Explore a century-old tea house of genuine cultural importance
+  - Experience a historic tea house with 100 years of authentic cultural heritage
+  - Discover a 100-year-old tea house rich in cultural authenticity
 - text: Learn traditional Chinese tea drinking etiquette and secret gestures
-  aliases: []
+  aliases:
+  - Discover Chinese tea drinking customs and hidden gestures
+  - Master traditional tea etiquette and secret hand signals from China
+  - Study authentic Chinese tea ceremony manners and secret signs
 - text: Experience Chengdu's unique laid-back lifestyle and culture
-  aliases: []
+  aliases:
+  - Discover the relaxed lifestyle and culture unique to Chengdu
+  - Immerse yourself in Chengdu's distinctive leisurely way of life
+  - Enjoy Chengdu's one-of-a-kind relaxed culture and lifestyle
 - text: See special kung fu tea performance with long-bead teapot
-  aliases: []
+  aliases:
+  - Watch a unique kung fu tea show featuring a long-bead teapot
+  - Witness a special long-bead teapot kung fu tea performance
+  - Experience a kung fu tea performance using a long-bead teapot
 - text: Taste premium Chinese teas like Meng Ding yellow tea
-  aliases: []
+  aliases:
+  - Sample high-quality Chinese teas such as Meng Ding yellow tea
+  - Try top-tier Chinese teas including Meng Ding yellow tea
+  - Savor premium teas from China like Meng Ding yellow tea
 - text: Chengdu is China's tea culture capital
-  aliases: []
+  aliases:
+  - Chengdu stands as the tea culture capital of China
+  - China's tea culture capital is Chengdu
+  - Chengdu holds the title of China's tea culture capital
 - text: Experience vibrant tea culture embraced by all generations
-  aliases: []
+  aliases:
+  - Enjoy lively tea culture shared across all age groups
+  - Witness tea culture vibrantly practiced by every generation
+  - Discover dynamic tea traditions loved by all generations
 - text: Visit the most famous tea house location in central Chengdu
-  aliases: []
+  aliases:
+  - Explore central Chengdu's most renowned tea house
+  - See the top tea house spot in downtown Chengdu
+  - Visit Chengdu's most celebrated tea house in the city center
 notes: ''
 transcript_sha256: ca87d51d819f450ac4f961df3b49e115d84b48627bbcd9a802d0b1d922a1ddfc
 _meta:

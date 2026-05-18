@@ -8,60 +8,91 @@ gold_hooks:
 - text: it's important to wait until the timer rings before trying these mushrooms
     otherwise you might start tripping out or you might see lots of weird colors
   aliases:
-  - wait for the timer before eating these mushrooms or you could hallucinate and
+  - Wait for the timer before eating these mushrooms or you could hallucinate and
     see strange colors
-  - don't try these mushrooms until the timer goes off or you may trip out and see
-    weird colors
-  - you need to wait for the timer or eating these mushrooms could make you hallucinate
-    with odd colors
+  - Don't try these mushrooms until the timer goes off, otherwise you might trip out
+    and experience vivid color visions
+  - You must wait for the timer to ring before consuming these mushrooms to avoid
+    tripping and seeing weird colors
   timestamp_s: 0.0
 - text: this is our scary mushroom the jian shou qing that if you eat it before it's
     ready you'll start to hallucinate
   aliases:
-  - the jian shou qing is a dangerous mushroom that makes you hallucinate if eaten
-    too early
-  - eating this scary jian shou qing mushroom before it's properly prepared will cause
-    hallucinations
-  - if you consume the jian shou qing mushroom prematurely you will begin hallucinating
+  - This scary jian shou qing mushroom will make you hallucinate if eaten before it's
+    properly cooked
+  - The jian shou qing is our dangerous mushroom that causes hallucinations when eaten
+    uncooked
+  - Our frightening jian shou qing mushroom triggers hallucinations if you consume
+    it before it's ready
   timestamp_s: 180.0
 - text: chilled black tiger feet
   aliases:
-  - cold black tiger feet
-  - black tiger feet served chilled
-  - tiger feet in black variety chilled
+  - Cold black tiger feet
+  - Black tiger feet served chilled
+  - Chilled black tiger paw mushrooms
   timestamp_s: 25.0
 - text: you might start tripping out like you're in san ti or three body problem with
     the numbers clocking down
   aliases:
-  - you could hallucinate like in three body problem with countdown numbers appearing
-  - tripping out similar to san ti with numbers counting down
-  - hallucinating like the three body problem scenario with numbers ticking down
+  - You could hallucinate like you're in Three Body Problem or San Ti watching numbers
+    count down
+  - You may trip out as if you're experiencing San Ti or Three Body Problem with countdown
+    numbers
+  - You might start seeing things like in Three Body Problem with the numbers ticking
+    down
   timestamp_s: 90.0
 - text: all of the meat is actually hidden at the back which is super curious
   aliases:
-  - the meat is surprisingly located in the back portion
-  - you'll find all the meat tucked away at the rear
-  - the meat sits entirely in the back area
+  - The meat is surprisingly tucked away in the back
+  - It's really interesting that all the meat options are hidden at the back
+  - Curiously, they keep all the meat hidden in the back section
   timestamp_s: 50.0
 gold_selling_points:
 - text: Unique and exotic mushroom varieties you won't find elsewhere
-  aliases: []
+  aliases:
+  - Rare mushroom varieties unavailable anywhere else
+  - Exotic mushroom types you can't get at other places
+  - One-of-a-kind mushroom selections not found in other restaurants
 - text: Can order half portions to try more varieties
-  aliases: []
+  aliases:
+  - Half portions available so you can sample multiple varieties
+  - Order half servings to taste a wider range of mushrooms
+  - Half-size options let you try more different types
 - text: Exceptionally rich and complex mushroom soup base
-  aliases: []
+  aliases:
+  - Deeply flavorful and layered mushroom broth
+  - Rich, complex soup base made from mushrooms
+  - Mushroom broth with exceptional depth and complexity
 - text: Vegetable-forward menu that prioritizes mushrooms and vegetables
-  aliases: []
+  aliases:
+  - Menu focused primarily on vegetables and mushrooms
+  - Plant-based menu emphasizing mushrooms and vegetables
+  - Vegetable-centered offerings with mushrooms taking priority
 - text: Special homemade dipping sauces
-  aliases: []
+  aliases:
+  - House-made dipping sauces
+  - Unique dipping sauces made in-house
+  - Specially prepared homemade sauces for dipping
 - text: Interesting textures and flavors across different mushrooms
-  aliases: []
+  aliases:
+  - Diverse textures and tastes among the various mushroom types
+  - Each mushroom variety offers distinct flavors and textures
+  - Different mushrooms provide varied and intriguing textures and flavors
 - text: Even the tea is made from mushrooms
-  aliases: []
+  aliases:
+  - The tea is mushroom-based as well
+  - They even use mushrooms to make the tea
+  - Mushrooms are used to prepare the tea too
 - text: Perfect for making incredible mushroom noodle soup at the end
-  aliases: []
+  aliases:
+  - Ideal for creating amazing mushroom noodle soup to finish
+  - Great for making delicious mushroom noodle soup at the meal's end
+  - Excellent for finishing with fantastic mushroom noodle soup
 - text: Unique dining experience with exotic ingredients requiring special preparation
-  aliases: []
+  aliases:
+  - Distinctive experience featuring rare ingredients needing careful preparation
+  - One-of-a-kind meal with unusual ingredients that demand special cooking
+  - Unique culinary experience with exotic items requiring specific preparation methods
 notes: ''
 transcript_sha256: 53ddd2fa40b9b8b43b0cdf77545fc6ba3eaf23479d1a5bd50b85399513b5994a
 _meta:

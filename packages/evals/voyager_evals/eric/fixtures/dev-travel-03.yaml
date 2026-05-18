@@ -8,75 +8,109 @@ gold_hooks:
 - text: Hey, want to see something cool? If this isn't cool, both figuratively and
     literally, then I don't know what is. It's all made of snow!
   aliases:
-  - Check out this amazing structure entirely constructed from snow
-  - This snow creation is incredibly impressive both literally and figuratively
-  - Everything you see here is built completely out of snow
+  - Want to see something cool, literally and figuratively? Everything here is made
+    of snow!
+  - This is as cool as it gets - both in meaning and temperature. All crafted from
+    snow!
+  - Check this out - it's cool in every sense of the word. Entirely constructed from
+    snow!
   timestamp_s: 0.0
 - text: It's actually the biggest one of its kind in the world.
   aliases:
-  - This is the world's largest structure of this type
-  - No other similar structure anywhere on Earth is bigger than this
-  - This holds the record as the globe's largest one
+  - This is the world's largest of its type.
+  - It's the biggest in the world for this category.
+  - The largest one like this on Earth.
   timestamp_s: 15.0
 - text: I'm standing on it right now!
   aliases:
-  - I am currently positioned on top of it
-  - Right at this moment I'm on the structure
-  - You can see me standing directly on it
+  - I'm on top of it at this moment!
+  - Right now, I'm actually standing on this!
+  - I'm literally standing here on it!
   timestamp_s: 60.0
 - text: Welcome to China's coldest swimming pool!
   aliases:
-  - This is the most frigid swimming pool in all of China
-  - You're looking at the chilliest pool in the entire country
-  - China's most freezing swimming pool is right here
+  - This is China's most frigid swimming pool!
+  - China's iciest swimming pool is right here!
+  - You're looking at the coldest pool in China!
   timestamp_s: 120.0
 - text: How old are you? Ninety-six. What?!
   aliases:
-  - The person is ninety six years old which is shocking
-  - Someone here is aged ninety six years believe it or not
-  - Ninety six years old that's incredible
+  - What's your age? Ninety-six. Really?!
+  - Ninety-six years old? No way!
+  - You're ninety-six? Incredible!
   timestamp_s: 180.0
 - text: Keep in mind it's currently minus 25 degrees.
   aliases:
-  - Remember the temperature right now is negative twenty five degrees
-  - The current temperature is twenty five degrees below zero
-  - It's presently minus twenty five degrees outside
+  - Remember, the temperature is minus 25 degrees right now.
+  - It's minus 25 degrees at the moment.
+  - The current temperature is negative 25 degrees.
   timestamp_s: 190.0
 - text: 10,000 people, 15 days to build all of this.
   aliases:
-  - Ten thousand workers constructed everything in fifteen days
-  - It took fifteen days and ten thousand people to create this
-  - This entire structure required ten thousand people working for fifteen days
+  - It took 10,000 workers 15 days to construct this.
+  - All of this was built in 15 days by 10,000 people.
+  - 10,000 people constructed everything here in just 15 days.
   timestamp_s: 240.0
 - text: Oh my god. Yeah, this is absolutely breathtaking. It's literally like being
     in a fairy tale.
   aliases:
-  - This is incredibly stunning like something from a storybook
-  - The beauty is overwhelming it feels like a fantasy world
-  - It's amazingly gorgeous resembling a magical fairy tale setting
+  - This is stunning - like stepping into a fairy tale.
+  - Absolutely breathtaking. It feels like a fairy tale come to life.
+  - Wow, this is breathtaking. It's like a real-life fairy tale.
   timestamp_s: 280.0
 gold_selling_points:
 - text: World's largest ice and snow sculpture festival
-  aliases: []
+  aliases:
+  - The biggest ice and snow sculpture festival on the planet
+  - Largest festival for ice and snow sculptures worldwide
+  - The globe's biggest ice and snow sculpture celebration
 - text: Massive snow sculptures that are beautiful, intricate, and huge
-  aliases: []
+  aliases:
+  - Enormous snow sculptures with intricate beauty and immense scale
+  - Huge, beautiful, and detailed snow sculptures
+  - Large-scale snow sculptures that are both intricate and stunning
 - text: Multiple festival venues to explore with lots of activities
-  aliases: []
+  aliases:
+  - Several festival sites with plenty of activities to enjoy
+  - Many venues throughout the festival offering various activities
+  - Explore numerous festival locations featuring diverse activities
 - text: Walk on the completely frozen Songhua River
-  aliases: []
+  aliases:
+  - Stroll across the entirely frozen Songhua River
+  - The Songhua River is fully frozen for walking
+  - Walk right on the solid ice of Songhua River
 - text: Fun winter activities like banana boat rides on the frozen river
-  aliases: []
+  aliases:
+  - Enjoy banana boat rides and other fun activities on the frozen river
+  - Winter fun including banana boat rides across the icy river
+  - Activities like banana boat rides on the river's frozen surface
 - text: Witness unique cultural tradition of cold water swimming
-  aliases: []
+  aliases:
+  - See the distinctive cultural practice of swimming in cold water
+  - Experience the unique tradition of cold water swimming culture
+  - Observe the rare cultural custom of ice-cold water swimming
 - text: Enormous Ice and Snow World with over 2,000 massive ice carvings covering
     600,000 square meters
-  aliases: []
+  aliases:
+  - Ice and Snow World spans 600,000 square meters with 2,000+ massive ice carvings
+  - Gigantic Ice and Snow World featuring 2,000+ huge ice sculptures across 600,000
+    square meters
+  - 'Vast Ice and Snow World: 2,000+ enormous ice carvings over 600,000 square meters'
 - text: Breathtaking nighttime experience with colorful lights like a fairy tale
-  aliases: []
+  aliases:
+  - Stunning nighttime display with colorful illumination resembling a fairy tale
+  - Magical evening experience featuring colorful lights straight from a fairy tale
+  - Night transforms it into a fairy tale with breathtaking colorful lights
 - text: Incredible engineering feat built by 10,000 people in 15 days
-  aliases: []
+  aliases:
+  - Amazing engineering achievement constructed by 10,000 workers in 15 days
+  - 'Remarkable construction feat: 10,000 people built it in just 15 days'
+  - 10,000 people created this engineering marvel in 15 days
 - text: Once-in-a-lifetime experience with things you'll never see elsewhere
-  aliases: []
+  aliases:
+  - A unique lifetime experience you can't find anywhere else
+  - Things you won't see anywhere else - a once-in-a-lifetime opportunity
+  - One-of-a-kind experience featuring sights found nowhere else
 notes: big creator; winter survival angle
 transcript_sha256: ae08bc154bd54f5819a28f6b89f937ed12327a0757290f22a97d656da5153a23
 _meta:

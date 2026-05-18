@@ -1,0 +1,219 @@
+=== TAG: aliases_dev-culture-03  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-culture-03
+TOPIC: Guangzhou dim sum tour - 5 Michelin restaurants (Athena Chen)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Look at the size comparing to my face"
+  },
+  {
+    "index": 1,
+    "text": "Look at that big ass shrimp in there"
+  },
+  {
+    "index": 2,
+    "text": "it's always just eat, eat, eat, and eat"
+  },
+  {
+    "index": 3,
+    "text": "the sun is like toxic. Let me tell you guys, it is so hot"
+  },
+  {
+    "index": 4,
+    "text": "This place is always, always packed. So come early, or be ready to wait"
+  },
+  {
+    "index": 5,
+    "text": "I am so full and low-key a little bit out of dim sum and eating a lot"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Guangzhou is the most authentic place for dim sum culture"
+  },
+  {
+    "index": 1,
+    "text": "Visit a Michelin Guide garden-style restaurant with stunning Lingnam architecture"
+  },
+  {
+    "index": 2,
+    "text": "Experience unique dining on a Pearl River cruise with skyline views"
+  },
+  {
+    "index": 3,
+    "text": "Explore historic restaurants with over 140 years of culinary tradition"
+  },
+  {
+    "index": 4,
+    "text": "Visit Guangzhou's first western-style restaurant from 1860"
+  },
+  {
+    "index": 5,
+    "text": "Discover beautiful garden-style restaurants with traditional Chinese aesthetics"
+  },
+  {
+    "index": 6,
+    "text": "Get insider recommendations from a local who visits these restaurants repeatedly"
+  },
+  {
+    "index": 7,
+    "text": "Explore charming traditional alleyways and streets beyond just restaurants"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Check out how big this is next to my face",
+        "See the size compared to my face",
+        "Compare this size to my face"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Check out that huge shrimp inside",
+        "See that massive shrimp in there",
+        "That shrimp in there is absolutely huge"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "it's just nonstop eating, eating, and more eating",
+        "all we do is eat, eat, eat, and keep eating",
+        "it's constantly just eating, eating, and eating"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "the sun is seriously toxic. It is incredibly hot, I'm telling you",
+        "Let me tell you, the sun is like poison. It's so incredibly hot",
+        "the sun is brutal. Seriously guys, it's extremely hot"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "This spot is constantly packed. Arrive early or prepare to wait",
+        "It's always crowded here. Get there early or expect to wait",
+        "This restaurant is perpetually busy. Come early or you'll be waiting"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "I'm completely stuffed and honestly a bit tired of dim sum and overeating",
+        "I am extremely full and kind of over dim sum and eating so much",
+        "I'm totally full and getting a little sick of dim sum and eating too much"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Guangzhou offers the most genuine dim sum culture experience",
+        "The most authentic dim sum culture is found in Guangzhou",
+        "For true dim sum culture, Guangzhou is the most authentic destination"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Dine at a Michelin Guide garden restaurant featuring beautiful Lingnam architecture",
+        "Experience a Michelin-listed restaurant with garden setting and impressive Lingnam design",
+        "Enjoy a garden-style Michelin Guide venue showcasing stunning Lingnam architectural style"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Dine aboard a Pearl River cruise with breathtaking skyline panoramas",
+        "Enjoy a unique meal on the Pearl River with spectacular city skyline views",
+        "Have dinner cruising the Pearl River while taking in stunning skyline vistas"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Dine at historic establishments with culinary heritage spanning over 140 years",
+        "Visit restaurants boasting more than 140 years of cooking history",
+        "Experience legacy eateries with over 140 years of traditional cuisine"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Dine at Guangzhou's original western-style eatery established in 1860",
+        "Experience the first western restaurant in Guangzhou dating back to 1860",
+        "Try Guangzhou's inaugural western dining venue founded in 1860"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Enjoy stunning garden restaurants featuring classic Chinese design elements",
+        "Experience garden-style dining venues with traditional Chinese architectural beauty",
+        "Visit picturesque garden restaurants showcasing traditional Chinese aesthetic design"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Receive tips from a local who frequents these spots regularly",
+        "Get recommendations from someone who repeatedly visits these restaurants as a local",
+        "Benefit from a local guide who dines at these places again and again"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Discover delightful traditional streets and alleys, not only dining venues",
+        "Wander picturesque historic alleyways and lanes beyond the restaurant scene",
+        "Experience authentic traditional streets and pathways in addition to food spots"
+      ]
+    }
+  ]
+}
+

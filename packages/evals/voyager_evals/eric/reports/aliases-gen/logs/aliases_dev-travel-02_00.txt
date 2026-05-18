@@ -1,0 +1,291 @@
+=== TAG: aliases_dev-travel-02  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-travel-02
+TOPIC: Ultimate Zhangjiajie (Avatar Mountains) travel guide
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "These mountains inspired the highest-grossing film of all time"
+  },
+  {
+    "index": 1,
+    "text": "Over 20,000 visitors flood this place every single day"
+  },
+  {
+    "index": 2,
+    "text": "We got unlimited access to everything for just $35"
+  },
+  {
+    "index": 3,
+    "text": "This record-breaking elevator has THREE lanes and each one is double-decker"
+  },
+  {
+    "index": 4,
+    "text": "Oh my goodness, are we on a movie set? Where is this real life?"
+  },
+  {
+    "index": 5,
+    "text": "This pillar is so narrow at the base it defies gravity jutting straight up to the sky"
+  },
+  {
+    "index": 6,
+    "text": "This natural bridge is 350 meters above the ground below"
+  },
+  {
+    "index": 7,
+    "text": "Our bus driver didn't fear death - he drove like a Formula One racer on a mountain cliff"
+  },
+  {
+    "index": 8,
+    "text": "Aggressive monkeys will literally grab food right out of your hands"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "See the real-life inspiration for Avatar's floating mountains - towering quartz sandstone pillars that are officially named the Hallelujah Mountains"
+  },
+  {
+    "index": 1,
+    "text": "Explore 5 diverse sections of the park including Yuanjiajie (Avatar Mountains), Yangjiajie, Tianzi Mountain, Huangshi Village, and Golden Whip Stream"
+  },
+  {
+    "index": 2,
+    "text": "Experience the record-breaking Bailong Elevator - a dramatic double-decker glass elevator ride up the mountainside"
+  },
+  {
+    "index": 3,
+    "text": "Very affordable visit with ticket deals as low as 210 yuan for entrance and 248 yuan for unlimited cable car rides across 4 days"
+  },
+  {
+    "index": 4,
+    "text": "Find peace and quiet despite 20,000 daily visitors due to the park's massive size"
+  },
+  {
+    "index": 5,
+    "text": "Inexpensive food options throughout the park with authentic Chinese street food"
+  },
+  {
+    "index": 6,
+    "text": "See wildlife up close with hundreds of monkeys throughout the park, especially at Huangshi Village and Golden Whip Stream"
+  },
+  {
+    "index": 7,
+    "text": "Walk across the First Bridge Under Heaven - a natural bridge 350 meters above the ground with stunning archway views"
+  },
+  {
+    "index": 8,
+    "text": "Enjoy scenic cable car rides with 15-minute journeys offering incredible mountain views from above"
+  },
+  {
+    "index": 9,
+    "text": "Convenient transportation with included shuttle buses and facial recognition entry (no need to carry tickets)"
+  },
+  {
+    "index": 10,
+    "text": "Experience the peaceful 2-hour Golden Whip Stream walk along the base of soaring towers with stream sounds and fewer crowds"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "The world's highest-grossing movie was inspired by these mountains",
+        "These peaks served as inspiration for the top-grossing film ever made",
+        "The highest-grossing film in history drew inspiration from these mountains"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "More than 20,000 people visit here daily",
+        "This location receives over 20,000 daily visitors",
+        "Every day, more than 20,000 tourists flock to this spot"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Unlimited access to all attractions cost us only $35",
+        "For merely $35, we accessed everything without limits",
+        "Just $35 gave us unlimited entry to all areas"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "The world-record elevator features THREE double-decker lanes",
+        "THREE double-decker lanes make up this record-setting elevator",
+        "This record-holding lift has THREE lanes, all double-decker"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Is this a film set or reality? This can't be real!",
+        "Are we actually on a movie set? This seems unreal!",
+        "This looks like a movie set - is this place even real?"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "The pillar's narrow base makes its vertical rise seem gravity-defying",
+        "Defying gravity, this pillar shoots skyward from an impossibly narrow base",
+        "This column rises straight up from such a narrow base it appears to defy physics"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "The natural bridge sits 350 meters above ground level",
+        "350 meters of open air separate this natural bridge from the ground",
+        "This bridge formed by nature is 350 meters high"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "The fearless bus driver raced along mountain cliffs like a Formula One driver",
+        "Our driver sped through mountain cliffs with Formula One intensity, fearing nothing",
+        "Like a Formula One racer, our bus driver fearlessly navigated the cliff roads"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Monkeys here aggressively snatch food directly from your hands",
+        "Bold monkeys will steal food straight from your grasp",
+        "These assertive monkeys literally take food from your hands"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Visit the Hallelujah Mountains, the official name for the towering quartz sandstone pillars that inspired Avatar's floating peaks",
+        "The towering quartz sandstone formations officially called Hallelujah Mountains served as Avatar's floating mountain inspiration",
+        "Avatar's floating mountains were inspired by these real quartz sandstone pillars, officially named the Hallelujah Mountains"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "The park has 5 distinct areas: Yuanjiajie (Avatar Mountains), Yangjiajie, Tianzi Mountain, Huangshi Village, and Golden Whip Stream",
+        "Discover 5 different park sections - Yuanjiajie (Avatar Mountains), Yangjiajie, Tianzi Mountain, Huangshi Village, Golden Whip Stream",
+        "Visit 5 varied zones including Yuanjiajie (Avatar Mountains), Yangjiajie, Tianzi Mountain, Huangshi Village, and Golden Whip Stream"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Ride the Bailong Elevator, a record-breaking double-decker glass lift ascending the mountain",
+        "The dramatic Bailong Elevator is a world-record double-decker glass ride up the mountainside",
+        "Take the record-setting Bailong Elevator, a double-decker glass ascent up the mountain"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Extremely affordable: entrance tickets start at 210 yuan, unlimited 4-day cable car passes at 248 yuan",
+        "Budget-friendly pricing with 210 yuan entry and 248 yuan for 4-day unlimited cable car access",
+        "Great value at 210 yuan for admission and 248 yuan for 4 days of unlimited cable car use"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "The park's enormous size ensures tranquility even with 20,000 visitors per day",
+        "Despite 20,000 daily guests, the vast park offers peaceful solitude",
+        "With 20,000 daily visitors, the park's huge area still provides quiet spaces"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Affordable authentic Chinese street food is available throughout the park",
+        "The park offers budget-friendly authentic Chinese street food options",
+        "Authentic Chinese street food at low prices can be found across the park"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Encounter hundreds of monkeys up close, particularly at Huangshi Village and Golden Whip Stream",
+        "The park has hundreds of monkeys, most concentrated at Huangshi Village and Golden Whip Stream",
+        "Hundreds of monkeys inhabit the park, especially around Huangshi Village and Golden Whip Stream"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Cross the First Bridge Under Heaven, a natural formation 350 meters high with spectacular archway vistas",
+        "The First Bridge Under Heaven is a natural bridge 350 meters up offering breathtaking archway views",
+        "Traverse the natural First Bridge Under Heaven, 350 meters above ground with amazing archway scenery"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Take 15-minute scenic cable car trips with spectacular aerial mountain views",
+        "Cable car rides last 15 minutes and provide stunning mountain vistas from above",
+        "15-minute cable car journeys offer breathtaking views of the mountains from above"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "Easy access via included shuttle buses and facial recognition entry eliminates ticket carrying",
+        "Shuttle buses included, plus facial recognition entry means no physical tickets needed",
+        "Transportation is convenient with free shuttles and facial recognition replaces physical tickets"
+      ]
+    },
+    {
+      "index": 10,
+      "aliases": [
+        "The 2-hour Golden Whip Stream trail offers tranquil walking beneath towering formations with stream sounds and lighter crowds",
+        "Walk the peaceful 2-hour Golden Whip Stream path at the base of tall pillars, enjoying water sounds and fewer visitors",
+        "Golden Whip Stream provides a serene 2-hour walk along soaring towers with flowing water sounds and reduced crowds"
+      ]
+    }
+  ]
+}
+

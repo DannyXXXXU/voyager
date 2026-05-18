@@ -1,0 +1,257 @@
+=== TAG: aliases_dev-food-02  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-food-02
+TOPIC: Xi'an Street Food Tour - Muslim Quarter 20 Dishes
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Did you know that Xi'an is not just home to the Terracotta Warriors, but also one of China's most exciting food destinations?"
+  },
+  {
+    "index": 1,
+    "text": "Stick around as we count down the 20 must-try street foods in Xi'an, and trust me, you won't want to miss number 1."
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Xi'an is one of China's most exciting food destinations beyond just the Terracotta Warriors"
+  },
+  {
+    "index": 1,
+    "text": "Ancient Silk Road heritage creates unique culinary traditions"
+  },
+  {
+    "index": 2,
+    "text": "Comprehensive guide covering 20 must-try street foods"
+  },
+  {
+    "index": 3,
+    "text": "Features historic establishments with over 100 years of tradition"
+  },
+  {
+    "index": 4,
+    "text": "Authentic local experiences at well-loved spots frequented by locals"
+  },
+  {
+    "index": 5,
+    "text": "Affordable, generous portions at family-run eateries"
+  },
+  {
+    "index": 6,
+    "text": "Bold, unique flavors including cumin, chili, and Sichuan peppercorns"
+  },
+  {
+    "index": 7,
+    "text": "Hand-made traditional cooking techniques like hand-pulled noodles"
+  },
+  {
+    "index": 8,
+    "text": "Diverse range from breakfast soups to late-night skewers and desserts"
+  },
+  {
+    "index": 9,
+    "text": "Perfect balance of spicy, sour, sweet, and savory options for all palates"
+  },
+  {
+    "index": 10,
+    "text": "Signature dishes you can't find elsewhere, like Biang Biang Noodles and Yang Rou Pao Mou"
+  },
+  {
+    "index": 11,
+    "text": "Freshly prepared street food with enticing aromas that draw crowds"
+  },
+  {
+    "index": 12,
+    "text": "Rich cultural experience at Muslim Quarter Night Market"
+  },
+  {
+    "index": 13,
+    "text": "Foods suited for different seasons and weather conditions"
+  },
+  {
+    "index": 14,
+    "text": "Famous establishments that attract long lines, indicating quality and popularity"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Xi'an isn't only famous for the Terracotta Warriors - it's also among China's most exciting food destinations",
+        "Beyond the Terracotta Warriors, Xi'an ranks as one of China's most thrilling culinary cities",
+        "Did you realize Xi'an offers some of China's best food experiences alongside the Terracotta Warriors?"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Stay tuned while we rank Xi'an's 20 essential street foods - number 1 is unmissable",
+        "We're counting down 20 must-eat Xi'an street foods, and the top one is absolutely worth waiting for",
+        "Join us as we reveal 20 can't-miss Xi'an street foods, with number 1 being the ultimate highlight"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Beyond the Terracotta Warriors, Xi'an ranks among China's top culinary destinations",
+        "Xi'an offers exceptional food experiences, not just the famous Terracotta Warriors",
+        "More than the Terracotta Warriors, Xi'an is a thrilling Chinese food city"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "The Silk Road's ancient legacy produces distinctive food customs",
+        "Unique cooking traditions stem from Xi'an's historic Silk Road roots",
+        "Historic Silk Road influences shape one-of-a-kind culinary practices"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Complete overview of 20 essential street food dishes",
+        "Thorough guide featuring 20 can't-miss street eats",
+        "All-inclusive list of 20 must-eat street foods"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Includes century-old restaurants with over 100 years of history",
+        "Showcases eateries with more than 100 years of traditional heritage",
+        "Highlights historic spots operating for over 100 years"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Genuine neighborhood dining at places where locals regularly eat",
+        "True local flavor at popular spots beloved by residents",
+        "Real Xi'an experiences at favorite local hangouts"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Budget-friendly, large servings from family-owned restaurants",
+        "Inexpensive meals with big portions at family establishments",
+        "Reasonably priced, hearty helpings from family businesses"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Distinctive, intense tastes featuring cumin, chili, and Sichuan peppercorns",
+        "Powerful, uncommon seasonings like cumin, chili, and Sichuan peppercorns",
+        "Strong, one-of-a-kind spices such as cumin, chili, and Sichuan peppercorns"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Traditional methods made by hand, such as hand-pulled noodles",
+        "Artisanal cooking practices including hand-stretched noodles",
+        "Classic handcrafted techniques like manually pulling noodles"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Wide variety spanning morning soups to nighttime skewers and sweets",
+        "Broad selection from early soups to evening skewers and desserts",
+        "Varied offerings including breakfast soups, late-night kebabs, and desserts"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "Ideal mix of spicy, tangy, sweet, and savory choices for every taste",
+        "Well-rounded combination of spicy, sour, sweet, and savory dishes suiting all preferences",
+        "Harmonious blend of spicy, acidic, sweet, and savory selections for diverse palates"
+      ]
+    },
+    {
+      "index": 10,
+      "aliases": [
+        "Exclusive specialties unavailable elsewhere, such as Biang Biang Noodles and Yang Rou Pao Mou",
+        "Unique local dishes found nowhere else, including Biang Biang Noodles and Yang Rou Pao Mou",
+        "One-of-a-kind foods like Biang Biang Noodles and Yang Rou Pao Mou you won't see anywhere else"
+      ]
+    },
+    {
+      "index": 11,
+      "aliases": [
+        "Fresh-made street eats with appealing smells attracting large groups",
+        "Newly cooked street dishes with tempting fragrances pulling in crowds",
+        "Just-prepared street food featuring irresistible aromas that bring people in"
+      ]
+    },
+    {
+      "index": 12,
+      "aliases": [
+        "Deep cultural immersion at the Muslim Quarter Night Market",
+        "Authentic cultural adventure in the Muslim Quarter Night Market",
+        "Vibrant cultural encounter at Muslim Quarter Night Market"
+      ]
+    },
+    {
+      "index": 13,
+      "aliases": [
+        "Dishes appropriate for various seasons and climates",
+        "Meals adapted to different weather and seasonal conditions",
+        "Options fitting diverse seasons and temperature conditions"
+      ]
+    },
+    {
+      "index": 14,
+      "aliases": [
+        "Renowned spots drawing lengthy queues, signaling excellence and popularity",
+        "Well-known eateries with long waits, showing quality and appeal",
+        "Celebrated restaurants featuring extended lines, proving quality and fame"
+      ]
+    }
+  ]
+}
+```
+

@@ -8,79 +8,116 @@ gold_hooks:
 - text: for the first time ever, I am taking the fanciest class on one of China's
     high-speed trains
   aliases:
-  - I'm riding the most luxurious class on a Chinese high-speed train for my very
-    first time
-  - This is my initial experience traveling in the top class of China's bullet trains
-  - Never before have I experienced the premium class aboard a Chinese high-speed
-    railway
+  - I'm riding China's most luxurious high-speed train class for the very first time
+  - This is my first experience in the premium class of a Chinese high-speed train
+  - I'm trying out the fanciest option on China's high-speed rail for the first time
   timestamp_s: 10.0
 - text: America's trains just cannot compare to China's
   aliases:
-  - Chinese trains are far superior to those found in America
-  - The trains in America pale in comparison to China's railway system
-  - China's rail service vastly outperforms what America has to offer
+  - China's trains far surpass what America has to offer
+  - US rail systems simply don't measure up to China's trains
+  - There's no comparison between American and Chinese trains
   timestamp_s: 35.0
 - text: China has the largest high-speed rail network in the world. America can barely
     connect a few cities
   aliases:
-  - The world's biggest high-speed rail network belongs to China while America struggles
-    to link several cities
-  - China operates the globe's most extensive bullet train system whereas America
-    connects only a handful of cities
-  - With the planet's largest fast rail network China dwarfs America which links just
-    a few urban areas
+  - The world's biggest high-speed rail network is in China, while the US struggles
+    to link even a handful of cities
+  - China boasts the globe's most extensive high-speed train system; America barely
+    manages connections between a few cities
+  - With the planet's largest high-speed rail network, China dwarfs America's limited
+    city-to-city connections
   timestamp_s: 40.0
 - text: This train can go 350 kilometers per hour. That is insane
   aliases:
-  - The train reaches speeds of 350 kilometers per hour which is absolutely crazy
-  - This railway vehicle travels at 350 kilometers per hour and that's mind-blowing
-  - It's incredible that this train achieves velocities of 350 kilometers per hour
+  - This train reaches speeds of 350 km/h, which is absolutely crazy
+  - 350 kilometers per hour - that's an insane speed for this train
+  - The train hits 350 km/h, that's incredible
   timestamp_s: 60.0
 - text: There are three classes available, I'm going to show you all of them
   aliases:
-  - Three different classes exist and I will demonstrate each one to you
-  - I plan to present all three available seating classes to you
-  - You'll see every one of the three class options I'm about to reveal
+  - I'll show you each of the three available classes
+  - Three classes are offered and I'm going to demonstrate all of them
+  - I'm presenting all three class options available
   timestamp_s: 25.0
 - text: they will personally escort you to the train
   aliases:
-  - You receive a personal escort directly to the train
-  - Staff members accompany you individually all the way to the train
-  - Personal assistance guides you right to the railway vehicle
+  - you get a personal escort to your train
+  - staff personally accompany you to the train
+  - they provide personal accompaniment to the train
   timestamp_s: 150.0
 - text: You can even order KFC or McDonald's
   aliases:
-  - KFC and McDonald's are both available for ordering
-  - It's possible to get food from KFC or McDonald's delivered
-  - McDonald's or KFC can be ordered right to you
+  - KFC and McDonald's can even be ordered
+  - You're able to order fast food like KFC or McDonald's
+  - Even McDonald's or KFC delivery is available
   timestamp_s: 420.0
 gold_selling_points:
 - text: China has the world's largest high-speed rail network
-  aliases: []
+  aliases:
+  - The largest high-speed rail network globally belongs to China
+  - China operates the biggest high-speed train system on Earth
+  - The world's most extensive high-speed rail system is China's
 - text: Trains reach exceptional speeds of 350 km/h
-  aliases: []
+  aliases:
+  - Trains achieve remarkable speeds up to 350 kilometers per hour
+  - 350 km/h speeds are reached by these trains
+  - The trains hit extraordinary velocities of 350 km/h
 - text: Business class offers VIP treatment with shorter lines and personal escort
-  aliases: []
+  aliases:
+  - VIP service in business class includes reduced wait times and personal accompaniment
+  - Business class provides VIP perks like shorter queues and staff escort
+  - Personal escort and expedited lines come with business class VIP treatment
 - text: Business class seats fully recline for comfortable sleep
-  aliases: []
+  aliases:
+  - Seats in business class recline completely for sleeping comfort
+  - Full seat recline in business class enables comfortable rest
+  - Business class features fully reclining seats for a good sleep
 - text: Complimentary beverages and snacks included in business class
-  aliases: []
+  aliases:
+  - Free drinks and snacks come with business class
+  - Business class includes snacks and beverages at no charge
+  - Beverages and snacks are provided complimentary in business class
 - text: Free meals provided that taste good
-  aliases: []
+  aliases:
+  - Complimentary meals are served and they're tasty
+  - Good-tasting meals are included at no cost
+  - Meals are free and delicious
 - text: Can order additional food via QR code including KFC and McDonald's
-  aliases: []
+  aliases:
+  - Additional food orders via QR code include options like McDonald's and KFC
+  - QR code ordering allows you to get KFC, McDonald's, and more
+  - Scan a QR code to order extra food such as KFC or McDonald's
 - text: Clean, western-style toilets with all amenities
-  aliases: []
+  aliases:
+  - Western-style bathrooms with full amenities are kept clean
+  - Toilets are western-style, well-maintained, and fully equipped
+  - All amenities in clean, western-design restrooms
 - text: Wheelchair accessible features throughout
-  aliases: []
+  aliases:
+  - Full wheelchair accessibility across all areas
+  - Wheelchair-friendly features are present throughout
+  - Comprehensive wheelchair access available
 - text: Hot water available for instant noodles or tea
-  aliases: []
+  aliases:
+  - Hot water is provided for tea or instant noodles
+  - You can get hot water for making tea or noodles
+  - Available hot water for preparing instant noodles or tea
 - text: More spacious and comfortable than airplanes
-  aliases: []
+  aliases:
+  - More comfortable and roomy compared to planes
+  - Greater space and comfort than air travel
+  - Offers more room and comfort than flying
 - text: Business class has private bathroom access
-  aliases: []
+  aliases:
+  - Private restroom access is available in business class
+  - Business class features exclusive bathroom facilities
+  - Business class provides access to private toilets
 - text: Spacious tables with leather covering in business class
-  aliases: []
+  aliases:
+  - Business class features large leather-covered tables
+  - Leather-topped tables are spacious in business class
+  - Large tables covered in leather in business class
 notes: 'clear selling-points: first/business/economy class'
 transcript_sha256: 5db6940b3bdec730abc5b7dddd883b447f3ac91d9142e86d93592e4eaf9ad198
 _meta:

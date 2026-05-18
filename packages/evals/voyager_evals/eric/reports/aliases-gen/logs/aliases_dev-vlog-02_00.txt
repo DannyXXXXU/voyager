@@ -1,0 +1,207 @@
+=== TAG: aliases_dev-vlog-02  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-vlog-02
+TOPIC: 24hrs Shenzhen Huaqiangbei electronics + nightlife
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "I think I got a robot dog"
+  },
+  {
+    "index": 1,
+    "text": "Yeah, man, that's like military shit, yo"
+  },
+  {
+    "index": 2,
+    "text": "Killer deal, man, killer deal"
+  },
+  {
+    "index": 3,
+    "text": "Can I just give you 50 yuan right now for one, just to test?"
+  },
+  {
+    "index": 4,
+    "text": "Is this real? This is Sony"
+  },
+  {
+    "index": 5,
+    "text": "It's five times the size"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Bulk purchase discounts available - buy 10 pieces to get wholesale pricing"
+  },
+  {
+    "index": 1,
+    "text": "Excellent deals on storage devices - 1TB and 2TB at competitive prices"
+  },
+  {
+    "index": 2,
+    "text": "Can test products before committing to bulk purchase for just 50-60 yuan"
+  },
+  {
+    "index": 3,
+    "text": "Authentic branded products including Sony merchandise"
+  },
+  {
+    "index": 4,
+    "text": "Wide variety of tech and lifestyle products - robot dogs, storage devices, massagers, beauty products"
+  },
+  {
+    "index": 5,
+    "text": "Quality products that look and feel legitimate on inspection"
+  },
+  {
+    "index": 6,
+    "text": "Unisex beauty products suitable for everyone"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "I believe I just acquired a robot dog",
+        "Pretty sure I purchased a robotic dog",
+        "I got myself a robotic canine"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "That's military-grade stuff, dude",
+        "Whoa, that looks like military equipment",
+        "Bro, that's some military-level gear"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Amazing deal, truly amazing",
+        "What an incredible deal",
+        "This is an awesome bargain"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Could I pay you 50 yuan for one to try it out?",
+        "Let me give you 50 yuan to test one right now",
+        "Can I test one for 50 yuan right away?"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "This is Sony - is it authentic?",
+        "Is this genuine? It says Sony",
+        "This is a Sony product - is it real?"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "It's 5x bigger",
+        "This is five times larger",
+        "The size is quintuple"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Wholesale pricing offered when purchasing 10 units or more",
+        "Buy 10 items to receive bulk discount rates",
+        "Volume discounts - purchase 10 pieces for wholesale prices"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Great prices on 1TB and 2TB storage drives",
+        "Competitive pricing for storage devices in 1TB and 2TB capacities",
+        "Storage devices available - 1TB and 2TB at excellent rates"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Test items for 50-60 yuan before buying in bulk",
+        "Try products for only 50-60 yuan prior to large orders",
+        "Sample testing available for 50-60 yuan before bulk commitment"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Genuine brand-name items like Sony products",
+        "Real branded goods including Sony items",
+        "Legitimate products from brands such as Sony"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Diverse selection including robot dogs, drives, massagers, and beauty items",
+        "Broad range of products - robotic dogs, storage, massagers, cosmetics",
+        "Extensive tech and lifestyle offerings: robot dogs, storage devices, massagers, beauty goods"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Products appear genuine upon examination",
+        "Items feel and look authentic when inspected",
+        "Legitimate-looking products that pass quality inspection"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Beauty products for all genders",
+        "Gender-neutral cosmetics appropriate for anyone",
+        "Beauty items designed for everyone regardless of gender"
+      ]
+    }
+  ]
+}
+

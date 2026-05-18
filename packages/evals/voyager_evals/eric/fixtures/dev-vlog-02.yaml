@@ -7,56 +7,78 @@ holdout: false
 gold_hooks:
 - text: I think I got a robot dog
   aliases:
-  - I believe I obtained a robotic canine
-  - I might have acquired a mechanical dog
-  - I think I purchased an automated dog
+  - I believe I just acquired a robot dog
+  - Pretty sure I purchased a robotic dog
+  - I got myself a robotic canine
   timestamp_s: 0.0
 - text: Yeah, man, that's like military shit, yo
   aliases:
-  - That looks like military grade equipment
-  - This is military level technology
-  - That appears to be military spec gear
+  - That's military-grade stuff, dude
+  - Whoa, that looks like military equipment
+  - Bro, that's some military-level gear
   timestamp_s: 0.0
 - text: Killer deal, man, killer deal
   aliases:
-  - This is an amazing bargain
+  - Amazing deal, truly amazing
   - What an incredible deal
-  - This is a fantastic price
+  - This is an awesome bargain
   timestamp_s: 0.0
 - text: Can I just give you 50 yuan right now for one, just to test?
   aliases:
-  - Could I pay you 50 yuan immediately to try one out
-  - Can I hand you 50 yuan now to test one
-  - May I give you 50 yuan right away to test it
+  - Could I pay you 50 yuan for one to try it out?
+  - Let me give you 50 yuan to test one right now
+  - Can I test one for 50 yuan right away?
   timestamp_s: 0.0
 - text: Is this real? This is Sony
   aliases:
-  - Is this authentic? This is made by Sony
-  - Is this genuine? This is a Sony product
-  - This is actually Sony? Is it real
+  - This is Sony - is it authentic?
+  - Is this genuine? It says Sony
+  - This is a Sony product - is it real?
   timestamp_s: 0.0
 - text: It's five times the size
   aliases:
-  - It is five times larger
-  - The size is five times bigger
-  - It measures five times as large
+  - It's 5x bigger
+  - This is five times larger
+  - The size is quintuple
   timestamp_s: 0.0
 gold_selling_points:
 - text: Bulk purchase discounts available - buy 10 pieces to get wholesale pricing
-  aliases: []
+  aliases:
+  - Wholesale pricing offered when purchasing 10 units or more
+  - Buy 10 items to receive bulk discount rates
+  - Volume discounts - purchase 10 pieces for wholesale prices
 - text: Excellent deals on storage devices - 1TB and 2TB at competitive prices
-  aliases: []
+  aliases:
+  - Great prices on 1TB and 2TB storage drives
+  - Competitive pricing for storage devices in 1TB and 2TB capacities
+  - Storage devices available - 1TB and 2TB at excellent rates
 - text: Can test products before committing to bulk purchase for just 50-60 yuan
-  aliases: []
+  aliases:
+  - Test items for 50-60 yuan before buying in bulk
+  - Try products for only 50-60 yuan prior to large orders
+  - Sample testing available for 50-60 yuan before bulk commitment
 - text: Authentic branded products including Sony merchandise
-  aliases: []
+  aliases:
+  - Genuine brand-name items like Sony products
+  - Real branded goods including Sony items
+  - Legitimate products from brands such as Sony
 - text: Wide variety of tech and lifestyle products - robot dogs, storage devices,
     massagers, beauty products
-  aliases: []
+  aliases:
+  - Diverse selection including robot dogs, drives, massagers, and beauty items
+  - Broad range of products - robotic dogs, storage, massagers, cosmetics
+  - 'Extensive tech and lifestyle offerings: robot dogs, storage devices, massagers,
+    beauty goods'
 - text: Quality products that look and feel legitimate on inspection
-  aliases: []
+  aliases:
+  - Products appear genuine upon examination
+  - Items feel and look authentic when inspected
+  - Legitimate-looking products that pass quality inspection
 - text: Unisex beauty products suitable for everyone
-  aliases: []
+  aliases:
+  - Beauty products for all genders
+  - Gender-neutral cosmetics appropriate for anyone
+  - Beauty items designed for everyone regardless of gender
 notes: multi-topic vlog; good for cluster testing
 transcript_sha256: f09bdfb923be5c5ce831123787bad6d1fffa97fe783f35ac3c37aebe7dac0c35
 _meta:

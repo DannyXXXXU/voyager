@@ -1,0 +1,243 @@
+=== TAG: aliases_dev-culture-02  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: dev-culture-02
+TOPIC: Laid-back Chengdu teahouse (1.4 Billion)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "100-year-old tea house"
+  },
+  {
+    "index": 1,
+    "text": "They also have this special kung fu tea performance going on here"
+  },
+  {
+    "index": 2,
+    "text": "There are two different ways to drink tea. Female, for me, very elegant"
+  },
+  {
+    "index": 3,
+    "text": "snowflakes floating in a green lake"
+  },
+  {
+    "index": 4,
+    "text": "This means you're not going to pay for the bill"
+  },
+  {
+    "index": 5,
+    "text": "This means you are seeking for help"
+  },
+  {
+    "index": 6,
+    "text": "Chengdu people have such a laid back lifestyle. They will come here very early from like 7 a.m. in the morning"
+  },
+  {
+    "index": 7,
+    "text": "within the top ten teas in China"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Visit a historic 100-year-old tea house with authentic cultural significance"
+  },
+  {
+    "index": 1,
+    "text": "Learn traditional Chinese tea drinking etiquette and secret gestures"
+  },
+  {
+    "index": 2,
+    "text": "Experience Chengdu's unique laid-back lifestyle and culture"
+  },
+  {
+    "index": 3,
+    "text": "See special kung fu tea performance with long-bead teapot"
+  },
+  {
+    "index": 4,
+    "text": "Taste premium Chinese teas like Meng Ding yellow tea"
+  },
+  {
+    "index": 5,
+    "text": "Chengdu is China's tea culture capital"
+  },
+  {
+    "index": 6,
+    "text": "Experience vibrant tea culture embraced by all generations"
+  },
+  {
+    "index": 7,
+    "text": "Visit the most famous tea house location in central Chengdu"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "A century-old tea house",
+        "Tea house that's been around for 100 years",
+        "Historic tea house dating back a century"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "A special kung fu tea performance takes place here",
+        "There's a unique kung fu tea show happening at this location",
+        "You can watch a special kung fu tea performance here"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Tea can be enjoyed in two distinct styles. The female way is very elegant for me",
+        "Two different tea drinking methods exist. I prefer the elegant female style",
+        "Two ways to drink tea are offered. The female method is quite elegant"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Snowflakes drifting on a green lake",
+        "Like snowflakes on a green lake",
+        "Flakes of snow floating on green water"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "This signals that you won't be paying the bill",
+        "It means the bill won't be paid by you",
+        "This indicates you're not covering the cost"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "This signals you're asking for assistance",
+        "It means you need help",
+        "This indicates you're requesting help"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Chengdu residents enjoy a relaxed lifestyle. They arrive as early as 7 a.m.",
+        "The laid-back lifestyle of Chengdu locals means they come here from 7 a.m. onward",
+        "People in Chengdu live leisurely. They visit here starting from 7 a.m. in the morning"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Among China's top ten teas",
+        "Ranked in the top 10 Chinese teas",
+        "One of the ten best teas in China"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Explore a century-old tea house of genuine cultural importance",
+        "Experience a historic tea house with 100 years of authentic cultural heritage",
+        "Discover a 100-year-old tea house rich in cultural authenticity"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Discover Chinese tea drinking customs and hidden gestures",
+        "Master traditional tea etiquette and secret hand signals from China",
+        "Study authentic Chinese tea ceremony manners and secret signs"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Discover the relaxed lifestyle and culture unique to Chengdu",
+        "Immerse yourself in Chengdu's distinctive leisurely way of life",
+        "Enjoy Chengdu's one-of-a-kind relaxed culture and lifestyle"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Watch a unique kung fu tea show featuring a long-bead teapot",
+        "Witness a special long-bead teapot kung fu tea performance",
+        "Experience a kung fu tea performance using a long-bead teapot"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Sample high-quality Chinese teas such as Meng Ding yellow tea",
+        "Try top-tier Chinese teas including Meng Ding yellow tea",
+        "Savor premium teas from China like Meng Ding yellow tea"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Chengdu stands as the tea culture capital of China",
+        "China's tea culture capital is Chengdu",
+        "Chengdu holds the title of China's tea culture capital"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Enjoy lively tea culture shared across all age groups",
+        "Witness tea culture vibrantly practiced by every generation",
+        "Discover dynamic tea traditions loved by all generations"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Explore central Chengdu's most renowned tea house",
+        "See the top tea house spot in downtown Chengdu",
+        "Visit Chengdu's most celebrated tea house in the city center"
+      ]
+    }
+  ]
+}
+

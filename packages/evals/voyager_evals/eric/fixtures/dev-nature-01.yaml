@@ -7,78 +7,125 @@ holdout: false
 gold_hooks:
 - text: come explore the beautiful Jiuzhaigou National Park with me
   aliases:
-  - join me on a visit to stunning Jiuzhaigou National Park
-  - let's discover the scenic Jiuzhaigou National Park together
-  - accompany me to see the gorgeous Jiuzhaigou National Park
+  - join me in exploring the stunning Jiuzhaigou National Park
+  - let's discover the beauty of Jiuzhaigou National Park together
+  - explore Jiuzhaigou National Park's beauty alongside me
   timestamp_s: 0.0
 - text: the whole journey has been cut down to around 4 hours in total
   aliases:
-  - the entire trip now takes approximately 4 hours altogether
-  - total travel time has been reduced to roughly 4 hours
-  - the complete route is now about 4 hours long
+  - the entire trip now only takes about 4 hours total
+  - travel time has been reduced to approximately 4 hours overall
+  - the full journey is just around 4 hours now
   timestamp_s: 0.0
 - text: It's most well known for its many waterfalls and colourful lakes which are
     especially stunning during autumn
   aliases:
-  - it's famous for numerous waterfalls and vibrant lakes that look particularly beautiful
-    in fall
-  - the park is best recognized for its abundant waterfalls and colorful lakes that
-    shine brightest in autumn
-  - its reputation comes from multiple waterfalls and multicolored lakes that are
-    exceptionally gorgeous during fall
+  - famous for numerous waterfalls and colorful lakes that look particularly beautiful
+    in autumn
+  - renowned for its waterfalls and vibrant lakes, most spectacular in fall
+  - best known for many waterfalls and colorful lakes, especially breathtaking during
+    autumn
   timestamp_s: 0.0
 - text: In local folklore it's said that there's a monster in the lake
   aliases:
-  - local legends claim a creature lives in the lake
-  - according to local mythology there is a monster dwelling in the lake
-  - traditional stories say a beast inhabits the lake
+  - local legends claim a monster lives in the lake
+  - according to local folklore, the lake is home to a monster
+  - local stories tell of a monster dwelling in the lake
   timestamp_s: 0.0
 - text: I'd pretty much given up on trying to get on the shuttle buses at this point
   aliases:
-  - I had basically abandoned attempts to board the shuttle buses by then
-  - by this time I had nearly stopped trying to catch the shuttle buses
-  - I had almost quit attempting to get onto the shuttle buses by now
+  - I had basically stopped trying to board the shuttle buses by then
+  - at this stage, I'd nearly abandoned attempts to catch the shuttle buses
+  - I'd almost quit trying to get on the shuttle buses by this time
   timestamp_s: 0.0
 - text: Jiuzhaigou brings together the worst and the best parts of travelling in China
   aliases:
-  - Jiuzhaigou combines both the finest and poorest aspects of China travel
-  - Jiuzhaigou showcases the highs and lows of traveling through China
-  - the park represents both excellent and terrible elements of Chinese tourism
+  - Jiuzhaigou combines both the best and worst aspects of China travel
+  - traveling in Jiuzhaigou showcases the extremes of visiting China
+  - Jiuzhaigou embodies China travel at its best and worst
   timestamp_s: 0.0
 gold_selling_points:
 - text: Much faster and more convenient access with new high-speed rail - journey
     now takes only 4 hours total instead of 8-10 hours
-  aliases: []
+  aliases:
+  - new high-speed rail makes access much quicker - total journey reduced from 8-10
+    hours to just 4 hours
+  - high-speed rail provides faster, easier access - trip now 4 hours instead of 8-10
+    hours
+  - journey cut from 8-10 hours to only 4 hours total with new convenient high-speed
+    rail
 - text: UNESCO World Heritage Site with international recognition since 1992
-  aliases: []
+  aliases:
+  - internationally recognized UNESCO World Heritage Site from 1992
+  - designated as UNESCO World Heritage Site in 1992
+  - has been a UNESCO World Heritage Site with global recognition since 1992
 - text: Famous for stunning waterfalls and colorful lakes, especially beautiful in
     autumn
-  aliases: []
+  aliases:
+  - renowned for spectacular waterfalls and vibrant lakes, particularly gorgeous during
+    fall
+  - known for breathtaking waterfalls and colorful lakes that shine in autumn
+  - celebrated for its waterfalls and colorful lakes, most stunning in autumn
 - text: Extensive well-maintained infrastructure with 70km of boardwalks throughout
     the park
-  aliases: []
+  aliases:
+  - park features 70km of well-kept boardwalks and excellent infrastructure
+  - well-maintained 70km boardwalk network spans the entire park
+  - 70km of maintained boardwalks provide extensive infrastructure across the park
 - text: Easy ticket booking for foreign travelers through trip.com using passport
-  aliases: []
+  aliases:
+  - foreign travelers can easily book tickets on trip.com with passport
+  - simple ticket purchasing for international visitors via trip.com using passport
+  - trip.com allows straightforward ticket booking for foreigners with passport
 - text: Escape from intense heat in cities - cooler mountain climate
-  aliases: []
+  aliases:
+  - cooler mountain weather offers relief from hot city temperatures
+  - enjoy mountain climate as escape from sweltering urban heat
+  - retreat from city heat to cooler mountain environment
 - text: Affordable food and snacks available throughout the park (e.g., grilled sausage
     for 10 RMB / $2-3 AUD)
-  aliases: []
+  aliases:
+  - reasonably priced food and snacks offered across the park (grilled sausage 10
+    RMB / $2-3 AUD)
+  - budget-friendly snacks throughout the park like grilled sausage for 10 RMB / $2-3
+    AUD
+  - inexpensive food options available parkwide (e.g., 10 RMB / $2-3 AUD grilled sausage)
 - text: Multiple diverse valleys to explore with unique lakes and natural scenery
-  aliases: []
+  aliases:
+  - various valleys offer unique lakes and distinct natural landscapes to discover
+  - explore several different valleys featuring unique lakes and natural beauty
+  - numerous valleys with distinctive lakes and natural scenery await exploration
 - text: Home to the largest and highest lake in the park at 3,150 meters altitude
     (Long Lake)
-  aliases: []
+  aliases:
+  - Long Lake is the park's largest and highest lake at 3,150 meters altitude
+  - features the park's biggest and tallest lake (Long Lake) at 3,150 meters elevation
+  - contains Long Lake, the park's largest lake and highest at 3,150 meters altitude
 - text: Cultural and historical significance - featured in the 1986 Journey to the
     West TV series
-  aliases: []
+  aliases:
+  - historically and culturally significant - appeared in 1986 Journey to the West
+    TV series
+  - featured in the 1986 Journey to the West series, adding cultural importance
+  - holds cultural heritage value - filming location for 1986 Journey to the West
+    TV show
 - text: Well-organized shuttle bus system to access different areas of the park
-  aliases: []
+  aliases:
+  - efficient shuttle bus network connects various park areas
+  - organized shuttle buses provide access to different park sections
+  - shuttle bus system efficiently serves different areas throughout the park
 - text: Abundant facilities including restaurants, stores, public toilets, and rest
     points throughout
-  aliases: []
+  aliases:
+  - plenty of amenities like restaurants, shops, restrooms, and rest areas across
+    the park
+  - 'extensive facilities throughout: restaurants, stores, toilets, and resting spots'
+  - numerous restaurants, stores, public toilets, and rest points available parkwide
 - text: Showcases China's incredible natural beauty outside major cities
-  aliases: []
+  aliases:
+  - displays China's stunning natural landscapes beyond urban centers
+  - demonstrates China's remarkable nature outside metropolitan areas
+  - highlights China's amazing natural beauty away from big cities
 notes: ''
 transcript_sha256: 3431c5115d589ee5660e9a3c9ef735f13433518dcf3352be95b895455011a24b
 _meta:

@@ -7,57 +7,85 @@ holdout: false
 gold_hooks:
 - text: Look at the size comparing to my face
   aliases:
-  - Check out how large this is next to my face
-  - See how big it is when compared to my face
-  - Notice the enormous size relative to my face
+  - Check out how big this is next to my face
+  - See the size compared to my face
+  - Compare this size to my face
   timestamp_s: 0.0
 - text: Look at that big ass shrimp in there
   aliases:
   - Check out that huge shrimp inside
   - See that massive shrimp in there
-  - Notice that enormous prawn inside
+  - That shrimp in there is absolutely huge
   timestamp_s: 0.0
 - text: it's always just eat, eat, eat, and eat
   aliases:
-  - all we do is constantly eat and eat
-  - nonstop eating is what happens here
-  - eating continuously is all that happens
+  - it's just nonstop eating, eating, and more eating
+  - all we do is eat, eat, eat, and keep eating
+  - it's constantly just eating, eating, and eating
   timestamp_s: 0.0
 - text: the sun is like toxic. Let me tell you guys, it is so hot
   aliases:
-  - the sun feels poisonous because it is extremely hot
-  - let me tell you the sun is unbearably scorching
-  - the heat from the sun is intense and almost toxic
+  - the sun is seriously toxic. It is incredibly hot, I'm telling you
+  - Let me tell you, the sun is like poison. It's so incredibly hot
+  - the sun is brutal. Seriously guys, it's extremely hot
   timestamp_s: 0.0
 - text: This place is always, always packed. So come early, or be ready to wait
   aliases:
-  - this spot is constantly crowded so arrive early or expect to wait
-  - the venue is perpetually full so get here early or prepare to queue
-  - this restaurant is consistently busy so come early or be prepared to wait
+  - This spot is constantly packed. Arrive early or prepare to wait
+  - It's always crowded here. Get there early or expect to wait
+  - This restaurant is perpetually busy. Come early or you'll be waiting
   timestamp_s: 0.0
 - text: I am so full and low-key a little bit out of dim sum and eating a lot
   aliases:
-  - I am very stuffed and somewhat tired of dim sum and overeating
-  - I feel extremely full and kind of done with dim sum and eating so much
-  - I am really full and slightly over dim sum and all this food
+  - I'm completely stuffed and honestly a bit tired of dim sum and overeating
+  - I am extremely full and kind of over dim sum and eating so much
+  - I'm totally full and getting a little sick of dim sum and eating too much
   timestamp_s: 0.0
 gold_selling_points:
 - text: Guangzhou is the most authentic place for dim sum culture
-  aliases: []
+  aliases:
+  - Guangzhou offers the most genuine dim sum culture experience
+  - The most authentic dim sum culture is found in Guangzhou
+  - For true dim sum culture, Guangzhou is the most authentic destination
 - text: Visit a Michelin Guide garden-style restaurant with stunning Lingnam architecture
-  aliases: []
+  aliases:
+  - Dine at a Michelin Guide garden restaurant featuring beautiful Lingnam architecture
+  - Experience a Michelin-listed restaurant with garden setting and impressive Lingnam
+    design
+  - Enjoy a garden-style Michelin Guide venue showcasing stunning Lingnam architectural
+    style
 - text: Experience unique dining on a Pearl River cruise with skyline views
-  aliases: []
+  aliases:
+  - Dine aboard a Pearl River cruise with breathtaking skyline panoramas
+  - Enjoy a unique meal on the Pearl River with spectacular city skyline views
+  - Have dinner cruising the Pearl River while taking in stunning skyline vistas
 - text: Explore historic restaurants with over 140 years of culinary tradition
-  aliases: []
+  aliases:
+  - Dine at historic establishments with culinary heritage spanning over 140 years
+  - Visit restaurants boasting more than 140 years of cooking history
+  - Experience legacy eateries with over 140 years of traditional cuisine
 - text: Visit Guangzhou's first western-style restaurant from 1860
-  aliases: []
+  aliases:
+  - Dine at Guangzhou's original western-style eatery established in 1860
+  - Experience the first western restaurant in Guangzhou dating back to 1860
+  - Try Guangzhou's inaugural western dining venue founded in 1860
 - text: Discover beautiful garden-style restaurants with traditional Chinese aesthetics
-  aliases: []
+  aliases:
+  - Enjoy stunning garden restaurants featuring classic Chinese design elements
+  - Experience garden-style dining venues with traditional Chinese architectural beauty
+  - Visit picturesque garden restaurants showcasing traditional Chinese aesthetic
+    design
 - text: Get insider recommendations from a local who visits these restaurants repeatedly
-  aliases: []
+  aliases:
+  - Receive tips from a local who frequents these spots regularly
+  - Get recommendations from someone who repeatedly visits these restaurants as a
+    local
+  - Benefit from a local guide who dines at these places again and again
 - text: Explore charming traditional alleyways and streets beyond just restaurants
-  aliases: []
+  aliases:
+  - Discover delightful traditional streets and alleys, not only dining venues
+  - Wander picturesque historic alleyways and lanes beyond the restaurant scene
+  - Experience authentic traditional streets and pathways in addition to food spots
 notes: list-style + cultural depth
 transcript_sha256: 4ff2aef8b1bfa54a9a56a80fe7229690a9b1aa5b5a8142f3efc319efdbfef5c1
 _meta:
