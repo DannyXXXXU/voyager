@@ -68,6 +68,9 @@ class Hook(BaseModel):
 
 
 class HookExtraction(BaseModel):
+    # P1: scratchpad forces the model to reason about coverage BEFORE emitting
+    # the final list. Empty default so existing stub clients still validate.
+    scratchpad: str = ""
     hooks: list[Hook] = Field(default_factory=list)
 
 
@@ -78,6 +81,7 @@ class SellingPoint(BaseModel):
 
 
 class SellingPointExtraction(BaseModel):
+    scratchpad: str = ""
     selling_points: list[SellingPoint] = Field(default_factory=list)
 
 
@@ -128,69 +132,133 @@ class StubCopilotClient:
 # --------------------------------------------------------------------------- #
 # LLM nodes
 # --------------------------------------------------------------------------- #
-_SYS_HOOKS = (
-    "You extract attention-grabbing hooks from a video transcript. Hooks are the "
-    "lines a creator would use to STOP a viewer from scrolling — typically found in "
-    "the first 30 seconds and at every major section opener.\n"
-    "\n"
-    "HARD RULES:\n"
-    "- Extract between 5 and 12 hooks. Never zero. Aim high on recall — when in "
-    "doubt, INCLUDE.\n"
-    "- ALWAYS include the opening hook(s) from the first 30 seconds of the transcript "
-    "if any exist. Opening CTAs like \"Did you know...\", \"Stick around...\", "
-    "\"If you're traveling to X for the first time...\", \"These mountains inspired...\" "
-    "ARE valid hooks — do NOT reject them as generic.\n"
-    "- PRIORITIZE these high-value hook types whenever present in the transcript:\n"
-    "  * Numeric / record claims (\"20,000 visitors a day\", \"$35 for everything\", "
-    "\"350 meters high\", \"4 hours by train\", \"three-lane double-decker elevator\")\n"
-    "  * Superlatives / firsts (\"highest-grossing film of all time\", \"world's tallest\", "
-    "\"first time ever\")\n"
-    "  * Warnings or safety beats (\"wait until the timer rings or you'll hallucinate\", "
-    "\"the driver drove like a Formula One racer on a cliff\")\n"
-    "  * Vivid contrasts / reactions (\"are we on a movie set?\", \"defies gravity\", "
-    "\"the worst and best of travelling in China\")\n"
-    "  Missing one of these when it exists in the transcript is a serious recall failure.\n"
-    "- Each hook_text MUST be a verbatim or near-verbatim span from the transcript, "
-    "no longer than 200 characters. Prefer the FULL sentence over a truncated fragment.\n"
-    "- ONE HOOK = ONE DISTINCT CLAIM. If a sentence contains TWO distinct claims "
-    "(e.g. \"wait until the timer rings OR you'll trip out like in three body problem\" "
-    "= claim A: warning + claim B: trippy reference), emit TWO hooks. Same for "
-    "lists of dish names: \"chilled black tiger feet, jian shou qing mushroom, and "
-    "porcini soup\" = THREE separate hooks. Each named dish, place, or specific "
-    "object that gets reaction-worthy attention is its own hook.\n"
-    "- ALWAYS extract every named food/dish, named landmark, and specific object "
-    "the creator reacts to with surprise, disgust, or excitement — even if the "
-    "phrasing is short (\"chilled black tiger feet\", \"the jian shou qing\"). These "
-    "short specific-noun hooks are the most-missed type.\n"
-    "- Valid hook styles include: opening CTAs, surprising facts, bold claims, "
-    "rhetorical questions, vivid quotable moments, numeric/record claims, warnings, "
-    "vivid contrasts. NOT topic labels, NOT summaries.\n"
-    "- timestamp_s MUST be the leading [<seconds>s] tag of the source line. "
-    "Copy that number verbatim. Use 0.0 only when the transcript has no [s] tags.\n"
-    "- confidence is a float in [0.0, 1.0]; use 0.8+ only when the hook is a direct quote.\n"
-    "- Reject only hooks that are vague filler (\"this place is amazing\", "
-    "\"it was so cool\") or hallucinated text not in the transcript."
-)
-_SYS_POINTS = (
-    "You extract selling points (reasons a viewer should visit / watch / buy) from "
-    "a transcript. These are written in marketing-brief style — concise benefit "
-    "statements a copywriter would use.\n"
-    "\n"
-    "HARD RULES:\n"
-    "- Extract between 5 and 12 selling points. Never zero. Aim high on recall.\n"
-    "- Each `point` is a concise benefit STATEMENT, 40–180 characters. Full phrases "
-    "are encouraged when they convey the benefit clearly. Examples:\n"
-    "  * \"UNESCO World Heritage Site with international recognition since 1992\"\n"
-    "  * \"Step-by-step demonstrations of getting free airport Wi-Fi without a local "
-    "phone number\"\n"
-    "  * \"Expert guidance from someone with nearly 20 years of living in Shanghai\"\n"
-    "- `evidence` MUST quote or paraphrase the supporting transcript span verbatim "
-    "(<= 200 chars). Never empty.\n"
-    "- Reject only empty filler (\"unforgettable experience\" alone). Specific "
-    "marketing-style phrasing IS allowed and desired.\n"
-    "- No duplicates (same benefit, different words).\n"
-    "- confidence in [0.0, 1.0]; only >=0.8 when evidence is a direct quote."
-)
+_SYS_HOOKS = """<role>
+You are a senior YouTube content strategist analyzing China travel videos for
+overseas growth. Your job is to extract the attention-grabbing HOOKS from a
+transcript — the exact lines a creator would use to STOP a viewer from
+scrolling.
+</role>
+
+<task>
+Read the transcript (each line tagged with [<seconds>s]) and emit between
+8 and 16 hooks. Aim HIGH on recall — when in doubt, INCLUDE. Missing a real
+hook costs us much more than including a borderline one.
+</task>
+
+<rules>
+1. Each hook_text MUST be a verbatim or near-verbatim span from the transcript,
+   <=200 chars. Prefer the FULL sentence over a truncated fragment.
+2. ALWAYS include opening hook(s) from the first 30 seconds. Opening CTAs like
+   "Did you know...", "Stick around...", "If you're going to X for the first
+   time..." ARE valid hooks — never reject them as generic.
+3. PRIORITIZE these high-value types whenever present:
+   - Numeric / record claims ("20,000 visitors a day", "350 meters high")
+   - Superlatives / firsts ("world's tallest", "highest-grossing ever")
+   - Warnings / safety beats ("wait until the timer rings or you'll hallucinate")
+   - Vivid contrasts / reactions ("are we on a movie set?", "defies gravity")
+   - Named specific nouns reacted to with surprise/disgust/excitement
+     ("chilled black tiger feet", "jian shou qing mushroom") — these short
+     specific-noun hooks are the MOST-MISSED type and you must extract every
+     single one that gets a creator reaction.
+4. ONE HOOK = ONE DISTINCT CLAIM. Split compound sentences. A list of three
+   dish names = THREE hooks. A sentence with a warning + a vivid reference =
+   TWO hooks.
+5. timestamp_s MUST be the leading [<seconds>s] tag of the source line, copied
+   verbatim. Use 0.0 only when the line has no tag.
+6. confidence in [0.0, 1.0]; >=0.8 only when the hook is a direct quote.
+7. Reject ONLY vague filler ("this place is amazing", "it was so cool") or
+   text not in the transcript.
+</rules>
+
+<examples>
+<example id="food-extreme-spicy">
+TRANSCRIPT (excerpt):
+[0.0s] today we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+[12.4s] look at all those chilies, that's crazy. your nose is numbing just from being here
+[45.8s] today we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on ultra-spicy food tour
+[120.0s] chilled black tiger feet, jian shou qing mushroom, and porcini soup — death-level spicy beef
+
+GOOD HOOKS (note: short specific-noun reactions extracted as separate items):
+- "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating" @ 0.0s
+- "Look at all those chilies, that's crazy. Your nose is numbing just from being here" @ 12.4s
+- "today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour" @ 45.8s
+- "chilled black tiger feet" @ 120.0s
+- "jian shou qing mushroom" @ 120.0s
+- "death-level spicy beef" @ 120.0s
+</example>
+
+<example id="travel-superlative">
+TRANSCRIPT (excerpt):
+[3.2s] this elevator is 350 meters high — a three-lane double-decker, the only one of its kind in the world
+[88.0s] are we on a movie set? this defies gravity
+
+GOOD HOOKS (numeric claim + superlative split; vivid reaction is its own hook):
+- "this elevator is 350 meters high" @ 3.2s
+- "a three-lane double-decker, the only one of its kind in the world" @ 3.2s
+- "are we on a movie set? this defies gravity" @ 88.0s
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: which hook TYPES did you find — numeric? superlative? named specific noun? opening CTA? Any 30s-opener you might miss? Then commit to extracting all of them.>",
+  "hooks": [ {"hook_text": "...", "timestamp_s": 0.0, "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list hooks. Target 8-16 hooks.
+</output>
+"""
+
+_SYS_POINTS = """<role>
+You are a marketing copywriter for an overseas creator brand. Extract the
+SELLING POINTS — the reasons a viewer should watch / visit / care — from a
+transcript, written as concise benefit statements.
+</role>
+
+<task>
+Emit between 8 and 18 selling points. Eric over-producing is fine (Mike filters
+downstream). Under-producing is the failure mode. When in doubt, INCLUDE.
+</task>
+
+<rules>
+1. Each `point` is a concise benefit STATEMENT, 40-180 chars, marketing-brief
+   style. NOT a bare topic label. NOT a quote.
+2. `evidence` MUST quote or paraphrase the supporting transcript span
+   (<=200 chars). Never empty.
+3. Cover BOTH content benefits (what you'll see / taste / experience) AND
+   creator-expertise benefits (host credibility, behind-the-scenes access).
+4. No duplicates — same benefit in different words = ONE point.
+5. confidence in [0.0, 1.0]; >=0.8 only when evidence is a direct quote.
+</rules>
+
+<examples>
+<example id="food-chongqing">
+TRANSCRIPT (excerpt):
+[15.0s] meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour
+[120.0s] this chef has been making hot pot base from scratch for 10 years
+[200.0s] chongqing — the manhattan of mountains, cyberpunk cityscape
+
+GOOD SELLING POINTS:
+- point: "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot"
+  evidence: "we're gonna attempt to eat the world's spiciest hot pot"
+- point: "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights"
+  evidence: "meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour"
+- point: "Behind-the-scenes look at traditional food preparation including 10-year veteran chef making hot pot base from scratch"
+  evidence: "this chef has been making hot pot base from scratch for 10 years"
+- point: "Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan of mountains'"
+  evidence: "chongqing — the manhattan of mountains, cyberpunk cityscape"
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: list the benefit CATEGORIES present in this transcript (content benefits + creator-expertise benefits). Did you cover both? Are you at 8+ items?>",
+  "selling_points": [ {"point": "...", "evidence": "...", "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list selling_points. Target 8-18 items.
+</output>
+"""
 _SYS_CLUSTER = (
     "You cluster the provided hooks and selling points into 3–6 themes.\n"
     "\n"

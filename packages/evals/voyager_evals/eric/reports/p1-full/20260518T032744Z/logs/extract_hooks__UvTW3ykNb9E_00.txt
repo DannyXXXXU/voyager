@@ -1,0 +1,246 @@
+=== TAG: extract_hooks__UvTW3ykNb9E  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a senior YouTube content strategist analyzing China travel videos for
+overseas growth. Your job is to extract the attention-grabbing HOOKS from a
+transcript — the exact lines a creator would use to STOP a viewer from
+scrolling.
+</role>
+
+<task>
+Read the transcript (each line tagged with [<seconds>s]) and emit between
+8 and 16 hooks. Aim HIGH on recall — when in doubt, INCLUDE. Missing a real
+hook costs us much more than including a borderline one.
+</task>
+
+<rules>
+1. Each hook_text MUST be a verbatim or near-verbatim span from the transcript,
+   <=200 chars. Prefer the FULL sentence over a truncated fragment.
+2. ALWAYS include opening hook(s) from the first 30 seconds. Opening CTAs like
+   "Did you know...", "Stick around...", "If you're going to X for the first
+   time..." ARE valid hooks — never reject them as generic.
+3. PRIORITIZE these high-value types whenever present:
+   - Numeric / record claims ("20,000 visitors a day", "350 meters high")
+   - Superlatives / firsts ("world's tallest", "highest-grossing ever")
+   - Warnings / safety beats ("wait until the timer rings or you'll hallucinate")
+   - Vivid contrasts / reactions ("are we on a movie set?", "defies gravity")
+   - Named specific nouns reacted to with surprise/disgust/excitement
+     ("chilled black tiger feet", "jian shou qing mushroom") — these short
+     specific-noun hooks are the MOST-MISSED type and you must extract every
+     single one that gets a creator reaction.
+4. ONE HOOK = ONE DISTINCT CLAIM. Split compound sentences. A list of three
+   dish names = THREE hooks. A sentence with a warning + a vivid reference =
+   TWO hooks.
+5. timestamp_s MUST be the leading [<seconds>s] tag of the source line, copied
+   verbatim. Use 0.0 only when the line has no tag.
+6. confidence in [0.0, 1.0]; >=0.8 only when the hook is a direct quote.
+7. Reject ONLY vague filler ("this place is amazing", "it was so cool") or
+   text not in the transcript.
+</rules>
+
+<examples>
+<example id="food-extreme-spicy">
+TRANSCRIPT (excerpt):
+[0.0s] today we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+[12.4s] look at all those chilies, that's crazy. your nose is numbing just from being here
+[45.8s] today we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on ultra-spicy food tour
+[120.0s] chilled black tiger feet, jian shou qing mushroom, and porcini soup — death-level spicy beef
+
+GOOD HOOKS (note: short specific-noun reactions extracted as separate items):
+- "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating" @ 0.0s
+- "Look at all those chilies, that's crazy. Your nose is numbing just from being here" @ 12.4s
+- "today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour" @ 45.8s
+- "chilled black tiger feet" @ 120.0s
+- "jian shou qing mushroom" @ 120.0s
+- "death-level spicy beef" @ 120.0s
+</example>
+
+<example id="travel-superlative">
+TRANSCRIPT (excerpt):
+[3.2s] this elevator is 350 meters high — a three-lane double-decker, the only one of its kind in the world
+[88.0s] are we on a movie set? this defies gravity
+
+GOOD HOOKS (numeric claim + superlative split; vivid reaction is its own hook):
+- "this elevator is 350 meters high" @ 3.2s
+- "a three-lane double-decker, the only one of its kind in the world" @ 3.2s
+- "are we on a movie set? this defies gravity" @ 88.0s
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: which hook TYPES did you find — numeric? superlative? named specific noun? opening CTA? Any 30s-opener you might miss? Then commit to extracting all of them.>",
+  "hooks": [ {"hook_text": "...", "timestamp_s": 0.0, "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list hooks. Target 8-16 hooks.
+</output>
+
+
+USER:
+VIDEO_ID=UvTW3ykNb9E
+TRANSCRIPT:
+[0.0s] it's important to wait until the timer rings before trying these mushrooms
+[5.6s] otherwise you might start tripping out or you might see lots of weird colors
+[10.6s] today we're going to Tai Po Tian Fu Shan Zhen for a mushroom meal
+[16.2s] come on let's go eat some hotpot
+[30.0s] going through this menu is really really funny like listen to this one you would never expect
+[35.3s] this is a mushroom chilled black tiger feet wow chilled bigfoot mushrooms wow that really looks
+[44.6s] super meaty another interesting thing i am seeing about this menu is that you have all of the
+[50.6s] delicious vegetables and mushrooms right at the forefront of this menu and it's not even a
+[56.4s] vegetarian restaurant all of the meat is actually hidden at the back which is super curious but
+[63.0s] definitely my style
+[75.6s] and here even the tea is made from mushrooms look at that beautiful red color
+[87.4s] yes, it's a vegetarian dish, no chicken oil or mushroom soup
+[92.6s] it's a soup made from top-notch mushrooms
+[95.0s] what kind of sauce do you recommend?
+[96.5s] I recommend our special garlic and chili sauce
+[100.6s] because the chili sauce is home-made, it's not spicy
+[103.6s] so you have to eat it with the mushrooms
+[106.7s] okay
+[107.4s] one thing I really like about Tai Po is that you can order half portions so that means you can try
+[113.4s] so many more different types of mushrooms
+[123.0s] so it's important to wait until the timer rings before trying these mushrooms otherwise you might
+[130.0s] start tripping out like you're in san ti or three body problem with the numbers clocking down
+[137.1s] or you might see lots of weird colors
+[140.2s] just to be on the safe side I'm gonna wait until the timer's up
+[150.2s] the timer is up and the first thing we've been served is the soup base
+[156.1s] oh wow that is one of the most complex mushroom soups I've ever tasted
+[161.3s] that is so rich
+[163.4s] all right shall we go in for our first mushroom?
+[165.6s] the zhu sun or the bamboo mushroom
+[169.6s] wow that is soaking up so much broth
+[173.0s] let's dip it into our mushroom dipping sauce
+[179.0s] I think I know now why it's called a bamboo mushroom
+[182.9s] it actually has a very similar texture in the mouth to bamboo shoot
+[188.1s] a little bit crunchy, tender
+[190.6s] this mushroom has a very meaty name
+[194.2s] beef liver mushroom and it really looks like liver
+[202.1s] wow it definitely has a mushroom texture but it's super tender and
+[207.4s] I mean I haven't eaten liver in years but it does have that liver
+[214.8s] slipperiness that look to it for sure
+[217.4s] this is our scary mushroom the jian shou qing
+[220.8s] that if you eat it before it's ready you'll start to hallucinate
+[225.5s] so let's hope that I can finish this video without any hallucinations
+[230.6s] this mushroom gets its name because when it is exposed to air when raw
+[236.0s] it turns this vibrant blue shade
+[239.0s] here it's after being boiled it's turned more of a safe looking brown
+[243.5s] so I'm more comfortable eating it this way
+[247.4s] the mushroom is super tender
+[253.2s] it's almost like a mix between yam and a mushroom
+[257.7s] honestly it's very very subtle
+[260.0s] which is I think a good reason to have some of these dipping sauces here
+[263.8s] but we're not just eating mushrooms
+[265.9s] my favorite thing whenever I order hot pot is the fuzhu or bamboo style tofu skin
+[273.0s] and we also have the haozigar
+[275.4s] this is a Chinese favorite green for hot pot
+[279.7s] haozigar has a very particular flavor
+[282.7s] and it doesn't matter how strong the hot pot is
+[285.9s] that flavor will always shine through
+[288.6s] and I'm curious are there any other Chinese dishes that use haozigar
+[292.9s] because I've only ever seen it at hot pot places
+[296.0s] what I like to do towards the end of the meal is make my own mushroom noodle soup
+[301.2s] so we have our noodles in here
+[303.9s] the soup is going to be super fragrant
+[306.1s] because it's had all of those mushrooms and vegetables cooking up
+[310.2s] so just put in the noodles in there
+[311.9s] and let them cook for just a couple of minutes
+[315.0s] and then it will be ready
+[320.7s] bon appetit
+[322.8s] wow that is probably one of the best mushroom noodle soups I've ever had
+[328.6s] it's incredible
+[330.0s] all of those beautiful mushroom earthy flavors
+[333.4s] really make this mushroom soup broth stand out
+[336.9s] you really shouldn't miss out
+[338.6s] I'm Alex from Vegan in China
+[340.4s] see you next time
+[341.5s] bye bye
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  scratchpad: string;
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "scratchpad": "Found multiple high-value hook types: opening CTAs (first 30s), warnings/safety beats (hallucination, tripping out), named specific mushroom nouns (chilled black tiger feet, jian shou qing, beef liver mushroom, zhu sun), superlatives (most complex soup, best noodle soup), and vivid reactions (turns vibrant blue, looks like liver, tea made from mushrooms). Will extract all opening hooks, all warnings, all named-noun reactions, and all superlatives.",
+  "hooks": [
+    {
+      "hook_text": "it's important to wait until the timer rings before trying these mushrooms",
+      "timestamp_s": 0.0,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "otherwise you might start tripping out or you might see lots of weird colors",
+      "timestamp_s": 5.6,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "today we're going to Tai Po Tian Fu Shan Zhen for a mushroom meal",
+      "timestamp_s": 10.6,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "chilled black tiger feet",
+      "timestamp_s": 35.3,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "even the tea is made from mushrooms",
+      "timestamp_s": 75.6,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "that is one of the most complex mushroom soups I've ever tasted",
+      "timestamp_s": 156.1,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "the zhu sun or the bamboo mushroom",
+      "timestamp_s": 165.6,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "beef liver mushroom",
+      "timestamp_s": 190.6,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "it really looks like liver",
+      "timestamp_s": 194.2,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "the jian shou qing",
+      "timestamp_s": 217.4,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "if you eat it before it's ready you'll start to hallucinate",
+      "timestamp_s": 220.8,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "it turns this vibrant blue shade",
+      "timestamp_s": 236.0,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "that is probably one of the best mushroom noodle soups I've ever had",
+      "timestamp_s": 322.8,
+      "confidence": 0.95
+    }
+  ]
+}
+

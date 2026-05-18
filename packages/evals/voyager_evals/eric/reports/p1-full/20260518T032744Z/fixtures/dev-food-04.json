@@ -1,0 +1,51 @@
+{
+  "fixture_id": "dev-food-04",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.608695652173913,
+    "selling_point_recall": 0.8,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 381.1267499980004,
+  "error": null,
+  "hooks_predicted": [
+    "we're going deep into the heart of Sichuan and Chengdu to taste one of the most painfully spicy meals in the world",
+    "this is one of the most spiciest and fragrant meals you can eat in the whole world",
+    "today we're gonna go for an extremely spicy meal here",
+    "Right when you walk into a legit local hot pot joint in Sichuan, the pungent chili aroma hits your nostrils",
+    "We're going full on and ordering the most deadly spicy hot pot available on the menu",
+    "This is gonna be painfully spicy",
+    "ma la niu rou, so numbing, mouth-numbing, super spicy beef",
+    "He just gave me a warning",
+    "Intense, bubbling pot of death",
+    "that is like a burning pleasure",
+    "It feels like your soul is burning",
+    "that is extreme pain here",
+    "this is one of the spiciest things you'll ever eat, guys",
+    "It really is painful, and I love spice",
+    "this is one of the spicier things you can eat in the world. Sichuan hot pot."
+  ],
+  "selling_points_predicted": [
+    "Extreme spicy food challenge with the 'most deadly spicy hot pot available on the menu'",
+    "Authentic local Chengdu hot pot joint where pungent chili aroma hits you upon entry",
+    "Educational walkthrough of traditional hot pot ordering including spice level selection system",
+    "Step-by-step tutorial on making authentic sesame oil-based dipping sauce with fresh ingredients",
+    "Variety of premium ingredients including fatty beef, shrimp, lotus root, and tofu skin",
+    "Dramatic visual spectacle of bubbling red chili oil packed with Sichuan peppercorns",
+    "Detailed flavor analysis of Sichuan peppercorn's unique numbing, floral, and citrusy sensation",
+    "Genuine, unfiltered reactions to extreme spice levels including visible struggle and pain",
+    "Experience of progressively intensifying heat as chilies boil and each bite gets hotter",
+    "Host speaks fluent Mandarin and navigates local dining customs like an insider",
+    "Cultural context positioning Chengdu as 'the land of spicy, numbing, fragrant cuisine'",
+    "Entertaining contrast between host's struggle and local companion's spice tolerance",
+    "Insight into hot pot's addictive quality despite extreme pain that keeps diners coming back",
+    "Promise of upcoming deep Sichuan street food tour into rural areas and southern China",
+    "Teaser of future Tea Horse Road journey following ancient tea trading routes from Yunnan to Tibet"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "fixture_id": "hold-01",
+  "bucket": "holdout",
+  "scores": {
+    "hook_extraction_f1": 0.13333333333333333,
+    "selling_point_recall": 0.0,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 374.4049372039999,
+  "error": null,
+  "hooks_predicted": [
+    "Are you planning for Shanghai?",
+    "we're unveiling the top 10 places you must experience during your visit to this vibrant metropolis",
+    "All Google apps, WhatsApp and Instagram only work with a VPN connection",
+    "The 1933 Old Mill Fund",
+    "Once a slaughterhouse, this captivating structure now stands as a testament to Shanghai's unique blend of history and innovation",
+    "We're visiting twice, once at night when the ancient structures come alive with a mesmerizing play of lights",
+    "Prepare to be captivated by the juxtaposition of historic colonial architecture and the modern skyline of Pudong across the Huangpu River",
+    "Escape the urban hustle and venture to the picturesque Jujiajiao, known as the Water Town",
+    "It's a step back in time to a Shanghai of a bygone era",
+    "Winding alleyways adorned with street art, boutique shops and cozy cafes create an atmosphere of bohemian chic",
+    "ascend the iconic Shanghai Tower for breathtaking views of the city",
+    "Get ready for a perspective that will leave you in awe",
+    "we're heading to one of the largest Starbucks in the world",
+    "This isn't just a coffee shop, it's a coffee wonderland"
+  ],
+  "selling_points_predicted": [
+    "Comprehensive curated guide to the top 10 must-experience places in Shanghai's vibrant metropolis",
+    "Essential pre-arrival tech setup with Alipay for seamless cashless transactions throughout the city",
+    "Integrated navigation solution via Didi app for exploring and getting around Shanghai easily",
+    "Critical VPN information so you can access Google apps, WhatsApp and Instagram during your stay",
+    "Explore the unique architectural gem of 1933 Old Mill Fund, a former slaughterhouse blending history and innovation",
+    "Experience Yu Garden twice for contrasting atmospheres - mesmerizing nighttime lights and tranquil early morning serenity",
+    "Witness the striking juxtaposition of historic colonial architecture and modern Pudong skyline at the iconic Bund waterfront",
+    "Shopping and entertainment extravaganza along bustling Nanjing Road with shops, theatres and vibrant street life",
+    "Step back in time at picturesque Jujiajiao Water Town with charming canals, historic bridges and traditional architecture",
+    "Unleash your inner artist in Tianci Fang's bohemian artsy district with street art, boutique shops and cozy cafes",
+    "Find spiritual tranquility at Jingan Temple, a Buddhist masterpiece oasis in the heart of the city",
+    "Experience Shanghai's vibrant nightlife at famous bars with unique vibes and panoramic city views",
+    "Marvel at futuristic Pudong district and ascend iconic Shanghai Tower for breathtaking awe-inspiring city views",
+    "Captivating underwater experience at Shanghai Ocean Aquarium with mesmerizing tunnels and vibrant marine life for all ages",
+    "Bonus visit to one of the world's largest Starbucks, described as a coffee wonderland not just a shop"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,255 @@
+=== TAG: extract_selling_points__z-bhg4CyN_4  ATTEMPT: 1  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a marketing copywriter for an overseas creator brand. Extract the
+SELLING POINTS — the reasons a viewer should watch / visit / care — from a
+transcript, written as concise benefit statements.
+</role>
+
+<task>
+Emit between 8 and 18 selling points. Eric over-producing is fine (Mike filters
+downstream). Under-producing is the failure mode. When in doubt, INCLUDE.
+</task>
+
+<rules>
+1. Each `point` is a concise benefit STATEMENT, 40-180 chars, marketing-brief
+   style. NOT a bare topic label. NOT a quote.
+2. `evidence` MUST quote or paraphrase the supporting transcript span
+   (<=200 chars). Never empty.
+3. Cover BOTH content benefits (what you'll see / taste / experience) AND
+   creator-expertise benefits (host credibility, behind-the-scenes access).
+4. No duplicates — same benefit in different words = ONE point.
+5. confidence in [0.0, 1.0]; >=0.8 only when evidence is a direct quote.
+</rules>
+
+<examples>
+<example id="food-chongqing">
+TRANSCRIPT (excerpt):
+[15.0s] meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour
+[120.0s] this chef has been making hot pot base from scratch for 10 years
+[200.0s] chongqing — the manhattan of mountains, cyberpunk cityscape
+
+GOOD SELLING POINTS:
+- point: "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot"
+  evidence: "we're gonna attempt to eat the world's spiciest hot pot"
+- point: "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights"
+  evidence: "meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour"
+- point: "Behind-the-scenes look at traditional food preparation including 10-year veteran chef making hot pot base from scratch"
+  evidence: "this chef has been making hot pot base from scratch for 10 years"
+- point: "Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan of mountains'"
+  evidence: "chongqing — the manhattan of mountains, cyberpunk cityscape"
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: list the benefit CATEGORIES present in this transcript (content benefits + creator-expertise benefits). Did you cover both? Are you at 8+ items?>",
+  "selling_points": [ {"point": "...", "evidence": "...", "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list selling_points. Target 8-18 items.
+</output>
+
+
+USER:
+VIDEO_ID=z-bhg4CyN_4
+TRANSCRIPT:
+[0.0s] I'm now standing in rural Shanxi province, where one can find a magnificent ancient labyrinth
+[8.2s] known as the best preserved historical city in all of China.
+[14.0s] This is Pingyao Ancient City.
+[16.9s] Hi, I'm Noah and I make videos traveling around China and doing random travel challenges.
+[23.8s] And now it's time for me to spin the wheel to see what random challenge awaits me here
+[30.4s] in Pingyao.
+[31.4s] So here we go.
+[32.7s] Oh, until midnight, you must be always soaking wet from head to toe.
+[40.6s] It was already evening by the time I had gotten settled in my first day in Pingyao.
+[45.4s] So to make this a fair and entertaining challenge, why don't we just push it forward to the following
+[50.9s] day?
+[51.9s] And you know me, we're getting things started bright and early with some temple cleansing.
+[58.5s] Emphasis on the cleansing.
+[60.9s] So here I am folks, day two, completely drenched at Zhenguo Temple.
+[66.4s] Pingyao is famously known for having three treasures, which are its most famous historical
+[73.1s] artifacts.
+[74.1s] And Zhenguo Temple is one of them.
+[76.6s] Built in the year 963, this temple is overlooked by most tourists and has a much more quiet
+[82.8s] and peaceful atmosphere than you'll find in the ancient city.
+[86.6s] But this building right here behind me is reason enough to make a stop here.
+[91.3s] This is the Thousand Buddha Hall and it was built without any nails, only by using wooden
+[98.0s] brackets.
+[99.0s] And it's one of the oldest wooden buildings in China.
+[103.1s] The second of Pingyao's treasures is Shuangling Temple.
+[107.1s] Art, chiefly painted clay sculptures are no joke here in Pingyao, especially in Shuangling
+[114.0s] Temple.
+[115.0s] With 1500 years of history and over 2000 vibrant clay sculptures, this place is famously known
+[123.2s] as a treasure house of painted sculptures, as well as a museum of ancient statues.
+[130.7s] And the last of Pingyao's historical treasures is the ancient city wall, known as China's
+[137.2s] best preserved town city wall.
+[140.0s] It was built in 827 to keep out East Mongolian invaders.
+[145.7s] And despite its giant size, what stands out to me about this fortress is the intricate
+[151.2s] thought and detail that went into it.
+[154.0s] Along the tower, you can find 72 watchtowers and 3000 parapets said to resemble Confucius's
+[162.0s] 72 disciples and 3000 students back in the day.
+[166.7s] But the most interesting little tidbit I can give you is that to the locals, Pingyao is
+[171.8s] known as tortoise city because its shape represents that of a turtle.
+[179.1s] The city walls are said to be the shell.
+[181.7s] The north gate is the turtle's head and the south gate is its tail.
+[186.8s] What stands out about Pingyao is just how well maintained it is.
+[191.8s] But these walls just take the preservation and the ancient historical vibes to a whole
+[197.4s] new level.
+[198.4s] There you have Pingyao's three historical treasures.
+[202.3s] Can you guess which one of them is the main reason that Pingyao rose to fame in China?
+[208.0s] The answer is none of them because the most important and famous historical attraction
+[215.2s] in Pingyao is a bank.
+[218.0s] Pingyao is known as the land of wealth and the birthplace of Chinese banking.
+[223.8s] During the Qing Dynasty, the Rishongchang Bank, known as the first modern bank of China,
+[230.6s] transformed Pingyao into a thriving business center as well as the lifeblood of the nation's
+[236.8s] economy.
+[237.8s] It was a huge deal.
+[239.3s] Keep in mind that around the year 1800, when this bank was formed, China had one of the
+[243.8s] most commercialized economies in the world with a population of over 300 million people,
+[251.1s] almost double the size of that of Europe.
+[253.9s] And at the time, the main currency here was coins, which was extremely inconvenient for
+[259.7s] traders to have to carry hunks of metal around with them everywhere they went.
+[264.7s] So Rishongchang Bank was revolutionary in that it instituted a system of paper bills
+[271.2s] which could be withdrawn and deposited around China and in branches around the world.
+[277.6s] The impact this bank had in Chinese history was huge.
+[281.6s] At its peak, Rishongchang controlled almost half of China's economy.
+[285.7s] But my favorite part about it is that it's got an underground secret vault.
+[292.0s] Well maybe not so secret.
+[293.7s] China is one of the safest countries in the world in terms of thievery.
+[297.2s] But back in the day, when Pingyao got the money, it'd be the Wild West up in here.
+[303.2s] Many a man wanted to get a hold of those dollar dollar bills and would go to extreme lengths
+[308.6s] to get it.
+[309.6s] As a result, Rishongchang Bank was regularly robbed.
+[313.8s] To combat the thievery, they had this place.
+[322.7s] It was China's first armed escort agency.
+[326.5s] Here merchants and traders could hire martial arts masters to protect them along their journey.
+[333.1s] And you know, we're talking thieves, robbers, the Wild West of China.
+[338.2s] So you know, to work here, you had to be bad to the bone.
+[343.2s] The one thing I know for sure about China is that I will never know China.
+[348.0s] It's too old, too diverse, too deep.
+[351.1s] There's simply not enough time.
+[353.2s] That's one of my favorite quotes from Anthony Bourdain, a man I'd argue was the best travel
+[359.6s] show host of all time.
+[361.7s] And it sums up the way I feel about Pingyao.
+[365.3s] This is the most dense ancient town I've visited in terms of sheer number of attractions.
+[371.6s] There's an unbelievable amount to see here in this one square mile ancient city.
+[376.6s] But hey, Pingyao ain't just eye candy.
+[379.3s] We're talking some of the most unique historical sites you can find anywhere.
+[384.5s] The first modern Bank of China, ancient Kung Fu bodyguard shops, the best preserved town
+[391.2s] wall in this country, and the real life version of the Gringotts secret vault.
+[397.1s] You all be my guests and enjoy your summer vacation squeezing your way through the crowds
+[402.5s] of Beijing, Shanghai, Tokyo, Paris, Rome.
+[405.8s] And I'll be right here, soaking from head to toe in the middle of nowhere, Shanxi province,
+[414.1s] finding the time to uncover the best preserved ancient city in China.
+[420.9s] If you enjoyed the video, make sure to give it a like, and I'll see y'all in the next
+[425.5s] great China adventure.
+[435.8s] Bye for now.
+[436.8s] I'm out of here.
+[437.8s] I'll see y'all in the next video.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  scratchpad: string;
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+
+PREVIOUS ATTEMPT WAS INVALID. Error: JSONDecodeError: Expecting value: line 1 column 1 (char 0). Return ONLY a raw JSON object matching the schema. No prose, no markdown fences.
+--- RAW STDOUT ---
+{
+  "scratchpad": "This transcript contains content benefits (ancient temples, city walls, banking history, unique architecture, cultural artifacts) and creator-expertise benefits (travel challenge format, local insights, historical context from host Noah). Coverage includes both categories. Currently at 15+ items.",
+  "selling_points": [
+    {
+      "point": "Explore China's best preserved historical city with magnificent ancient labyrinth architecture",
+      "evidence": "known as the best preserved historical city in all of China",
+      "confidence": 0.85
+    },
+    {
+      "point": "Entertaining travel challenge format where host must stay soaking wet from head to toe until midnight",
+      "evidence": "until midnight, you must be always soaking wet from head to toe",
+      "confidence": 0.9
+    },
+    {
+      "point": "Visit Zhenguo Temple built in 963 with peaceful atmosphere away from tourist crowds",
+      "evidence": "Built in the year 963, this temple is overlooked by most tourists and has a much more quiet and peaceful atmosphere",
+      "confidence": 0.85
+    },
+    {
+      "point": "See one of China's oldest wooden buildings constructed without any nails using only wooden brackets",
+      "evidence": "Thousand Buddha Hall was built without any nails, only by using wooden brackets. And it's one of the oldest wooden buildings in China",
+      "confidence": 0.9
+    },
+    {
+      "point": "Marvel at 2000+ vibrant clay sculptures with 1500 years of history at Shuangling Temple treasure house",
+      "evidence": "With 1500 years of history and over 2000 vibrant clay sculptures, this place is famously known as a treasure house of painted sculptures",
+      "confidence": 0.9
+    },
+    {
+      "point": "Walk China's best preserved town city wall built in 827 to defend against Mongolian invaders",
+      "evidence": "the ancient city wall, known as China's best preserved town city wall. It was built in 827 to keep out East Mongolian invaders",
+      "confidence": 0.85
+    },
+    {
+      "point": "Discover intricate fortress details including 72 watchtowers and 3000 parapets symbolizing Confucius's disciples and students",
+      "evidence": "you can find 72 watchtowers and 3000 parapets said to resemble Confucius's 72 disciples and 3000 students",
+      "confidence": 0.85
+    },
+    {
+      "point": "Learn about unique turtle city design where walls form shell and gates represent head and tail",
+      "evidence": "Pingyao is known as tortoise city because its shape represents that of a turtle. The city walls are said to be the shell",
+      "confidence": 0.85
+    },
+    {
+      "point": "Visit the birthplace of Chinese banking and site of China's first modern bank that transformed the nation's economy",
+      "evidence": "Pingyao is known as the land of wealth and the birthplace of Chinese banking. Rishongchang Bank, known as the first modern bank of China",
+      "confidence": 0.9
+    },
+    {
+      "point": "Understand revolutionary banking system that controlled almost half of China's economy at its peak",
+      "evidence": "At its peak, Rishongchang controlled almost half of China's economy",
+      "confidence": 0.9
+    },
+    {
+      "point": "Explore underground secret vault from historic bank dealing with Wild West era thievery",
+      "evidence": "my favorite part about it is that it's got an underground secret vault",
+      "confidence": 0.85
+    },
+    {
+      "point": "See China's first armed escort agency where merchants hired martial arts masters for protection",
+      "evidence": "It was China's first armed escort agency. Here merchants and traders could hire martial arts masters to protect them along their journey",
+      "confidence": 0.9
+    },
+    {
+      "point": "Experience the most dense ancient town in China with unbelievable number of attractions in one square mile",
+      "evidence": "This is the most dense ancient town I've visited in terms of sheer number of attractions. There's an unbelievable amount to see here in this one square mile",
+      "confidence": 0.85
+    },
+    {
+      "point": "Avoid tourist crowds of Beijing, Shanghai, Tokyo while discovering hidden gem in rural Shanxi province",
+      "evidence": "You all be my guests and enjoy your summer vacation squeezing your way through the crowds of Beijing, Shanghai, Tokyo...And I'll be right here in the middle of nowhere, Shanxi province",
+      "confidence": 0.8
+    },
+    {
+      "point": "Access unique historical sites including real-life Gringotts-style vault and ancient Kung Fu bodyguard shops found nowhere else",
+      "evidence": "some of the most unique historical sites you can find anywhere. The first modern Bank of China, ancient Kung Fu bodyguard shops, the real life version of the Gringotts secret vault",
+      "confidence": 0.85
+    },
+    {
+      "point": "Host Noah provides entertaining travel challenge videos exploring China with random wheel-spin activities",
+      "evidence": "I'm Noah and I make videos traveling around China and doing random travel challenges. And now it's time for me to spin the wheel",
+      "confidence": 0.85
+    }
+  ]
+}
+

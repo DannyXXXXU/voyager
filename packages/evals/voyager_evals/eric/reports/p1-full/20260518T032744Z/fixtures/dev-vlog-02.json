@@ -1,0 +1,39 @@
+{
+  "fixture_id": "dev-vlog-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.7142857142857143,
+    "selling_point_recall": 0.14285714285714285,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 411.59856031300023,
+  "error": null,
+  "hooks_predicted": [
+    "It's five times the size",
+    "I think I got a robot dog",
+    "that's like military shit, yo",
+    "Killer deal, man, killer deal",
+    "How much do I have to buy before the price becomes lower?",
+    "Can I just give you 50 yuan right now for one, just to test it?",
+    "Is this real?",
+    "Look at these red-eyed neck massagers"
+  ],
+  "selling_points_predicted": [
+    "Exclusive look at high-tech robot dog described as military-grade technology",
+    "Real-time demonstration of price negotiation tactics in Chinese electronics markets",
+    "Discovery of incredible SSD deals with pricing details revealed",
+    "Behind-the-scenes access to wholesale pricing and minimum order quantity negotiations",
+    "Hands-on testing and authenticity verification of Sony products",
+    "Exploration of diverse product categories from tech gadgets to beauty devices",
+    "Insider knowledge on warranty terms and product guarantees",
+    "Cultural shopping experience with language barrier challenges authentically shown",
+    "Live product sampling and quality assessment before committing to purchase",
+    "Immersive market atmosphere with casual, unfiltered shopping interactions"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

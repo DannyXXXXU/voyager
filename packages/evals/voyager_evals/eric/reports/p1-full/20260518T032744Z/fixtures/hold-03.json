@@ -1,0 +1,54 @@
+{
+  "fixture_id": "hold-03",
+  "bucket": "holdout",
+  "scores": {
+    "hook_extraction_f1": 0.56,
+    "selling_point_recall": 0.5,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 453.15282745999957,
+  "error": null,
+  "hooks_predicted": [
+    "I'm now standing in rural Shanxi province, where one can find a magnificent ancient labyrinth",
+    "known as the best preserved historical city in all of China",
+    "Oh, until midnight, you must be always soaking wet from head to toe",
+    "Pingyao is famously known for having three treasures, which are its most famous historical artifacts",
+    "Built in the year 963",
+    "This is the Thousand Buddha Hall and it was built without any nails, only by using wooden brackets",
+    "it's one of the oldest wooden buildings in China",
+    "With 1500 years of history and over 2000 vibrant clay sculptures",
+    "China's best preserved town city wall",
+    "72 watchtowers and 3000 parapets said to resemble Confucius's 72 disciples and 3000 students",
+    "to the locals, Pingyao is known as tortoise city because its shape represents that of a turtle",
+    "the most important and famous historical attraction in Pingyao is a bank",
+    "Rishongchang Bank, known as the first modern bank of China",
+    "China had one of the most commercialized economies in the world with a population of over 300 million people",
+    "At its peak, Rishongchang controlled almost half of China's economy",
+    "it's got an underground secret vault",
+    "It was China's first armed escort agency"
+  ],
+  "selling_points_predicted": [
+    "Explore China's best preserved historical city with magnificent ancient labyrinth architecture",
+    "Entertaining travel challenge format where host must stay soaking wet from head to toe until midnight",
+    "Visit Zhenguo Temple built in 963 with peaceful atmosphere away from tourist crowds",
+    "See one of China's oldest wooden buildings constructed without any nails using only wooden brackets",
+    "Marvel at 2000+ vibrant clay sculptures with 1500 years of history at Shuangling Temple treasure house",
+    "Walk China's best preserved town city wall built in 827 to defend against Mongolian invaders",
+    "Discover intricate fortress details including 72 watchtowers and 3000 parapets symbolizing Confucius's disciples and students",
+    "Learn about unique turtle city design where walls form shell and gates represent head and tail",
+    "Visit the birthplace of Chinese banking and site of China's first modern bank that transformed the nation's economy",
+    "Understand revolutionary banking system that controlled almost half of China's economy at its peak",
+    "Explore underground secret vault from historic bank dealing with Wild West era thievery",
+    "See China's first armed escort agency where merchants hired martial arts masters for protection",
+    "Experience the most dense ancient town in China with unbelievable number of attractions in one square mile",
+    "Avoid tourist crowds of Beijing, Shanghai, Tokyo while discovering hidden gem in rural Shanxi province",
+    "Access unique historical sites including real-life Gringotts-style vault and ancient Kung Fu bodyguard shops found nowhere else",
+    "Host Noah provides entertaining travel challenge videos exploring China with random wheel-spin activities"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

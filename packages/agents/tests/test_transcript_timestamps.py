@@ -113,8 +113,8 @@ def test_hook_prompt_instructs_to_copy_timestamp_tag() -> None:
     """The HARD-RULE about copying [<s>s] tags must be present in the system prompt."""
     from voyager_agents.eric.nodes_llm import _SYS_HOOKS
 
-    assert "[<seconds>s]" in _SYS_HOOKS or "[<seconds>s] tag" in _SYS_HOOKS
-    assert "Copy that number verbatim" in _SYS_HOOKS
+    assert "[<seconds>s]" in _SYS_HOOKS
+    assert "copied\n   verbatim" in _SYS_HOOKS or "copied verbatim" in _SYS_HOOKS
 
 
 def test_unused_stub_client_still_works() -> None:

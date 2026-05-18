@@ -1,0 +1,50 @@
+{
+  "fixture_id": "dev-travel-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.6666666666666666,
+    "selling_point_recall": 0.8461538461538461,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 380.746429414,
+  "error": null,
+  "hooks_predicted": [
+    "for the first time ever, I am taking the fanciest class on one of China's high-speed trains",
+    "There are three classes available, I'm going to show you all of them",
+    "America's trains just cannot compare to China's",
+    "China has the largest high-speed rail network in the world",
+    "America can barely connect a few cities",
+    "in America, the trains are never on time, and they don't go that fast",
+    "This train can go 350 kilometers per hour",
+    "That is insane",
+    "I would hate to see it during Spring Festival",
+    "when it's time to board the train, they will personally escort you to the train",
+    "business class is actually the best class you can take",
+    "Spicy as hell",
+    "it doesn't taste like absolute poopoo",
+    "Even KFC or McDonald's"
+  ],
+  "selling_points_predicted": [
+    "Exclusive first-ever comprehensive tour of all three classes on China's high-speed trains including the fanciest business class",
+    "Experience the world's largest high-speed rail network that America cannot match in scale or connectivity",
+    "Ride trains that reach thrilling speeds of 350 kilometers per hour, far exceeding American rail speeds",
+    "Business class VIP treatment including priority boarding with personal escort and dedicated shorter security line",
+    "Complimentary beverages, snacks, and meal service included in business class with generous portions",
+    "Fully reclining business class seats perfect for sleeping on long journeys with adjustable footrests",
+    "Spacious business class workstation with large faux leather tables and dedicated drink holders for productivity",
+    "Surprisingly tasty complimentary hot meals with authentic spicy Chinese flavors beyond typical travel food quality",
+    "Convenient onboard food delivery service via QR code for KFC, McDonald's, drinks and snacks",
+    "Clean private western-style bathrooms in business class with all essentials including soap and running water",
+    "Thoughtful accessibility features including handicap toilets with wheelchair-height buttons",
+    "Free hot water stations available throughout the train for instant noodles or tea preparation",
+    "Honest side-by-side comparison of all three classes showing real differences in space, amenities and comfort",
+    "Second class still offers better comfort than airplane travel with reclining seats and tray tables",
+    "Authentic insights from experienced China-based creator who provides cultural context and navigation tips"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

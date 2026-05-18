@@ -1,0 +1,20 @@
+[
+  {
+    "fixture_id": "dev-food-02",
+    "bucket": "dev",
+    "scores": {
+      "hook_extraction_f1": 0.3636363636363636,
+      "selling_point_recall": 0.4,
+      "schema_validity_rate": 1.0
+    },
+    "passed": false,
+    "failed_metrics": [
+      "hook_extraction_f1:0.364<0.750",
+      "selling_point_recall:0.400<0.700",
+      "strategy_brief_quality:missing"
+    ],
+    "cost_usd": 0.0,
+    "wall_seconds": 418.46970433600006,
+    "error": null
+  }
+]

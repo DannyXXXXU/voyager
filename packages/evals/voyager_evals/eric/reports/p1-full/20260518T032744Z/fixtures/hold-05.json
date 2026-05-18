@@ -1,0 +1,42 @@
+{
+  "fixture_id": "hold-05",
+  "bucket": "holdout",
+  "scores": {
+    "hook_extraction_f1": 0.5333333333333333,
+    "selling_point_recall": 0.5555555555555556,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 383.0182393109999,
+  "error": null,
+  "hooks_predicted": [
+    "The myth that you can see the Great Wall of China from space has long been disproven.",
+    "it is the longest man-made structure in the world",
+    "the Great Wall took over 2,000 years to build",
+    "known in China as Wanli Qiangcheng – 10,000-li long wall",
+    "the total length would be about 13,171 miles",
+    "taken just seven years from his coming of age to eliminate his six rival states",
+    "stretching for over 3,107 miles",
+    "It took roughly ten years to build",
+    "Legend has it that many of the 400,000 workers who died during construction were buried in the wall itself"
+  ],
+  "selling_points_predicted": [
+    "Debunks the popular myth about seeing the Great Wall from space while revealing its true impressiveness",
+    "Discover the staggering true scale: over 13,000 miles of total wall segments built across history",
+    "Learn surprising truth that the Great Wall isn't one continuous structure but disconnected segments",
+    "Comprehensive historical journey spanning over 2,000 years from 7th century BCE to Ming Dynasty",
+    "Explore how China's first emperor unified rival states and connected existing walls into one system",
+    "Uncover the massive human cost: 400,000 workers with legends of bodies buried in the wall itself",
+    "Detailed breakdown of ingenious construction techniques adapted to different terrains and materials",
+    "Visit well-preserved sections like Baotuguyang in Inner Mongolia with exceptional views you can still experience",
+    "Understand the wall's crucial role in protecting Silk Road trade routes during their legendary inception",
+    "Discover sophisticated military communication system using fire, smoke signals, and sound along the wall",
+    "Learn intricate defensive architecture including multi-story platforms, gates, and strategic signal towers",
+    "Reveals thought-provoking conclusion that diplomacy ultimately proved more effective than massive fortifications"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

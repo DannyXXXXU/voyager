@@ -1,0 +1,195 @@
+=== TAG: extract_hooks__mT1BocPphNU  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a senior YouTube content strategist analyzing China travel videos for
+overseas growth. Your job is to extract the attention-grabbing HOOKS from a
+transcript — the exact lines a creator would use to STOP a viewer from
+scrolling.
+</role>
+
+<task>
+Read the transcript (each line tagged with [<seconds>s]) and emit between
+8 and 16 hooks. Aim HIGH on recall — when in doubt, INCLUDE. Missing a real
+hook costs us much more than including a borderline one.
+</task>
+
+<rules>
+1. Each hook_text MUST be a verbatim or near-verbatim span from the transcript,
+   <=200 chars. Prefer the FULL sentence over a truncated fragment.
+2. ALWAYS include opening hook(s) from the first 30 seconds. Opening CTAs like
+   "Did you know...", "Stick around...", "If you're going to X for the first
+   time..." ARE valid hooks — never reject them as generic.
+3. PRIORITIZE these high-value types whenever present:
+   - Numeric / record claims ("20,000 visitors a day", "350 meters high")
+   - Superlatives / firsts ("world's tallest", "highest-grossing ever")
+   - Warnings / safety beats ("wait until the timer rings or you'll hallucinate")
+   - Vivid contrasts / reactions ("are we on a movie set?", "defies gravity")
+   - Named specific nouns reacted to with surprise/disgust/excitement
+     ("chilled black tiger feet", "jian shou qing mushroom") — these short
+     specific-noun hooks are the MOST-MISSED type and you must extract every
+     single one that gets a creator reaction.
+4. ONE HOOK = ONE DISTINCT CLAIM. Split compound sentences. A list of three
+   dish names = THREE hooks. A sentence with a warning + a vivid reference =
+   TWO hooks.
+5. timestamp_s MUST be the leading [<seconds>s] tag of the source line, copied
+   verbatim. Use 0.0 only when the line has no tag.
+6. confidence in [0.0, 1.0]; >=0.8 only when the hook is a direct quote.
+7. Reject ONLY vague filler ("this place is amazing", "it was so cool") or
+   text not in the transcript.
+</rules>
+
+<examples>
+<example id="food-extreme-spicy">
+TRANSCRIPT (excerpt):
+[0.0s] today we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+[12.4s] look at all those chilies, that's crazy. your nose is numbing just from being here
+[45.8s] today we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on ultra-spicy food tour
+[120.0s] chilled black tiger feet, jian shou qing mushroom, and porcini soup — death-level spicy beef
+
+GOOD HOOKS (note: short specific-noun reactions extracted as separate items):
+- "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating" @ 0.0s
+- "Look at all those chilies, that's crazy. Your nose is numbing just from being here" @ 12.4s
+- "today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour" @ 45.8s
+- "chilled black tiger feet" @ 120.0s
+- "jian shou qing mushroom" @ 120.0s
+- "death-level spicy beef" @ 120.0s
+</example>
+
+<example id="travel-superlative">
+TRANSCRIPT (excerpt):
+[3.2s] this elevator is 350 meters high — a three-lane double-decker, the only one of its kind in the world
+[88.0s] are we on a movie set? this defies gravity
+
+GOOD HOOKS (numeric claim + superlative split; vivid reaction is its own hook):
+- "this elevator is 350 meters high" @ 3.2s
+- "a three-lane double-decker, the only one of its kind in the world" @ 3.2s
+- "are we on a movie set? this defies gravity" @ 88.0s
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: which hook TYPES did you find — numeric? superlative? named specific noun? opening CTA? Any 30s-opener you might miss? Then commit to extracting all of them.>",
+  "hooks": [ {"hook_text": "...", "timestamp_s": 0.0, "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list hooks. Target 8-16 hooks.
+</output>
+
+
+USER:
+VIDEO_ID=mT1BocPphNU
+TRANSCRIPT:
+[0.0s] Hey you guys I'm here in Kashgar in Xinjiang.
+[8.2s] Now Xinjiang has been in the news a lot lately you would have seen and we all know what the
+[11.2s] news is like.
+[12.2s] So I've come here to check out the place with my own eyes, come with me.
+[24.5s] Kashgar is home to one of China's western most cities.
+[27.6s] It's been famous for thousands of years due to its strategic position on the Silk Road
+[32.3s] acting as a gateway between China and Central Asia all the way to Europe.
+[37.9s] Most people here speak Uyghur but you can get by with Mandarin luckily, signage is only
+[43.0s] in Uyghur and Mandarin.
+[47.8s] Now there are a few places you must visit when you come to Kashgar and plenty of delicious
+[51.5s] food you must eat.
+[53.4s] Let me break it down for you.
+[62.4s] Top of the list of must visit places is the Id Kar Mosque which is not only the biggest
+[67.5s] mosque in Xinjiang but also in all of China.
+[75.0s] Apart from prayer time non-Muslims are welcome to visit the mosque for free.
+[83.8s] The mosque is located inside the ancient city which is right at the centre of modern day
+[88.4s] Kashgar.
+[113.9s] It's really quite fun getting lost among the winding streets.
+[117.7s] You can also buy souvenirs and eat local food here.
+[129.2s] My favourites in terms of local food are
+[131.7s] Doner kebabs with chicken or beef, french fries and lots of yummy sauce.
+[136.0s] Da Pan Ji which literally translates as big dish of chicken.
+[140.0s] Served with potato, capsicum and freshly pulled noodles.
+[143.7s] Cold local yoghurt with lots of sugar sprinkled on top.
+[147.3s] Ham noodles freshly pulled.
+[150.9s] Xinjiang salad with raw onions and juicy tomato.
+[165.8s] And last but not least, Uyghur ice cream, otherwise known as Xinjiang ice cream.
+[170.8s] Mmm, different but really good.
+[182.7s] A main part of the ancient city is the night market.
+[185.3s] But since China has only one time zone, you need to wait till about 10pm until the place
+[189.2s] gets dark and really comes to life.
+[191.3s] But it is worth the wait.
+[213.6s] Another must visit is the Apak Khoja mausoleum, the final resting place of Apak Khoja and
+[218.4s] his family.
+[219.8s] This was also once home to Xiang Fei, the fragrant concubine, who was said to dance
+[225.2s] around the palace after her unique beauty and scent caught the eyes and nose of the
+[260.5s] Wow, I think you guys will agree there is a lot to Kashgar so I'm really excited about
+[287.5s] my next stop which is Xinjiang's capital, Urumqi.
+[290.1s] See you guys then, bye bye.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  scratchpad: string;
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "scratchpad": "Opening CTA within first 30s about checking out Xinjiang controversy. Superlatives found: 'western most cities', 'biggest mosque in China'. Specific named foods as separate hooks. Interesting fact about China's single time zone. Historic 'fragrant concubine' story. Will extract all opening hooks, superlatives, named specific items, and vivid claims.",
+  "hooks": [
+    {
+      "hook_text": "Xinjiang has been in the news a lot lately",
+      "timestamp_s": 8.2,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "I've come here to check out the place with my own eyes, come with me",
+      "timestamp_s": 12.2,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Kashgar is home to one of China's western most cities",
+      "timestamp_s": 24.5,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "famous for thousands of years due to its strategic position on the Silk Road",
+      "timestamp_s": 27.6,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "acting as a gateway between China and Central Asia all the way to Europe",
+      "timestamp_s": 32.3,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "the Id Kar Mosque which is not only the biggest mosque in Xinjiang but also in all of China",
+      "timestamp_s": 62.4,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Da Pan Ji which literally translates as big dish of chicken",
+      "timestamp_s": 136.0,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "Uyghur ice cream, otherwise known as Xinjiang ice cream",
+      "timestamp_s": 165.8,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "China has only one time zone, you need to wait till about 10pm until the place gets dark",
+      "timestamp_s": 185.3,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Xiang Fei, the fragrant concubine, who was said to dance around the palace after her unique beauty and scent caught the eyes and nose",
+      "timestamp_s": 219.8,
+      "confidence": 0.85
+    }
+  ]
+}
+

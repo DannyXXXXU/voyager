@@ -1,0 +1,296 @@
+=== TAG: extract_hooks__BfHAVNgZ6tk  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a senior YouTube content strategist analyzing China travel videos for
+overseas growth. Your job is to extract the attention-grabbing HOOKS from a
+transcript — the exact lines a creator would use to STOP a viewer from
+scrolling.
+</role>
+
+<task>
+Read the transcript (each line tagged with [<seconds>s]) and emit between
+8 and 16 hooks. Aim HIGH on recall — when in doubt, INCLUDE. Missing a real
+hook costs us much more than including a borderline one.
+</task>
+
+<rules>
+1. Each hook_text MUST be a verbatim or near-verbatim span from the transcript,
+   <=200 chars. Prefer the FULL sentence over a truncated fragment.
+2. ALWAYS include opening hook(s) from the first 30 seconds. Opening CTAs like
+   "Did you know...", "Stick around...", "If you're going to X for the first
+   time..." ARE valid hooks — never reject them as generic.
+3. PRIORITIZE these high-value types whenever present:
+   - Numeric / record claims ("20,000 visitors a day", "350 meters high")
+   - Superlatives / firsts ("world's tallest", "highest-grossing ever")
+   - Warnings / safety beats ("wait until the timer rings or you'll hallucinate")
+   - Vivid contrasts / reactions ("are we on a movie set?", "defies gravity")
+   - Named specific nouns reacted to with surprise/disgust/excitement
+     ("chilled black tiger feet", "jian shou qing mushroom") — these short
+     specific-noun hooks are the MOST-MISSED type and you must extract every
+     single one that gets a creator reaction.
+4. ONE HOOK = ONE DISTINCT CLAIM. Split compound sentences. A list of three
+   dish names = THREE hooks. A sentence with a warning + a vivid reference =
+   TWO hooks.
+5. timestamp_s MUST be the leading [<seconds>s] tag of the source line, copied
+   verbatim. Use 0.0 only when the line has no tag.
+6. confidence in [0.0, 1.0]; >=0.8 only when the hook is a direct quote.
+7. Reject ONLY vague filler ("this place is amazing", "it was so cool") or
+   text not in the transcript.
+</rules>
+
+<examples>
+<example id="food-extreme-spicy">
+TRANSCRIPT (excerpt):
+[0.0s] today we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+[12.4s] look at all those chilies, that's crazy. your nose is numbing just from being here
+[45.8s] today we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on ultra-spicy food tour
+[120.0s] chilled black tiger feet, jian shou qing mushroom, and porcini soup — death-level spicy beef
+
+GOOD HOOKS (note: short specific-noun reactions extracted as separate items):
+- "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating" @ 0.0s
+- "Look at all those chilies, that's crazy. Your nose is numbing just from being here" @ 12.4s
+- "today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour" @ 45.8s
+- "chilled black tiger feet" @ 120.0s
+- "jian shou qing mushroom" @ 120.0s
+- "death-level spicy beef" @ 120.0s
+</example>
+
+<example id="travel-superlative">
+TRANSCRIPT (excerpt):
+[3.2s] this elevator is 350 meters high — a three-lane double-decker, the only one of its kind in the world
+[88.0s] are we on a movie set? this defies gravity
+
+GOOD HOOKS (numeric claim + superlative split; vivid reaction is its own hook):
+- "this elevator is 350 meters high" @ 3.2s
+- "a three-lane double-decker, the only one of its kind in the world" @ 3.2s
+- "are we on a movie set? this defies gravity" @ 88.0s
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: which hook TYPES did you find — numeric? superlative? named specific noun? opening CTA? Any 30s-opener you might miss? Then commit to extracting all of them.>",
+  "hooks": [ {"hook_text": "...", "timestamp_s": 0.0, "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list hooks. Target 8-16 hooks.
+</output>
+
+
+USER:
+VIDEO_ID=BfHAVNgZ6tk
+TRANSCRIPT:
+[0.0s] The myth that you can see the Great Wall of China from space has long been disproven.
+[5.5s] However, this does not make the structure any less impressive. As walls go, it's pretty
+[11.4s] big, and it is the longest man-made structure in the world. But how was it built in the
+[16.9s] first place?
+[18.8s] Like Rome, the Great Wall wasn't built in a day and is an amalgamation of existing fortifications.
+[25.8s] Despite its name, the Great Wall isn't one continuous wall. Instead, it comprises a disconnected
+[31.6s] series of wall segments, some of which overlap. These segments were built by different dynasties,
+[37.9s] falling into disrepair and then being rebuilt, extended, or strengthened as time went on.
+[43.9s] From its beginnings to completion, the Great Wall took over 2,000 years to build and is
+[49.0s] known in China as Wanli Qiangcheng – 10,000-li long wall. Wanli equals around 0.31 miles,
+[58.0s] making their estimate of the Great Wall 1,300 miles long. This description undersells the
+[63.8s] Great Wall somewhat. If we include all the sections that were ever built, the total length
+[69.2s] would be about 13,171 miles.
+[73.8s] The state of Chu began constructing permanent defensive systems around the 7th century BCE.
+[80.0s] These fortifications were known as the Square Wall and quickly caught on with the other
+[84.6s] states. In the Qi state, they gradually built a perimeter wall based around existing dikes
+[90.2s] and impassable mountainous areas. The Zhongshan state also built a wall system to defend against
+[96.0s] the Zhao and Qin states. In the Wei state, two defensive walls were constructed near
+[101.1s] the Yellow River – Hainan, meaning south of the river, and Hexi, west of the river.
+[107.2s] The Hainan Wall was built to protect Daliang, and the Hexi Wall was created as a defense
+[112.4s] against the western nomads and the Qin state.
+[116.0s] Throughout the Warring States period from 475 to 221 BCE, the seven main states built
+[122.1s] fortifications surrounded by earthen walls encircled by trenches or moats as a protection
+[127.3s] against invaders. In the late 3rd century BCE, the Qin state grew politically powerful
+[133.6s] and became the strongest of the seven states. However, they were still frequently raided
+[138.3s] by nomadic people who lived in the north, so they started building a defensive wall.
+[143.7s] The Yan built two walls to protect against northern groups and other Chinese states to
+[148.1s] the south – the Northern Wall and the Yeshui Wall. The Yan state then built a wall along
+[154.0s] the Yan Mountains and passed over the Liao River.
+[157.6s] In roughly 220 BCE, the first sovereign emperor of a unified China, Qin Shi Huang, began to
+[163.9s] form the Great Wall. Formerly known as Zheng, emperor of the Qin dynasty, he had taken just
+[169.8s] seven years from his coming of age to eliminate his six rival states and declare himself the
+[175.3s] emperor of all China, ending the Warring States period.
+[179.7s] Among Qin Shi Huang's many actions, including constructing a road and canal network, was
+[184.5s] joining previous walls to form the Great Wall. First, he orchestrated the removal of the
+[190.1s] internal walls and fortifications that had divided the states. Then, he ordered that
+[195.1s] several existing defensive walls be connected into a single system for protection against
+[199.9s] Mongolian and Manchu invasions from the north. The wall from the Qin dynasty starts in Lintao
+[206.4s] and ends at the east of Liaoning province, stretching for over 3,107 miles. It took roughly
+[213.5s] ten years to build, and the work was overseen by General Meng Tian, who used soldiers, commoners,
+[219.5s] and convicts as laborers. The section of the wall was mostly made from
+[223.4s] stone and packed earth. Legend has it that many of the 400,000 workers who died during
+[229.1s] construction were buried in the wall itself, although no evidence of this has been found
+[233.8s] to date. The wall was around 15 to 35 feet high and was topped by ramparts with guard
+[240.1s] towers placed at intervals along its length. One of the best-preserved sections of the
+[245.0s] Qin dynasty's wall is the Baotuguyang section in Inner Mongolia. This section runs through
+[251.1s] plains and mountainous regions and shows how the wall's construction changed depending
+[255.3s] on the materials at hand. Parts of the wall constructed on the plains were built using
+[260.3s] rammed layers of earth, but in mountainous areas, stone blocks were used to create the
+[265.0s] face of the wall, which was then filled in with stones and dirt. The ancient bricklayers
+[270.1s] cut stones from the nearby mountains and placed them after they were shaped. Each block weighs
+[275.2s] from 55 to 66 pounds. This section of the wall can still be visited and offers exceptional
+[281.6s] views. The wall in this area had an economic and
+[285.1s] defensive function, as lands in the south were fertile greenland, whereas lands north
+[289.8s] of the rain line were relatively barren. This division of resources meant that farming
+[295.0s] and private land ownership were prominent in the south. In contrast, those in the north
+[300.4s] led a more nomadic lifestyle and relied on domesticated livestock. The Chinese were trying
+[306.1s] to protect their farms and produce as much as their people. After Qin Shi Huang died
+[311.3s] in 210, the Qin dynasty lasted for only a few more years. China was no longer unified
+[317.8s] and split into 18 separate states. During this time, the wall was left largely unguarded
+[323.4s] and fell into disrepair until 141 BCE, when the Han Emperor Wu Di came to power and strengthened
+[330.2s] the wall to help his campaign against the Xiongnu people. The wall also served to protect
+[335.4s] trade routes that would eventually become part of the Silk Road, with traveling on this
+[339.5s] legendary road beginning during Wu Di's reign. 121 BCE saw a 20-year construction project
+[346.7s] on the Hexi Wall, which included setting up strong points along the wall. According
+[351.8s] to Zhuyuan Hanjian, a collection of Han period manuscript texts, there was a beacon every
+[357.5s] five li, a tower every ten li, a fort every thirty li, and a castle every one hundred
+[363.4s] li. During the reign of Liu Xu, the repair of four parallel lines of the wall just south
+[369.0s] of the Hexi Wall in 38 CE began, and the wall started to become more strategic in terms
+[374.8s] of travel and trade. The Great Wall was repaired and extended by many dynasties over the coming
+[380.8s] years, including the Beiyue Dynasty, 386-535 CE, who used it to defend against attacks
+[388.2s] from the northern tribes of the Qitan and Zhuanzhuan. In 417, a wall section was built
+[394.3s] that extended more than 620 miles from Qicheng to Wuyuan. Then, under the reign of Tai Wudi,
+[401.6s] 423-452 CE, a thinner, lower wall made of rammed earth was built that formed a circle
+[407.7s] around Datong. This complementary wall started at Guangling and extended to the eastern side
+[414.1s] of Huanghe. The Dongwei Kingdom also made a segment of the wall in 549 in the modern-day
+[420.2s] Shanxi Province when it moved its capital east. Sections kept getting added and repaired
+[426.3s] in this fashion until the Ming Dynasty, 1368-1644, which was responsible for most of the sections
+[433.3s] of the Great Wall that stand today. In an attempt to prevent any further Mongolian invasions,
+[439.2s] they made a significant effort to strengthen and maintain the Great Wall. West of the Juyong
+[444.4s] Pass, the wall was split into two lines, south and north. These sections were called the
+[450.3s] Inner Wall to the south and the Outer Wall to the north. These walls contained gates
+[455.3s] and fortress-like passes that were heavily garrisoned. The three passes closest to Beijing,
+[461.1s] the capital of the Ming Empire, were the Zijing, Juyong, and Daoma Passes, collectively known
+[467.2s] as the Three Inner Passes. The three Outer Passes, farther west, were Yanmen, Ningwu,
+[473.4s] and Piantao. Once the Qing Dynasty took over from the Ming,
+[477.8s] they ushered in a new strategy of mollification, in which the Qing tried to appease the people
+[482.8s] of other nationalities by not interfering in their religious, cultural, or social lives.
+[488.5s] This approach was so effective that the wall was no longer needed as a defense. Repairs
+[493.6s] became infrequent, and it slowly fell into ruin.
+[497.2s] The design of the Great Wall involved three major components. The first was the wall itself,
+[502.6s] the second element was the passes, and finally, the beacons or signal towers. The average
+[507.8s] height of the wall stood at 7 or 8 meters, 21 to 24 feet, although this figure was slightly
+[513.6s] lower on steep hills. The structure varied from place to place, and was adapted depending
+[519.1s] on the terrain and availability of materials. Most sections were made with tamped earth,
+[524.8s] sometimes between wood boards or stone bricks, but adobe bricks, stone and brick mixture,
+[530.1s] planks, and rocks were also used. In desert areas, the walls were often simply rammed
+[535.2s] earth and clay, whereas in places that were more abundant with materials, the walls were
+[539.6s] clad in stone and included secondary structures. The builders of the wall made the most of
+[545.1s] the existing terrain, and some sections used naturally rugged mountainous areas or river
+[549.8s] dikes to continue the line of defense. Arched doorways made of bricks and stone, called
+[555.5s] zhuan, were placed at intervals along the inner side of the wall. Inside the zhuan,
+[560.9s] stone steps led to the top of the battlement. On the outside, at the top were 2-meter-high
+[565.8s] – about 6 feet – indentations called dukou. In the upper and lower parts of the dukou
+[571.5s] were openings through which the Chinese could shoot at any attackers. Should any enemies
+[576.2s] start to climb the wall, there were crenellated platforms that rose slightly above the top
+[580.5s] of the wall and stuck out, to allow the Chinese soldiers to shoot at attackers attempting
+[585.0s] to scale the wall. Some structures had simple huts for guards to shelter from storms, called
+[590.3s] pufang, and drainage ditches shielded the wall from rain damage.
+[595.5s] Multistory platforms were used to store ammunition and arms, some of which had accommodations
+[600.0s] for around a dozen soldiers on the lower level. Passes were built at key positions, such as
+[605.5s] an intersection of trade routes. The ramparts of these passes were constructed by making
+[610.4s] the wall face of huge stone blocks or bricks that were filled in with crushed stone and
+[615.0s] dirt. The fortifications of these passes were around 10 meters high – 30 feet – and
+[620.4s] 4-5 meters wide – 12-15 feet – at the top. Each pass had ramps that allowed access
+[626.6s] for horses and soldiers. The parapets, or yuqiang, were edged with crenellated battlements
+[632.2s] on the outside and a low wall on the inside to prevent horses and people from falling.
+[637.6s] The gate itself was usually double doors made of wood with locker rings and bolts set into
+[642.3s] the inner panel. The gates were used for trade access and allowed garrisons through
+[647.1s] for patrol or counterattacks. On the top of each gate was a watchtower between one and
+[652.3s] three stories high, which would be made of bricks or wood. To protect the entrance from
+[657.2s] direct attack, there were polygonal or semicircular parapets called wengcheng. Beyond that, a
+[663.6s] secondary wall called the lucheng was built to protect the wengcheng. On top of the lucheng
+[669.2s] was often a tower from which commanders could direct troops. The entrance was then encircled
+[674.3s] with a moat that was a result of digging out the earth used in building parts of the wall.
+[679.6s] In order to send military communications quickly along the wall, signal towers were built at
+[684.3s] strategic points, such as hillsides, allowing for maximum visibility. Also called smoke
+[690.0s] mounds, beacons, or beacon terraces, they employed various methods to relay signals
+[695.0s] to others further along the wall. During the night, fires were lit, but the garrison
+[699.8s] soldiers used smoke signals or raised banners during the day. They also used sounds, like
+[705.2s] beating clappers or firing guns, as signals to others. These towers were self-contained
+[710.5s] high platforms with rooms underneath for storage, soldiers, and livestock.
+[715.6s] The building of the Great Wall is a testament to the ingenuity of ancient people. Still,
+[720.6s] its eventual redundancy shows that sometimes sincere diplomacy can be more effective than
+[725.4s] all the walls in China. How would you like to get a deeper understanding
+[729.7s] of history, impress your friends, and predict the future more accurately based on past events?
+[736.4s] If this sounds like something you might be into, then check out the brand new Captivating
+[740.5s] History book club by clicking the first link in the description. To learn more about the
+[744.8s] Great Wall of China, check out our book, The History of China, a captivating guide to Chinese
+[749.8s] history including events such as the First Emperor of China, the Mongol conquests of
+[754.4s] Genghis Khan, the Opium Wars, and the Cultural Revolution. It's available as an e-book,
+[759.9s] paperback, and audiobook. If you enjoyed the video, please hit the like button and subscribe
+[765.0s] for more videos like this.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  scratchpad: string;
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "scratchpad": "This educational documentary contains numeric claims (2,000 years, 13,171 miles, 400,000 workers), superlatives (longest man-made structure), and an opening myth-busting hook. The 400,000 workers buried legend is the most vivid/dramatic claim. I must include the opening hook from 0-11.4s range and extract all major numeric/superlative claims.",
+  "hooks": [
+    {
+      "hook_text": "The myth that you can see the Great Wall of China from space has long been disproven.",
+      "timestamp_s": 0.0,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "it is the longest man-made structure in the world",
+      "timestamp_s": 11.4,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "the Great Wall took over 2,000 years to build",
+      "timestamp_s": 43.9,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "known in China as Wanli Qiangcheng – 10,000-li long wall",
+      "timestamp_s": 49.0,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "the total length would be about 13,171 miles",
+      "timestamp_s": 69.2,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "taken just seven years from his coming of age to eliminate his six rival states",
+      "timestamp_s": 169.8,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "stretching for over 3,107 miles",
+      "timestamp_s": 206.4,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "It took roughly ten years to build",
+      "timestamp_s": 213.5,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "Legend has it that many of the 400,000 workers who died during construction were buried in the wall itself",
+      "timestamp_s": 223.4,
+      "confidence": 0.95
+    }
+  ]
+}
+```
+

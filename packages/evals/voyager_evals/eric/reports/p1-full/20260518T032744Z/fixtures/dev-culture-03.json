@@ -1,0 +1,49 @@
+{
+  "fixture_id": "dev-culture-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.42105263157894735,
+    "selling_point_recall": 0.875,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 384.29466708700056,
+  "error": null,
+  "hooks_predicted": [
+    "I highly recommend you guys to get this online.",
+    "Michelin Guide garden-style restaurant known for its Lingnam architecture",
+    "one of Guangzhou's four major garden-style restaurants which includes East, South, North, and West",
+    "This is a really big bun, guys.",
+    "Look at the size comparing to my face.",
+    "Look at that big ass shrimp in there.",
+    "It's $9 per person for just a tea",
+    "the sun is like toxic",
+    "founded in 1880",
+    "a local favorite for over a century, attracting everyone from literally empires to modern day food lovers",
+    "this place is always, always packed. So come early, or be ready to wait.",
+    "established in 1860, is Guangzhou's first western-style eatery",
+    "hosted many celebrities, one being the most famous would be Zao Wanluo's wedding banquet"
+  ],
+  "selling_points_predicted": [
+    "Tour of Guangzhou's iconic Michelin Guide garden-style dim sum restaurants featuring traditional Lingnam architecture",
+    "Unique dining experience on a scenic Pearl River cruise with dim sum while viewing Guangzhou's skyline and Canton Tower",
+    "Visit to one of Guangzhou's oldest restaurants, Peng Tou Gui, founded in 1880 with over a century of history",
+    "Experience restaurants that have hosted empires and celebrities including famous wedding banquets",
+    "Insider access to local's personal favorite restaurants visited every time she returns to Guangzhou",
+    "Comprehensive coverage of multiple top dim sum spots in a single guide for efficient trip planning",
+    "Stunning garden-style restaurants featuring pavilions, bridges, waterfalls and large scenic ponds",
+    "Taste the restaurant's number one menu item featuring oversized buns with massive shrimp inside",
+    "Practical booking and pricing details including app recommendations for better value set menus",
+    "Exploration of beautiful traditional alleyways and historic tourist areas like Guanyingfang with olden day style streets",
+    "Visit Guangzhou's first western-style restaurant from 1860 blending Chinese and western flavors with famous dishes",
+    "Authentic local perspective from creator who has visited throughout her entire life in Guangzhou",
+    "Experience classic Cantonese dim sum dishes including shrimp dumplings, siu mai, rice noodle rolls and boat congee",
+    "Behind-the-scenes details about restaurant renovations and changes over the years from repeat visitor",
+    "Discovery of restaurants attracting young visitors with classic yet modern dishes and beautiful architecture"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

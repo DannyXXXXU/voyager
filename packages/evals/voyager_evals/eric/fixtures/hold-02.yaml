@@ -7,41 +7,84 @@ holdout: true
 gold_hooks:
 - text: It's absolutely amazing here, honestly one of the best sceneries I've ever
     seen in my life
-  aliases: []
+  aliases:
+  - This is one of the most amazing views I've witnessed in my entire life
+  - Honestly, the scenery here is absolutely incredible, among the best I've ever
+    experienced
+  - The scenery here is truly stunning, definitely one of the finest I've seen
   timestamp_s: 0.0
 - text: It's so famous that it's even featured on the 20 yuan banknote here in China
-  aliases: []
+  aliases:
+  - This place is famous enough to appear on China's 20 yuan banknote
+  - It even appears on the Chinese 20 yuan bill, that's how renowned it is
+  - Featured on the 20 yuan note in China due to its fame
   timestamp_s: 30.0
 - text: Called by National Geographic one of the 10 watery wonders in the world
-  aliases: []
+  aliases:
+  - National Geographic named it among the world's 10 watery wonders
+  - Listed as one of 10 watery wonders globally by National Geographic
+  - National Geographic ranks this as one of the planet's 10 watery wonders
   timestamp_s: 45.0
 - text: All of these karst formations are incredible and they are everywhere
-  aliases: []
+  aliases:
+  - These incredible karst formations can be found everywhere
+  - Karst formations are all around, and they're absolutely incredible
+  - Everywhere you look, there are amazing karst formations
   timestamp_s: 180.0
 - text: It tastes like detergent... it smells like soap and it tastes like it
-  aliases: []
+  aliases:
+  - It has a soapy smell and detergent-like taste
+  - Smells and tastes exactly like soap or detergent
+  - The taste and smell are like detergent and soap
   timestamp_s: 280.0
 - text: We are paying for this room per night only 35 dollars
-  aliases: []
+  aliases:
+  - This room costs us just 35 dollars per night
+  - Only 35 dollars a night is what we're paying for this room
+  - We're spending only 35 dollars nightly for this room
   timestamp_s: 450.0
 - text: Nobody speaks English, not even our tour guide
-  aliases: []
+  aliases:
+  - Our tour guide doesn't speak English, and neither does anyone else
+  - English isn't spoken by anyone here, including our tour guide
+  - Not a single person speaks English, tour guide included
   timestamp_s: 90.0
 gold_selling_points:
 - text: Spectacular karst scenery rated among the world's best natural wonders
-  aliases: []
+  aliases:
+  - Karst landscape ranked as one of the planet's top natural wonders
+  - World-class karst scenery recognized as among the best natural wonders globally
+  - Outstanding karst views considered among Earth's finest natural wonders
 - text: Affordable cruise experience with good organization
-  aliases: []
+  aliases:
+  - Well-organized cruise at an affordable price
+  - Budget-friendly cruise that's efficiently organized
+  - Good organization and reasonable pricing for the cruise
 - text: Incredible karst formations visible throughout the entire journey
-  aliases: []
+  aliases:
+  - Amazing karst formations seen along the whole route
+  - Karst formations are stunning and present throughout the trip
+  - The entire journey showcases incredible karst landscapes
 - text: Warm and generous local people create memorable cultural interactions
-  aliases: []
+  aliases:
+  - Local people are warm and generous, making cultural exchanges memorable
+  - Memorable cultural moments thanks to generous, welcoming locals
+  - Friendly, generous locals provide unforgettable cultural experiences
 - text: Affordable luxury accommodation with stunning views
-  aliases: []
+  aliases:
+  - Luxurious lodging at affordable rates with beautiful views
+  - Budget-friendly luxury rooms featuring spectacular views
+  - Stunning views and luxury accommodation at reasonable prices
 - text: Authentic cultural food experiences with health benefits
-  aliases: []
+  aliases:
+  - Genuine local cuisine offering health advantages
+  - Traditional food experiences that provide health benefits
+  - Health-benefiting authentic cultural culinary experiences
 - text: Must-see destination for China travelers
-  aliases: []
+  aliases:
+  - Essential stop for anyone traveling in China
+  - A destination every China visitor should experience
+  - Travelers to China shouldn't miss this destination
 notes: LOCKED — replaced 2026-05-06 (prev 7YQ0dAgcerA was also Mandarin voiceover;
   food/medium pool exhausted, swapped to nature/medium for diversity)
 transcript_sha256: ee4e7a4c209bb3f80ad6df8ecc8a2cc3b1479cb919fe5de2d897cb68b1a64890

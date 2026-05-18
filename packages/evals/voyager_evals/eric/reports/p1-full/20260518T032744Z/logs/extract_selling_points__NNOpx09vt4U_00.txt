@@ -1,0 +1,293 @@
+=== TAG: extract_selling_points__NNOpx09vt4U  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a marketing copywriter for an overseas creator brand. Extract the
+SELLING POINTS — the reasons a viewer should watch / visit / care — from a
+transcript, written as concise benefit statements.
+</role>
+
+<task>
+Emit between 8 and 18 selling points. Eric over-producing is fine (Mike filters
+downstream). Under-producing is the failure mode. When in doubt, INCLUDE.
+</task>
+
+<rules>
+1. Each `point` is a concise benefit STATEMENT, 40-180 chars, marketing-brief
+   style. NOT a bare topic label. NOT a quote.
+2. `evidence` MUST quote or paraphrase the supporting transcript span
+   (<=200 chars). Never empty.
+3. Cover BOTH content benefits (what you'll see / taste / experience) AND
+   creator-expertise benefits (host credibility, behind-the-scenes access).
+4. No duplicates — same benefit in different words = ONE point.
+5. confidence in [0.0, 1.0]; >=0.8 only when evidence is a direct quote.
+</rules>
+
+<examples>
+<example id="food-chongqing">
+TRANSCRIPT (excerpt):
+[15.0s] meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour
+[120.0s] this chef has been making hot pot base from scratch for 10 years
+[200.0s] chongqing — the manhattan of mountains, cyberpunk cityscape
+
+GOOD SELLING POINTS:
+- point: "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot"
+  evidence: "we're gonna attempt to eat the world's spiciest hot pot"
+- point: "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights"
+  evidence: "meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour"
+- point: "Behind-the-scenes look at traditional food preparation including 10-year veteran chef making hot pot base from scratch"
+  evidence: "this chef has been making hot pot base from scratch for 10 years"
+- point: "Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan of mountains'"
+  evidence: "chongqing — the manhattan of mountains, cyberpunk cityscape"
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: list the benefit CATEGORIES present in this transcript (content benefits + creator-expertise benefits). Did you cover both? Are you at 8+ items?>",
+  "selling_points": [ {"point": "...", "evidence": "...", "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list selling_points. Target 8-18 items.
+</output>
+
+
+USER:
+VIDEO_ID=NNOpx09vt4U
+TRANSCRIPT:
+[0.0s] It's absolutely amazing here, honestly one of the best sceneries I've ever seen in my life.
+[5.5s] Definitely something you should add on your trip to China, it's a must.
+[9.9s] Even here on the boat we made some friends and they kept offering us food,
+[14.0s] but it's very interesting about their cuisine and what they eat here in China.
+[18.1s] This is the room with the view actually, it's a bit more expensive than the other ones,
+[22.2s] but it's worth it.
+[23.7s] We managed to find a taxi, we had to negotiate a bit
+[28.0s] and we're still paying more than what our hotel recommended us.
+[32.0s] Nihao from China!
+[33.9s] Today we are going to visit one of the most beautiful and popular places here
+[39.4s] and it's so famous that it's even featured on the 20 yuan banknote here in China.
+[44.6s] I'm talking about Li River, it was called by National Geographic
+[48.0s] one of the 10 watery wonders in the world, so that's a big deal.
+[53.2s] It's also part of the UNESCO natural heritage, we're really excited to see it.
+[59.8s] What's really interesting about this river is the karst formations that we will see
+[64.6s] and how we will do it is by taking a cruise on it from Guilin to Yangshuo,
+[72.7s] where we will spend the next night.
+[74.6s] In order to do this cruise you need to be based in Guilin
+[78.6s] because the pickup for the tours is from your hotel there
+[82.4s] and we got the tour booked from our accommodation.
+[86.4s] We saw some other options online but they were more expensive
+[89.8s] so I recommend you ask your accommodation first.
+[92.0s] Also I will leave you the link in the description below with our accommodation
+[96.4s] which is really recommended, super cheap, super good, reliable in terms of tours.
+[102.3s] So we were picked up from our hotel, brought here to the pier by the bus
+[106.3s] and it was really funny because nobody speaks English, not even our tour guide
+[110.6s] and she was speaking all the way here very loudly in a fluent Chinese, but it was funny.
+[127.3s] Anyway, right now we are already on the river, on the boat.
+[132.7s] We're gonna prepare to get started.
+[134.6s] I mean everybody is starting the trip and look, it's a huge port here.
+[139.1s] Lots of boats, lots of people everywhere, the organization is very good.
+[144.7s] We're gonna see what is inside, a lot of interesting things,
+[149.2s] people wearing traditional port.
+[150.9s] So let's get started!
+[198.4s] If you want to take pictures, come early on the deck because it's really crowded
+[220.1s] and we've been down for just 20 minutes.
+[318.9s] It's absolutely amazing here, honestly one of the best sceneries I've ever seen in my life.
+[327.2s] All of these karst formations are incredible and they are everywhere.
+[331.3s] Since we left until now and I think until we reach Yangshuo, all the scenery will look like this.
+[338.5s] It's an incredible landscape, honestly.
+[341.8s] It's not a landscape that we haven't seen before but here it's at a larger scale.
+[346.5s] The karst formations are everywhere,
+[348.6s] definitely something you should add on your trip to China, it's a must.
+[376.7s] So
+[393.0s] I can't see the end but we'll see it through
+[406.9s] People here in China were so kind to us already.
+[413.0s] Even here on the boat we made some friends and they kept offering us food.
+[417.8s] Some fruits we haven't tried, some snacks, now these flowers.
+[422.3s] I think these are to be eaten.
+[424.8s] I hope we can eat them.
+[426.5s] Anyway, very very nice people.
+[428.5s] We didn't have time to film them but so you know.
+[436.5s] Let me smell it, it smells good but it might be a soap as well.
+[449.0s] Oh my god, what if it's a soap?
+[451.7s] Soap?
+[452.1s] It smells, yeah, it smells like it.
+[455.0s] Okay, eat it.
+[460.4s] It's kind of flowerish.
+[466.5s] So the presentation matches the taste.
+[470.3s] It's not soap.
+[472.0s] No?
+[472.6s] No.
+[475.9s] Okay, let me try.
+[478.2s] I don't know, let's see.
+[485.2s] I hope it's not soap.
+[490.4s] Very good, thank you friend.
+[493.4s] It's a good cookie but definitely not our style.
+[496.8s] I mean we are used to different kind of food.
+[499.5s] It tastes like detergent.
+[502.4s] Something very sweet.
+[503.6s] Yeah, I told you it smells like soap and it tastes like it.
+[506.8s] But the texture is not like soap, it's like marzipan the texture.
+[510.2s] Yeah.
+[510.9s] Yeah, funny.
+[511.5s] Anyway, the thing is people here share everything with us.
+[515.7s] And they are very kind and thank you very much for everything you are doing.
+[519.5s] Amazing, amazing.
+[520.7s] Yeah, they offer to take pictures, everything.
+[523.6s] The good part is that after you eat this, your breath is smelling very good.
+[530.4s] We use Google Translate and it seems it's osmanthus cake.
+[534.7s] And when I searched osmanthus on Google, it's a flower that looks like this.
+[541.2s] A bit like jasmine, you see?
+[543.3s] That's why it tastes flowerish.
+[547.3s] Benefits, let's see.
+[549.3s] Slimming and weight loss.
+[550.9s] Reduction of blood lipids.
+[552.4s] Stomach reinforcement.
+[554.7s] But it's very interesting about their cuisine and what they eat here in China.
+[558.7s] That everything is very healthy and has properties.
+[564.0s] I don't know, the teas they drink, it's very different.
+[567.3s] Amazing, amazing.
+[567.8s] But we keep learning things that probably we will use them at home.
+[578.8s] So
+[586.6s] we
+[606.2s] made it to Yangshuo.
+[607.7s] It was an amazing trip and already the atmosphere is very nice here.
+[613.4s] We're crossing through a market.
+[615.3s] We need to figure our way to the accommodation.
+[617.8s] But stick with us to show it to you because we have big expectations of it.
+[622.1s] I've seen some pictures and it should be one of the nicest we've had.
+[626.5s] So let's go.
+[645.3s] So
+[654.2s] we
+[669.4s] managed to find a taxi just in time because after we got in it started raining.
+[676.6s] So we're in an electric tuk-tuk heading to the hotel.
+[681.7s] It's a branded electric.
+[687.3s] Yeah, so we had to negotiate a bit and we're still paying more than what our hotel recommended us.
+[694.8s] But it's still affordable so we didn't want to negotiate too much.
+[701.0s] We just wanted to get home sooner.
+[711.6s] Bye, bye, bye.
+[724.2s] Are you ready for the room tour?
+[726.4s] We made it and it's as beautiful as I've imagined it or even more.
+[731.7s] So let's turn the camera around to see Alex going.
+[737.7s] Okay, first of all the view.
+[742.4s] This is the room with the view actually.
+[745.1s] It's a bit more expensive than the other ones but it's worth it.
+[750.0s] We have a bed, a desk outside, a desk inside and a bedroom that I'll show you if you're interested.
+[758.2s] But it's normal and then the view.
+[762.5s] Wow and you have also swimming pool.
+[764.6s] Yeah, amazing.
+[772.5s] So let's turn it this way and we have here a bathroom.
+[778.8s] What is really nice here is that we also have free washing machines and free detergent.
+[786.6s] So we can wash all of our clothes.
+[789.4s] We have free drinking water.
+[791.1s] As you've seen we have the pool.
+[793.0s] They rent scooters from here which we will do I don't know if today or tomorrow.
+[798.5s] We are paying for this room per night only 35 dollars.
+[806.2s] What do you think?
+[806.9s] I'll leave you the link in the description below.
+[809.3s] And don't forget there are even cheaper options here.
+[814.2s] This is an upgrade let's say with this amazing view.
+[818.0s] But even the other rooms I've seen that they have a nice view but it's more of the city.
+[848.4s] So guys it's time to go to refresh a bit and rest because we woke up at 6am and we are a bit tired.
+[864.2s] I hope you enjoyed today's episode and that I convinced you to add the cruise on
+[868.3s] Li River on your bucket list.
+[870.3s] Don't forget to leave a like in case you enjoyed today's episode and subscribe to
+[874.1s] see our next adventures here in China because it's gonna be epic.
+[877.6s] Bye!
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  scratchpad: string;
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "scratchpad": "Content benefits: world-class scenery (Li River karst formations, UNESCO site, National Geographic recognition), cultural experiences (local interactions, authentic cuisine), practical travel logistics (accommodation, transport). Creator-expertise benefits: personal testimony, budget travel tips, insider booking advice, authentic interactions filmed. Coverage is balanced; 15 items extracted.",
+  "selling_points": [
+    {
+      "point": "Experience scenery ranked by National Geographic as one of the 10 watery wonders of the world",
+      "evidence": "called by National Geographic one of the 10 watery wonders in the world",
+      "confidence": 0.9
+    },
+    {
+      "point": "Visit a UNESCO natural heritage site so iconic it appears on China's 20 yuan banknote",
+      "evidence": "so famous that it's even featured on the 20 yuan banknote here in China. It's also part of the UNESCO natural heritage",
+      "confidence": 0.95
+    },
+    {
+      "point": "Witness stunning karst formations that the creator ranks among the best sceneries they've ever seen",
+      "evidence": "absolutely amazing here, honestly one of the best sceneries I've ever seen in my life",
+      "confidence": 0.95
+    },
+    {
+      "point": "Scenic cruise journey from Guilin to Yangshuo showcasing continuous karst landscape throughout the trip",
+      "evidence": "Since we left until now and I think until we reach Yangshuo, all the scenery will look like this. It's an incredible landscape",
+      "confidence": 0.85
+    },
+    {
+      "point": "Authentic cultural interactions with friendly locals who spontaneously share traditional food and help with photos",
+      "evidence": "Even here on the boat we made some friends and they kept offering us food. Yeah, they offer to take pictures, everything",
+      "confidence": 0.9
+    },
+    {
+      "point": "Insider tip to arrive early on deck for uncrowded photo opportunities during the cruise",
+      "evidence": "If you want to take pictures, come early on the deck because it's really crowded",
+      "confidence": 0.85
+    },
+    {
+      "point": "Money-saving booking strategy: ask your accommodation first rather than paying premium online prices",
+      "evidence": "We saw some other options online but they were more expensive so I recommend you ask your accommodation first",
+      "confidence": 0.85
+    },
+    {
+      "point": "Discover traditional Chinese cuisine with health benefits including osmanthus cake with slimming and stomach properties",
+      "evidence": "everything is very healthy and has properties. Slimming and weight loss. Reduction of blood lipids. Stomach reinforcement",
+      "confidence": 0.8
+    },
+    {
+      "point": "Budget-friendly luxury accommodation at $35/night featuring stunning karst views, pool, and free washing facilities",
+      "evidence": "We are paying for this room per night only 35 dollars. free washing machines and free detergent. we have the pool",
+      "confidence": 0.95
+    },
+    {
+      "point": "Room upgrade with panoramic karst view described as worth the extra cost over standard city-view rooms",
+      "evidence": "This is the room with the view actually. It's a bit more expensive than the other ones but it's worth it",
+      "confidence": 0.9
+    },
+    {
+      "point": "Convenient scooter rental available directly from the accommodation for independent exploration",
+      "evidence": "They rent scooters from here which we will do I don't know if today or tomorrow",
+      "confidence": 0.75
+    },
+    {
+      "point": "Experience authentic local transport including electric tuk-tuks with practical negotiation insights shared",
+      "evidence": "we managed to find a taxi just in time. So we're in an electric tuk-tuk heading to the hotel. we had to negotiate a bit",
+      "confidence": 0.8
+    },
+    {
+      "point": "Vibrant market atmosphere in Yangshuo with immediate nice vibes upon arrival after the cruise",
+      "evidence": "already the atmosphere is very nice here. We're crossing through a market",
+      "confidence": 0.75
+    },
+    {
+      "point": "Well-organized tour infrastructure with efficient pickup service and large-scale port operations despite language barriers",
+      "evidence": "So we were picked up from our hotel, brought here to the pier by the bus. the organization is very good",
+      "confidence": 0.8
+    },
+    {
+      "point": "Creator provides direct accommodation links and verified recommendations based on personal stay experience",
+      "evidence": "I will leave you the link in the description below with our accommodation which is really recommended, super cheap, super good, reliable",
+      "confidence": 0.9
+    }
+  ]
+}
+

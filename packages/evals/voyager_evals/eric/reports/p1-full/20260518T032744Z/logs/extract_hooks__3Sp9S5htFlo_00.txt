@@ -1,0 +1,218 @@
+=== TAG: extract_hooks__3Sp9S5htFlo  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a senior YouTube content strategist analyzing China travel videos for
+overseas growth. Your job is to extract the attention-grabbing HOOKS from a
+transcript — the exact lines a creator would use to STOP a viewer from
+scrolling.
+</role>
+
+<task>
+Read the transcript (each line tagged with [<seconds>s]) and emit between
+8 and 16 hooks. Aim HIGH on recall — when in doubt, INCLUDE. Missing a real
+hook costs us much more than including a borderline one.
+</task>
+
+<rules>
+1. Each hook_text MUST be a verbatim or near-verbatim span from the transcript,
+   <=200 chars. Prefer the FULL sentence over a truncated fragment.
+2. ALWAYS include opening hook(s) from the first 30 seconds. Opening CTAs like
+   "Did you know...", "Stick around...", "If you're going to X for the first
+   time..." ARE valid hooks — never reject them as generic.
+3. PRIORITIZE these high-value types whenever present:
+   - Numeric / record claims ("20,000 visitors a day", "350 meters high")
+   - Superlatives / firsts ("world's tallest", "highest-grossing ever")
+   - Warnings / safety beats ("wait until the timer rings or you'll hallucinate")
+   - Vivid contrasts / reactions ("are we on a movie set?", "defies gravity")
+   - Named specific nouns reacted to with surprise/disgust/excitement
+     ("chilled black tiger feet", "jian shou qing mushroom") — these short
+     specific-noun hooks are the MOST-MISSED type and you must extract every
+     single one that gets a creator reaction.
+4. ONE HOOK = ONE DISTINCT CLAIM. Split compound sentences. A list of three
+   dish names = THREE hooks. A sentence with a warning + a vivid reference =
+   TWO hooks.
+5. timestamp_s MUST be the leading [<seconds>s] tag of the source line, copied
+   verbatim. Use 0.0 only when the line has no tag.
+6. confidence in [0.0, 1.0]; >=0.8 only when the hook is a direct quote.
+7. Reject ONLY vague filler ("this place is amazing", "it was so cool") or
+   text not in the transcript.
+</rules>
+
+<examples>
+<example id="food-extreme-spicy">
+TRANSCRIPT (excerpt):
+[0.0s] today we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+[12.4s] look at all those chilies, that's crazy. your nose is numbing just from being here
+[45.8s] today we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on ultra-spicy food tour
+[120.0s] chilled black tiger feet, jian shou qing mushroom, and porcini soup — death-level spicy beef
+
+GOOD HOOKS (note: short specific-noun reactions extracted as separate items):
+- "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating" @ 0.0s
+- "Look at all those chilies, that's crazy. Your nose is numbing just from being here" @ 12.4s
+- "today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour" @ 45.8s
+- "chilled black tiger feet" @ 120.0s
+- "jian shou qing mushroom" @ 120.0s
+- "death-level spicy beef" @ 120.0s
+</example>
+
+<example id="travel-superlative">
+TRANSCRIPT (excerpt):
+[3.2s] this elevator is 350 meters high — a three-lane double-decker, the only one of its kind in the world
+[88.0s] are we on a movie set? this defies gravity
+
+GOOD HOOKS (numeric claim + superlative split; vivid reaction is its own hook):
+- "this elevator is 350 meters high" @ 3.2s
+- "a three-lane double-decker, the only one of its kind in the world" @ 3.2s
+- "are we on a movie set? this defies gravity" @ 88.0s
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: which hook TYPES did you find — numeric? superlative? named specific noun? opening CTA? Any 30s-opener you might miss? Then commit to extracting all of them.>",
+  "hooks": [ {"hook_text": "...", "timestamp_s": 0.0, "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list hooks. Target 8-16 hooks.
+</output>
+
+
+USER:
+VIDEO_ID=3Sp9S5htFlo
+TRANSCRIPT:
+[0.0s] Are you planning for Shanghai?
+[19.0s] Shanghai
+[22.0s] In this video, we're unveiling the top 10 places you must experience during your visit to this vibrant metropolis.
+[29.0s] Let's dive into the best of the best.
+[32.0s] First things first, some information you will need before arriving.
+[37.0s] Download the app Alipay to enhance your Shanghai experience by allowing seamless cashless transactions at almost every corner of Shanghai.
+[45.0s] Beyond payments, enabling you to explore and navigate the city with the integrated Didi app, the equivalent of Uber and Grab.
+[53.0s] All Google apps, WhatsApp and Instagram only work with a VPN connection.
+[59.0s] Now, without further due, let's dive in.
+[63.0s] Our first stop is a true architectural gem.
+[67.0s] The 1933 Old Mill Fund.
+[70.0s] Once a slaughterhouse, this captivating structure now stands as a testament to Shanghai's unique blend of history and innovation.
+[77.0s] Join me as we explore its labyrinthine corridors and unravel the stories within its walls.
+[89.0s] Next on our list is the enchanting Yu Garden and the Yu Yu and Old Street.
+[99.0s] We're visiting twice, once at night when the ancient structures come alive with a mesmerizing play of lights.
+[113.0s] And again in the early morning when tranquility reigns.
+[117.0s] It's a haven of serenity in the heart of the bustling city.
+[126.0s] Now, let's head to one of Shanghai's most iconic waterfronts, the Bund.
+[131.0s] Prepare to be captivated by the juxtaposition of historic colonial architecture and the modern skyline of Pudong across the Huangpu River.
+[146.0s] For a shopping and entertainment extravaganza, Nanjing Road is our next destination.
+[158.0s] Stroll along this bustling thoroughfare, lined with a dazzling array of shops, theatres and vibrant street life.
+[164.0s] Escape the urban hustle and venture to the picturesque Jujiajiao, known as the Water Town.
+[181.0s] Explore its charming canals, historic bridges and traditional architecture.
+[186.0s] It's a step back in time to a Shanghai of a bygone era.
+[195.0s] Our next stop is the artsy district of Tianci Fang.
+[199.0s] Winding alleyways adorned with street art, boutique shops and cozy cafes create an atmosphere of bohemian chic.
+[207.0s] It's the perfect place to unleash your inner artist.
+[224.0s] Jingan Temple, a spiritual oasis in the heart of the city.
+[241.0s] Explore the tranquility of its surroundings and marvel at the intricate details of this Buddhist masterpiece.
+[254.0s] As the night falls, Shanghai's bar scene comes alive.
+[276.0s] Venture into the city's famous bars, each with its unique vibe and panoramic views.
+[288.0s] Here's some recommendations.
+[294.0s] Our journey now takes us to the futuristic Pudong district.
+[298.0s] We'll take a leisurely walk, marveling at the skyscrapers and then ascend the iconic Shanghai Tower for breathtaking views of the city.
+[306.0s] Get ready for a perspective that will leave you in awe.
+[334.0s] Dive into the wonders of the deep at the Shanghai Ocean Aquarium.
+[338.0s] From mesmerizing underwater tunnels to vibrant marine life displays, it's a captivating experience for visitors of all ages.
+[364.0s] And for our bonus stop, we're heading to one of the largest Starbucks in the world.
+[369.0s] This isn't just a coffee shop, it's a coffee wonderland.
+[392.0s] And there you have it, the top 10 places to visit in Shanghai, plus a bonus treat for coffee enthusiasts.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  scratchpad: string;
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "scratchpad": "This is a travel guide video with opening CTAs, practical warnings (VPN requirement), a vivid historical contrast (slaughterhouse-turned-landmark), a superlative claim (one of the largest Starbucks in the world), and several specific named destinations. I'll extract the opening hook, the VPN warning, the slaughterhouse contrast, the superlative Starbucks claim, and several destination-specific hooks with vivid descriptors.",
+  "hooks": [
+    {
+      "hook_text": "Are you planning for Shanghai?",
+      "timestamp_s": 0.0,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "we're unveiling the top 10 places you must experience during your visit to this vibrant metropolis",
+      "timestamp_s": 22.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "All Google apps, WhatsApp and Instagram only work with a VPN connection",
+      "timestamp_s": 53.0,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "The 1933 Old Mill Fund",
+      "timestamp_s": 67.0,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "Once a slaughterhouse, this captivating structure now stands as a testament to Shanghai's unique blend of history and innovation",
+      "timestamp_s": 70.0,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "We're visiting twice, once at night when the ancient structures come alive with a mesmerizing play of lights",
+      "timestamp_s": 99.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Prepare to be captivated by the juxtaposition of historic colonial architecture and the modern skyline of Pudong across the Huangpu River",
+      "timestamp_s": 131.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Escape the urban hustle and venture to the picturesque Jujiajiao, known as the Water Town",
+      "timestamp_s": 164.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "It's a step back in time to a Shanghai of a bygone era",
+      "timestamp_s": 186.0,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "Winding alleyways adorned with street art, boutique shops and cozy cafes create an atmosphere of bohemian chic",
+      "timestamp_s": 199.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "ascend the iconic Shanghai Tower for breathtaking views of the city",
+      "timestamp_s": 298.0,
+      "confidence": 0.85
+    },
+    {
+      "hook_text": "Get ready for a perspective that will leave you in awe",
+      "timestamp_s": 306.0,
+      "confidence": 0.9
+    },
+    {
+      "hook_text": "we're heading to one of the largest Starbucks in the world",
+      "timestamp_s": 364.0,
+      "confidence": 0.95
+    },
+    {
+      "hook_text": "This isn't just a coffee shop, it's a coffee wonderland",
+      "timestamp_s": 369.0,
+      "confidence": 0.95
+    }
+  ]
+}
+```
+

@@ -1,0 +1,50 @@
+{
+  "fixture_id": "dev-history-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.3809523809523809,
+    "selling_point_recall": 0.7777777777777778,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 397.58252937900033,
+  "error": null,
+  "hooks_predicted": [
+    "according to Trip.com is the less like touristy side. The bottom-least side apparently has just like crowds all like year-long and people are just like shoulder-to-shoulder.",
+    "we took three separate modes of transport here",
+    "it only took maybe three hours of transport time in total",
+    "from Watchtower 5 to Watchtower 20",
+    "we have to bend forward, use kind of both hands and legs to get up",
+    "Beijing is only an hour and a half bus ride from here",
+    "the Great Wall of China is inside of China. Like it's not bordering like China and Mongolia right now.",
+    "the best Disney movie of all time, Mulan",
+    "Donald Trump wish he could build a wall like that.",
+    "Li Sangui, who is the guy who is responsible for allowing the Manchurian Qing Dynasty to invade and conquer China",
+    "The last Ming emperor, Tongzhen, had killed himself by suicide hanging on a tree in Jintan Park.",
+    "this actually all revolves around one prostitute",
+    "one of the four beauties of China",
+    "he actually opens up the Great Wall of China",
+    "if you are a three to four out of ten, it's doable"
+  ],
+  "selling_points_predicted": [
+    "Visit the less crowded Mutianyu section of the Great Wall instead of shoulder-to-shoulder tourist areas",
+    "Complete step-by-step transportation guide using three modes of transport taking only 3 hours total from Beijing",
+    "Full challenging hike from Watchtower 5 to Watchtower 20 covering the entire Mutianyu section",
+    "Intense Hero Slope climb requiring hands and legs to ascend the steepest section of the wall",
+    "In-depth historical explanation of why the Great Wall is inside modern China's borders",
+    "Educational deep dive connecting Disney's Mulan to real Xiongnu (Hun) history and Han Dynasty invasions",
+    "Dramatic historical story of Wu Sangui's betrayal over a prostitute that led to the Manchurian conquest of China",
+    "Comprehensive overview of multiple Chinese dynasties and nomadic invasions spanning Han to Qing periods",
+    "Beautiful fall foliage scenery with orange leaves creating stunning photographic opportunities",
+    "Practical fitness guidance confirming the hike is doable at 3-4 out of 10 athleticism level",
+    "Unique ski lift descent experience offering outdoor views instead of traditional cable car",
+    "Authentic local perspective including observing workers navigating the wall with heavy loads",
+    "Architectural appreciation of the Great Wall's engineering as a defensive masterpiece",
+    "Creator's extensive post-work editing effort and historical research promising quality educational content"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

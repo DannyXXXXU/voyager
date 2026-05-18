@@ -1,0 +1,43 @@
+{
+  "fixture_id": "dev-vlog-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5714285714285715,
+    "selling_point_recall": 0.7142857142857143,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 354.0178467669998,
+  "error": null,
+  "hooks_predicted": [
+    "Xinjiang has been in the news a lot lately",
+    "I've come here to check out the place with my own eyes, come with me",
+    "Kashgar is home to one of China's western most cities",
+    "famous for thousands of years due to its strategic position on the Silk Road",
+    "acting as a gateway between China and Central Asia all the way to Europe",
+    "the Id Kar Mosque which is not only the biggest mosque in Xinjiang but also in all of China",
+    "Da Pan Ji which literally translates as big dish of chicken",
+    "Uyghur ice cream, otherwise known as Xinjiang ice cream",
+    "China has only one time zone, you need to wait till about 10pm until the place gets dark",
+    "Xiang Fei, the fragrant concubine, who was said to dance around the palace after her unique beauty and scent caught the eyes and nose"
+  ],
+  "selling_points_predicted": [
+    "First-person investigation offering ground truth perspective on Xinjiang beyond mainstream news narratives",
+    "Exploration of historic Silk Road city that served as strategic gateway between China, Central Asia and Europe for thousands of years",
+    "Visit to Id Kar Mosque, the largest mosque in all of China, with free admission for non-Muslims outside prayer times",
+    "Adventure through the ancient city's atmospheric winding streets perfect for getting lost and exploring",
+    "Curated list of must-try local dishes including doner kebabs, Da Pan Ji chicken, and hand-pulled noodles from experienced traveler",
+    "Taste unique Uyghur ice cream described as 'different but really good' by local food expert",
+    "Experience vibrant night market that comes alive around 10pm due to China's single timezone quirk",
+    "Local shopping opportunities for souvenirs and authentic regional cuisine within the ancient city",
+    "Tour of Apak Khoja mausoleum featuring the romantic legend of the Fragrant Concubine and her unique beauty",
+    "Immersion in authentic Uyghur culture with local language signage and predominantly Uyghur-speaking population",
+    "Practical travel guidance on language requirements with reassurance that Mandarin works for communication",
+    "Comprehensive food tour including Da Pan Ji served with potato, capsicum and freshly pulled noodles"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

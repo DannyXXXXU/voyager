@@ -1,0 +1,86 @@
+=== TAG: cluster_insights  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You cluster the provided hooks and selling points into 3–6 themes.
+
+HARD RULES:
+- Produce 3–6 clusters. No more, no fewer.
+- Each `theme` is a SHORT noun phrase (<= 60 chars) — a recognizable category, not a sentence.
+- `members` MUST contain only ids/texts that appear in the input (no invention).
+- `summary` is one sentence (<= 200 chars) capturing what the cluster sells.
+- Every input hook/selling_point should belong to exactly one cluster.
+
+USER:
+{'hooks': [{'video_id': 'BfHAVNgZ6tk', 'hook_text': 'The myth that you can see the Great Wall of China from space has long been disproven.', 'timestamp_s': 0.0, 'confidence': 0.95}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'it is the longest man-made structure in the world', 'timestamp_s': 11.4, 'confidence': 0.95}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'the Great Wall took over 2,000 years to build', 'timestamp_s': 43.9, 'confidence': 0.95}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'known in China as Wanli Qiangcheng – 10,000-li long wall', 'timestamp_s': 49.0, 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'the total length would be about 13,171 miles', 'timestamp_s': 69.2, 'confidence': 0.95}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'taken just seven years from his coming of age to eliminate his six rival states', 'timestamp_s': 169.8, 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'stretching for over 3,107 miles', 'timestamp_s': 206.4, 'confidence': 0.95}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'It took roughly ten years to build', 'timestamp_s': 213.5, 'confidence': 0.95}, {'video_id': 'BfHAVNgZ6tk', 'hook_text': 'Legend has it that many of the 400,000 workers who died during construction were buried in the wall itself', 'timestamp_s': 223.4, 'confidence': 0.95}], 'selling_points': [{'video_id': 'BfHAVNgZ6tk', 'point': 'Debunks the popular myth about seeing the Great Wall from space while revealing its true impressiveness', 'evidence': 'The myth that you can see the Great Wall of China from space has long been disproven. However, this does not make the structure any less impressive.', 'confidence': 0.85}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Discover the staggering true scale: over 13,000 miles of total wall segments built across history', 'evidence': 'If we include all the sections that were ever built, the total length would be about 13,171 miles.', 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'point': "Learn surprising truth that the Great Wall isn't one continuous structure but disconnected segments", 'evidence': "Despite its name, the Great Wall isn't one continuous wall. Instead, it comprises a disconnected series of wall segments, some of which overlap.", 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Comprehensive historical journey spanning over 2,000 years from 7th century BCE to Ming Dynasty', 'evidence': 'From its beginnings to completion, the Great Wall took over 2,000 years to build', 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'point': "Explore how China's first emperor unified rival states and connected existing walls into one system", 'evidence': 'the first sovereign emperor of a unified China, Qin Shi Huang, began to form the Great Wall...he had taken just seven years...to eliminate his six rival states', 'confidence': 0.85}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Uncover the massive human cost: 400,000 workers with legends of bodies buried in the wall itself', 'evidence': 'Legend has it that many of the 400,000 workers who died during construction were buried in the wall itself', 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Detailed breakdown of ingenious construction techniques adapted to different terrains and materials', 'evidence': "shows how the wall's construction changed depending on the materials at hand. Parts...on the plains were built using rammed layers of earth, but in mountainous areas, stone blocks were used", 'confidence': 0.85}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Visit well-preserved sections like Baotuguyang in Inner Mongolia with exceptional views you can still experience', 'evidence': "One of the best-preserved sections of the Qin dynasty's wall is the Baotuguyang section in Inner Mongolia...This section of the wall can still be visited and offers exceptional views.", 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'point': "Understand the wall's crucial role in protecting Silk Road trade routes during their legendary inception", 'evidence': "The wall also served to protect trade routes that would eventually become part of the Silk Road, with traveling on this legendary road beginning during Wu Di's reign.", 'confidence': 0.85}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Discover sophisticated military communication system using fire, smoke signals, and sound along the wall', 'evidence': 'During the night, fires were lit, but the garrison soldiers used smoke signals or raised banners during the day. They also used sounds, like beating clappers or firing guns', 'confidence': 0.9}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Learn intricate defensive architecture including multi-story platforms, gates, and strategic signal towers', 'evidence': 'Multistory platforms were used to store ammunition and arms, some of which had accommodations for around a dozen soldiers...signal towers were built at strategic points', 'confidence': 0.85}, {'video_id': 'BfHAVNgZ6tk', 'point': 'Reveals thought-provoking conclusion that diplomacy ultimately proved more effective than massive fortifications', 'evidence': 'its eventual redundancy shows that sometimes sincere diplomacy can be more effective than all the walls in China', 'confidence': 0.9}]}
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface ClusterOutput {
+  clusters: Array<{
+  theme: string;
+  members: Array<string>;
+  summary: string;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "clusters": [
+    {
+      "theme": "Monumental Scale & Physical Dimensions",
+      "members": [
+        "The myth that you can see the Great Wall of China from space has long been disproven.",
+        "it is the longest man-made structure in the world",
+        "the total length would be about 13,171 miles",
+        "stretching for over 3,107 miles",
+        "known in China as Wanli Qiangcheng ? 10,000-li long wall",
+        "Debunks the popular myth about seeing the Great Wall from space while revealing its true impressiveness",
+        "Discover the staggering true scale: over 13,000 miles of total wall segments built across history",
+        "Learn surprising truth that the Great Wall isn't one continuous structure but disconnected segments"
+      ],
+      "summary": "Reveals the true massive scale of the Great Wall—over 13,000 miles of disconnected segments—while debunking the space visibility myth."
+    },
+    {
+      "theme": "Historical Timeline & Imperial Unification",
+      "members": [
+        "the Great Wall took over 2,000 years to build",
+        "taken just seven years from his coming of age to eliminate his six rival states",
+        "Comprehensive historical journey spanning over 2,000 years from 7th century BCE to Ming Dynasty",
+        "Explore how China's first emperor unified rival states and connected existing walls into one system"
+      ],
+      "summary": "Chronicles the 2,000-year construction history from warring states to Qin Shi Huang's rapid unification in just seven years."
+    },
+    {
+      "theme": "Construction & Human Sacrifice",
+      "members": [
+        "It took roughly ten years to build",
+        "Legend has it that many of the 400,000 workers who died during construction were buried in the wall itself",
+        "Uncover the massive human cost: 400,000 workers with legends of bodies buried in the wall itself",
+        "Detailed breakdown of ingenious construction techniques adapted to different terrains and materials"
+      ],
+      "summary": "Exposes the staggering human cost of 400,000 workers who died and the adaptive construction techniques used across different terrains."
+    },
+    {
+      "theme": "Military Defense & Communication Systems",
+      "members": [
+        "Discover sophisticated military communication system using fire, smoke signals, and sound along the wall",
+        "Learn intricate defensive architecture including multi-story platforms, gates, and strategic signal towers"
+      ],
+      "summary": "Details the advanced military infrastructure including fire signals, smoke communications, and multi-story defensive platforms."
+    },
+    {
+      "theme": "Trade Routes, Preservation & Modern Lessons",
+      "members": [
+        "Visit well-preserved sections like Baotuguyang in Inner Mongolia with exceptional views you can still experience",
+        "Understand the wall's crucial role in protecting Silk Road trade routes during their legendary inception",
+        "Reveals thought-provoking conclusion that diplomacy ultimately proved more effective than massive fortifications"
+      ],
+      "summary": "Explores the Wall's protection of Silk Road trade, preserved sections you can visit today, and lessons about diplomacy over fortifications."
+    }
+  ]
+}
+

@@ -1,0 +1,1001 @@
+=== TAG: extract_selling_points__FfLfxvk_nBI  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a marketing copywriter for an overseas creator brand. Extract the
+SELLING POINTS — the reasons a viewer should watch / visit / care — from a
+transcript, written as concise benefit statements.
+</role>
+
+<task>
+Emit between 8 and 18 selling points. Eric over-producing is fine (Mike filters
+downstream). Under-producing is the failure mode. When in doubt, INCLUDE.
+</task>
+
+<rules>
+1. Each `point` is a concise benefit STATEMENT, 40-180 chars, marketing-brief
+   style. NOT a bare topic label. NOT a quote.
+2. `evidence` MUST quote or paraphrase the supporting transcript span
+   (<=200 chars). Never empty.
+3. Cover BOTH content benefits (what you'll see / taste / experience) AND
+   creator-expertise benefits (host credibility, behind-the-scenes access).
+4. No duplicates — same benefit in different words = ONE point.
+5. confidence in [0.0, 1.0]; >=0.8 only when evidence is a direct quote.
+</rules>
+
+<examples>
+<example id="food-chongqing">
+TRANSCRIPT (excerpt):
+[15.0s] meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour
+[120.0s] this chef has been making hot pot base from scratch for 10 years
+[200.0s] chongqing — the manhattan of mountains, cyberpunk cityscape
+
+GOOD SELLING POINTS:
+- point: "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot"
+  evidence: "we're gonna attempt to eat the world's spiciest hot pot"
+- point: "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights"
+  evidence: "meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour"
+- point: "Behind-the-scenes look at traditional food preparation including 10-year veteran chef making hot pot base from scratch"
+  evidence: "this chef has been making hot pot base from scratch for 10 years"
+- point: "Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan of mountains'"
+  evidence: "chongqing — the manhattan of mountains, cyberpunk cityscape"
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: list the benefit CATEGORIES present in this transcript (content benefits + creator-expertise benefits). Did you cover both? Are you at 8+ items?>",
+  "selling_points": [ {"point": "...", "evidence": "...", "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list selling_points. Target 8-18 items.
+</output>
+
+
+USER:
+VIDEO_ID=FfLfxvk_nBI
+TRANSCRIPT:
+[0.0s] Look at all those chilies, that's crazy.
+[3.8s] Your nose is numbing just from being here.
+[5.8s] In this video, I'm in Chongqing, China,
+[7.8s] and I'm super excited because today,
+[9.5s] we're gonna be meeting up with the Chinese Trump,
+[11.8s] and he's taking us for a full-on,
+[13.6s] ultra-spicy food tour of Chongqing.
+[16.5s] It's gonna be nuts, guys.
+[17.7s] Let's just get right into it.
+[19.2s] Welcome to Chongqing, guys.
+[20.8s] This is the spiciest cyberpunk city in China,
+[24.0s] and today, our challenge is to eat
+[25.6s] the most extreme spicy Chinese food and survive.
+[29.4s] Each dish getting spicier and spicier along the way.
+[32.8s] Go easy on my spice, and go crazy on his spice.
+[38.9s] I feel it.
+[40.6s] I'm feeling it.
+[41.4s] And finally, we're gonna attempt
+[42.8s] to eat the world's spiciest hot pot,
+[45.2s] so spicy you might start hallucinating.
+[47.7s] Oh, that is really spicy.
+[49.5s] That's very hardcore.
+[50.4s] But first, we're gonna warm up
+[51.5s] with a super spicy chili pot
+[53.4s] that'll set your mouth on fire.
+[55.2s] Man, Chongqing is spicy.
+[57.3s] Seriously, guys, this city is so spicy
+[59.5s] that as soon as you enter, the air smells like chili.
+[62.2s] We got Chinese Trump.
+[63.0s] Welcome, China.
+[64.1s] Welcome to China, Trevor.
+[65.5s] This guy is the best.
+[66.7s] Chongqing, China.
+[67.8s] You know, I'm a big fan of yours.
+[69.3s] I'm a big fan of yours.
+[70.2s] Welcome to Chongqing, China.
+[72.4s] China, big fan of yours.
+[73.6s] You know, I've been following you
+[74.5s] ever since a long time ago.
+[75.6s] Really?
+[76.4s] And this guy, watch out.
+[77.4s] This guy's coming back, right?
+[78.6s] Oh, man, yeah, I'm coming back.
+[79.6s] He's disappeared for a while.
+[80.7s] It's like me, for four years, probably.
+[83.3s] Now he's back.
+[84.4s] Watch out, everybody.
+[85.5s] He's a strong competitor.
+[87.8s] Yeah.
+[88.6s] So today, we're gonna eat some of the spiciest
+[90.8s] Chongqing food in China.
+[91.7s] Man, super spicy.
+[93.3s] We got a whole day.
+[94.2s] The best city in China, right?
+[95.2s] Yeah.
+[96.0s] This guy is famous for eating spicy food.
+[97.8s] He's very spice tolerant.
+[99.7s] I love spice.
+[100.6s] You like spice?
+[102.3s] I eat the most spicy food in China.
+[104.5s] You're the best at spice?
+[105.4s] I'm the best with spice.
+[106.6s] You're the best with spice.
+[107.4s] Yeah, we both love spice.
+[108.7s] Okay.
+[109.5s] We'll see who's better.
+[110.4s] Let's go.
+[111.2s] So we got a spicy malatang first, right?
+[113.0s] This is the spicy malatang.
+[114.2s] Let's do it.
+[115.0s] Super spicy.
+[115.8s] For breakfast in Chongqing,
+[117.2s] we're starting off spicy, guys,
+[119.1s] with famous mao cai.
+[120.8s] A pick-your-own-ingredients dish
+[122.6s] boiled in extremely spicy broth
+[124.6s] that just keeps getting better and better as you eat it.
+[126.9s] Just watch this, guys.
+[127.9s] It's crazy.
+[128.8s] Let's do it.
+[129.6s] Here we are.
+[130.5s] Malatang.
+[131.3s] Ni hao.
+[132.2s] Oh, look at this.
+[133.0s] It smells fantastic.
+[133.8s] This is the DIY section.
+[135.5s] You can pick whatever you like.
+[137.2s] I like spam.
+[138.0s] Specially processed American meat.
+[140.0s] I think it's named from the Second World War.
+[142.1s] Oh.
+[142.9s] And now it's very popular in China.
+[144.4s] Okay.
+[145.7s] The deal is, you take whatever you want,
+[146.8s] and then they're gonna bubble it
+[147.8s] in that cauldron of chili over there.
+[149.6s] Yup.
+[150.4s] I like balls.
+[151.2s] You like what?
+[152.1s] I like balls.
+[152.9s] You like balls?
+[153.7s] Yeah.
+[154.6s] And look at this.
+[155.4s] You know you're in Chongqing
+[156.2s] when you got death-level spicy beef there.
+[157.3s] You guys like ping-pong?
+[159.0s] Oh, that's right.
+[159.8s] Let's have some ping-pong meat.
+[160.6s] Come on.
+[161.5s] Ping-pong meat?
+[162.3s] Okay.
+[163.1s] Look at that.
+[164.0s] Got two ping-pong meats here.
+[164.8s] Got some chicken.
+[165.6s] Got some spicy beef.
+[166.5s] It's enough for us, right?
+[167.3s] We got, we got, we got.
+[168.1s] Let's go, let's go.
+[169.0s] And they weigh it,
+[169.8s] and then we got to eat.
+[170.8s] This is also carbs.
+[174.2s] Okay.
+[175.1s] Let's do it.
+[175.9s] Extra spicy.
+[176.7s] Death-level spicy.
+[177.9s] Now, today we're the chef.
+[179.9s] Here we are.
+[180.8s] We're gonna do it ourselves?
+[181.6s] Wow.
+[182.4s] This is Chuan.
+[183.3s] This is mao cai, right?
+[184.1s] This is mao cai.
+[184.9s] Sichuan mao cai.
+[185.8s] Classic spicy Sichuan dish.
+[187.6s] Nobody knows the spice better than I do.
+[189.5s] It's like the economy.
+[191.0s] Okay.
+[191.8s] Just like the economy.
+[192.7s] Just like the economy.
+[193.5s] It's booming.
+[194.3s] It's booming.
+[195.2s] Look at that.
+[196.0s] This is booming.
+[196.8s] Nobody knows better than you.
+[197.7s] It's like the stock market.
+[198.5s] Yeah.
+[199.3s] Under me.
+[200.7s] It's red.
+[201.5s] In China, red means going up.
+[203.4s] Going up.
+[204.2s] Red means going up.
+[205.7s] It's on fire.
+[206.5s] It's on fire.
+[207.3s] So they have two cauldrons, right?
+[208.9s] Yeah.
+[209.7s] That one is for the cooking.
+[211.2s] And then after it's done,
+[212.3s] they're gonna get some spicy chili broth on the top.
+[214.8s] So he's just putting all of these ingredients
+[216.5s] into these strainers,
+[217.9s] bubbling it into the spicy broth,
+[219.6s] and then gonna do more spicy,
+[221.2s] death-level chili after, right?
+[223.0s] Yeah.
+[223.9s] Look at this.
+[224.7s] So it's chili.
+[225.5s] It's got some Sichuan spice.
+[226.4s] Sichuan spice, garlic, and MSG.
+[229.0s] I love them.
+[230.6s] MSG, I put it in my coffee every day.
+[231.8s] Really?
+[232.6s] Okay.
+[233.6s] I'm very Chinese, you know, I'm very Chinese.
+[235.2s] It's my culture.
+[236.8s] MSG.
+[238.8s] There are actually two types of MSG.
+[240.8s] Oh yeah?
+[241.6s] One is the chicken type.
+[242.4s] We call it ji jing.
+[243.3s] Oh yeah, ji jing.
+[244.1s] And also MSG.
+[244.9s] And that's for your coffee?
+[246.4s] Yeah, if you hate MSG,
+[249.4s] you don't come to Chou Chi.
+[250.6s] Come to...
+[251.5s] Oh, so he's just scooping that chili broth
+[254.0s] into this pot here.
+[255.2s] Oh, this is ours.
+[256.0s] This is ours, right?
+[256.9s] Okay.
+[258.0s] Oh, there it is.
+[260.0s] Oh, it looks good, it looks good.
+[261.3s] I gotta tell you.
+[262.1s] Oh, look at that.
+[263.2s] Oh, and he's just gonna add the chili broth in.
+[265.1s] Yeah, oh.
+[266.6s] That's to...
+[267.5s] More oil, more chili.
+[269.2s] Oh, that's the Sichuan...
+[270.2s] That's extra.
+[271.0s] That's special treatment you get from me.
+[273.6s] Oh, and just putting some shiang tai,
+[275.0s] coriander on there?
+[275.8s] Coriander, yeah.
+[276.7s] I love this guy.
+[278.5s] Thank you.
+[279.3s] Thank you, sir.
+[280.1s] Thank you.
+[281.0s] Thank you.
+[281.8s] Okay, let's go.
+[282.6s] This is ours.
+[284.2s] Very spicy, very spicy.
+[286.0s] All right, let's go.
+[287.6s] Let's find our...
+[288.5s] Very good.
+[289.9s] There you go, there you go.
+[291.2s] This is probably the spiciest hot pot dish
+[293.2s] in the world here, in Chongqing.
+[295.0s] Maybe.
+[295.8s] Wow, look at that.
+[296.7s] That's coriander, garlic, and red chili.
+[298.4s] Hao you.
+[299.3s] Oyster sauce.
+[300.1s] Yeah.
+[300.9s] There we are.
+[301.8s] That is extreme, man.
+[302.6s] All right, let's do it.
+[303.4s] Should we do it?
+[304.3s] I can't wait, can't wait.
+[305.1s] Let's go right in.
+[305.9s] This is my brunch.
+[306.8s] I love the noodles they add in there.
+[307.6s] Look at that.
+[308.4s] You can see it's just coated.
+[309.3s] They added so much chili oil in for us.
+[310.9s] So you eat this quite often?
+[312.0s] I put it in my coffee every day.
+[314.1s] Okay?
+[314.9s] I put it in my ice cream.
+[316.6s] Your ice cream?
+[317.6s] Yeah, dessert.
+[318.6s] Everything is spiced.
+[319.5s] Oh man.
+[320.3s] Look at all those spices in there.
+[321.6s] Sichuan xiaomila, raw chili peppers.
+[323.7s] Oh, you know xiaomila, right?
+[324.8s] So let's go?
+[325.7s] Let's go.
+[326.5s] Cheers, let's go.
+[327.3s] Cheers, chomp.
+[328.2s] Let's go.
+[331.3s] Mmm.
+[334.0s] Wow.
+[335.8s] That is so xiang le.
+[337.2s] Mmm.
+[338.0s] Very good.
+[338.9s] That chili broth.
+[339.8s] It's burning, but it's like an aromatic burn.
+[341.9s] It's like a smooth, very spicy, very delicious burn.
+[344.9s] He's yapping a lot, you know?
+[347.0s] I can't wait.
+[348.8s] It's very nice, though.
+[349.6s] I think this guy is secretly very spicy tolerant, you know?
+[354.0s] But he's in disguise to pretend he's a very weak competitor.
+[359.4s] Man, Chongqing is spicy.
+[362.0s] It's coming up.
+[362.8s] It's really burning.
+[363.7s] That is good.
+[364.5s] So let's finish this up.
+[365.3s] And then we're gonna go cool down
+[367.4s] with some spicy Chongqing noodles before an insane.
+[370.3s] It's a little too spicy for me, but it's okay.
+[373.2s] Okay, good lunch.
+[374.6s] Let's keep going.
+[375.4s] Let's keep going.
+[376.2s] The second one is gonna be the spicy noodles.
+[378.7s] Spicy noodles.
+[379.6s] Let's do it.
+[380.4s] More and more spicy.
+[381.2s] All day.
+[382.1s] Let's go.
+[382.9s] And next up, Trump and I are going
+[383.9s] to the spiciest noodle dish in Chongqing, the xiaomian.
+[387.5s] And Trump has a trick up his sleeve for me.
+[389.6s] Go easy on my spice and go crazy on his spice.
+[395.7s] I feel it.
+[396.5s] Will I survive?
+[397.5s] Let's find out.
+[398.7s] Oh, and here we are, making our way to noodles.
+[400.7s] Yes, look at those skyline.
+[402.5s] They say it's Manhattan of mountains.
+[405.1s] Look how beautiful that is.
+[407.0s] So beautiful, right?
+[407.8s] Wow, Chongqing, China number one, multi-layered city.
+[411.7s] China number one.
+[413.0s] I love that phrase.
+[414.9s] Everybody's saying it now.
+[416.1s] I don't know.
+[417.0s] Why is it so viral?
+[419.2s] Wow.
+[420.1s] Look how many skyscrapers we have.
+[422.7s] Let's go for noodles.
+[423.6s] Let's go for noodles.
+[425.2s] Here we are.
+[426.0s] Spicy noodles all day.
+[427.3s] Spicy noodles all day.
+[428.3s] Oh, here we are.
+[429.1s] Spicy food.
+[430.0s] Let's go, that one.
+[431.1s] That's the one we're going.
+[432.5s] Ni hao, ni hao, ni hao.
+[433.4s] Ni hao.
+[434.2s] Ni hao, ni hao, ni hao, ni hao, ni hao, ni hao, ni hao.
+[441.7s] Okay, and here we are, Chongqing Xiaomian.
+[443.6s] Chongqing Xiaomian.
+[444.9s] Wow.
+[445.7s] We're gonna go extra spicy.
+[446.6s] The classic noodle from Chongqing.
+[448.0s] Okay, yes.
+[448.9s] Extra spicy.
+[449.7s] Yes.
+[450.5s] Chongqing Xiaomian is from Chongqing.
+[452.2s] It's only unique.
+[454.0s] You can only find Chongqing Xiaomian in Chongqing.
+[455.9s] Right here.
+[456.8s] China, yeah.
+[457.6s] China, the spot.
+[459.5s] Okay.
+[460.5s] So let's do it.
+[461.3s] Excuse me for a second.
+[462.3s] Yeah.
+[463.2s] Tell him to make sure he make good Xiaomian for you.
+[465.6s] Okay.
+[466.4s] Go easy on my spice and go crazy on his spice.
+[470.3s] Okay.
+[471.1s] Are you gonna?
+[472.0s] It's okay.
+[472.8s] We wanna make sure you make your good Xiaomian.
+[476.7s] I think I heard something, man.
+[477.6s] It's okay, it's okay.
+[479.8s] Let's make the seasoning from scratch.
+[481.6s] Okay.
+[482.5s] Okay.
+[483.4s] Garlic water.
+[484.3s] Okay.
+[485.1s] Chili oil.
+[485.9s] Chili oil.
+[486.8s] That's a lot of chili.
+[487.7s] Sesame oil.
+[488.6s] Sesame oil.
+[489.4s] Sesame oil, okay.
+[490.5s] Oh, MSG.
+[491.7s] MSG, we love that.
+[493.9s] It's in charge of the crunchiness.
+[495.6s] Crunchiness.
+[496.5s] This is yacai, more for the flavor.
+[498.1s] Pickled veg.
+[499.1s] Peanuts, peanuts.
+[500.4s] Spring onions.
+[501.4s] Man, that's the good stuff.
+[502.2s] This is Sichuan pepper.
+[503.9s] The greener, the stronger.
+[505.9s] Oh, that's a lot.
+[506.8s] How many balls you make every day?
+[512.1s] 500 to 600.
+[513.3s] Wow.
+[514.2s] We're here in time.
+[515.6s] Oh, just in time.
+[517.0s] Yeah, there's a trick when they boil the veggies.
+[519.1s] Within 30 seconds, they're gonna pull it out.
+[520.9s] Just a quick blanch.
+[521.9s] Oh, and here they are.
+[523.9s] Look at those.
+[524.7s] Oh, here they are.
+[525.8s] That one is for you?
+[526.6s] Wanzi, wanzi.
+[527.5s] Oh, this is wanzi.
+[528.3s] So you put wanzi together.
+[529.5s] Wow.
+[530.3s] Normally, they separate two things,
+[531.5s] but now, they put them together.
+[533.2s] They must have had some secret ingredients.
+[535.1s] The ground pork and the yellow peas.
+[537.0s] Sit on a small stool and put your bowl on the big stool.
+[540.5s] Okay.
+[541.4s] Okay, let's do it.
+[542.2s] Look at that.
+[543.1s] You ready?
+[543.9s] You're the best at noodles, too, right?
+[544.7s] Yeah, I'm the best.
+[545.6s] Everything.
+[546.4s] I'm the best at everything.
+[547.3s] And I saw he loaded in so much Sichuan peppercorn in there
+[550.7s] with the shaoxing.
+[551.5s] It's very crunchy at the same time.
+[553.1s] It's our comfort food.
+[553.9s] So you grew up eating this?
+[554.7s] Yes.
+[555.6s] Look at that.
+[556.4s] It's just silky, like silky smooth.
+[559.0s] Let's try it out.
+[559.8s] Let's try it.
+[560.6s] Let's try it.
+[567.6s] Wow, that is burning,
+[568.6s] but with so much flavor at the same time.
+[570.3s] That is seriously numbing.
+[571.4s] It's numbing and it's creamy.
+[572.9s] It's creamy.
+[573.7s] Most importantly, and it's got a lot of flavor.
+[576.8s] Yeah.
+[577.6s] Now, it's sticking on the noodles.
+[579.9s] I love that, with the yellow peas.
+[581.8s] I secretly add some more spicy for you.
+[583.3s] Did you?
+[584.2s] Yeah.
+[586.0s] I can feel it.
+[587.2s] I can feel it.
+[589.3s] That's in our courtesy, you know?
+[591.7s] Wanna make sure you feel the full,
+[594.3s] the maximum hospitality.
+[599.3s] I feel it.
+[601.0s] I'm feeling it.
+[601.8s] I would personally go here and order one.
+[604.2s] Man, I'm a bit jealous you got to grow up
+[606.4s] and eat this food.
+[607.2s] Yeah, you'll have a lot of good things.
+[608.1s] When you were a kid,
+[608.9s] you just got to eat the best food ever.
+[610.3s] Yes.
+[611.2s] Some people, they really like this.
+[612.9s] They drive a Mercedes Benz and park it here.
+[616.8s] Ferrari, a lot of good cars.
+[619.3s] They park it, they order one dish,
+[622.3s] one big bowl of noodles,
+[623.9s] they finish, they go.
+[624.9s] So, it's like all aspects of life come here.
+[627.2s] Yeah.
+[628.0s] From the luxury to the humble people.
+[629.1s] All class people.
+[630.0s] All class.
+[630.8s] All class.
+[631.6s] The best noodles.
+[632.5s] It's diversity.
+[633.3s] Diversity.
+[634.1s] That's equity of the society.
+[635.5s] That's how China is like, right?
+[637.1s] Everybody's equal.
+[638.5s] That's really cool.
+[639.3s] I'm in front of this nice dish.
+[640.7s] You want some walnut peanut butter drink?
+[642.7s] Sure.
+[643.6s] That's also Chongqing.
+[644.4s] Yeah.
+[645.2s] So, what do we got here?
+[646.1s] So, this is bingfen.
+[646.9s] This is clear Chinese jelly.
+[649.2s] It's tasteless, but they're gonna add
+[651.1s] a brown sugar after it.
+[652.0s] Oh, jelly bingfen.
+[652.9s] Jelly bingfen.
+[653.7s] And this is the, they call it cold shrimp.
+[655.6s] And this is the brown sugar.
+[657.0s] Oh, the hongtang.
+[658.3s] Yeah, that's where the magic happens.
+[659.8s] Some preserved raisin.
+[661.1s] Oh, and there it is.
+[662.2s] Look at that.
+[663.0s] That's the jelly noodles.
+[663.9s] When we were young, we eat them separately.
+[665.5s] We call it cold shrimp.
+[666.8s] Cold shrimp.
+[667.6s] Cold shrimp.
+[668.5s] It's a little bit of a sticky rice.
+[669.4s] Oh, good.
+[670.2s] Yeah.
+[671.0s] Let's try it out.
+[671.9s] Let's try it out.
+[675.7s] Oh, that is so refreshing and cooling
+[677.7s] after the spicy noodles.
+[678.6s] Wow, that is really nice.
+[679.6s] So, let's finish this and go for more spicy food.
+[681.4s] Yeah, okay, let's go.
+[682.2s] We got a big video, guys.
+[683.3s] Crazy scene coming up next.
+[684.2s] Okay.
+[685.0s] And now we're getting really spicy, guys.
+[687.1s] For the final scene with Trump,
+[688.6s] we're making our way through the cyberpunk city of Chongqing
+[691.3s] and we're barely surviving this dish.
+[693.4s] It gets really crazy.
+[695.0s] Just watch.
+[696.5s] Xie xie lao ban.
+[697.3s] Xie xie.
+[698.1s] Here we are.
+[699.0s] So, here's the place.
+[699.8s] Oh, hot pot.
+[700.6s] Look at this.
+[701.5s] Hot pot in the making.
+[702.3s] Big spicy pot.
+[703.1s] Big spicy pot.
+[704.0s] Yeah.
+[704.8s] Wow.
+[705.6s] Ni hao.
+[706.5s] Ni hao, ni hao, ni hao.
+[707.3s] Ni hao.
+[708.1s] Oh.
+[709.0s] Oh, man.
+[709.8s] It's all here.
+[710.6s] That's all Sichuan peppercorn.
+[711.5s] That's everything.
+[712.3s] So, what do we got here?
+[713.1s] We got all the seasoning for making Chongqing hot pot.
+[715.0s] Chongqing hot pot.
+[715.8s] Okay.
+[716.6s] Spiciest hot pot in the world.
+[717.5s] Okay, so what do we got?
+[718.3s] We got Sichuan peppercorn, right?
+[719.1s] Sichuan peppercorn.
+[720.0s] They're red.
+[720.8s] Yeah.
+[722.4s] So, these are?
+[723.2s] This is super numbing.
+[724.0s] And this is also numbing, but also have a fragrance.
+[726.9s] More fragrant.
+[727.8s] More aromatic.
+[728.6s] And then, look.
+[729.4s] Dried chili.
+[730.3s] Two types of them.
+[731.1s] One is for the fragrant.
+[731.9s] One is for the spicy.
+[733.0s] For the spice.
+[733.9s] This is the fermented rice.
+[735.2s] It's a little bit alcoholic.
+[736.3s] These are the dou zhi, right?
+[737.3s] The fermented beans.
+[738.1s] Fermented beans.
+[738.9s] And dou ban jiang.
+[739.8s] Dou ban jiang.
+[740.6s] Fermented red bean, right?
+[741.4s] Yeah.
+[742.3s] And then, they've got ginger and datong here.
+[743.1s] Ginger and datong.
+[743.9s] To make green onion.
+[744.8s] It's only for strong people.
+[746.4s] You wanna make sure you're the strong ones.
+[748.4s] I hope we can make it.
+[749.2s] It's only for winners.
+[751.4s] It's only for winners.
+[752.3s] If you're not a winner, I'm already a winner.
+[755.2s] I win everything.
+[758.0s] Okay, let's watch the process.
+[759.1s] We've got this giant pot here.
+[760.8s] Let's see how it's done.
+[761.6s] This is beef fat.
+[762.4s] Beef fat.
+[763.3s] Beef fat.
+[764.1s] Oh, the beef tallow.
+[765.2s] Looks so cute.
+[766.0s] It's 20 kg per cube.
+[768.0s] 20 kg?
+[768.9s] 20 kg.
+[769.9s] Wow.
+[770.8s] This is the soul of Chongqing hot pot.
+[772.8s] I would look good.
+[774.6s] I'd drop like three of them.
+[777.2s] That's too much.
+[778.4s] Oh my goodness.
+[779.3s] I got two of them.
+[780.4s] How long have you been making this?
+[781.3s] I've been making it for 10 years.
+[783.6s] He's been doing this for 10 years.
+[784.9s] 10 years?
+[785.7s] Yeah.
+[786.6s] Wow, so he's a pro.
+[787.4s] So this is the soul of Chongqing here.
+[788.6s] I can do this all day.
+[789.6s] This is really fun.
+[790.8s] No one has ever eaten hot pot cooked by me before.
+[793.5s] Really?
+[794.3s] Yeah.
+[795.1s] So you're lucky.
+[796.0s] It's your lucky day.
+[796.8s] My lucky day.
+[797.6s] Yeah, it's even better.
+[798.5s] Give it a try.
+[799.3s] Okay.
+[800.1s] It's very fun.
+[801.0s] Oh, it's soft.
+[801.8s] This is like upgraded butter.
+[802.7s] Oh, and he's gonna put the ingredients in now.
+[804.9s] We got ginger and-
+[807.0s] Big green onions.
+[807.8s] Big green onions.
+[808.7s] Spring onions.
+[810.0s] And some onions and ginger and everything.
+[811.8s] That's where the aroma comes from.
+[813.4s] Yeah.
+[814.2s] So this is just the beginning.
+[815.1s] He's gonna add in so many of the Sichuan ingredients
+[817.3s] and it's gonna become very aromatic.
+[819.9s] Yeah, so the finished product,
+[820.9s] you get a brick and you can just take it home
+[823.2s] and cook up your own home hot pot, right?
+[825.7s] Yeah, just boil your big bowl of water
+[827.5s] and you drop it in
+[829.5s] and you put all kinds of ingredients you like.
+[832.0s] Yeah.
+[832.9s] It's pretty healthy, actually.
+[833.8s] Yeah.
+[834.6s] You have to get them all out.
+[835.8s] Okay.
+[836.7s] Before they're very useful,
+[838.5s] but when they're done, they're out.
+[842.1s] So oil is prepped
+[843.1s] and now all these ingredients are gonna go in, right?
+[845.0s] Yes.
+[845.8s] Oh, so he's got the fermented rice,
+[847.1s] the broad bean paste, the datong.
+[850.0s] Oh, and the douchu, the fermented beans.
+[852.4s] Man, look at that chili.
+[854.6s] Yeah.
+[855.5s] It's all going in there.
+[856.3s] It's quite a show.
+[857.4s] I love it.
+[859.0s] Kind of like a chemistry class.
+[861.2s] How about that?
+[862.0s] It really is, isn't it?
+[862.9s] And then next up, look at all those chilies.
+[865.5s] Oh, that's crazy.
+[868.6s] That is insane.
+[871.1s] So this is a chiba chili.
+[873.1s] Okay.
+[873.9s] They're already boiling, so they're moist.
+[875.8s] So they gotta add it in slowly.
+[877.2s] Add it in slowly.
+[878.1s] Look at all those chili.
+[879.4s] Oh, man.
+[881.9s] The smell coming up, that is insane.
+[884.0s] How long is this gonna boil for?
+[885.0s] More than half an hour.
+[885.8s] More than half an hour.
+[886.7s] There it is.
+[887.5s] Look at that, more and more chili.
+[889.3s] Now the chili is absorbed with all the Chinese liquor.
+[891.8s] So we got Sichuan.
+[892.7s] Man, you can smell.
+[894.3s] It's like your nose is numbing just from being here.
+[897.1s] Wow.
+[898.6s] Man, it's beautiful.
+[899.7s] You're doing a good job.
+[900.8s] So this is gonna make it super numbing.
+[902.6s] Yeah, after they're done,
+[904.0s] they're gonna keep it to dry naturally.
+[906.4s] Oh, to thicken.
+[907.3s] So that's the process.
+[908.3s] Should we go in and eat?
+[909.2s] Let's go eat.
+[910.0s] Let's go eat.
+[910.8s] Let's go, let's go.
+[911.7s] Awesome, crazy.
+[912.5s] Whoa.
+[913.8s] There we are.
+[914.7s] That's a duck blood.
+[915.6s] That's a duck blood, really.
+[916.4s] It should be cooked while it's cold
+[918.1s] because they only need very mild heat.
+[920.2s] Oh, it's like jelly.
+[921.8s] It's like jelly.
+[922.6s] It looks like a jello.
+[923.4s] And we gotta make our dip for the hot pot.
+[925.3s] The dip from Chongqing hot pot
+[927.1s] is to cool you down.
+[928.5s] Oh, really?
+[929.3s] Okay, make it less spicy.
+[930.6s] Okay.
+[931.4s] Ground garlic.
+[932.3s] Oh, I love that.
+[933.1s] You want some of that?
+[933.9s] Yeah, oh, that's strong.
+[935.6s] Normally, I take two.
+[937.0s] MSG.
+[937.8s] You wanna add MSG directly in?
+[939.1s] Yeah, exactly.
+[940.0s] Oh, that's a full load.
+[941.9s] That's a full, okay.
+[943.4s] Add some sesame oil.
+[945.4s] Just garlic, MSG, sesame oil.
+[947.2s] That's your combo.
+[948.0s] Yeah, that's the most authentic way.
+[949.9s] Oh, it's all here.
+[951.9s] Oh, we got a whole pork foot here.
+[955.1s] Wow.
+[956.9s] Look at all this stuff.
+[958.6s] It's all here now.
+[959.4s] So we got a bunch of different types
+[960.8s] of ingredients for this hot pot.
+[962.5s] Trump is coming right back in a sec,
+[964.0s] but just look at this.
+[965.5s] Trump ordered a lot of classic Sichuan ingredients.
+[968.3s] It's like we've got goose tripe.
+[970.4s] We've got pork and beef and tofu.
+[973.5s] These are the how are you fish that he's seeing.
+[975.6s] We've got the pork foot.
+[976.9s] We got some pork and tofu.
+[978.3s] It's all here.
+[979.2s] And what do you recommend to start with?
+[980.3s] Of course, always has to be this beef tripe.
+[984.3s] What's that mean?
+[985.3s] Seven up, eight down.
+[987.6s] This is one.
+[989.4s] Okay.
+[990.2s] Two, three.
+[991.1s] In total, 15 seconds.
+[993.2s] 14, 15.
+[994.9s] Now it's done.
+[996.0s] You just count to 15?
+[997.0s] Yeah, 15 times.
+[997.9s] And then you dip it into your garlic, MSG, sesame oil.
+[1000.7s] Yes, let's do it.
+[1001.5s] Let's try it.
+[1005.7s] Oh, it's really nice, actually.
+[1007.8s] It's got a springy texture.
+[1009.6s] It's got a bounce to it.
+[1010.6s] Yeah, it's a little springy.
+[1012.0s] It's a springy.
+[1013.0s] And I gotta say,
+[1014.1s] the spice level was not too bad.
+[1015.6s] It's never gonna be bad.
+[1016.4s] Beef stripes and goose intestines,
+[1018.8s] they're only for the texture.
+[1021.2s] I can already feel my mouth burning.
+[1022.7s] That is gonna be extremely, extremely spice level.
+[1026.7s] Okay.
+[1032.1s] Oh, the crispiness.
+[1033.8s] The mouth crunch.
+[1035.7s] It's like a crunchy intestine.
+[1037.7s] Yeah, very crunchy.
+[1038.6s] I think I need some beef, though.
+[1040.8s] Give it a try, then.
+[1042.0s] That's for white people.
+[1043.3s] That's the white beef?
+[1044.2s] That's not for toasting people.
+[1046.8s] We don't have this in our traditional dish,
+[1049.4s] but you guys like it.
+[1051.0s] I love this stuff.
+[1052.0s] Yeah.
+[1052.8s] So is it the chili that removes the moisture,
+[1054.4s] or is it just the peppercorn?
+[1055.7s] The chili and the peppercorn.
+[1057.0s] They both do that?
+[1057.8s] The combination, yeah.
+[1058.7s] So let's try it out.
+[1059.5s] This is gonna be spicy.
+[1060.8s] Should we dip everything in this oil, or no?
+[1062.6s] You can dip in the oil if you want,
+[1064.8s] but if you want the most spicy hot pot,
+[1068.5s] the oil is kind of like cheating.
+[1070.5s] Oh, really?
+[1071.3s] If you want the most spicy hot pot,
+[1074.0s] the oil is kind of like cheating.
+[1074.9s] It's wiping the flavor away.
+[1076.7s] So best thing is just to taste.
+[1078.3s] If you want the pure flavor, just taste it here.
+[1080.3s] Eat it straight.
+[1081.2s] Should we try?
+[1082.0s] Yeah.
+[1083.8s] I'm not that hardcore.
+[1086.0s] Mmm.
+[1091.7s] Very spicy.
+[1094.2s] That is really spicy.
+[1095.0s] That's very hardcore.
+[1095.9s] You better drink some water.
+[1097.7s] It's hardcore.
+[1099.0s] So why do people eat it this spicy and this numbing?
+[1101.7s] Yeah, it's very healthy.
+[1103.4s] It's healthy.
+[1104.2s] Also in the same time.
+[1105.0s] We like to eat it all year round.
+[1106.1s] Really?
+[1106.9s] Even in summer times.
+[1108.3s] Even when it's that hot?
+[1109.1s] Chongqing is hot, right?
+[1110.2s] Chongqing is very hot.
+[1111.0s] People get shirtless while eating it.
+[1114.5s] You know why?
+[1115.3s] Why?
+[1116.1s] Because in our Chinese philosophy,
+[1117.9s] summer time there's a lot of wetness,
+[1120.0s] moisture in your body, which is harmful, which is bad.
+[1123.4s] Has a hazard.
+[1124.6s] This is a health hazard, right?
+[1126.2s] Yeah, yeah.
+[1127.0s] So what we do is that we have a lot of numbing pepper,
+[1130.4s] Sichuan pepper.
+[1131.6s] It's going to squeeze out all the wetness out of your body.
+[1134.9s] Oh.
+[1135.7s] And you're healthier.
+[1136.5s] So you feel healthier and you get the moisture removed.
+[1140.0s] You get the moisture removed.
+[1141.2s] Wow.
+[1142.1s] So the spicier and the numbing-er, the better.
+[1144.7s] The better.
+[1145.5s] The better.
+[1146.3s] That's Chongqing.
+[1148.0s] Seriously guys, some of the spiciest hot pot
+[1149.6s] you'll ever eat is in Chongqing.
+[1151.6s] It's delicious.
+[1152.5s] Very nice.
+[1153.4s] But burning at the same time.
+[1155.4s] Burning at the same time.
+[1156.8s] Man, what an awesome day.
+[1157.7s] I gotta say, this is the spiciest hot pot
+[1159.4s] I think I've ever eaten.
+[1160.7s] Chongqing is just on another level.
+[1162.2s] I want to say thank you to you as well.
+[1163.6s] My pleasure, my pleasure.
+[1165.1s] Welcome to Chongqing.
+[1165.9s] Thank you, thank you.
+[1167.0s] Remember to move to Chongqing.
+[1168.2s] Yeah, I have to come here.
+[1170.3s] You guys can check out Trump's YouTube channel
+[1172.0s] in the description below.
+[1172.8s] He's got an awesome channel.
+[1174.3s] And yeah, thanks buddy.
+[1177.2s] My pleasure.
+[1178.0s] Awesome.
+[1178.8s] Thanks for watching guys.
+[1179.6s] Come to Chongqing,
+[1180.5s] because you have already eaten my hot pot
+[1182.2s] and you have to come to Chongqing.
+[1183.4s] Yeah.
+[1184.8s] Awesome.
+[1185.6s] That's in our culture.
+[1187.1s] Okay.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  scratchpad: string;
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "scratchpad": "Content benefits include extreme spicy food challenge, cyberpunk cityscape exploration, traditional cooking demonstrations, cultural insights, and variety of authentic dishes. Creator-expertise benefits include charismatic local guide with insider knowledge, access to veteran chefs, hands-on participation, and detailed cultural/culinary explanations. Coverage spans both categories with 15+ distinct selling points.",
+  "selling_points": [
+    {
+      "point": "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot",
+      "evidence": "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating",
+      "confidence": 0.9
+    },
+    {
+      "point": "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights",
+      "evidence": "meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour of Chongqing",
+      "confidence": 0.95
+    },
+    {
+      "point": "Behind-the-scenes access to traditional hot pot base preparation by 10-year veteran chef",
+      "evidence": "I've been making it for 10 years. He's been doing this for 10 years",
+      "confidence": 0.85
+    },
+    {
+      "point": "Exploration of Chongqing's unique cyberpunk cityscape described as the 'Manhattan of mountains'",
+      "evidence": "They say it's Manhattan of mountains. This is the spiciest cyberpunk city in China",
+      "confidence": 0.9
+    },
+    {
+      "point": "Authentic DIY Chongqing mao cai experience where you pick ingredients boiled in extremely spicy broth",
+      "evidence": "You take whatever you want, and then they're gonna bubble it in that cauldron of chili over there",
+      "confidence": 0.85
+    },
+    {
+      "point": "Rare Chongqing Xiaomian noodles only available in this specific city",
+      "evidence": "You can only find Chongqing Xiaomian in Chongqing. Right here",
+      "confidence": 0.9
+    },
+    {
+      "point": "Hands-on participation in cooking hot pot base with 20kg beef tallow cubes",
+      "evidence": "No one has ever eaten hot pot cooked by me before. So you're lucky",
+      "confidence": 0.8
+    },
+    {
+      "point": "Cultural insights about health benefits of spicy food removing harmful moisture from the body",
+      "evidence": "we have a lot of numbing pepper, Sichuan pepper. It's going to squeeze out all the wetness out of your body",
+      "confidence": 0.85
+    },
+    {
+      "point": "Detailed demonstration of traditional seasoning techniques with 15+ authentic Sichuan ingredients",
+      "evidence": "Garlic water, chili oil, sesame oil, MSG, yacai, peanuts, spring onions, Sichuan pepper",
+      "confidence": 0.8
+    },
+    {
+      "point": "Insider knowledge from local guide who grew up eating this comfort food daily",
+      "evidence": "It's our comfort food. So you grew up eating this? Yes",
+      "confidence": 0.85
+    },
+    {
+      "point": "Experience food that unites all social classes from Ferrari drivers to humble locals",
+      "evidence": "They drive a Mercedes Benz and park it here. Ferrari, a lot of good cars. They park it, they order one dish",
+      "confidence": 0.85
+    },
+    {
+      "point": "Learn authentic hot pot eating technique of 'seven up, eight down' for perfect texture",
+      "evidence": "What's that mean? Seven up, eight down. In total, 15 seconds",
+      "confidence": 0.85
+    },
+    {
+      "point": "Sensory overload experience where the air itself smells like chili and numbs your nose",
+      "evidence": "Your nose is numbing just from being here. this city is so spicy that as soon as you enter, the air smells like chili",
+      "confidence": 0.9
+    },
+    {
+      "point": "Traditional refreshing desserts like bingfen jelly and cold shrimp to cool down between spicy courses",
+      "evidence": "that is so refreshing and cooling after the spicy noodles",
+      "confidence": 0.8
+    },
+    {
+      "point": "Expert demonstration of identifying quality ingredients like greener Sichuan pepper being stronger",
+      "evidence": "This is Sichuan pepper. The greener, the stronger",
+      "confidence": 0.85
+    },
+    {
+      "point": "Spice tolerance showdown with secret extra spice added for competitive drama",
+      "evidence": "Go easy on my spice and go crazy on his spice. I secretly add some more spicy for you",
+      "confidence": 0.9
+    },
+    {
+      "point": "Authentic preparation of 500-600 noodle bowls daily at local institution with made-from-scratch seasonings",
+      "evidence": "How many balls you make every day? 500 to 600",
+      "confidence": 0.8
+    }
+  ]
+}
+```
+

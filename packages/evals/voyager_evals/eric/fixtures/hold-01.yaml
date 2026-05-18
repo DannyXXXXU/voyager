@@ -5,18 +5,22 @@ difficulty: easy
 content_type: vlog
 holdout: true
 gold_hooks:
-  - text: "Are you planning for Shanghai?"
-    aliases:
-      - "Shanghai traveling"
-      - "Plan to Shanghai"
-    timestamp_s: 8.5
+- text: Are you planning for Shanghai?
+  aliases:
+  - Are you planning a trip to Shanghai?
+  - Planning to visit Shanghai?
+  - Is Shanghai on your travel plans?
+  timestamp_s: 8.5
 gold_selling_points:
-  - text: "Now, let's head to one of Shanghai's most iconic waterfronts, the Bund"
-    aliases: ["iconic waterfront"]
+- text: Now, let's head to one of Shanghai's most iconic waterfronts, the Bund
+  aliases:
+  - Let's visit the Bund, one of Shanghai's most famous waterfront areas
+  - Next up is the Bund, an iconic waterfront in Shanghai
+  - Time to explore the Bund, Shanghai's legendary waterfront
 notes: LOCKED — final-gate only
 transcript_sha256: d08a2cae009a0737fd13148cba7df161ae3cabdc7dd11bea294c7ecc2393df8b
 _meta:
   drafted_by: human
-  drafted_at_utc: 2026-04-27T15:00:00Z
+  drafted_at_utc: 2026-04-27 15:00:00+00:00
   review_status: Approve
   labeler: danny

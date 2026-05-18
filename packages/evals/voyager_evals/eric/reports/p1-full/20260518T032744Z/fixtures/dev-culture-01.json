@@ -1,0 +1,51 @@
+{
+  "fixture_id": "dev-culture-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5714285714285714,
+    "selling_point_recall": 0.6,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 370.356649199,
+  "error": null,
+  "hooks_predicted": [
+    "I'm going to do something super exciting today.",
+    "traditional Chinese clothing that has been around for thousands of years",
+    "Every dynasty has its own unique style.",
+    "From super elegant to really royal.",
+    "I want to dress like a princess.",
+    "This was worth thousands of yuan.",
+    "It's for queen.",
+    "it's all for free",
+    "Gonna take you about 1 hour 50 minutes.",
+    "it's like Asian hairstyle magic",
+    "Sometimes customers they will change 20 clothes.",
+    "We are heading to the forbidden city.",
+    "It's like stepping out of a time machine.",
+    "I honestly feel like I was starring in my own Korean drama."
+  ],
+  "selling_points_predicted": [
+    "Professional traditional Chinese Hanfu photoshoot experience with complete styling services included",
+    "Authentic traditional Chinese clothing spanning thousands of years of history across multiple dynasties",
+    "Extensive wardrobe selection from elegant to royal styles with intricate embroidery and traditional symbolic patterns",
+    "Premium quality costumes including pieces worth thousands of yuan designed for queens and nobility",
+    "Comprehensive 90-minute professional hair and makeup transformation recreating historical dynasty looks",
+    "Elaborate historical hairstyles with intricate buns and volume-adding hair pieces following Asian traditions",
+    "Dynasty-specific makeup styles with traditional details including brows, lips, and forehead decorations",
+    "Unlimited outfit changes with patient staff allowing up to 20 costume tries to find your perfect look",
+    "Expert styling advice on color selection and location matching for optimal photoshoot results",
+    "Ornate qi tou headpieces representing Manchu culture crafted from silk, beads, and gold",
+    "Photoshoot at Beijing's iconic Forbidden City exterior for authentic historical backdrop",
+    "Professional photographer providing expert direction to create historical drama-quality images",
+    "Extended wearing time allowing independent exploration and photography at Forbidden City until 6pm",
+    "Complete all-inclusive service covering hairstyle, makeup, and clothing selection for all ages and genders",
+    "Immersive time-travel cultural experience that attracts attention and amazement from tourists",
+    "Personalized color and style matching service to complement individual preferences and features"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

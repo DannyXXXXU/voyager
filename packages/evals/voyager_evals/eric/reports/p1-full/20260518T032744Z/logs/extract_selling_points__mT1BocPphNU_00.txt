@@ -1,0 +1,179 @@
+=== TAG: extract_selling_points__mT1BocPphNU  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a marketing copywriter for an overseas creator brand. Extract the
+SELLING POINTS — the reasons a viewer should watch / visit / care — from a
+transcript, written as concise benefit statements.
+</role>
+
+<task>
+Emit between 8 and 18 selling points. Eric over-producing is fine (Mike filters
+downstream). Under-producing is the failure mode. When in doubt, INCLUDE.
+</task>
+
+<rules>
+1. Each `point` is a concise benefit STATEMENT, 40-180 chars, marketing-brief
+   style. NOT a bare topic label. NOT a quote.
+2. `evidence` MUST quote or paraphrase the supporting transcript span
+   (<=200 chars). Never empty.
+3. Cover BOTH content benefits (what you'll see / taste / experience) AND
+   creator-expertise benefits (host credibility, behind-the-scenes access).
+4. No duplicates — same benefit in different words = ONE point.
+5. confidence in [0.0, 1.0]; >=0.8 only when evidence is a direct quote.
+</rules>
+
+<examples>
+<example id="food-chongqing">
+TRANSCRIPT (excerpt):
+[15.0s] meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour
+[120.0s] this chef has been making hot pot base from scratch for 10 years
+[200.0s] chongqing — the manhattan of mountains, cyberpunk cityscape
+
+GOOD SELLING POINTS:
+- point: "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot"
+  evidence: "we're gonna attempt to eat the world's spiciest hot pot"
+- point: "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights"
+  evidence: "meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour"
+- point: "Behind-the-scenes look at traditional food preparation including 10-year veteran chef making hot pot base from scratch"
+  evidence: "this chef has been making hot pot base from scratch for 10 years"
+- point: "Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan of mountains'"
+  evidence: "chongqing — the manhattan of mountains, cyberpunk cityscape"
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: list the benefit CATEGORIES present in this transcript (content benefits + creator-expertise benefits). Did you cover both? Are you at 8+ items?>",
+  "selling_points": [ {"point": "...", "evidence": "...", "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list selling_points. Target 8-18 items.
+</output>
+
+
+USER:
+VIDEO_ID=mT1BocPphNU
+TRANSCRIPT:
+[0.0s] Hey you guys I'm here in Kashgar in Xinjiang.
+[8.2s] Now Xinjiang has been in the news a lot lately you would have seen and we all know what the
+[11.2s] news is like.
+[12.2s] So I've come here to check out the place with my own eyes, come with me.
+[24.5s] Kashgar is home to one of China's western most cities.
+[27.6s] It's been famous for thousands of years due to its strategic position on the Silk Road
+[32.3s] acting as a gateway between China and Central Asia all the way to Europe.
+[37.9s] Most people here speak Uyghur but you can get by with Mandarin luckily, signage is only
+[43.0s] in Uyghur and Mandarin.
+[47.8s] Now there are a few places you must visit when you come to Kashgar and plenty of delicious
+[51.5s] food you must eat.
+[53.4s] Let me break it down for you.
+[62.4s] Top of the list of must visit places is the Id Kar Mosque which is not only the biggest
+[67.5s] mosque in Xinjiang but also in all of China.
+[75.0s] Apart from prayer time non-Muslims are welcome to visit the mosque for free.
+[83.8s] The mosque is located inside the ancient city which is right at the centre of modern day
+[88.4s] Kashgar.
+[113.9s] It's really quite fun getting lost among the winding streets.
+[117.7s] You can also buy souvenirs and eat local food here.
+[129.2s] My favourites in terms of local food are
+[131.7s] Doner kebabs with chicken or beef, french fries and lots of yummy sauce.
+[136.0s] Da Pan Ji which literally translates as big dish of chicken.
+[140.0s] Served with potato, capsicum and freshly pulled noodles.
+[143.7s] Cold local yoghurt with lots of sugar sprinkled on top.
+[147.3s] Ham noodles freshly pulled.
+[150.9s] Xinjiang salad with raw onions and juicy tomato.
+[165.8s] And last but not least, Uyghur ice cream, otherwise known as Xinjiang ice cream.
+[170.8s] Mmm, different but really good.
+[182.7s] A main part of the ancient city is the night market.
+[185.3s] But since China has only one time zone, you need to wait till about 10pm until the place
+[189.2s] gets dark and really comes to life.
+[191.3s] But it is worth the wait.
+[213.6s] Another must visit is the Apak Khoja mausoleum, the final resting place of Apak Khoja and
+[218.4s] his family.
+[219.8s] This was also once home to Xiang Fei, the fragrant concubine, who was said to dance
+[225.2s] around the palace after her unique beauty and scent caught the eyes and nose of the
+[260.5s] Wow, I think you guys will agree there is a lot to Kashgar so I'm really excited about
+[287.5s] my next stop which is Xinjiang's capital, Urumqi.
+[290.1s] See you guys then, bye bye.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  scratchpad: string;
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "scratchpad": "Content benefits include: on-the-ground reporting addressing media controversy, historic Silk Road sites, China's largest mosque, ancient city exploration, diverse local cuisine, unique night market timing, cultural mausoleum with legend. Creator-expertise benefits: first-person investigation, local food recommendations, practical travel tips. Currently at 12+ distinct selling points covering both categories.",
+  "selling_points": [
+    {
+      "point": "First-person investigation offering ground truth perspective on Xinjiang beyond mainstream news narratives",
+      "evidence": "Xinjiang has been in the news a lot lately... So I've come here to check out the place with my own eyes",
+      "confidence": 0.85
+    },
+    {
+      "point": "Exploration of historic Silk Road city that served as strategic gateway between China, Central Asia and Europe for thousands of years",
+      "evidence": "famous for thousands of years due to its strategic position on the Silk Road acting as a gateway between China and Central Asia all the way to Europe",
+      "confidence": 0.9
+    },
+    {
+      "point": "Visit to Id Kar Mosque, the largest mosque in all of China, with free admission for non-Muslims outside prayer times",
+      "evidence": "Id Kar Mosque which is not only the biggest mosque in Xinjiang but also in all of China... non-Muslims are welcome to visit the mosque for free",
+      "confidence": 0.9
+    },
+    {
+      "point": "Adventure through the ancient city's atmospheric winding streets perfect for getting lost and exploring",
+      "evidence": "It's really quite fun getting lost among the winding streets",
+      "confidence": 0.85
+    },
+    {
+      "point": "Curated list of must-try local dishes including doner kebabs, Da Pan Ji chicken, and hand-pulled noodles from experienced traveler",
+      "evidence": "My favourites in terms of local food are Doner kebabs... Da Pan Ji... Ham noodles freshly pulled",
+      "confidence": 0.85
+    },
+    {
+      "point": "Taste unique Uyghur ice cream described as 'different but really good' by local food expert",
+      "evidence": "Uyghur ice cream, otherwise known as Xinjiang ice cream. Mmm, different but really good",
+      "confidence": 0.9
+    },
+    {
+      "point": "Experience vibrant night market that comes alive around 10pm due to China's single timezone quirk",
+      "evidence": "since China has only one time zone, you need to wait till about 10pm until the place gets dark and really comes to life",
+      "confidence": 0.9
+    },
+    {
+      "point": "Local shopping opportunities for souvenirs and authentic regional cuisine within the ancient city",
+      "evidence": "You can also buy souvenirs and eat local food here",
+      "confidence": 0.8
+    },
+    {
+      "point": "Tour of Apak Khoja mausoleum featuring the romantic legend of the Fragrant Concubine and her unique beauty",
+      "evidence": "Apak Khoja mausoleum... once home to Xiang Fei, the fragrant concubine, who was said to dance around the palace after her unique beauty and scent caught the eyes and nose",
+      "confidence": 0.85
+    },
+    {
+      "point": "Immersion in authentic Uyghur culture with local language signage and predominantly Uyghur-speaking population",
+      "evidence": "Most people here speak Uyghur... signage is only in Uyghur and Mandarin",
+      "confidence": 0.85
+    },
+    {
+      "point": "Practical travel guidance on language requirements with reassurance that Mandarin works for communication",
+      "evidence": "you can get by with Mandarin luckily",
+      "confidence": 0.8
+    },
+    {
+      "point": "Comprehensive food tour including Da Pan Ji served with potato, capsicum and freshly pulled noodles",
+      "evidence": "Da Pan Ji which literally translates as big dish of chicken. Served with potato, capsicum and freshly pulled noodles",
+      "confidence": 0.9
+    }
+  ]
+}
+

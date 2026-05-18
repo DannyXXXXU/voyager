@@ -1,0 +1,47 @@
+{
+  "fixture_id": "dev-culture-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5,
+    "selling_point_recall": 0.875,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 393.0143235119999,
+  "error": null,
+  "hooks_predicted": [
+    "That is so hard. The balance is so critical.",
+    "the most famous tea house in Chengdu is here",
+    "He Ming Tea House",
+    "It was built 100 years ago.",
+    "They also have this special kung fu tea performance going on here.",
+    "snowflakes floating in a green lake",
+    "within the top ten teas in China",
+    "They will think you're not going to pay for the bill.",
+    "This means you are seeking for help.",
+    "this teahouse is the oldest teahouse in Chengdu",
+    "It was established in 1923.",
+    "tea culture is so important in Chengdu that the city has more teahouses than other cities in China"
+  ],
+  "selling_points_predicted": [
+    "Visit 100-year-old historic He Ming Tea House, the oldest tea house in Chengdu established in 1923",
+    "Learn traditional tea drinking techniques with distinct masculine and feminine styles demonstrated step-by-step",
+    "Discover secret tea lid positioning signals that communicate needs without speaking to staff",
+    "Watch captivating kung fu tea performance featuring traditional long-bead teapot technique",
+    "Taste premium Meng Ding yellow tea, ranked within China's top ten most famous teas",
+    "Experience poetically-named jasmine tea 'snowflakes floating in a green lake' with elegant presentation",
+    "Learn historical VIP customs where regular customers could run tabs based on trust and recognition",
+    "Discover traditional Chinese philosophy of helping strangers signaled through discreet tea lid positioning",
+    "Experience Chengdu's distinctively laid-back lifestyle contrasted with rushing pace of Shanghai and Shenzhen",
+    "Observe authentic morning tea culture with locals gathering from 7 a.m. before starting their workday",
+    "See vibrant People's Park morning activities including badminton, tai chi, and early tea drinking",
+    "Witness surprising intergenerational participation with young people embracing traditional tea culture alongside elders",
+    "Explore city with highest concentration of tea houses in China, reflecting deep cultural importance",
+    "Get insider knowledge from local guide comparing regional tea customs and cup sizes across Chinese provinces"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "label": "p1-full",
+  "run_id": "20260518T032744Z",
+  "passed": false,
+  "dev_pass_rate": 0.0,
+  "holdout_pass_rate": 0.0,
+  "total_cost_usd": 0.0,
+  "total_wall_seconds": 7721.6261539960005,
+  "failures": [
+    "dev_pass_rate 0.00 < 0.80",
+    "holdout_pass_rate 0.00 < 1.00",
+    "wall 7722s > 900s"
+  ],
+  "fixture_count": 20
+}

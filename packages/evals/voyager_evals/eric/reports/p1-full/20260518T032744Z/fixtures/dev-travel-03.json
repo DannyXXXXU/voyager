@@ -1,0 +1,49 @@
+{
+  "fixture_id": "dev-travel-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5714285714285714,
+    "selling_point_recall": 0.8,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 374.09499840900025,
+  "error": null,
+  "hooks_predicted": [
+    "Hey, want to see something cool?",
+    "It's all made of snow!",
+    "It's actually the biggest one of its kind in the world.",
+    "completely frozen over from November to April every year",
+    "Actually, I'm standing on it right now!",
+    "I'm going to try out this banana boat thing. It seems to be tied to a car",
+    "Welcome to China's coldest swimming pool!",
+    "Ninety-six.",
+    "it's currently minus 25 degrees",
+    "covers an area of 600,000 square meters",
+    "made up of over 2,000 massive ice carvings",
+    "10,000 people, 15 days to build all of this",
+    "It's literally like being in a fairy tale."
+  ],
+  "selling_points_predicted": [
+    "Experience the world's largest ice and snow sculpture festival with unparalleled scale and artistry",
+    "Explore massive, intricate snow sculptures that are both beautiful and impressively detailed",
+    "Discover multiple festival venues across Harbin offering different ice and snow experiences",
+    "Witness the Songhua River completely frozen from November to April creating a unique winter playground",
+    "Try thrilling frozen river activities like banana boat rides towed by cars across the ice",
+    "Witness China's coldest swimming pool tradition practiced by locals for health and longevity",
+    "Meet resilient ice swimmers including a 96-year-old practitioner who credits the tradition for staying young",
+    "Experience extreme cold weather activities in minus 25 degree temperatures",
+    "Visit Ice and Snow World spanning 600,000 square meters of frozen artistry",
+    "Marvel at over 2,000 massive ice carvings in one spectacular location",
+    "Learn about the incredible scale of construction: 10,000 workers building the festival in just 15 days",
+    "Experience breathtaking nighttime illumination transforming ice sculptures into a colorful spectacle",
+    "Step into a fairy tale-like atmosphere with magical illuminated ice architecture",
+    "Get authentic on-the-ground exploration from a creator personally testing every activity and venue",
+    "Gain cultural insights through direct interviews with locals about traditional practices and health benefits"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

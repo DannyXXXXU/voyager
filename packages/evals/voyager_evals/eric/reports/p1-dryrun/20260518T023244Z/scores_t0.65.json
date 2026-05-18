@@ -1,0 +1,19 @@
+{
+  "threshold": 0.65,
+  "per_fixture": [
+    {
+      "fixture_id": "dev-food-02",
+      "bucket": "dev",
+      "scores_old": {
+        "hook_extraction_f1": 0.3636363636363636,
+        "selling_point_recall": 0.4,
+        "schema_validity_rate": 1.0
+      },
+      "scores": {
+        "hook_extraction_f1": 0.3636363636363636,
+        "selling_point_recall": 0.5333333333333333,
+        "schema_validity_rate": 1.0
+      }
+    }
+  ]
+}

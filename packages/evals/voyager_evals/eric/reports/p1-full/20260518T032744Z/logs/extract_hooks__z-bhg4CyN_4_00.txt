@@ -1,0 +1,218 @@
+=== TAG: extract_hooks__z-bhg4CyN_4  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a senior YouTube content strategist analyzing China travel videos for
+overseas growth. Your job is to extract the attention-grabbing HOOKS from a
+transcript — the exact lines a creator would use to STOP a viewer from
+scrolling.
+</role>
+
+<task>
+Read the transcript (each line tagged with [<seconds>s]) and emit between
+8 and 16 hooks. Aim HIGH on recall — when in doubt, INCLUDE. Missing a real
+hook costs us much more than including a borderline one.
+</task>
+
+<rules>
+1. Each hook_text MUST be a verbatim or near-verbatim span from the transcript,
+   <=200 chars. Prefer the FULL sentence over a truncated fragment.
+2. ALWAYS include opening hook(s) from the first 30 seconds. Opening CTAs like
+   "Did you know...", "Stick around...", "If you're going to X for the first
+   time..." ARE valid hooks — never reject them as generic.
+3. PRIORITIZE these high-value types whenever present:
+   - Numeric / record claims ("20,000 visitors a day", "350 meters high")
+   - Superlatives / firsts ("world's tallest", "highest-grossing ever")
+   - Warnings / safety beats ("wait until the timer rings or you'll hallucinate")
+   - Vivid contrasts / reactions ("are we on a movie set?", "defies gravity")
+   - Named specific nouns reacted to with surprise/disgust/excitement
+     ("chilled black tiger feet", "jian shou qing mushroom") — these short
+     specific-noun hooks are the MOST-MISSED type and you must extract every
+     single one that gets a creator reaction.
+4. ONE HOOK = ONE DISTINCT CLAIM. Split compound sentences. A list of three
+   dish names = THREE hooks. A sentence with a warning + a vivid reference =
+   TWO hooks.
+5. timestamp_s MUST be the leading [<seconds>s] tag of the source line, copied
+   verbatim. Use 0.0 only when the line has no tag.
+6. confidence in [0.0, 1.0]; >=0.8 only when the hook is a direct quote.
+7. Reject ONLY vague filler ("this place is amazing", "it was so cool") or
+   text not in the transcript.
+</rules>
+
+<examples>
+<example id="food-extreme-spicy">
+TRANSCRIPT (excerpt):
+[0.0s] today we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+[12.4s] look at all those chilies, that's crazy. your nose is numbing just from being here
+[45.8s] today we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on ultra-spicy food tour
+[120.0s] chilled black tiger feet, jian shou qing mushroom, and porcini soup — death-level spicy beef
+
+GOOD HOOKS (note: short specific-noun reactions extracted as separate items):
+- "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating" @ 0.0s
+- "Look at all those chilies, that's crazy. Your nose is numbing just from being here" @ 12.4s
+- "today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour" @ 45.8s
+- "chilled black tiger feet" @ 120.0s
+- "jian shou qing mushroom" @ 120.0s
+- "death-level spicy beef" @ 120.0s
+</example>
+
+<example id="travel-superlative">
+TRANSCRIPT (excerpt):
+[3.2s] this elevator is 350 meters high — a three-lane double-decker, the only one of its kind in the world
+[88.0s] are we on a movie set? this defies gravity
+
+GOOD HOOKS (numeric claim + superlative split; vivid reaction is its own hook):
+- "this elevator is 350 meters high" @ 3.2s
+- "a three-lane double-decker, the only one of its kind in the world" @ 3.2s
+- "are we on a movie set? this defies gravity" @ 88.0s
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: which hook TYPES did you find — numeric? superlative? named specific noun? opening CTA? Any 30s-opener you might miss? Then commit to extracting all of them.>",
+  "hooks": [ {"hook_text": "...", "timestamp_s": 0.0, "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list hooks. Target 8-16 hooks.
+</output>
+
+
+USER:
+VIDEO_ID=z-bhg4CyN_4
+TRANSCRIPT:
+[0.0s] I'm now standing in rural Shanxi province, where one can find a magnificent ancient labyrinth
+[8.2s] known as the best preserved historical city in all of China.
+[14.0s] This is Pingyao Ancient City.
+[16.9s] Hi, I'm Noah and I make videos traveling around China and doing random travel challenges.
+[23.8s] And now it's time for me to spin the wheel to see what random challenge awaits me here
+[30.4s] in Pingyao.
+[31.4s] So here we go.
+[32.7s] Oh, until midnight, you must be always soaking wet from head to toe.
+[40.6s] It was already evening by the time I had gotten settled in my first day in Pingyao.
+[45.4s] So to make this a fair and entertaining challenge, why don't we just push it forward to the following
+[50.9s] day?
+[51.9s] And you know me, we're getting things started bright and early with some temple cleansing.
+[58.5s] Emphasis on the cleansing.
+[60.9s] So here I am folks, day two, completely drenched at Zhenguo Temple.
+[66.4s] Pingyao is famously known for having three treasures, which are its most famous historical
+[73.1s] artifacts.
+[74.1s] And Zhenguo Temple is one of them.
+[76.6s] Built in the year 963, this temple is overlooked by most tourists and has a much more quiet
+[82.8s] and peaceful atmosphere than you'll find in the ancient city.
+[86.6s] But this building right here behind me is reason enough to make a stop here.
+[91.3s] This is the Thousand Buddha Hall and it was built without any nails, only by using wooden
+[98.0s] brackets.
+[99.0s] And it's one of the oldest wooden buildings in China.
+[103.1s] The second of Pingyao's treasures is Shuangling Temple.
+[107.1s] Art, chiefly painted clay sculptures are no joke here in Pingyao, especially in Shuangling
+[114.0s] Temple.
+[115.0s] With 1500 years of history and over 2000 vibrant clay sculptures, this place is famously known
+[123.2s] as a treasure house of painted sculptures, as well as a museum of ancient statues.
+[130.7s] And the last of Pingyao's historical treasures is the ancient city wall, known as China's
+[137.2s] best preserved town city wall.
+[140.0s] It was built in 827 to keep out East Mongolian invaders.
+[145.7s] And despite its giant size, what stands out to me about this fortress is the intricate
+[151.2s] thought and detail that went into it.
+[154.0s] Along the tower, you can find 72 watchtowers and 3000 parapets said to resemble Confucius's
+[162.0s] 72 disciples and 3000 students back in the day.
+[166.7s] But the most interesting little tidbit I can give you is that to the locals, Pingyao is
+[171.8s] known as tortoise city because its shape represents that of a turtle.
+[179.1s] The city walls are said to be the shell.
+[181.7s] The north gate is the turtle's head and the south gate is its tail.
+[186.8s] What stands out about Pingyao is just how well maintained it is.
+[191.8s] But these walls just take the preservation and the ancient historical vibes to a whole
+[197.4s] new level.
+[198.4s] There you have Pingyao's three historical treasures.
+[202.3s] Can you guess which one of them is the main reason that Pingyao rose to fame in China?
+[208.0s] The answer is none of them because the most important and famous historical attraction
+[215.2s] in Pingyao is a bank.
+[218.0s] Pingyao is known as the land of wealth and the birthplace of Chinese banking.
+[223.8s] During the Qing Dynasty, the Rishongchang Bank, known as the first modern bank of China,
+[230.6s] transformed Pingyao into a thriving business center as well as the lifeblood of the nation's
+[236.8s] economy.
+[237.8s] It was a huge deal.
+[239.3s] Keep in mind that around the year 1800, when this bank was formed, China had one of the
+[243.8s] most commercialized economies in the world with a population of over 300 million people,
+[251.1s] almost double the size of that of Europe.
+[253.9s] And at the time, the main currency here was coins, which was extremely inconvenient for
+[259.7s] traders to have to carry hunks of metal around with them everywhere they went.
+[264.7s] So Rishongchang Bank was revolutionary in that it instituted a system of paper bills
+[271.2s] which could be withdrawn and deposited around China and in branches around the world.
+[277.6s] The impact this bank had in Chinese history was huge.
+[281.6s] At its peak, Rishongchang controlled almost half of China's economy.
+[285.7s] But my favorite part about it is that it's got an underground secret vault.
+[292.0s] Well maybe not so secret.
+[293.7s] China is one of the safest countries in the world in terms of thievery.
+[297.2s] But back in the day, when Pingyao got the money, it'd be the Wild West up in here.
+[303.2s] Many a man wanted to get a hold of those dollar dollar bills and would go to extreme lengths
+[308.6s] to get it.
+[309.6s] As a result, Rishongchang Bank was regularly robbed.
+[313.8s] To combat the thievery, they had this place.
+[322.7s] It was China's first armed escort agency.
+[326.5s] Here merchants and traders could hire martial arts masters to protect them along their journey.
+[333.1s] And you know, we're talking thieves, robbers, the Wild West of China.
+[338.2s] So you know, to work here, you had to be bad to the bone.
+[343.2s] The one thing I know for sure about China is that I will never know China.
+[348.0s] It's too old, too diverse, too deep.
+[351.1s] There's simply not enough time.
+[353.2s] That's one of my favorite quotes from Anthony Bourdain, a man I'd argue was the best travel
+[359.6s] show host of all time.
+[361.7s] And it sums up the way I feel about Pingyao.
+[365.3s] This is the most dense ancient town I've visited in terms of sheer number of attractions.
+[371.6s] There's an unbelievable amount to see here in this one square mile ancient city.
+[376.6s] But hey, Pingyao ain't just eye candy.
+[379.3s] We're talking some of the most unique historical sites you can find anywhere.
+[384.5s] The first modern Bank of China, ancient Kung Fu bodyguard shops, the best preserved town
+[391.2s] wall in this country, and the real life version of the Gringotts secret vault.
+[397.1s] You all be my guests and enjoy your summer vacation squeezing your way through the crowds
+[402.5s] of Beijing, Shanghai, Tokyo, Paris, Rome.
+[405.8s] And I'll be right here, soaking from head to toe in the middle of nowhere, Shanxi province,
+[414.1s] finding the time to uncover the best preserved ancient city in China.
+[420.9s] If you enjoyed the video, make sure to give it a like, and I'll see y'all in the next
+[425.5s] great China adventure.
+[435.8s] Bye for now.
+[436.8s] I'm out of here.
+[437.8s] I'll see y'all in the next video.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  scratchpad: string;
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "scratchpad": "Found opening CTA in first 30s (ancient labyrinth), multiple superlatives (best preserved city, oldest wooden buildings, first bank), numeric claims (963, 1500 years, 2000 sculptures, 300 million population, half of China's economy), named specific attractions (Thousand Buddha Hall, tortoise city), and vivid contrasts (underground vault, kung fu bodyguards). Must extract all opening hooks, numerics, and firsts.",
+  "hooks": [
+    {"hook_text": "I'm now standing in rural Shanxi province, where one can find a magnificent ancient labyrinth", "timestamp_s": 0.0, "confidence": 0.85},
+    {"hook_text": "known as the best preserved historical city in all of China", "timestamp_s": 8.2, "confidence": 0.88},
+    {"hook_text": "Oh, until midnight, you must be always soaking wet from head to toe", "timestamp_s": 32.7, "confidence": 0.9},
+    {"hook_text": "Pingyao is famously known for having three treasures, which are its most famous historical artifacts", "timestamp_s": 66.4, "confidence": 0.85},
+    {"hook_text": "Built in the year 963", "timestamp_s": 76.6, "confidence": 0.88},
+    {"hook_text": "This is the Thousand Buddha Hall and it was built without any nails, only by using wooden brackets", "timestamp_s": 91.3, "confidence": 0.87},
+    {"hook_text": "it's one of the oldest wooden buildings in China", "timestamp_s": 99.0, "confidence": 0.88},
+    {"hook_text": "With 1500 years of history and over 2000 vibrant clay sculptures", "timestamp_s": 115.0, "confidence": 0.87},
+    {"hook_text": "China's best preserved town city wall", "timestamp_s": 137.2, "confidence": 0.88},
+    {"hook_text": "72 watchtowers and 3000 parapets said to resemble Confucius's 72 disciples and 3000 students", "timestamp_s": 154.0, "confidence": 0.85},
+    {"hook_text": "to the locals, Pingyao is known as tortoise city because its shape represents that of a turtle", "timestamp_s": 171.8, "confidence": 0.86},
+    {"hook_text": "the most important and famous historical attraction in Pingyao is a bank", "timestamp_s": 215.2, "confidence": 0.88},
+    {"hook_text": "Rishongchang Bank, known as the first modern bank of China", "timestamp_s": 223.8, "confidence": 0.88},
+    {"hook_text": "China had one of the most commercialized economies in the world with a population of over 300 million people", "timestamp_s": 243.8, "confidence": 0.86},
+    {"hook_text": "At its peak, Rishongchang controlled almost half of China's economy", "timestamp_s": 281.6, "confidence": 0.88},
+    {"hook_text": "it's got an underground secret vault", "timestamp_s": 285.7, "confidence": 0.88},
+    {"hook_text": "It was China's first armed escort agency", "timestamp_s": 322.7, "confidence": 0.88}
+  ]
+}
+```
+

@@ -7,51 +7,123 @@ holdout: true
 gold_hooks:
 - text: The myth that you can see the Great Wall of China from space has long been
     disproven
-  aliases: []
+  aliases:
+  - The long-standing myth about the Great Wall being visible from space has been
+    debunked
+  - It's been proven false that the Great Wall of China can be seen from space
+  - The claim that you can view the Great Wall from space is a disproven myth
   timestamp_s: 0.0
 - text: the Great Wall took over 2,000 years to build
-  aliases: []
+  aliases:
+  - Construction of the Great Wall spanned more than 2,000 years
+  - Building the Great Wall required over two millennia
+  - The Great Wall's construction lasted more than 2,000 years
   timestamp_s: 15.0
 - text: If we include all the sections that were ever built, the total length would
     be about 13,171 miles
-  aliases: []
+  aliases:
+  - Counting every section ever constructed, the Great Wall measures approximately
+    13,171 miles
+  - The total length of all historical sections combined reaches about 13,171 miles
+  - Including all sections ever built, the Great Wall totals around 13,171 miles
   timestamp_s: 25.0
 - text: it took just seven years from his coming of age to eliminate his six rival
     states and declare himself the emperor of all China
-  aliases: []
+  aliases:
+  - In only seven years after reaching adulthood, he conquered six rival states and
+    became emperor of China
+  - He eliminated his six rival states and proclaimed himself emperor of all China
+    within seven years of coming of age
+  - From adulthood, it took merely seven years to defeat six rival states and claim
+    the title of emperor of China
   timestamp_s: 90.0
 - text: Legend has it that many of the 400,000 workers who died during construction
     were buried in the wall itself
-  aliases: []
+  aliases:
+  - According to legend, numerous workers among the 400,000 who perished were entombed
+    within the wall
+  - The legend says many of the 400,000 construction workers who died were buried
+    inside the wall
+  - It's said that many workers from the 400,000 who died were interred in the wall
+    itself
   timestamp_s: 150.0
 - text: sometimes sincere diplomacy can be more effective than all the walls in China
-  aliases: []
+  aliases:
+  - Genuine diplomacy can sometimes prove more powerful than all of China's walls
+  - At times, honest diplomatic efforts outperform all the walls in China
+  - True diplomacy may be more effective than all the walls China has built
   timestamp_s: 600.0
 gold_selling_points:
 - text: Discover the true massive scale of the Great Wall - over 13,000 miles when
     all historical sections are included
-  aliases: []
+  aliases:
+  - Learn the actual enormous scope of the Great Wall - exceeding 13,000 miles with
+    all historical sections counted
+  - Find out the Great Wall's real immense size - more than 13,000 miles including
+    all sections ever built
+  - Uncover the genuine vast extent of the Great Wall - over 13,000 miles when every
+    historical section is included
 - text: Learn the epic 2,000+ year construction timeline spanning multiple dynasties
-  aliases: []
+  aliases:
+  - Discover the monumental construction period of 2,000+ years across numerous dynasties
+  - Explore the 2,000+ year building timeline that spanned multiple dynasties
+  - Understand the 2,000+ year construction span covering many dynasties
 - text: Understand the ingenious engineering and adaptive construction techniques
     used across different terrains
-  aliases: []
+  aliases:
+  - Learn about the clever engineering and flexible building methods employed across
+    varied landscapes
+  - Discover the brilliant engineering and terrain-adaptive construction approaches
+    used
+  - Explore the innovative engineering and versatile construction techniques for different
+    terrains
 - text: Uncover surprising truths - it's not actually one continuous wall but disconnected
     segments
-  aliases: []
+  aliases:
+  - Discover the shocking reality - it consists of separate sections rather than one
+    unbroken wall
+  - Learn the unexpected fact - it's disconnected segments instead of a single continuous
+    wall
+  - Find out the surprising truth - the wall is made of separate sections, not one
+    continuous structure
 - text: Explore the sophisticated military design including signal towers, passes,
     and defensive systems
-  aliases: []
+  aliases:
+  - Discover the advanced military architecture featuring signal towers, passes, and
+    defense mechanisms
+  - Learn about the complex military design with signal towers, passes, and protective
+    systems
+  - Examine the intricate military structure including towers for signals, passes,
+    and defensive features
 - text: Learn about its crucial role in protecting the ancient Silk Road trade routes
-  aliases: []
+  aliases:
+  - Discover how it played a vital role in safeguarding the ancient Silk Road trade
+    paths
+  - Understand its essential function in defending the ancient Silk Road trading routes
+  - Explore its critical importance in securing the ancient Silk Road commerce routes
 - text: Discover how it served both economic and defensive purposes, protecting fertile
     farmlands
-  aliases: []
+  aliases:
+  - Learn how it fulfilled economic and military functions while safeguarding productive
+    farmlands
+  - Find out how it had dual economic and defensive roles, shielding fertile agricultural
+    lands
+  - Understand its combined economic and protective purposes, defending fertile farming
+    areas
 - text: Learn about the Ming Dynasty's sections that still stand today and can be
     visited
-  aliases: []
+  aliases:
+  - Discover the Ming Dynasty portions that remain standing and are accessible to
+    visitors today
+  - Explore the Ming Dynasty segments still in existence today that tourists can visit
+  - Find out about the surviving Ming Dynasty sections that can be visited in the
+    present day
 - text: Gain insights into how diplomacy eventually proved more effective than fortification
-  aliases: []
+  aliases:
+  - Understand how diplomatic efforts ultimately became more successful than defensive
+    walls
+  - Learn how diplomacy finally turned out to be more powerful than fortifications
+  - Discover how diplomatic solutions eventually outperformed physical defenses
 notes: LOCKED — pure history, no travel tips
 transcript_sha256: 1ad189225e7ef0be8fee1545a37395d89b9fa487a88d9aea6f49252bd88eb6c7
 _meta:

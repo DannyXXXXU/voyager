@@ -1,0 +1,49 @@
+{
+  "fixture_id": "hold-02",
+  "bucket": "holdout",
+  "scores": {
+    "hook_extraction_f1": 0.7000000000000001,
+    "selling_point_recall": 0.0,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 384.5142900000001,
+  "error": null,
+  "hooks_predicted": [
+    "It's absolutely amazing here, honestly one of the best sceneries I've ever seen in my life.",
+    "Definitely something you should add on your trip to China, it's a must.",
+    "it's very interesting about their cuisine and what they eat here in China.",
+    "it's so famous that it's even featured on the 20 yuan banknote here in China.",
+    "it was called by National Geographic one of the 10 watery wonders in the world",
+    "It's also part of the UNESCO natural heritage",
+    "nobody speaks English, not even our tour guide",
+    "All of these karst formations are incredible and they are everywhere.",
+    "it smells good but it might be a soap as well.",
+    "Oh my god, what if it's a soap?",
+    "It tastes like detergent.",
+    "osmanthus cake",
+    "We are paying for this room per night only 35 dollars."
+  ],
+  "selling_points_predicted": [
+    "Experience scenery ranked by National Geographic as one of the 10 watery wonders of the world",
+    "Visit a UNESCO natural heritage site so iconic it appears on China's 20 yuan banknote",
+    "Witness stunning karst formations that the creator ranks among the best sceneries they've ever seen",
+    "Scenic cruise journey from Guilin to Yangshuo showcasing continuous karst landscape throughout the trip",
+    "Authentic cultural interactions with friendly locals who spontaneously share traditional food and help with photos",
+    "Insider tip to arrive early on deck for uncrowded photo opportunities during the cruise",
+    "Money-saving booking strategy: ask your accommodation first rather than paying premium online prices",
+    "Discover traditional Chinese cuisine with health benefits including osmanthus cake with slimming and stomach properties",
+    "Budget-friendly luxury accommodation at $35/night featuring stunning karst views, pool, and free washing facilities",
+    "Room upgrade with panoramic karst view described as worth the extra cost over standard city-view rooms",
+    "Convenient scooter rental available directly from the accommodation for independent exploration",
+    "Experience authentic local transport including electric tuk-tuks with practical negotiation insights shared",
+    "Vibrant market atmosphere in Yangshuo with immediate nice vibes upon arrival after the cruise",
+    "Well-organized tour infrastructure with efficient pickup service and large-scale port operations despite language barriers",
+    "Creator provides direct accommodation links and verified recommendations based on personal stay experience"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

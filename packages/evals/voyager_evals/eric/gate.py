@@ -26,12 +26,17 @@ import yaml
 @dataclass
 class MetricThreshold:
     name: str
-    threshold: float
+    threshold: float | dict[str, float]  # scalar OR {"dev": x, "holdout": y}
     type: str  # "deterministic" | "llm_judge"
     weight: int = 1
     judge_model: str | None = None
     rubric: str | None = None
     median_of: int = 1
+
+    def threshold_for(self, bucket: str) -> float:
+        if isinstance(self.threshold, dict):
+            return float(self.threshold.get(bucket, max(self.threshold.values())))
+        return float(self.threshold)
 
 
 @dataclass
@@ -49,7 +54,7 @@ class ThresholdConfig:
         metrics = [
             MetricThreshold(
                 name=k,
-                threshold=float(v["threshold"]),
+                threshold=(v["threshold"] if isinstance(v["threshold"], dict) else float(v["threshold"])),
                 type=v["type"],
                 weight=int(v.get("weight", 1)),
                 judge_model=v.get("judge_model"),
@@ -122,8 +127,9 @@ def evaluate_fixture(
         if score is None:
             failed.append(f"{m.name}:missing")
             continue
-        if score < m.threshold:
-            failed.append(f"{m.name}:{score:.3f}<{m.threshold:.3f}")
+        thr = m.threshold_for(bucket)
+        if score < thr:
+            failed.append(f"{m.name}:{score:.3f}<{thr:.3f}")
     res.failed_metrics = failed
     res.passed = not failed
     return res

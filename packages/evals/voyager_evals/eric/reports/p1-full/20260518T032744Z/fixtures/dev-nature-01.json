@@ -1,0 +1,46 @@
+{
+  "fixture_id": "dev-nature-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.37499999999999994,
+    "selling_point_recall": 0.6153846153846154,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 388.4262233339996,
+  "error": null,
+  "hooks_predicted": [
+    "come explore the beautiful Jiuzhaigou National Park with me",
+    "It used to take about 8-10 hours from Chengdu by bus but with the opening of the railway station the whole journey has been cut down to around 4 hours in total",
+    "has been recognised as a World Heritage Site by UNESCO since 1992",
+    "It's most well known for its many waterfalls and colourful lakes which are especially stunning during autumn",
+    "This is the biggest, largest and also highest lake in Jiuzhaigou being at an altitude of 3,150 metres",
+    "In local folklore it's said that there's a monster in the lake",
+    "there's an old man with one arm who guards the lake",
+    "it's a 17km walk until the next bus stop",
+    "the entire scenic area is paved throughout with about 70km of really well maintained boardwalks",
+    "Pearl Beach was featured in the 1986 version of Xi You Ji which is also known as Journey to the West"
+  ],
+  "selling_points_predicted": [
+    "Comprehensive two-day exploration of UNESCO World Heritage Site Jiuzhaigou featuring stunning waterfalls and colorful lakes",
+    "Dramatically improved accessibility with new high-speed railway cutting total travel time from 8-10 hours down to just 4 hours from Chengdu",
+    "Practical guidance for foreign travelers including how to purchase tickets online using passport via trip.com",
+    "Experience the park's highest and largest lake, Long Lake, situated at a dramatic altitude of 3,150 meters with local folklore about monsters",
+    "Discover quieter, peaceful sections of the park away from crowds including Shuzheng Valley walks",
+    "Visit the famous Pearl Beach filming location from the 1986 Journey to the West TV series with photo opportunities",
+    "Insider tips on optimal bus seating positions and navigating the park's randomized shuttle bus routing system",
+    "Budget-friendly travel information with specific prices including 10 RMB grilled sausages and 15 RMB instant noodles",
+    "Honest, balanced assessment acknowledging both natural beauty and crowd challenges for realistic trip planning",
+    "Explore all three distinct valleys comprehensively: Zichawa Valley, Rize Valley, and Shuzheng Valley over two full days",
+    "Access to 70km of well-maintained boardwalk trails as crowd-free alternatives to shuttle buses throughout the entire park",
+    "Experience the park's centerpiece Five Flower Lake known for displaying multiple distinct colors in its waters",
+    "Autumn timing showcasing the park's colorful lakes at their most stunning seasonal peak in late September",
+    "Detailed routing strategy and timing tips based on creator's real experience navigating morning vs afternoon entry procedures",
+    "Visit remote Primeval Forest area with recommended 3.5km scenic walk that most online guides suggest skipping"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

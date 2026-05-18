@@ -1,0 +1,219 @@
+=== TAG: aliases_hold-02  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: hold-02
+TOPIC: Li River cruise Guilin to Yangshuo (Yasmine's Journey)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "It's absolutely amazing here, honestly one of the best sceneries I've ever seen in my life"
+  },
+  {
+    "index": 1,
+    "text": "It's so famous that it's even featured on the 20 yuan banknote here in China"
+  },
+  {
+    "index": 2,
+    "text": "Called by National Geographic one of the 10 watery wonders in the world"
+  },
+  {
+    "index": 3,
+    "text": "All of these karst formations are incredible and they are everywhere"
+  },
+  {
+    "index": 4,
+    "text": "It tastes like detergent... it smells like soap and it tastes like it"
+  },
+  {
+    "index": 5,
+    "text": "We are paying for this room per night only 35 dollars"
+  },
+  {
+    "index": 6,
+    "text": "Nobody speaks English, not even our tour guide"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Spectacular karst scenery rated among the world's best natural wonders"
+  },
+  {
+    "index": 1,
+    "text": "Affordable cruise experience with good organization"
+  },
+  {
+    "index": 2,
+    "text": "Incredible karst formations visible throughout the entire journey"
+  },
+  {
+    "index": 3,
+    "text": "Warm and generous local people create memorable cultural interactions"
+  },
+  {
+    "index": 4,
+    "text": "Affordable luxury accommodation with stunning views"
+  },
+  {
+    "index": 5,
+    "text": "Authentic cultural food experiences with health benefits"
+  },
+  {
+    "index": 6,
+    "text": "Must-see destination for China travelers"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "This is one of the most amazing views I've witnessed in my entire life",
+        "Honestly, the scenery here is absolutely incredible, among the best I've ever experienced",
+        "The scenery here is truly stunning, definitely one of the finest I've seen"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "This place is famous enough to appear on China's 20 yuan banknote",
+        "It even appears on the Chinese 20 yuan bill, that's how renowned it is",
+        "Featured on the 20 yuan note in China due to its fame"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "National Geographic named it among the world's 10 watery wonders",
+        "Listed as one of 10 watery wonders globally by National Geographic",
+        "National Geographic ranks this as one of the planet's 10 watery wonders"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "These incredible karst formations can be found everywhere",
+        "Karst formations are all around, and they're absolutely incredible",
+        "Everywhere you look, there are amazing karst formations"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "It has a soapy smell and detergent-like taste",
+        "Smells and tastes exactly like soap or detergent",
+        "The taste and smell are like detergent and soap"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "This room costs us just 35 dollars per night",
+        "Only 35 dollars a night is what we're paying for this room",
+        "We're spending only 35 dollars nightly for this room"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Our tour guide doesn't speak English, and neither does anyone else",
+        "English isn't spoken by anyone here, including our tour guide",
+        "Not a single person speaks English, tour guide included"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Karst landscape ranked as one of the planet's top natural wonders",
+        "World-class karst scenery recognized as among the best natural wonders globally",
+        "Outstanding karst views considered among Earth's finest natural wonders"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Well-organized cruise at an affordable price",
+        "Budget-friendly cruise that's efficiently organized",
+        "Good organization and reasonable pricing for the cruise"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Amazing karst formations seen along the whole route",
+        "Karst formations are stunning and present throughout the trip",
+        "The entire journey showcases incredible karst landscapes"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Local people are warm and generous, making cultural exchanges memorable",
+        "Memorable cultural moments thanks to generous, welcoming locals",
+        "Friendly, generous locals provide unforgettable cultural experiences"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Luxurious lodging at affordable rates with beautiful views",
+        "Budget-friendly luxury rooms featuring spectacular views",
+        "Stunning views and luxury accommodation at reasonable prices"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Genuine local cuisine offering health advantages",
+        "Traditional food experiences that provide health benefits",
+        "Health-benefiting authentic cultural culinary experiences"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Essential stop for anyone traveling in China",
+        "A destination every China visitor should experience",
+        "Travelers to China shouldn't miss this destination"
+      ]
+    }
+  ]
+}
+

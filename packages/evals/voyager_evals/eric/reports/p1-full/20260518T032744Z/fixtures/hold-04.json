@@ -1,0 +1,51 @@
+{
+  "fixture_id": "hold-04",
+  "bucket": "holdout",
+  "scores": {
+    "hook_extraction_f1": 0.18181818181818182,
+    "selling_point_recall": 0.3,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 389.1521267749995,
+  "error": null,
+  "hooks_predicted": [
+    "These audiences sit here from 7 in the morning all the way to 10 at night.",
+    "sometimes working non-stop for 36 hours",
+    "there are no tickets, anyone can watch for free",
+    "So how do they survive?",
+    "some people arrive 4 hours early, just to get a good spot",
+    "back in the 1930s, Charlie Chaplin visited China and watched traditional Chinese opera",
+    "Looks almost the same as what he saw nearly 100 years ago.",
+    "there are no doors on the toilets, people have to call out first to check if someone is inside before using them",
+    "preparing lunch for more than 50 members of the troupe",
+    "This troupe has built a following of nearly 1 million on the Chinese version of TikTok",
+    "there are more than 100 boxes of various sizes",
+    "each one can weigh anywhere from dozens to over 100 kilograms, which is roughly between 100 and over 200 pounds",
+    "The next destination is about 100 kilometers away, which is roughly 60 miles",
+    "For the next three months, this cycle continues."
+  ],
+  "selling_points_predicted": [
+    "Unprecedented behind-the-scenes access showing what really happens with a traveling Chinese opera troupe over two full days",
+    "Witness performers working extreme 36-hour non-stop shifts, performing all day then traveling overnight to repeat the cycle",
+    "Free performances with no tickets or limits where audiences arrive 4 hours early and stay from 7am to 10pm",
+    "See traditional Chinese opera with stage design, costumes and props virtually unchanged from what Charlie Chaplin witnessed in the 1930s",
+    "Learn how traditional opera makeup reveals each character's morality and personality before a single word is spoken",
+    "Watch performers apply their own intricate traditional makeup without any professional makeup team",
+    "Experience the harsh reality of private opera troupes surviving without government funding in modern China",
+    "See how the troupe built nearly 1 million followers on Chinese TikTok to generate income through livestreaming",
+    "Witness the internal conflict between showing only performances versus revealing the struggles and daily hardships behind the scenes",
+    "Hear firsthand accounts of how COVID-19 pandemic devastated the traveling opera troupe's ability to survive",
+    "See the troupe's worn equipment, patched costumes, and even a drum with a hole taped up still being used in performances",
+    "Watch a mother perform on stage while other troupe members care for her baby backstage",
+    "Meet a sound technician with a physical disability who continues working on the front line traveling with the troupe",
+    "Experience the massive teardown operation where performers load over 100 boxes weighing 100-200 pounds each after every show",
+    "See the brutal performance schedule of 3 shows per day with relocation to a new city every 3 days for months on end",
+    "Witness the extreme living conditions from abandoned houses to sleeping in tents outdoors when accommodation isn't available"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,263 @@
+=== TAG: extract_selling_points__DfvdOOfeQVs  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a marketing copywriter for an overseas creator brand. Extract the
+SELLING POINTS — the reasons a viewer should watch / visit / care — from a
+transcript, written as concise benefit statements.
+</role>
+
+<task>
+Emit between 8 and 18 selling points. Eric over-producing is fine (Mike filters
+downstream). Under-producing is the failure mode. When in doubt, INCLUDE.
+</task>
+
+<rules>
+1. Each `point` is a concise benefit STATEMENT, 40-180 chars, marketing-brief
+   style. NOT a bare topic label. NOT a quote.
+2. `evidence` MUST quote or paraphrase the supporting transcript span
+   (<=200 chars). Never empty.
+3. Cover BOTH content benefits (what you'll see / taste / experience) AND
+   creator-expertise benefits (host credibility, behind-the-scenes access).
+4. No duplicates — same benefit in different words = ONE point.
+5. confidence in [0.0, 1.0]; >=0.8 only when evidence is a direct quote.
+</rules>
+
+<examples>
+<example id="food-chongqing">
+TRANSCRIPT (excerpt):
+[15.0s] meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour
+[120.0s] this chef has been making hot pot base from scratch for 10 years
+[200.0s] chongqing — the manhattan of mountains, cyberpunk cityscape
+
+GOOD SELLING POINTS:
+- point: "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot"
+  evidence: "we're gonna attempt to eat the world's spiciest hot pot"
+- point: "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights"
+  evidence: "meeting up with the Chinese Trump, taking us for a full-on ultra-spicy food tour"
+- point: "Behind-the-scenes look at traditional food preparation including 10-year veteran chef making hot pot base from scratch"
+  evidence: "this chef has been making hot pot base from scratch for 10 years"
+- point: "Exploration of Chongqing's unique cyberpunk cityscape described as 'Manhattan of mountains'"
+  evidence: "chongqing — the manhattan of mountains, cyberpunk cityscape"
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: list the benefit CATEGORIES present in this transcript (content benefits + creator-expertise benefits). Did you cover both? Are you at 8+ items?>",
+  "selling_points": [ {"point": "...", "evidence": "...", "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list selling_points. Target 8-18 items.
+</output>
+
+
+USER:
+VIDEO_ID=DfvdOOfeQVs
+TRANSCRIPT:
+[0.0s] These audiences sit here from 7 in the morning all the way to 10 at night.
+[5.8s] But the people on stage are even more extreme.
+[8.3s] They perform during the day, tear down the stage at night, then travel overnight to the
+[14.3s] next location and the next day they perform again, sometimes working non-stop for 36 hours.
+[21.8s] And what's even more unbelievable is that there are no tickets, anyone can watch for
+[26.5s] free.
+[27.5s] So how do they survive?
+[29.3s] What really happens behind the stage?
+[31.9s] Over the next two days, we are going behind the scenes to find out.
+[42.9s] This is rural China.
+[44.6s] It is 9am, there is still one hour before the performance begins.
+[48.8s] But the area around the stage is already packed with people.
+[52.6s] There is no security, there are no tickets, and there is no limit on the crowd.
+[57.7s] For this performance, some people arrive 4 hours early, just to get a good spot.
+[76.3s] The performance begins, back in the 1930s, Charlie Chaplin visited China and watched
+[82.3s] traditional Chinese opera, what you are seeing today in terms of stage design, costumes,
+[87.9s] and props.
+[89.4s] Looks almost the same as what he saw nearly 100 years ago.
+[93.2s] The only major difference is the length of the performance.
+[96.6s] To match modern pacing and audience attention, Chinese opera today often cuts certain parts
+[101.9s] of the story and keeps a total running time between 90 and 120 minutes.
+[118.1s] Backstage, the actors who are about to go on stage are getting ready with their makeup.
+[123.6s] There is no professional makeup team here.
+[126.3s] Every performer has to do their own makeup.
+[141.5s] Traditional Chinese opera is often based on ancient stories, with themes centered on morality,
+[146.9s] loyalty, and love.
+[148.7s] The makeup of each performer reveals the character before a single word is spoken, showing whether
+[154.1s] the role is loyal or deceitful, emotional or cold.
+[176.4s] Because there are no doors on the toilets, people have to call out first to check if
+[180.3s] someone is inside before using them.
+[182.9s] Not far from the stage, in an abandoned courtyard, a man who works as both the cook and the bus
+[188.7s] driver is preparing lunch for more than 50 members of the troupe.
+[208.8s] There is a toilet and a simple shelter here, and even these basic conditions are considered
+[214.3s] relatively good.
+[238.7s] This is the deputy leader of the troupe.
+[241.1s] Because he has high blood pressure, he is no longer suited for performing on stage,
+[246.3s] so he is now responsible for logistics and daily support for the group.
+[258.5s] In China, opera troupes are mainly divided into state-owned groups and private ones.
+[264.6s] State-owned troupes are funded by the government.
+[267.1s] Their performers have stable income, and they have better costumes, props, and equipment.
+[273.3s] This troupe, however, is privately run and must support itself financially.
+[278.8s] In the past, it mainly relied on audience donations to survive.
+[283.0s] Now, in an era where almost everyone is creating content online, the troupe has also started
+[288.5s] live streaming to generate more income.
+[290.9s] This troupe has built a following of nearly 1 million on the Chinese version of TikTok,
+[296.4s] while live streaming brings them attention and online traffic.
+[300.3s] The troupe leader has also started to worry about its negative effects.
+[356.4s] When it comes to live stream content, there is a clear disagreement between the troupe
+[368.9s] leader and his wife.
+[371.0s] His wife believes that everything should be shown, not only the performances on stage,
+[375.8s] but also the struggles and daily life behind the scenes.
+[379.4s] The troupe leader, however, insists on focusing only on the performances, believing that the
+[384.7s] audience should see the show itself and nothing more.
+[414.7s] When I asked her about those years during the COVID-19 pandemic, this is what the troupe
+[433.9s] leader and his wife said.
+[463.9s] In this moment, the hardship and struggles of a private opera troupe are not only the
+[493.9s] reality, but all the difficulties they've faced are fully revealed.
+[523.9s] Worn out equipment, patched up costumes, even a drum with a hole is taped up and still
+[549.4s] in use.
+[550.4s] A mother walks on stage to perform while others backstage help take care of her baby.
+[557.6s] A sound technician with a physical disability still travels with the troupe from place to
+[562.6s] place.
+[563.6s] They came together because of their love for opera, and they treat the troupe as their
+[567.7s] home.
+[568.7s] Every effort they make leads to one simple goal, to perform well and to make the troupe
+[635.0s] At 10.30 pm, the performance ends, and everything
+[662.9s] you see on stage, including the lights, curtains, and equipment, has to be taken down and transported
+[669.5s] to another city to be set up again.
+[672.3s] On average, the troupe performs three shows a day and relocates to a new place every three
+[677.6s] days.
+[690.9s] Everything used in the performance, including costumes and props, is sorted and packed into
+[695.9s] different boxes.
+[697.5s] In total, there are more than 100 boxes of various sizes, and each one can weigh anywhere
+[702.9s] from dozens to over 100 kilograms, which is roughly between 100 and over 200 pounds.
+[709.6s] The people loading them are the same actors and musicians who were just performing on
+[714.1s] stage moments ago.
+[738.2s] All the props and equipment eventually fill up an entire truck, and what is left behind
+[743.6s] is a ground covered in trash, creating a striking and overwhelming scene.
+[771.4s] The next destination is about 100 kilometers away, which is roughly 60 miles, and about
+[781.7s] an hour later we arrive at the site.
+[789.5s] Since most performances take place in rural areas, the roads are narrow and it is not
+[794.3s] easy for large vehicles to pass through.
+[803.1s] These three vehicles are everything they have, one is filled with live stream equipment,
+[808.4s] one carries the stage costumes and props, and the last one transfers all the performers
+[813.9s] along with their belongings.
+[821.3s] Every time they arrive at a new destination, it feels like a game of chance.
+[826.1s] If they are lucky, they can stay in an abandoned house like this.
+[830.1s] If not, they have no choice but to set up tents and sleep outdoors.
+[857.7s] At each new location, the better living spaces are usually given to the female performers
+[862.5s] first, while the unloading and heavy lifting are handled by the male performers so the
+[867.9s] women can rest.
+[869.9s] This is an unspoken rule within the troupe.
+[875.2s] The sound technician, who has a physical disability in his legs, also works as the electrician.
+[881.7s] He does not stop because of his condition, but continues working on the front line, alongside
+[887.1s] everyone else.
+[890.6s] When morning comes and the crowd gathers again, they switch from loaders back to performers,
+[896.3s] putting on makeup and preparing for the show, followed by performance after performance.
+[902.6s] For the next three months, this cycle continues.
+[905.1s] They arrive at a place, perform for three days, and then move on to the next destination
+[911.0s] to do it all over again.
+[913.1s] This is what everyday life really looks like for a private opera troupe in China.
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface SellingPointExtraction {
+  scratchpad: string;
+  selling_points: Array<{
+  point: string;
+  evidence: string;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "scratchpad": "Categories present: extreme working conditions, behind-the-scenes access to traditional Chinese opera, cultural/historical preservation (100-year tradition), human struggle and dedication, modern challenges (livestreaming, COVID), physical hardship, free public performances. Covers both content benefits (what viewers see: makeup, performances, living conditions, equipment) and creator-expertise benefits (2-day embedded access, documenting private troupe reality). 16 items extracted.",
+  "selling_points": [
+    {
+      "point": "Unprecedented behind-the-scenes access showing what really happens with a traveling Chinese opera troupe over two full days",
+      "evidence": "Over the next two days, we are going behind the scenes to find out.",
+      "confidence": 0.85
+    },
+    {
+      "point": "Witness performers working extreme 36-hour non-stop shifts, performing all day then traveling overnight to repeat the cycle",
+      "evidence": "They perform during the day, tear down the stage at night, then travel overnight to the next location and the next day they perform again, sometimes working non-stop for 36 hours.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Free performances with no tickets or limits where audiences arrive 4 hours early and stay from 7am to 10pm",
+      "evidence": "There are no tickets, anyone can watch for free. These audiences sit here from 7 in the morning all the way to 10 at night. For this performance, some people arrive 4 hours early.",
+      "confidence": 0.9
+    },
+    {
+      "point": "See traditional Chinese opera with stage design, costumes and props virtually unchanged from what Charlie Chaplin witnessed in the 1930s",
+      "evidence": "Charlie Chaplin visited China and watched traditional Chinese opera, what you are seeing today in terms of stage design, costumes, and props. Looks almost the same as what he saw nearly 100 years ago.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Learn how traditional opera makeup reveals each character's morality and personality before a single word is spoken",
+      "evidence": "The makeup of each performer reveals the character before a single word is spoken, showing whether the role is loyal or deceitful, emotional or cold.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Watch performers apply their own intricate traditional makeup without any professional makeup team",
+      "evidence": "There is no professional makeup team here. Every performer has to do their own makeup.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Experience the harsh reality of private opera troupes surviving without government funding in modern China",
+      "evidence": "This troupe, however, is privately run and must support itself financially. In the past, it mainly relied on audience donations to survive.",
+      "confidence": 0.85
+    },
+    {
+      "point": "See how the troupe built nearly 1 million followers on Chinese TikTok to generate income through livestreaming",
+      "evidence": "This troupe has built a following of nearly 1 million on the Chinese version of TikTok, while live streaming brings them attention and online traffic.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Witness the internal conflict between showing only performances versus revealing the struggles and daily hardships behind the scenes",
+      "evidence": "His wife believes that everything should be shown, not only the performances on stage, but also the struggles and daily life behind the scenes. The troupe leader, however, insists on focusing only on the performances.",
+      "confidence": 0.85
+    },
+    {
+      "point": "Hear firsthand accounts of how COVID-19 pandemic devastated the traveling opera troupe's ability to survive",
+      "evidence": "When I asked her about those years during the COVID-19 pandemic, this is what the troupe leader and his wife said.",
+      "confidence": 0.75
+    },
+    {
+      "point": "See the troupe's worn equipment, patched costumes, and even a drum with a hole taped up still being used in performances",
+      "evidence": "Worn out equipment, patched up costumes, even a drum with a hole is taped up and still in use.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Watch a mother perform on stage while other troupe members care for her baby backstage",
+      "evidence": "A mother walks on stage to perform while others backstage help take care of her baby.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Meet a sound technician with a physical disability who continues working on the front line traveling with the troupe",
+      "evidence": "A sound technician with a physical disability still travels with the troupe from place to place. He does not stop because of his condition, but continues working on the front line.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Experience the massive teardown operation where performers load over 100 boxes weighing 100-200 pounds each after every show",
+      "evidence": "In total, there are more than 100 boxes of various sizes, and each one can weigh anywhere from dozens to over 100 kilograms, which is roughly between 100 and over 200 pounds. The people loading them are the same actors and musicians who were just performing on stage moments ago.",
+      "confidence": 0.9
+    },
+    {
+      "point": "See the brutal performance schedule of 3 shows per day with relocation to a new city every 3 days for months on end",
+      "evidence": "On average, the troupe performs three shows a day and relocates to a new place every three days. For the next three months, this cycle continues.",
+      "confidence": 0.9
+    },
+    {
+      "point": "Witness the extreme living conditions from abandoned houses to sleeping in tents outdoors when accommodation isn't available",
+      "evidence": "If they are lucky, they can stay in an abandoned house like this. If not, they have no choice but to set up tents and sleep outdoors.",
+      "confidence": 0.9
+    }
+  ]
+}
+```
+

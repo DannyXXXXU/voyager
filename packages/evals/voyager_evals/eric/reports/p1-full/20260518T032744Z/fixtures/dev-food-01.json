@@ -1,0 +1,60 @@
+{
+  "fixture_id": "dev-food-01",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5625000000000001,
+    "selling_point_recall": 0.875,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 406.615790978,
+  "error": null,
+  "hooks_predicted": [
+    "Look at all those chilies, that's crazy.",
+    "Your nose is numbing just from being here.",
+    "we're gonna be meeting up with the Chinese Trump",
+    "This is the spiciest cyberpunk city in China",
+    "our challenge is to eat the most extreme spicy Chinese food and survive",
+    "to eat the world's spiciest hot pot",
+    "so spicy you might start hallucinating",
+    "as soon as you enter, the air smells like chili",
+    "death-level spicy beef",
+    "They say it's Manhattan of mountains.",
+    "You can only find Chongqing Xiaomian in Chongqing.",
+    "Go easy on my spice and go crazy on his spice.",
+    "Spiciest hot pot in the world",
+    "It's 20 kg per cube.",
+    "This is the soul of Chongqing hot pot.",
+    "your nose is numbing just from being here",
+    "duck blood",
+    "whole pork foot",
+    "Seven up, eight down.",
+    "That is really spicy. That's very hardcore.",
+    "People get shirtless while eating it.",
+    "It's going to squeeze out all the wetness out of your body."
+  ],
+  "selling_points_predicted": [
+    "Extreme spicy food challenge with progressively hotter dishes culminating in the world's spiciest hot pot",
+    "Entertaining collaboration with charismatic 'Chinese Trump' local guide who provides humor and authentic insights",
+    "Behind-the-scenes access to traditional hot pot base preparation by 10-year veteran chef",
+    "Exploration of Chongqing's unique cyberpunk cityscape described as the 'Manhattan of mountains'",
+    "Authentic DIY Chongqing mao cai experience where you pick ingredients boiled in extremely spicy broth",
+    "Rare Chongqing Xiaomian noodles only available in this specific city",
+    "Hands-on participation in cooking hot pot base with 20kg beef tallow cubes",
+    "Cultural insights about health benefits of spicy food removing harmful moisture from the body",
+    "Detailed demonstration of traditional seasoning techniques with 15+ authentic Sichuan ingredients",
+    "Insider knowledge from local guide who grew up eating this comfort food daily",
+    "Experience food that unites all social classes from Ferrari drivers to humble locals",
+    "Learn authentic hot pot eating technique of 'seven up, eight down' for perfect texture",
+    "Sensory overload experience where the air itself smells like chili and numbs your nose",
+    "Traditional refreshing desserts like bingfen jelly and cold shrimp to cool down between spicy courses",
+    "Expert demonstration of identifying quality ingredients like greener Sichuan pepper being stronger",
+    "Spice tolerance showdown with secret extra spice added for competitive drama",
+    "Authentic preparation of 500-600 noodle bowls daily at local institution with made-from-scratch seasonings"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

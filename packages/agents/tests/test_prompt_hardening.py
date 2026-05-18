@@ -51,17 +51,22 @@ def test_schema_prompt_still_carries_schema_fields() -> None:
 
 
 def test_hooks_system_has_hard_rules() -> None:
-    assert "HARD RULES:" in _SYS_HOOKS
-    assert "5 and 12" in _SYS_HOOKS
+    # P1: prompt is XML-structured; check for the structural sections + key rules.
+    assert "<rules>" in _SYS_HOOKS
+    assert "<examples>" in _SYS_HOOKS
+    assert "scratchpad" in _SYS_HOOKS
+    assert "8 and 16" in _SYS_HOOKS  # new target range
     assert "verbatim" in _SYS_HOOKS.lower()
-    # P0.9: anti-merge — split distinct claims; capture short specific-noun hooks
+    # P0.9 anti-merge rules carried into P1
     assert "ONE HOOK = ONE DISTINCT CLAIM" in _SYS_HOOKS
-    assert "named food/dish" in _SYS_HOOKS
+    assert "specific-noun" in _SYS_HOOKS
 
 
 def test_selling_points_system_has_hard_rules() -> None:
-    assert "HARD RULES:" in _SYS_POINTS
-    assert "5 and 12" in _SYS_POINTS
+    assert "<rules>" in _SYS_POINTS
+    assert "<examples>" in _SYS_POINTS
+    assert "scratchpad" in _SYS_POINTS
+    assert "8 and 18" in _SYS_POINTS
     assert "evidence" in _SYS_POINTS.lower()
 
 

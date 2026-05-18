@@ -1,0 +1,187 @@
+=== TAG: extract_hooks__RXG_hxFt4Io  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+<role>
+You are a senior YouTube content strategist analyzing China travel videos for
+overseas growth. Your job is to extract the attention-grabbing HOOKS from a
+transcript — the exact lines a creator would use to STOP a viewer from
+scrolling.
+</role>
+
+<task>
+Read the transcript (each line tagged with [<seconds>s]) and emit between
+8 and 16 hooks. Aim HIGH on recall — when in doubt, INCLUDE. Missing a real
+hook costs us much more than including a borderline one.
+</task>
+
+<rules>
+1. Each hook_text MUST be a verbatim or near-verbatim span from the transcript,
+   <=200 chars. Prefer the FULL sentence over a truncated fragment.
+2. ALWAYS include opening hook(s) from the first 30 seconds. Opening CTAs like
+   "Did you know...", "Stick around...", "If you're going to X for the first
+   time..." ARE valid hooks — never reject them as generic.
+3. PRIORITIZE these high-value types whenever present:
+   - Numeric / record claims ("20,000 visitors a day", "350 meters high")
+   - Superlatives / firsts ("world's tallest", "highest-grossing ever")
+   - Warnings / safety beats ("wait until the timer rings or you'll hallucinate")
+   - Vivid contrasts / reactions ("are we on a movie set?", "defies gravity")
+   - Named specific nouns reacted to with surprise/disgust/excitement
+     ("chilled black tiger feet", "jian shou qing mushroom") — these short
+     specific-noun hooks are the MOST-MISSED type and you must extract every
+     single one that gets a creator reaction.
+4. ONE HOOK = ONE DISTINCT CLAIM. Split compound sentences. A list of three
+   dish names = THREE hooks. A sentence with a warning + a vivid reference =
+   TWO hooks.
+5. timestamp_s MUST be the leading [<seconds>s] tag of the source line, copied
+   verbatim. Use 0.0 only when the line has no tag.
+6. confidence in [0.0, 1.0]; >=0.8 only when the hook is a direct quote.
+7. Reject ONLY vague filler ("this place is amazing", "it was so cool") or
+   text not in the transcript.
+</rules>
+
+<examples>
+<example id="food-extreme-spicy">
+TRANSCRIPT (excerpt):
+[0.0s] today we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating
+[12.4s] look at all those chilies, that's crazy. your nose is numbing just from being here
+[45.8s] today we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on ultra-spicy food tour
+[120.0s] chilled black tiger feet, jian shou qing mushroom, and porcini soup — death-level spicy beef
+
+GOOD HOOKS (note: short specific-noun reactions extracted as separate items):
+- "we're gonna attempt to eat the world's spiciest hot pot, so spicy you might start hallucinating" @ 0.0s
+- "Look at all those chilies, that's crazy. Your nose is numbing just from being here" @ 12.4s
+- "today, we're gonna be meeting up with the Chinese Trump, and he's taking us for a full-on, ultra-spicy food tour" @ 45.8s
+- "chilled black tiger feet" @ 120.0s
+- "jian shou qing mushroom" @ 120.0s
+- "death-level spicy beef" @ 120.0s
+</example>
+
+<example id="travel-superlative">
+TRANSCRIPT (excerpt):
+[3.2s] this elevator is 350 meters high — a three-lane double-decker, the only one of its kind in the world
+[88.0s] are we on a movie set? this defies gravity
+
+GOOD HOOKS (numeric claim + superlative split; vivid reaction is its own hook):
+- "this elevator is 350 meters high" @ 3.2s
+- "a three-lane double-decker, the only one of its kind in the world" @ 3.2s
+- "are we on a movie set? this defies gravity" @ 88.0s
+</example>
+</examples>
+
+<output>
+Return JSON matching this schema:
+{
+  "scratchpad": "<1-3 sentences: which hook TYPES did you find — numeric? superlative? named specific noun? opening CTA? Any 30s-opener you might miss? Then commit to extracting all of them.>",
+  "hooks": [ {"hook_text": "...", "timestamp_s": 0.0, "confidence": 0.0}, ... ]
+}
+Fill scratchpad FIRST, then list hooks. Target 8-16 hooks.
+</output>
+
+
+USER:
+VIDEO_ID=RXG_hxFt4Io
+TRANSCRIPT:
+[0.0s] Hey, want to see something cool?
+[4.5s] If this isn't cool, both figuratively and literally, then I don't know what is.
+[8.5s] It's all made of snow!
+[11.0s] One of the big reasons I wanted to come here to Harbin was to check out the Ice and Snow Sculpture Festival.
+[15.5s] It's actually the biggest one of its kind in the world.
+[20.0s] So I'm currently at Sun Island, which is the location for the Snow Sculpture Exhibition,
+[23.5s] and they are amazing. They're beautiful, they're intricate, they're huge.
+[31.0s] So I'm going to check this out here first before I go and check out the other venues of the festival.
+[35.5s] Oh yeah, did I fail to mention? This here is only one section of the entire Harbin Snow and Ice Festival.
+[41.5s] We're going to be doing a lot of walking today.
+[45.5s] Harbin, like many of the other cities in Dongbei, has the Songpa River running right through it.
+[49.5s] In Harbin here, it's completely frozen over from November to April every year.
+[53.5s] Actually, I'm standing on it right now!
+[56.0s] But here in Harbin, this frozen river is a huge source of entertainment just in itself.
+[70.0s] I'm going to try out this banana boat thing. It seems to be tied to a car, so I feel it could only be fun.
+[86.5s] Oh my god, oh my god, oh my god!
+[92.0s] Oh my god, this is so fun!
+[96.0s] There's one thing that happens here on the Songhua River that I've been dying to see with my own eyes.
+[100.0s] Let's go see if we can find it.
+[104.0s] Welcome to China's coldest swimming pool!
+[116.0s] This is a tradition passed down by the Edo people.
+[118.0s] The Edo people in Dongfang, Xiaobadi, passed down the Edo culture and the Edo dance in Harbin.
+[125.0s] Why are you doing this?
+[127.0s] It's good for your health.
+[129.0s] It's good for your health, so you won't get sick.
+[131.0s] It can also help with a lot of chronic diseases.
+[133.0s] Like cardiovascular diseases, and it's good for your back and neck.
+[141.0s] Do you like it?
+[142.0s] Yes!
+[143.0s] Why?
+[144.5s] It's good for your health.
+[146.5s] You won't get sick.
+[147.5s] You'll get younger and younger.
+[149.5s] How old are you?
+[150.5s] Ninety-six.
+[154.5s] What?!
+[155.5s] Furious respect for these guys.
+[157.5s] I have no idea how they are able to get into that water in this freezing cold temperature.
+[167.5s] Keep in mind it's currently minus 25 degrees.
+[174.5s] Okay, I seem to have gotten myself a little bit distracted here on the Songhua River.
+[178.5s] Time to get myself to my next destination on the other side.
+[182.5s] So now that we've already checked out the sculptures made of snow,
+[185.5s] it's time that we come here and check out the sculptures made out of ice.
+[190.5s] This here is Ice and Snow World,
+[192.5s] and it covers an area of 600,000 square meters,
+[195.5s] and it's made up of over 2,000 massive ice carvings.
+[199.5s] It's honestly the most impressive thing.
+[202.0s] Check this out!
+[208.0s] I just keep wondering how many people are needed to build all of these structures.
+[216.0s] Wow, 10,000 people, 15 days to build all of this.
+[220.0s] It just still doesn't seem enough.
+[224.0s] Even though this place is super beautiful during the day,
+[227.0s] I've been told that the best time of day to come is after the sun sets,
+[230.5s] and I guess we'll soon see why.
+[240.5s] Oh my god.
+[243.5s] Yeah, this is absolutely breathtaking.
+[246.5s] And the scale of it, it's just colors everywhere.
+[249.5s] It's literally like being in a fairy tale.
+[254.5s] Thank you guys so much for joining me on this Dongbei adventure.
+[257.5s] I have had so much fun.
+[260.0s] I've seen things that I've never seen before,
+[262.0s] and things that I'll probably never see again.
+[267.0s] I would recommend anyone come here to Dongbei,
+[269.0s] just make sure that you prepare for some seriously cold weather.
+[272.0s] Anyway, I hope you've enjoyed these videos,
+[274.0s] and I'll see you next time. Bye guys!
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface HookExtraction {
+  scratchpad: string;
+  hooks: Array<{
+  hook_text: string;
+  timestamp_s: number;
+  confidence: number;
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "scratchpad": "Strong opening CTA present. Multiple numeric/scale claims (600k sq meters, 2k carvings, 10k people, -25°C, age 96). Superlatives (biggest festival, coldest pool). Vivid reactions (standing on frozen river, fairy tale comparison). Named specific activity (banana boat tied to car). Total ~12-14 hooks.",
+  "hooks": [
+    {"hook_text": "Hey, want to see something cool?", "timestamp_s": 0.0, "confidence": 0.85},
+    {"hook_text": "It's all made of snow!", "timestamp_s": 8.5, "confidence": 0.9},
+    {"hook_text": "It's actually the biggest one of its kind in the world.", "timestamp_s": 15.5, "confidence": 0.95},
+    {"hook_text": "completely frozen over from November to April every year", "timestamp_s": 49.5, "confidence": 0.9},
+    {"hook_text": "Actually, I'm standing on it right now!", "timestamp_s": 53.5, "confidence": 0.9},
+    {"hook_text": "I'm going to try out this banana boat thing. It seems to be tied to a car", "timestamp_s": 70.0, "confidence": 0.85},
+    {"hook_text": "Welcome to China's coldest swimming pool!", "timestamp_s": 104.0, "confidence": 0.95},
+    {"hook_text": "Ninety-six.", "timestamp_s": 150.5, "confidence": 1.0},
+    {"hook_text": "it's currently minus 25 degrees", "timestamp_s": 167.5, "confidence": 0.9},
+    {"hook_text": "covers an area of 600,000 square meters", "timestamp_s": 192.5, "confidence": 0.95},
+    {"hook_text": "made up of over 2,000 massive ice carvings", "timestamp_s": 195.5, "confidence": 0.95},
+    {"hook_text": "10,000 people, 15 days to build all of this", "timestamp_s": 216.0, "confidence": 0.9},
+    {"hook_text": "It's literally like being in a fairy tale.", "timestamp_s": 249.5, "confidence": 0.95}
+  ]
+}
+```
+

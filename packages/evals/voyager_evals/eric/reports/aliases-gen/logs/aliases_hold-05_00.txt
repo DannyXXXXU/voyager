@@ -1,0 +1,233 @@
+=== TAG: aliases_hold-05  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: hold-05
+TOPIC: How the Great Wall of China was built (Captivating History)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "The myth that you can see the Great Wall of China from space has long been disproven"
+  },
+  {
+    "index": 1,
+    "text": "the Great Wall took over 2,000 years to build"
+  },
+  {
+    "index": 2,
+    "text": "If we include all the sections that were ever built, the total length would be about 13,171 miles"
+  },
+  {
+    "index": 3,
+    "text": "it took just seven years from his coming of age to eliminate his six rival states and declare himself the emperor of all China"
+  },
+  {
+    "index": 4,
+    "text": "Legend has it that many of the 400,000 workers who died during construction were buried in the wall itself"
+  },
+  {
+    "index": 5,
+    "text": "sometimes sincere diplomacy can be more effective than all the walls in China"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Discover the true massive scale of the Great Wall - over 13,000 miles when all historical sections are included"
+  },
+  {
+    "index": 1,
+    "text": "Learn the epic 2,000+ year construction timeline spanning multiple dynasties"
+  },
+  {
+    "index": 2,
+    "text": "Understand the ingenious engineering and adaptive construction techniques used across different terrains"
+  },
+  {
+    "index": 3,
+    "text": "Uncover surprising truths - it's not actually one continuous wall but disconnected segments"
+  },
+  {
+    "index": 4,
+    "text": "Explore the sophisticated military design including signal towers, passes, and defensive systems"
+  },
+  {
+    "index": 5,
+    "text": "Learn about its crucial role in protecting the ancient Silk Road trade routes"
+  },
+  {
+    "index": 6,
+    "text": "Discover how it served both economic and defensive purposes, protecting fertile farmlands"
+  },
+  {
+    "index": 7,
+    "text": "Learn about the Ming Dynasty's sections that still stand today and can be visited"
+  },
+  {
+    "index": 8,
+    "text": "Gain insights into how diplomacy eventually proved more effective than fortification"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+```json
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "The long-standing myth about the Great Wall being visible from space has been debunked",
+        "It's been proven false that the Great Wall of China can be seen from space",
+        "The claim that you can view the Great Wall from space is a disproven myth"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Construction of the Great Wall spanned more than 2,000 years",
+        "Building the Great Wall required over two millennia",
+        "The Great Wall's construction lasted more than 2,000 years"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Counting every section ever constructed, the Great Wall measures approximately 13,171 miles",
+        "The total length of all historical sections combined reaches about 13,171 miles",
+        "Including all sections ever built, the Great Wall totals around 13,171 miles"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "In only seven years after reaching adulthood, he conquered six rival states and became emperor of China",
+        "He eliminated his six rival states and proclaimed himself emperor of all China within seven years of coming of age",
+        "From adulthood, it took merely seven years to defeat six rival states and claim the title of emperor of China"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "According to legend, numerous workers among the 400,000 who perished were entombed within the wall",
+        "The legend says many of the 400,000 construction workers who died were buried inside the wall",
+        "It's said that many workers from the 400,000 who died were interred in the wall itself"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Genuine diplomacy can sometimes prove more powerful than all of China's walls",
+        "At times, honest diplomatic efforts outperform all the walls in China",
+        "True diplomacy may be more effective than all the walls China has built"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Learn the actual enormous scope of the Great Wall - exceeding 13,000 miles with all historical sections counted",
+        "Find out the Great Wall's real immense size - more than 13,000 miles including all sections ever built",
+        "Uncover the genuine vast extent of the Great Wall - over 13,000 miles when every historical section is included"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Discover the monumental construction period of 2,000+ years across numerous dynasties",
+        "Explore the 2,000+ year building timeline that spanned multiple dynasties",
+        "Understand the 2,000+ year construction span covering many dynasties"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Learn about the clever engineering and flexible building methods employed across varied landscapes",
+        "Discover the brilliant engineering and terrain-adaptive construction approaches used",
+        "Explore the innovative engineering and versatile construction techniques for different terrains"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Discover the shocking reality - it consists of separate sections rather than one unbroken wall",
+        "Learn the unexpected fact - it's disconnected segments instead of a single continuous wall",
+        "Find out the surprising truth - the wall is made of separate sections, not one continuous structure"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Discover the advanced military architecture featuring signal towers, passes, and defense mechanisms",
+        "Learn about the complex military design with signal towers, passes, and protective systems",
+        "Examine the intricate military structure including towers for signals, passes, and defensive features"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Discover how it played a vital role in safeguarding the ancient Silk Road trade paths",
+        "Understand its essential function in defending the ancient Silk Road trading routes",
+        "Explore its critical importance in securing the ancient Silk Road commerce routes"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Learn how it fulfilled economic and military functions while safeguarding productive farmlands",
+        "Find out how it had dual economic and defensive roles, shielding fertile agricultural lands",
+        "Understand its combined economic and protective purposes, defending fertile farming areas"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Discover the Ming Dynasty portions that remain standing and are accessible to visitors today",
+        "Explore the Ming Dynasty segments still in existence today that tourists can visit",
+        "Find out about the surviving Ming Dynasty sections that can be visited in the present day"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Understand how diplomatic efforts ultimately became more successful than defensive walls",
+        "Learn how diplomacy finally turned out to be more powerful than fortifications",
+        "Discover how diplomatic solutions eventually outperformed physical defenses"
+      ]
+    }
+  ]
+}
+```
+

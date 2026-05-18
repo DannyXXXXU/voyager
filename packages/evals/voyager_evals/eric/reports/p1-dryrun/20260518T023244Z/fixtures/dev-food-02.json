@@ -1,0 +1,45 @@
+{
+  "fixture_id": "dev-food-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.3636363636363636,
+    "selling_point_recall": 0.4,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 418.46970433600006,
+  "error": null,
+  "hooks_predicted": [
+    "Did you know that Xi'an is not just home to the Terracotta Warriors",
+    "but also one of China's most exciting food destinations?",
+    "Stick around as we count down the 20 must-try street foods in Xi'an",
+    "and trust me, you won't want to miss number 1.",
+    "locals flocking in as early as 6am for a steaming bowl",
+    "Known as the Chinese Burger",
+    "a history spanning over 100 years",
+    "First Noodle Under the Sun",
+    "Lao Sun Jia is one of the oldest establishments serving this dish"
+  ],
+  "selling_points_predicted": [
+    "Comprehensive countdown of 20 must-try street foods in Xi'an with specific restaurant recommendations for each dish",
+    "Discover Xi'an as one of China's most exciting food destinations beyond its famous Terracotta Warriors",
+    "Explore authentic Silk Road culinary heritage through traditional street foods like cumin lamb skewers",
+    "Insider knowledge of century-old establishments including Jia San Steamed Bun Shop with over 100 years of history",
+    "Learn optimal timing for authentic local experiences like arriving at 6am for traditional breakfast spots",
+    "Experience diverse flavor profiles from bold spicy heat to delicate floral desserts across 20 different dishes",
+    "Behind-the-scenes insight into traditional preparation methods including hand-pulled noodles and slow-cooked lamb",
+    "Seasonal food recommendations including cooling dishes perfect for Xi'an's hot summers",
+    "Authentic working-class meals that became citywide favorites, offering affordable yet satisfying options",
+    "Unique Xi'an signature dishes like Yang Rou Pao Mou where diners participate in preparation by crumbling flatbread",
+    "Wide variety from breakfast soups to late-night skewers covering all meal times and occasions",
+    "Detailed texture and taste descriptions including crispy-to-tender ratios and wok hei smoky aromas",
+    "Balance of extreme spice lovers' dishes and refreshing options like chilled osmanthus jelly",
+    "Access to famous local hotspots like First Noodle Under the Sun drawing large crowds for iconic dishes",
+    "Specialty soup dumplings with unique gelatinous broth that melts when steamed, unlike typical dumplings"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "fixture_id": "dev-food-03",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.33333333333333337,
+    "selling_point_recall": 0.7777777777777778,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 374.7561242249999,
+  "error": null,
+  "hooks_predicted": [
+    "it's important to wait until the timer rings before trying these mushrooms",
+    "otherwise you might start tripping out or you might see lots of weird colors",
+    "today we're going to Tai Po Tian Fu Shan Zhen for a mushroom meal",
+    "chilled black tiger feet",
+    "even the tea is made from mushrooms",
+    "that is one of the most complex mushroom soups I've ever tasted",
+    "the zhu sun or the bamboo mushroom",
+    "beef liver mushroom",
+    "it really looks like liver",
+    "the jian shou qing",
+    "if you eat it before it's ready you'll start to hallucinate",
+    "it turns this vibrant blue shade",
+    "that is probably one of the best mushroom noodle soups I've ever had"
+  ],
+  "selling_points_predicted": [
+    "Thrilling culinary adventure featuring a potentially hallucinogenic mushroom that requires timed cooking to avoid tripping out",
+    "Exploration of exotic mushroom varieties including beef liver mushroom and bamboo mushroom with unique textures",
+    "Rare jian shou qing mushroom that dramatically turns vibrant blue when exposed to air before cooking",
+    "One of the most complex and rich mushroom soup bases you'll ever taste made from top-notch mushrooms",
+    "Unique vegetable-forward menu design that prioritizes mushrooms and vegetables over meat",
+    "Innovative mushroom tea with beautiful red color instead of traditional tea",
+    "Half portion ordering system allowing you to sample many more different mushroom varieties in one meal",
+    "Homemade special garlic and chili dipping sauce crafted specifically to complement the mushrooms",
+    "Authentic vegan hot pot experience with no chicken oil, using only pure mushroom-based broth",
+    "Learn to create your own fragrant mushroom noodle soup using the enriched broth at meal's end",
+    "Detailed texture and flavor descriptions from experienced vegan China food content creator",
+    "Pop culture references including Three Body Problem make the dining experience relatable and entertaining",
+    "Traditional Chinese hot pot greens like haozigar with distinctive flavor that shines through any broth",
+    "Surprisingly meaty textures and liver-like slipperiness from plant-based ingredients satisfying even non-vegetarians"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

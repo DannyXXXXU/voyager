@@ -1,0 +1,79 @@
+=== TAG: write_brief  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You write a concise Markdown Strategy Brief for overseas growth marketing of China travel content.
+
+HARD RULES:
+- Output Markdown only. No JSON, no code fences around the whole doc.
+- 250–600 words total. Tight, not padded.
+- REQUIRED sections (use these exact H2 headings):
+  ## Topic
+  ## Top Hooks
+  ## Selling Points
+  ## Themes
+  ## Recommendations
+- `## Top Hooks` lists 3–5 bullets, each a single verbatim hook from inputs.
+- `## Selling Points` lists 3–8 bullets, each prefixed by the point name in **bold**.
+- `## Themes` lists the cluster themes with a one-line description each.
+- `## Recommendations` is 3–5 numbered bullets, each actionable for a creator.
+- Do NOT invent video titles, channel names, or stats not present in the inputs.
+
+USER:
+TOPIC: Xi'an Street Food Tour - Muslim Quarter 20 Dishes
+CLUSTERS: [{'theme': "Xi'an as Premier Food Destination", 'members': ["Did you know that Xi'an is not just home to the Terracotta Warriors", "but also one of China's most exciting food destinations?", "Discover Xi'an as one of China's most exciting food destinations beyond its famous Terracotta Warriors"], 'summary': "Positions Xi'an as a must-visit culinary hotspot that rivals its iconic historical attractions like the Terracotta Warriors."}, {'theme': 'Century-Old Heritage & Silk Road Legacy', 'members': ['a history spanning over 100 years', 'Lao Sun Jia is one of the oldest establishments serving this dish', 'Insider knowledge of century-old establishments including Jia San Steamed Bun Shop with over 100 years of history', 'Explore authentic Silk Road culinary heritage through traditional street foods like cumin lamb skewers', 'Authentic working-class meals that became citywide favorites, offering affordable yet satisfying options'], 'summary': "Showcases Xi'an's deep culinary history through century-old establishments and authentic Silk Road traditions."}, {'theme': 'Comprehensive 20-Dish Street Food Guide', 'members': ["Stick around as we count down the 20 must-try street foods in Xi'an", "and trust me, you won't want to miss number 1.", "Comprehensive countdown of 20 must-try street foods in Xi'an with specific restaurant recommendations for each dish", 'Experience diverse flavor profiles from bold spicy heat to delicate floral desserts across 20 different dishes', 'Wide variety from breakfast soups to late-night skewers covering all meal times and occasions', "Balance of extreme spice lovers' dishes and refreshing options like chilled osmanthus jelly"], 'summary': 'Delivers a complete countdown of 20 diverse street foods spanning all flavors and meal times with specific recommendations.'}, {'theme': 'Local Insider Access & Timing', 'members': ['locals flocking in as early as 6am for a steaming bowl', 'First Noodle Under the Sun', 'Learn optimal timing for authentic local experiences like arriving at 6am for traditional breakfast spots', 'Access to famous local hotspots like First Noodle Under the Sun drawing large crowds for iconic dishes'], 'summary': 'Provides insider tips on optimal timing and access to famous local hotspots where authentic crowds gather.'}, {'theme': 'Unique Dishes & Traditional Preparation', 'members': ['Known as the Chinese Burger', "Unique Xi'an signature dishes like Yang Rou Pao Mou where diners participate in preparation by crumbling flatbread", 'Behind-the-scenes insight into traditional preparation methods including hand-pulled noodles and slow-cooked lamb', 'Specialty soup dumplings with unique gelatinous broth that melts when steamed, unlike typical dumplings', 'Detailed texture and taste descriptions including crispy-to-tender ratios and wok hei smoky aromas', "Seasonal food recommendations including cooling dishes perfect for Xi'an's hot summers"], 'summary': "Reveals unique signature dishes with interactive preparation methods and detailed culinary techniques specific to Xi'an."}]
+HOOKS_SAMPLE: [{'video_id': '2GjAX6XoJjw', 'hook_text': "Did you know that Xi'an is not just home to the Terracotta Warriors", 'timestamp_s': 0.0, 'confidence': 0.95}, {'video_id': '2GjAX6XoJjw', 'hook_text': "but also one of China's most exciting food destinations?", 'timestamp_s': 3.4, 'confidence': 0.95}, {'video_id': '2GjAX6XoJjw', 'hook_text': "Stick around as we count down the 20 must-try street foods in Xi'an", 'timestamp_s': 12.6, 'confidence': 0.95}, {'video_id': '2GjAX6XoJjw', 'hook_text': "and trust me, you won't want to miss number 1.", 'timestamp_s': 18.3, 'confidence': 0.95}, {'video_id': '2GjAX6XoJjw', 'hook_text': 'locals flocking in as early as 6am for a steaming bowl', 'timestamp_s': 48.2, 'confidence': 0.9}, {'video_id': '2GjAX6XoJjw', 'hook_text': 'Known as the Chinese Burger', 'timestamp_s': 57.4, 'confidence': 0.95}, {'video_id': '2GjAX6XoJjw', 'hook_text': 'a history spanning over 100 years', 'timestamp_s': 616.9, 'confidence': 0.9}, {'video_id': '2GjAX6XoJjw', 'hook_text': 'First Noodle Under the Sun', 'timestamp_s': 626.3, 'confidence': 0.95}, {'video_id': '2GjAX6XoJjw', 'hook_text': 'Lao Sun Jia is one of the oldest establishments serving this dish', 'timestamp_s': 721.7, 'confidence': 0.9}]
+SELLING_POINTS_SAMPLE: [{'video_id': '2GjAX6XoJjw', 'point': "Comprehensive countdown of 20 must-try street foods in Xi'an with specific restaurant recommendations for each dish", 'evidence': "we count down the 20 must-try street foods in Xi'an", 'confidence': 0.85}, {'video_id': '2GjAX6XoJjw', 'point': "Discover Xi'an as one of China's most exciting food destinations beyond its famous Terracotta Warriors", 'evidence': "Xi'an is not just home to the Terracotta Warriors, but also one of China's most exciting food destinations", 'confidence': 0.9}, {'video_id': '2GjAX6XoJjw', 'point': 'Explore authentic Silk Road culinary heritage through traditional street foods like cumin lamb skewers', 'evidence': 'this ancient Silk Road city is a street food paradise...A Silk Road specialty, Yangru Chuan consists of grilled lamb skewers', 'confidence': 0.85}, {'video_id': '2GjAX6XoJjw', 'point': 'Insider knowledge of century-old establishments including Jia San Steamed Bun Shop with over 100 years of history', 'evidence': "Jia San Steamed Bun Shop is one of the oldest and most reputable places in Xi'an to enjoy these delicacies, with a history spanning over 100 years", 'confidence': 0.9}, {'video_id': '2GjAX6XoJjw', 'point': 'Learn optimal timing for authentic local experiences like arriving at 6am for traditional breakfast spots', 'evidence': 'locals flocking in as early as 6am for a steaming bowl', 'confidence': 0.85}, {'video_id': '2GjAX6XoJjw', 'point': 'Experience diverse flavor profiles from bold spicy heat to delicate floral desserts across 20 different dishes', 'evidence': 'From hand-pulled noodles to crispy lamb skewers...Osmanthus jelly is a delicate, floral dessert', 'confidence': 0.8}, {'video_id': '2GjAX6XoJjw', 'point': 'Behind-the-scenes insight into traditional preparation methods including hand-pulled noodles and slow-cooked lamb', 'evidence': 'The process of pulling the noodles by hand...The lamb is slow-cooked for hours', 'confidence': 0.85}, {'video_id': '2GjAX6XoJjw', 'point': "Seasonal food recommendations including cooling dishes perfect for Xi'an's hot summers", 'evidence': "perfect for cooling down during Xi'an's hot summers", 'confidence': 0.85}, {'video_id': '2GjAX6XoJjw', 'point': 'Authentic working-class meals that became citywide favorites, offering affordable yet satisfying options', 'evidence': 'Originally a working-class meal, Liangpi is now a citywide favorite...loved for its generous portions and affordable prices', 'confidence': 0.85}, {'video_id': '2GjAX6XoJjw', 'point': "Unique Xi'an signature dishes like Yang Rou Pao Mou where diners participate in preparation by crumbling flatbread", 'evidence': 'Yang Rou Pao Mou, is a rich lamb stew where diners break up pieces of flatbread into the broth', 'confidence': 0.85}]
+
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Do not invent facts not present in the inputs. No filler.
+--- RAW STDOUT ---
+## Topic
+
+Xi'an Street Food Tour covering 20 authentic dishes in the historic Muslim Quarter, positioning China's ancient capital as a premier culinary destination that rivals its world-famous Terracotta Warriors attraction.
+
+## Top Hooks
+
+- "Did you know that Xi'an is not just home to the Terracotta Warriors"
+- "but also one of China's most exciting food destinations?"
+- "Stick around as we count down the 20 must-try street foods in Xi'an"
+- "and trust me, you won't want to miss number 1."
+- "locals flocking in as early as 6am for a steaming bowl"
+
+## Selling Points
+
+- **Comprehensive 20-dish countdown** with specific restaurant recommendations for each street food, creating a complete culinary roadmap for visitors
+- **Xi'an beyond the Warriors** — discover one of China's most exciting food destinations that transcends its famous historical attractions
+- **Authentic Silk Road heritage** through traditional street foods like cumin lamb skewers that reflect the ancient trade route's cultural legacy
+- **Century-old establishments** including insider access to Jia San Steamed Bun Shop with over 100 years of history
+- **Optimal local timing** such as arriving at 6am for traditional breakfast spots where authentic crowds gather
+- **Diverse flavor profiles** spanning bold spicy heat to delicate floral desserts across 20 different dishes
+- **Traditional preparation insights** including hand-pulled noodles and slow-cooked lamb techniques
+- **Seasonal recommendations** with cooling dishes perfect for Xi'an's hot summers
+- **Authentic working-class meals** that became citywide favorites, offering affordable yet satisfying options
+- **Interactive signature dishes** like Yang Rou Pao Mou where diners participate by crumbling flatbread into their lamb stew
+
+## Themes
+
+**Xi'an as Premier Food Destination** — Positions the city as a must-visit culinary hotspot rivaling its iconic Terracotta Warriors.
+
+**Century-Old Heritage & Silk Road Legacy** — Showcases deep culinary history through century-old establishments and authentic Silk Road traditions.
+
+**Comprehensive 20-Dish Street Food Guide** — Delivers a complete countdown of diverse street foods spanning all flavors and meal times with specific recommendations.
+
+**Local Insider Access & Timing** — Provides insider tips on optimal timing and access to famous local hotspots where authentic crowds gather.
+
+**Unique Dishes & Traditional Preparation** — Reveals signature dishes with interactive preparation methods and detailed culinary techniques specific to Xi'an.
+
+## Recommendations
+
+1. Lead with the Terracotta Warriors contrast hook to immediately capture audience interest, then pivot to the unexpected food angle to create intrigue.
+
+2. Structure content as a countdown format with clear number reveals to maximize retention and create anticipation for the #1 dish.
+
+3. Emphasize century-old establishments and Silk Road heritage to differentiate from generic street food content and appeal to culturally curious travelers.
+
+4. Include specific timing tips and restaurant names to provide immediate actionable value that transforms viewers into actual visitors.
+
+5. Balance extreme flavors with accessible options to broaden appeal while maintaining authenticity through working-class favorites and seasonal recommendations.
+

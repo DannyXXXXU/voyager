@@ -1,0 +1,267 @@
+=== TAG: aliases_hold-04  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: hold-04
+TOPIC: Backstage Chinese opera troupe (Inside China Lives)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "They perform during the day, tear down the stage at night, then travel overnight to the next location and the next day they perform again, sometimes working non-stop for 36 hours."
+  },
+  {
+    "index": 1,
+    "text": "And what's even more unbelievable is that there are no tickets, anyone can watch for free. So how do they survive?"
+  },
+  {
+    "index": 2,
+    "text": "Back in the 1930s, Charlie Chaplin visited China and watched traditional Chinese opera, what you are seeing today looks almost the same as what he saw nearly 100 years ago."
+  },
+  {
+    "index": 3,
+    "text": "This troupe has built a following of nearly 1 million on the Chinese version of TikTok."
+  },
+  {
+    "index": 4,
+    "text": "When I asked her about those years during the COVID-19 pandemic... the hardship and struggles of a private opera troupe are not only the reality, but all the difficulties they've faced are fully revealed."
+  },
+  {
+    "index": 5,
+    "text": "A mother walks on stage to perform while others backstage help take care of her baby."
+  },
+  {
+    "index": 6,
+    "text": "What is left behind is a ground covered in trash, creating a striking and overwhelming scene."
+  },
+  {
+    "index": 7,
+    "text": "Every time they arrive at a new destination, it feels like a game of chance. If they are lucky, they can stay in an abandoned house. If not, they have no choice but to set up tents and sleep outdoors."
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Exclusive behind-the-scenes access to a private Chinese opera troupe"
+  },
+  {
+    "index": 1,
+    "text": "Witness extreme dedication - performers work non-stop for 36 hours"
+  },
+  {
+    "index": 2,
+    "text": "See a living tradition nearly unchanged for 100 years"
+  },
+  {
+    "index": 3,
+    "text": "Discover how traditional artists survive in modern China"
+  },
+  {
+    "index": 4,
+    "text": "Raw and emotional human stories of struggle and perseverance"
+  },
+  {
+    "index": 5,
+    "text": "Unique cultural insight into rural China rarely seen"
+  },
+  {
+    "index": 6,
+    "text": "See the harsh reality of nomadic performance life"
+  },
+  {
+    "index": 7,
+    "text": "Learn the hidden logistics of traveling performances"
+  },
+  {
+    "index": 8,
+    "text": "Free performances accessible to all - no tickets required"
+  },
+  {
+    "index": 9,
+    "text": "Authentic documentary showing both artistry and hardship"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Perform by day, dismantle at night, travel overnight to new venues, and perform again - sometimes 36 hours straight.",
+        "Their schedule: daytime performances, nighttime teardowns, overnight travel, then perform again, occasionally for 36 hours non-stop.",
+        "Day performances, night teardowns, overnight relocations, next-day shows - a grueling cycle that can last 36 hours without rest."
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Even more incredible: no tickets exist, everyone watches free. How do they make it work?",
+        "What's more amazing is admission is completely free for anyone. How do they sustain themselves?",
+        "The most surprising part? All performances are free with no tickets. So how do they stay afloat?"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Charlie Chaplin saw Chinese opera in the 1930s, and today's performances remain nearly identical to what he witnessed 100 years ago.",
+        "What you're watching today is almost unchanged from the traditional Chinese opera Charlie Chaplin attended in China during the 1930s, nearly a century ago.",
+        "In the 1930s, Charlie Chaplin watched this art form in China; nearly 100 years later, it looks virtually the same."
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "The troupe has amassed close to 1 million followers on Chinese TikTok.",
+        "Nearly 1 million people follow this opera company on China's TikTok platform.",
+        "On the Chinese TikTok, this group has gained a following approaching 1 million."
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Asking her about the COVID-19 pandemic years revealed the full scope of hardship and struggle this private opera troupe faced.",
+        "Her account of the pandemic period exposed not just the reality but all the difficulties confronting a private opera troupe.",
+        "When discussing the COVID-19 years, she unveiled the complete challenges and struggles this private troupe has endured."
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "While a mother performs onstage, her baby is cared for by others behind the scenes.",
+        "A performing mother takes the stage as backstage crew members watch her infant.",
+        "She performs while fellow troupe members look after her baby backstage."
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "The aftermath: a trash-covered ground creating an overwhelming and striking sight.",
+        "Left behind is a debris-strewn landscape, a striking and overwhelming spectacle.",
+        "What remains is trash blanketing the ground, making for a powerfully striking scene."
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Each arrival at a new location is uncertain - lucky means an abandoned house, unlucky means tents and sleeping outside.",
+        "Reaching a new destination is always a gamble: good fortune brings abandoned shelter, bad luck means outdoor tents.",
+        "At every new stop, it's chance whether they find an abandoned house or must pitch tents and sleep outdoors."
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "Rare backstage glimpse into a private Chinese opera company",
+        "Behind-the-scenes exclusive with a Chinese private opera troupe",
+        "Insider access to the private world of a Chinese opera ensemble"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "See extraordinary commitment as artists perform for 36 hours straight",
+        "Experience extreme devotion - performers laboring 36 hours continuously",
+        "Watch remarkable dedication: 36-hour non-stop work schedules"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Experience a century-old tradition preserved almost intact",
+        "Witness an art form virtually unaltered across 100 years",
+        "View a living cultural practice unchanged for nearly a century"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Learn how classical performers endure in contemporary China",
+        "Find out how traditional art practitioners make it in today's China",
+        "Explore the survival strategies of heritage artists in modern China"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Authentic tales of hardship and resilience",
+        "Unfiltered emotional narratives of endurance and struggle",
+        "Genuine human stories showing perseverance through adversity"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Rare glimpse into rural Chinese culture seldom witnessed",
+        "Uncommon cultural perspective on China's countryside",
+        "Exceptional view of rural Chinese life not often shown"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Witness the tough conditions of traveling performer existence",
+        "Experience the brutal truth of itinerant performance living",
+        "View the difficult reality of life as wandering performers"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Discover the unseen operations behind mobile shows",
+        "Uncover the behind-the-scenes coordination of touring performances",
+        "Explore the concealed mechanics of itinerant theater production"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Open performances for everyone without any admission fee",
+        "All shows are free with no ticketing system",
+        "Performances available to anyone at no cost, ticket-free"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "Genuine film revealing both artistic craft and difficulty",
+        "Real documentary capturing beauty and struggle together",
+        "Unvarnished documentary presenting both art and adversity"
+      ]
+    }
+  ]
+}
+

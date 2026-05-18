@@ -1,0 +1,45 @@
+{
+  "fixture_id": "dev-travel-02",
+  "bucket": "dev",
+  "scores": {
+    "hook_extraction_f1": 0.5263157894736842,
+    "selling_point_recall": 0.7272727272727273,
+    "schema_validity_rate": 1.0
+  },
+  "wall_seconds": 369.8688421820002,
+  "error": null,
+  "hooks_predicted": [
+    "The Hallelujah Mountains of China",
+    "the highest-grossing film of all time",
+    "draws in over 20,000 visitors every single day",
+    "Our first stop was the record-breaking Bailong Elevator.",
+    "there's three different lanes and by the way, each elevator is actually double-decker",
+    "Oh my goodness, are we on a movie set? Where is this real life?",
+    "this bridge is 350 meters in elevation compared to the ground below",
+    "I can't imagine walking on it before there was any barrier.",
+    "At the very top it's a near vertical.",
+    "Our driver did not fear death."
+  ],
+  "selling_points_predicted": [
+    "See the real-life inspiration for Avatar's floating mountains at the famous Hallelujah Mountains",
+    "Comprehensive tour of all five distinct sections of the national forest in one video guide",
+    "Experience the record-breaking Bailong Elevator with stunning three-lane double-decker design",
+    "Save money with insider booking tips including hotel discounts on tickets and cable cars",
+    "Find peace and quiet despite 20,000 daily visitors by exploring lesser-known corners of the park",
+    "Marvel at the natural First Bridge Under Heaven archway suspended 350 meters above ground",
+    "Enjoy affordable local Chinese street food throughout the park with stalls at every section",
+    "Get practical logistics covered including face-scanning entry, bus routes, and multi-day pass details",
+    "Experience scenic 15-minute cable car rides offering the best mountain views from above",
+    "Encounter wild monkeys throughout multiple park areas with safety tips included",
+    "Learn which areas to skip if short on time based on firsthand multi-day exploration",
+    "Walk peaceful trails along the Golden Whip Stream at the base of soaring tower mountains",
+    "Discover stunning pillar formations including the iconic narrow-based hero pillar of Avatar Mountains",
+    "Get complete travel guide with key information on tickets, timing, routes, and optimization strategies"
+  ],
+  "call_errors": [],
+  "judge": {
+    "overall_median": null,
+    "cached": null,
+    "scores_runs": null
+  }
+}

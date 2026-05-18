@@ -1,0 +1,267 @@
+=== TAG: aliases_hold-03  ATTEMPT: 0  MODEL: claude-sonnet-4.5 ===
+--- PROMPT ---
+SYSTEM:
+You generate semantic paraphrase aliases for video-marketing gold labels. Each input item has an index and a `text`. For each one, produce EXACTLY 3 distinct paraphrases that preserve the original meaning but use different wording / sentence structure. These aliases will be matched against agent predictions via sentence-embedding cosine similarity (MiniLM-L6).
+
+HARD RULES:
+- 3 aliases per item, no fewer, no more.
+- Each alias must preserve the core claim and key entities (place names, numbers, records). Do NOT drop numeric/superlative content.
+- Vary sentence structure: e.g. one shorter version, one with synonyms, one re-ordering clauses.
+- Keep aliases concise (<= 200 chars).
+- For hooks, preserve the rhetorical style if any (question, exclamation, CTA).
+- Return strict JSON matching the schema. No prose.
+
+USER:
+FIXTURE: hold-03
+TOPIC: Best-preserved ancient city Pingyao (Noah Kartha)
+
+HOOKS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "until midnight, you must be always soaking wet from head to toe"
+  },
+  {
+    "index": 1,
+    "text": "the best preserved historical city in all of China"
+  },
+  {
+    "index": 2,
+    "text": "At its peak, Rishongchang controlled almost half of China's economy"
+  },
+  {
+    "index": 3,
+    "text": "it's got an underground secret vault"
+  },
+  {
+    "index": 4,
+    "text": "It was China's first armed escort agency"
+  },
+  {
+    "index": 5,
+    "text": "This building was built without any nails, only by using wooden brackets"
+  },
+  {
+    "index": 6,
+    "text": "Pingyao is known as the land of wealth and the birthplace of Chinese banking"
+  },
+  {
+    "index": 7,
+    "text": "the Wild West of China"
+  }
+]
+
+SELLING_POINTS (generate 3 aliases for EACH, by index):
+[
+  {
+    "index": 0,
+    "text": "Best preserved historical city in all of China"
+  },
+  {
+    "index": 1,
+    "text": "Home to China's best preserved town city wall"
+  },
+  {
+    "index": 2,
+    "text": "Birthplace of Chinese banking with the first modern bank"
+  },
+  {
+    "index": 3,
+    "text": "Features one of the oldest wooden buildings in China"
+  },
+  {
+    "index": 4,
+    "text": "Treasure house of over 2000 ancient painted clay sculptures"
+  },
+  {
+    "index": 5,
+    "text": "Most dense ancient town with unbelievable number of attractions in one square mile"
+  },
+  {
+    "index": 6,
+    "text": "Less crowded alternative to major tourist destinations"
+  },
+  {
+    "index": 7,
+    "text": "Features unique historical sites like China's first armed escort agency"
+  },
+  {
+    "index": 8,
+    "text": "Underground secret vault from ancient banking era"
+  },
+  {
+    "index": 9,
+    "text": "Unique turtle-shaped city design with symbolic meaning"
+  }
+]
+
+
+RESPONSE FORMAT:
+Return ONLY a raw JSON object — no prose, no markdown fences, no explanations. The JSON must match this TypeScript interface (field types are exact; comments describe constraints):
+interface AliasBatch {
+  hook_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+  selling_point_aliases: Array<{
+  index: number;  // 0-based index of the gold item
+  aliases: Array<string>;  // 3 distinct paraphrases preserving meaning
+}>;
+}
+
+DETERMINISM:
+Be deterministic. Identical inputs MUST produce identical output. Prefer literal phrasings already present in the transcript. Do not invent facts, dates, or place names not in the source. Do not add filler, hedging, or commentary.
+
+BEGIN YOUR RESPONSE WITH THE CHARACTER `{` AND END WITH `}`. Output NOTHING before the opening brace and NOTHING after the closing brace — no markdown fences, no prose, no explanation.
+--- RAW STDOUT ---
+{
+  "hook_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "You have to stay completely wet from head to toe until midnight",
+        "From head to toe, you must remain soaking wet until midnight",
+        "You need to be drenched entirely until midnight arrives"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "China's most well-preserved historical city",
+        "The most intact ancient city throughout China",
+        "All of China's best-kept historical city"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Rishongchang controlled nearly 50% of China's economy at its height",
+        "At its zenith, Rishongchang managed almost half the Chinese economy",
+        "Nearly half of China's economy was controlled by Rishongchang during its peak"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "there's a hidden vault beneath the ground",
+        "it has a secret underground vault",
+        "an underground vault lies hidden there"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "China's first armed security escort service",
+        "The very first armed escort agency in China",
+        "China's inaugural armed escort company"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "The structure was constructed using only wooden brackets, no nails",
+        "Built entirely with wooden brackets and no nails",
+        "No nails were used, just wooden brackets to build this structure"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "Pingyao is called the birthplace of Chinese banking and land of wealth",
+        "Known as the land of wealth, Pingyao is where Chinese banking began",
+        "The birthplace of Chinese banking and land of wealth is Pingyao"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "China's Wild West",
+        "The Chinese equivalent of the Wild West",
+        "China's version of the Wild West"
+      ]
+    }
+  ],
+  "selling_point_aliases": [
+    {
+      "index": 0,
+      "aliases": [
+        "China's most well-preserved historical city",
+        "The most intact historical city throughout China",
+        "All of China's best-kept historical city"
+      ]
+    },
+    {
+      "index": 1,
+      "aliases": [
+        "Houses the best-preserved city wall in China",
+        "China's most intact town city wall is located here",
+        "Features China's best-kept city wall"
+      ]
+    },
+    {
+      "index": 2,
+      "aliases": [
+        "Where Chinese banking began with the first modern bank",
+        "The first modern bank and birthplace of Chinese banking",
+        "Chinese banking originated here with the first modern bank"
+      ]
+    },
+    {
+      "index": 3,
+      "aliases": [
+        "Contains one of China's oldest wooden structures",
+        "Home to one of the most ancient wooden buildings in China",
+        "One of China's oldest wooden buildings is found here"
+      ]
+    },
+    {
+      "index": 4,
+      "aliases": [
+        "Houses more than 2000 ancient painted clay sculptures",
+        "Over 2000 ancient painted clay sculptures are preserved here",
+        "Contains a treasure trove of 2000+ ancient painted clay sculptures"
+      ]
+    },
+    {
+      "index": 5,
+      "aliases": [
+        "Incredibly dense ancient town with countless attractions per square mile",
+        "Unbelievable concentration of attractions in one square mile of ancient town",
+        "The densest ancient town featuring an extraordinary number of attractions per square mile"
+      ]
+    },
+    {
+      "index": 6,
+      "aliases": [
+        "A quieter option compared to major tourist spots",
+        "Not as busy as the main tourist destinations",
+        "An alternative with fewer crowds than major tourist sites"
+      ]
+    },
+    {
+      "index": 7,
+      "aliases": [
+        "Includes distinctive historical sites such as China's first armed escort agency",
+        "Home to unique sites including China's inaugural armed escort agency",
+        "Contains rare historical attractions like the first armed escort agency in China"
+      ]
+    },
+    {
+      "index": 8,
+      "aliases": [
+        "Hidden underground vault from the ancient banking period",
+        "Secret vault beneath the ground from ancient banking times",
+        "An underground vault dating to the ancient banking era"
+      ]
+    },
+    {
+      "index": 9,
+      "aliases": [
+        "City designed in a unique turtle shape with symbolic significance",
+        "Symbolic turtle-shaped city layout that is unique",
+        "The city's distinctive turtle-shaped design carries symbolic meaning"
+      ]
+    }
+  ]
+}
+

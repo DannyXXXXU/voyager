@@ -6,51 +6,106 @@ content_type: travel
 holdout: true
 gold_hooks:
 - text: until midnight, you must be always soaking wet from head to toe
-  aliases: []
+  aliases:
+  - You have to stay completely wet from head to toe until midnight
+  - From head to toe, you must remain soaking wet until midnight
+  - You need to be drenched entirely until midnight arrives
   timestamp_s: 45.0
 - text: the best preserved historical city in all of China
-  aliases: []
+  aliases:
+  - China's most well-preserved historical city
+  - The most intact ancient city throughout China
+  - All of China's best-kept historical city
   timestamp_s: 15.0
 - text: At its peak, Rishongchang controlled almost half of China's economy
-  aliases: []
+  aliases:
+  - Rishongchang controlled nearly 50% of China's economy at its height
+  - At its zenith, Rishongchang managed almost half the Chinese economy
+  - Nearly half of China's economy was controlled by Rishongchang during its peak
   timestamp_s: 420.0
 - text: it's got an underground secret vault
-  aliases: []
+  aliases:
+  - there's a hidden vault beneath the ground
+  - it has a secret underground vault
+  - an underground vault lies hidden there
   timestamp_s: 450.0
 - text: It was China's first armed escort agency
-  aliases: []
+  aliases:
+  - China's first armed security escort service
+  - The very first armed escort agency in China
+  - China's inaugural armed escort company
   timestamp_s: 490.0
 - text: This building was built without any nails, only by using wooden brackets
-  aliases: []
+  aliases:
+  - The structure was constructed using only wooden brackets, no nails
+  - Built entirely with wooden brackets and no nails
+  - No nails were used, just wooden brackets to build this structure
   timestamp_s: 140.0
 - text: Pingyao is known as the land of wealth and the birthplace of Chinese banking
-  aliases: []
+  aliases:
+  - Pingyao is called the birthplace of Chinese banking and land of wealth
+  - Known as the land of wealth, Pingyao is where Chinese banking began
+  - The birthplace of Chinese banking and land of wealth is Pingyao
   timestamp_s: 350.0
 - text: the Wild West of China
-  aliases: []
+  aliases:
+  - China's Wild West
+  - The Chinese equivalent of the Wild West
+  - China's version of the Wild West
   timestamp_s: 475.0
 gold_selling_points:
 - text: Best preserved historical city in all of China
-  aliases: []
+  aliases:
+  - China's most well-preserved historical city
+  - The most intact historical city throughout China
+  - All of China's best-kept historical city
 - text: Home to China's best preserved town city wall
-  aliases: []
+  aliases:
+  - Houses the best-preserved city wall in China
+  - China's most intact town city wall is located here
+  - Features China's best-kept city wall
 - text: Birthplace of Chinese banking with the first modern bank
-  aliases: []
+  aliases:
+  - Where Chinese banking began with the first modern bank
+  - The first modern bank and birthplace of Chinese banking
+  - Chinese banking originated here with the first modern bank
 - text: Features one of the oldest wooden buildings in China
-  aliases: []
+  aliases:
+  - Contains one of China's oldest wooden structures
+  - Home to one of the most ancient wooden buildings in China
+  - One of China's oldest wooden buildings is found here
 - text: Treasure house of over 2000 ancient painted clay sculptures
-  aliases: []
+  aliases:
+  - Houses more than 2000 ancient painted clay sculptures
+  - Over 2000 ancient painted clay sculptures are preserved here
+  - Contains a treasure trove of 2000+ ancient painted clay sculptures
 - text: Most dense ancient town with unbelievable number of attractions in one square
     mile
-  aliases: []
+  aliases:
+  - Incredibly dense ancient town with countless attractions per square mile
+  - Unbelievable concentration of attractions in one square mile of ancient town
+  - The densest ancient town featuring an extraordinary number of attractions per
+    square mile
 - text: Less crowded alternative to major tourist destinations
-  aliases: []
+  aliases:
+  - A quieter option compared to major tourist spots
+  - Not as busy as the main tourist destinations
+  - An alternative with fewer crowds than major tourist sites
 - text: Features unique historical sites like China's first armed escort agency
-  aliases: []
+  aliases:
+  - Includes distinctive historical sites such as China's first armed escort agency
+  - Home to unique sites including China's inaugural armed escort agency
+  - Contains rare historical attractions like the first armed escort agency in China
 - text: Underground secret vault from ancient banking era
-  aliases: []
+  aliases:
+  - Hidden underground vault from the ancient banking period
+  - Secret vault beneath the ground from ancient banking times
+  - An underground vault dating to the ancient banking era
 - text: Unique turtle-shaped city design with symbolic meaning
-  aliases: []
+  aliases:
+  - City designed in a unique turtle shape with symbolic significance
+  - Symbolic turtle-shaped city layout that is unique
+  - The city's distinctive turtle-shaped design carries symbolic meaning
 notes: LOCKED
 transcript_sha256: 8a9283b8f0b373179a0ba031ca576b05d1033e67b3af62ae217f71c337c0361f
 _meta:
